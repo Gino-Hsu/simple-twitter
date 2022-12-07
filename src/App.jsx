@@ -1,7 +1,7 @@
 import './App.scss'
 
-function App() {
-  return <div className='App'>Hello World!</div>
+function App({ item }) {
+  return <div className="App">{item}</div>
 }
 
 export default App
