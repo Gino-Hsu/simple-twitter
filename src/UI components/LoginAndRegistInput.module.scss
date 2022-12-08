@@ -1,0 +1,43 @@
+@use '../styles/var' as var;
+@use '../styles/mixin';
+
+.input__container {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #f5f8fa;
+  border-radius: 2px 2px 4px 4px;
+
+  .input__label {
+    margin: 0rem 1rem;
+    @include mixin.font-setting(0.9rem, 400, var.$gray-8);
+  }
+  .input {
+    height: 100%;
+    margin: 0 1rem;
+    border: none;
+    background-color: inherit;
+    @include mixin.font-setting(1rem, 400, var.$gray-10);
+
+    &::placeholder {
+      @include mixin.font-setting(1rem, 400, var.$gray-6);
+    }
+  }
+}
+
+.input__border__bottom {
+  position: absoult;
+  top: 120%;
+  width: 100%;
+  border-bottom: 2px solid #657786;
+  border-radius: 0 0 4px 4px;
+}
+
+
+input:hover ~ .input__border__bottom,
+input:focus ~ .input__border__bottom {
+  border-bottom: 2px solid #50b5ff;
+}
