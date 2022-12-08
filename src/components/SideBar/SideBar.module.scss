@@ -1,11 +1,6 @@
 @use '../../styles/var';
 @use '../../styles/mixin';
 
-.aaa {
-  width: 100%;
-  height: 700px;
-}
-
 .mobile {
   position: fixed;
   bottom: 0;
@@ -23,91 +18,91 @@
 }
 
 @media screen and (min-width: 576px) {
-.mobile {
-  display: none;
-}
+  .mobile {
+    display: none;
+  }
 
-.nav__container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  .main {
+  .nav__container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    width: 56px;
-    margin-top: 12px;
 
-    .logo {
-      display: block;
-      width: 32px;
-      height: 32px;
-      overflow: hidden;
-
-      img {
-        content: url('../../public/logo@2x.png');
-        width: 100%;
-        display: block;
-      }
-    }
-
-    .menu {
-      position: unset;
-      background-color: unset;
+    .main {
       display: flex;
       flex-direction: column;
-      width: 100%;
-      margin: 39.8px 0 35.6px;
-      gap: 45.6px;
+      justify-content: flex-start;
+      align-items: center;
+      width: 56px;
+      margin-top: 12px;
+
+      .logo {
+        display: block;
+        width: 32px;
+        height: 32px;
+        overflow: hidden;
+
+        img {
+          content: url('../../public/logo@2x.png');
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .menu {
+        position: unset;
+        background-color: unset;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 39.8px 0 35.6px;
+        gap: 45.6px;
+      }
+
+      .tweet {
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var.$brand-color;
+        cursor: pointer;
+        overflow: hidden;
+
+        img {
+          position: relative;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          content: url('../../public/nav/nav_botton@2x.png');
+          width: 80%;
+          display: block;
+        }
+
+        button {
+          display: none;
+        }
+      }
     }
 
-    .tweet {
+    .signOut {
       display: block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var.$brand-color;
+      margin-bottom: 16px;
       cursor: pointer;
-      overflow: hidden;
 
       img {
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        content: url('../../public/nav/nav_botton@2x.png');
-        width: 80%;
+        content: url('../../public/nav/nav_signout@2x.png');
+        width: 24px;
+        height: 24px;
         display: block;
       }
 
-      button {
+      .btn__name {
         display: none;
       }
     }
   }
-
-  .signOut {
-    display: block;
-    margin-bottom: 16px;
-    cursor: pointer;
-
-    img {
-      content: url('../../public/nav/nav_signout@2x.png');
-      width: 24px;
-      height: 24px;
-      display: block;
-    }
-
-    .btn_name {
-      display: none;
-    }
-  }
-}
 }
 @media screen and (min-width: 992px) {
   .nav__container {
@@ -133,7 +128,7 @@
         }
 
         button {
-          @include mixin.font-setting(20px, 400, #ffffff);
+          @include mixin.font-setting(1.25rem, 400, var.$gray-1);
           display: block;
           width: 100%;
           background-color: var.$brand-color;
@@ -148,9 +143,10 @@
       margin-left: 16px;
       align-items: center;
       gap: 16px;
-      .btn_name {
+      .btn__name {
         display: block;
         width: 36px;
+        @include mixin.font-setting(1.125rem, 700, var.$gray-9);
       }
     }
   }
