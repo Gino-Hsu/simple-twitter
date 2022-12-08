@@ -1,10 +1,10 @@
 import './App.scss'
 import SideBar from './components/SideBar/SideBar'
 
-function App({ item }) {
+function App() {
   return (
     <>
-      <div className="App">{item}</div>
+      <div className="App"></div>
       <SideBar />
     </>
   )

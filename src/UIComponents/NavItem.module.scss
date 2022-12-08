@@ -1,3 +1,31 @@
+.icon__home {
+  content: url('../public/nav/nav_home@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__tweet {
+  content: url('../public/nav/nav_btn@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__user {
+  content: url('../public/nav/nav_user@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__setting {
+  content: url('../public/nav/nav_set@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+@media screen and (min-width: 576px) {
 .container {
   display: flex;
   flex-direction: column;
@@ -11,25 +39,6 @@
   }
 }
 
-.icon_home {
-  content: url('../public/nav/nav_home@2x.png');
-  width: 22px;
-  height: 20px;
-  display: block;
-}
-
-.icon_user {
-  content: url('../public/nav/nav_user@2x.png');
-  width: 22px;
-  height: 20px;
-  display: block;
-}
-
-.icon_setting {
-  content: url('../public/nav/nav_set@2x.png');
-  width: 22px;
-  height: 20px;
-  display: block;
 }
 
 @media screen and (min-width: 992px) {
