@@ -1,0 +1,52 @@
+.icon__home {
+  content: url('../public/nav/nav_home@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__tweet {
+  content: url('../public/nav/nav_btn@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__user {
+  content: url('../public/nav/nav_user@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+.icon__setting {
+  content: url('../public/nav/nav_set@2x.png');
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+@media screen and (min-width: 576px) {
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 26px;
+  gap: 17px;
+
+  .title {
+    display: none;
+  }
+}
+
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    flex-direction: row;
+    .title {
+      width: 100%;
+      display: block;
+    }
+  }
+}
