@@ -1,0 +1,27 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 26px;
+  gap: 17px;
+
+  .title {
+    display: none;
+  }
+}
+
+.icon-home {
+  content: url("../public/nav/nav_home@2x.png");
+  width: 22px;
+  height: 20px;
+  display: block;
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    .title {
+      display: block;
+    }
+  }
+}
