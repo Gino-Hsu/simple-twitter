@@ -1,3 +1,6 @@
+@use '../../styles/var';
+@use '../../styles/mixin';
+
 .aaa {
   width: 100%;
   height: 700px;
@@ -12,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   padding: 0 9.1%;
 }
 
@@ -69,7 +71,7 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      // background-color: aqua;
+      background-color: var.$brand-color;
       cursor: pointer;
       overflow: hidden;
 
@@ -78,7 +80,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        content: url('../../public/nav/nav_btn_action@2x.png');
+        content: url('../../public/nav/nav_botton@2x.png');
         width: 80%;
         display: block;
       }
@@ -92,6 +94,7 @@
   .signOut {
     display: block;
     margin-bottom: 16px;
+    cursor: pointer;
 
     img {
       content: url('../../public/nav/nav_signout@2x.png');
@@ -123,22 +126,19 @@
 
       .tweet {
         width: 100%;
-
+        height: 46px;
         border-radius: 50px;
         img {
           display: none;
         }
 
         button {
+          @include mixin.font-setting(20px, 400, #ffffff);
           display: block;
           width: 100%;
-          height: 46px;
-          background-color: #ff6600;
-          font-style: normal;
-          font-weight: 400;
-          font-size: 20px;
-          line-height: 30px;
-          color: #ffffff;
+          background-color: var.$brand-color;
+          line-height: 46px;
+          cursor: pointer;
         }
       }
     }
@@ -148,7 +148,6 @@
       margin-left: 16px;
       align-items: center;
       gap: 16px;
-
       .btn_name {
         display: block;
         width: 36px;
