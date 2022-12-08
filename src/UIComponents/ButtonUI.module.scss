@@ -1,0 +1,28 @@
+@use '../styles/var' as var;
+@use '../styles/mixin';
+
+.btn__pill__large {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$brand-color;
+  @include mixin.font-setting(1.25rem, 400, var.$gray-1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    @include mixin.font-setting(1rem, 400, #0062ff);
+    border-bottom: 1px solid #0062ff;
+    cursor: pointer;
+  }
+}
+
+// 只做了一個給登入註冊，之後須加入其他樣式

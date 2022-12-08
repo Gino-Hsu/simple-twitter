@@ -1,12 +1,13 @@
 import './App.scss'
-import SideBar from './components/SideBar/SideBar'
+// import Regist from './pages/Regist'
+import Login from './pages/Login'
 
 function App() {
   return (
-    <>
-      <div className="App"></div>
-      <SideBar />
-    </>
+    <div className="App">
+      {/* <Regist /> */}
+      <Login />
+    </div>
   )
 }
 

@@ -140,3 +140,8 @@ button {
 ::after {
   box-sizing: border-box;
 }
+
+input:focus-visible {
+  outline: none;
+}
+
