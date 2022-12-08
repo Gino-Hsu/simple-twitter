@@ -1,0 +1,131 @@
+.aaa {
+  width: 100%;
+  height: 700px;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 56px;
+    margin-top: 12px;
+
+    .logo {
+      width: 32px;
+      height: 32px;
+      overflow: hidden;
+
+      img {
+        content: url('../../public/logo@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 39.8px 0 35.6px;
+      gap: 45.6px;
+    }
+
+    .tweet {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      // background-color: aqua;
+      cursor: pointer;
+      overflow: hidden;
+
+      img {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: url('../../public/nav/nav_btn_action@2x.png');
+        width: 80%;
+        display: block;
+      }
+
+      button {
+        display: none;
+      }
+    }
+  }
+
+  .signOut {
+    margin-bottom: 16px;
+
+    img {
+      content: url('../../public/nav/nav_signout@2x.png');
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+
+    .btn_name {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    align-items: flex-start;
+
+    .main {
+      align-items: flex-start;
+      width: 178px;
+
+      .logo {
+        margin-left: 13px;
+      }
+      .menu {
+        margin-left: 16.9px;
+      }
+
+      .tweet {
+        width: 100%;
+
+        border-radius: 50px;
+        img {
+          display: none;
+        }
+
+        button {
+          display: block;
+          width: 100%;
+          height: 46px;
+          background-color: #ff6600;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 30px;
+          color: #ffffff;
+        }
+      }
+    }
+
+    .signOut {
+      display: flex;
+      margin-left: 16px;
+      align-items: center;
+      gap: 16px;
+
+      .btn_name {
+        display: block;
+        width: 36px;
+      }
+    }
+  }
+}

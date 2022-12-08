@@ -1,15 +1,11 @@
 import './App.scss'
-import NavItem from './UIComponents/NavItem'
+import SideBar from './components/SideBar/SideBar'
 
 function App({ item }) {
   return (
     <>
       <div className="App">{item}</div>
-        <NavItem
-          icon="icon-home"
-          altName="home"
-          title="首頁"
-        />
+      <SideBar />
     </>
   )
 }
