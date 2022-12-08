@@ -1,5 +1,5 @@
 // font setting
-@mixin font-setting ($size, $weight, $color) {
+@mixin font-setting($size, $weight, $color) {
   font-size: $size;
   font-weight: $weight;
   color: $color;

@@ -141,3 +141,6 @@ button {
   box-sizing: border-box;
 }
 
+input:focus-visible {
+  outline: none;
+}
