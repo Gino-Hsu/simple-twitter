@@ -21,11 +21,11 @@
     flex-direction: column;
     gap: 1.25rem;
     width: 100%;
-    height: 80.5vh;
+    height: 89vh;
     overflow-y: scroll;
   }
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 700px) {
   .position {
     width: 100%;
     height: 14.2rem;

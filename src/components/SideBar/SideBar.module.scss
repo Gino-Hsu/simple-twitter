@@ -1,4 +1,4 @@
-@use '../../styles/var';
+@use '../../styles/var' as color;
 @use '../../styles/mixin';
 
 .mobile {
@@ -6,25 +6,28 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 52px;
+  height: 3.25rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
   padding: 0 9.1%;
+  border-top: 1px solid #E6ECF0;
+  background-color: color.$gray-1;
+  z-index: 1;
 }
 
 .nav__container {
   display: none;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 700px) {
   .mobile {
     display: none;
   }
 
   .nav__container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -66,7 +69,7 @@
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: var.$brand-color;
+        background-color: color.$brand-color;
         cursor: pointer;
         overflow: hidden;
 
@@ -104,7 +107,7 @@
     }
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .nav__container {
     align-items: flex-start;
 
@@ -128,10 +131,10 @@
         }
 
         button {
-          @include mixin.font-setting(1.25rem, 400, var.$gray-1);
+          @include mixin.font-setting(1.25rem, 400, color.$gray-1);
           display: block;
           width: 100%;
-          background-color: var.$brand-color;
+          background-color: color.$brand-color;
           line-height: 46px;
           cursor: pointer;
         }
@@ -146,7 +149,7 @@
       .btn__name {
         display: block;
         width: 36px;
-        @include mixin.font-setting(1.125rem, 700, var.$gray-9);
+        @include mixin.font-setting(1.125rem, 700, color.$gray-9);
       }
     }
   }
