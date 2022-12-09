@@ -1,0 +1,71 @@
+@use '../styles/var' as color;
+@use '../styles/mixin';
+
+.modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .modal__header {
+    padding: 0 24px;
+    width: 100%;
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid color.$assistant-gray-color;
+
+    .header__container {
+      display: flex;
+      align-items: center;
+
+      .control__return {
+        width: 17px;
+        height: 14px;
+        overflow: hidden;
+        cursor: pointer;
+
+        .return__icon {
+          content: url('../public/arrow@2x.png');
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .title {
+        margin-left: 19px;
+        @include mixin.font-setting(1.5rem, 700, color.$gray-10);
+      }
+    }
+
+    .btn__container {
+      width: 4rem;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .modal {
+    .modal__header {
+      .header__container {
+        .control__return {
+          width: 17px;
+          height: 17px;
+          .return__icon {
+            content: url('../public/modal/modal_esc@2x.png');
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .btn__container {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
