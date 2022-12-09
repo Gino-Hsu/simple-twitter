@@ -2,7 +2,7 @@ import './App.scss'
 // import Regist from './pages/Regist'
 // import Login from './pages/Login'
 // import SideBar from './components/SideBar/SideBar'
-import PopularUserItem from './UIComponents/PopularUserItem'
+import PopularUser from './components/popularUser/PopularUser'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       {/* <Regist /> */}
       {/* <Login /> */}
       {/* <SideBar /> */}
-      <PopularUserItem />
+      <PopularUser />
     </div>
   )
 }
