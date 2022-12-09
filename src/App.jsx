@@ -3,7 +3,8 @@ import './App.scss'
 // import Login from './pages/Login'
 // import SideBar from './components/SideBar/SideBar'
 // import PopularUserItem from './UIComponents/PopularUserItem'
-import TweetModal from './components/tweetModal/TweetModal'
+// import TweetModal from './components/tweetModal/TweetModal'
+import ReplyModal from './components/replyModal/ReplyModal'
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <Login /> */}
       {/* <SideBar /> */}
       {/* <PopularUserItem /> */}
-      <TweetModal />
+      {/* <TweetModal /> */}
+      <ReplyModal />
     </div>
   )
 }
