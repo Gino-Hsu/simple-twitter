@@ -1,0 +1,46 @@
+
+.main__container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 576px) {
+.main__container {
+  width: 97.2%;
+}
+
+.sideBar {
+  width: 3.5rem;
+}
+
+.main__screen {
+
+}
+
+.popularUser {
+  width: 18.5rem;
+  margin-top: 1.375rem;
+}
+
+}
+
+@media screen and (min-width: 1200px) {
+  .main__container {
+    width: 90.7%;
+  }
+
+  .sideBar {
+    width: 3.5rem;
+  }
+
+  .main__screen {}
+
+  .popularUser {
+    width: 18.5rem;
+    margin-top: 1rem;
+  }
+
+}

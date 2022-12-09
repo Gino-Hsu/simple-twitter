@@ -1,6 +1,10 @@
 @use '../../styles/mixin';
 @use '../../styles/var' as color;
+.popularUser__container {
+  display: none;
+}
 
+@media screen and (min-width: 576px){
 .popularUser__container {
   display: flex;
   flex-direction: column;
@@ -25,4 +29,4 @@
     flex-direction: column;
     padding: 1.5rem 0 0 1.5rem;
   }
-}
+}}
