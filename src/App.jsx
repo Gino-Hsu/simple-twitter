@@ -5,6 +5,7 @@ import './App.scss'
 // import PopularUserItem from './UIComponents/PopularUserItem'
 import TweetModal from './components/tweetModal/TweetModal'
 
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
       {/* <SideBar /> */}
       {/* <PopularUserItem /> */}
       <TweetModal />
+
     </div>
   )
 }
