@@ -2,7 +2,9 @@ import './App.scss'
 // import Regist from './pages/Regist'
 // import Login from './pages/Login'
 // import SideBar from './components/SideBar/SideBar'
-import PopularUser from './components/popularUser/PopularUser'
+// import PopularUserItem from './UIComponents/PopularUserItem'
+import TweetModal from './components/tweetModal/TweetModal'
+
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
       {/* <Regist /> */}
       {/* <Login /> */}
       {/* <SideBar /> */}
-      <PopularUser />
+      {/* <PopularUserItem /> */}
+      <TweetModal />
+
     </div>
   )
 }

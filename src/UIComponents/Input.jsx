@@ -27,3 +27,16 @@ export function LoginAndRegistInput({
     // 增加錯誤題是
   )
 }
+
+export function Textarea({ textareaValue, textareaPlaceHolder, onChange }) {
+  return (
+    <div className={style.textarea__container}>
+      <textarea
+        className={style.textarea}
+        placeholder={textareaPlaceHolder}
+        value={textareaValue}
+        onChange={(e) => onChange(e)}
+      />
+    </div>
+  )
+}
