@@ -1,0 +1,107 @@
+@use '../../../styles/mixin';
+@use '../../../styles/var' as color;
+
+.twitterInput__container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  height: 4.6845rem;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid #e6ecf0;
+
+  .mobile__avatar {
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      content: url('../../../public/logo_gray@2x.png');
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .title {
+    p {
+      @include mixin.font-setting(1.5rem, 700, color.$gray-10);
+      line-height: 26px;
+    }
+  }
+
+  .inputBox {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .twitterInput__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 0;
+    .mobile__avatar {
+      display: none;
+    }
+    .title {
+      p {
+      }
+    }
+
+    .inputBox {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border: 1px solid red;
+      .inputBox__input {
+        width: 100%;
+
+        .avatar {
+          width: 3.125rem;
+          height: 3.125rem;
+          border-radius: 50%;
+          overflow: hidden;
+
+          img {
+            content: url('../../../public/logo_gray@2x.png');
+            width: 100%;
+            display: block;
+          }
+        }
+
+        .input {
+        }
+      }
+
+      .inputBox__btn {
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .twitterInput__container {
+    .mobile {
+      .mobile__avatar {
+      }
+    }
+
+    .title {
+      p {
+      }
+    }
+
+    .inputBox {
+      .inputBox__input {
+        .avatar {
+        }
+
+        .input {
+        }
+      }
+
+      .inputBox__btn {
+      }
+    }
+  }
+}

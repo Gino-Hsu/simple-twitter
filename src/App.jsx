@@ -1,5 +1,6 @@
 import './App.scss'
-import TweetListItem from './UIComponents/TweetListItem'
+import TwitterInput from './components/mainTweets/twitterInput/TwitterInput'
+// import TweetListItem from './UIComponents/TweetListItem'
 // import Regist from './pages/Regist'
 // import Login from './pages/Login'
 // import SideBar from './components/SideBar/SideBar'
@@ -14,7 +15,15 @@ function App() {
       {/* <SideBar /> */}
       {/* <PopularUser /> */}
       {/* <Home /> */}
-      <TweetListItem />
+      {/* <TweetListItem
+        twitter="12345678"
+        account="@Apple"
+        userName="apple"
+        time="5小時"
+        twitterLike="23"
+        twitterReply="39"
+      /> */}
+      <TwitterInput />
     </div>
   )
 }

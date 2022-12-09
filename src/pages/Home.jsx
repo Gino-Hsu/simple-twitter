@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import SideBar from '../components/SideBar/SideBar';
-import PopularUser from "../components/popularUser/PopularUser"
+import SideBar from '../components/SideBar/SideBar'
+import PopularUser from '../components/popularUser/PopularUser'
 import style from './Home.module.scss'
 
 export default function Home() {

@@ -1,39 +1,42 @@
-import React from "react";
+import React from 'react'
 import style from './TweetListItem.module.scss'
 
-
-export default function TweetListItem() {
+export default function TweetListItem({
+  twitter,
+  userAvatar,
+  account,
+  userName,
+  time,
+  twitterReply,
+  twitterLike,
+}) {
   return (
     <div className={style.listItem__container}>
       <div className={style.listItem__avatar}>
         <div>
-          <img src="" alt="user avatar" />
+          <img src={userAvatar} alt="user avatar" />
         </div>
       </div>
       <div className={style.listItem__info}>
         <div className={style.info__account}>
-          <p>Apple</p>
-          <span>@apple . 3小時</span>
+          <p>{userName}</p>
+          <span>{`${account} 。 ${time}`}</span>
         </div>
         <div className={style.info__tweet}>
-          <p>
-            hdjksfhsdajkghfkljas dkfjdj djvlksdjdlkajl; djfldksajflkdsjfl;
-            dfdsklfjlds dsjflkdsfjkld dsfjlsdjfl;
-            dsfldsafjla;hvljashfgldhslgkjhdsjkahdjsahgjadshvldsjfd;sjfouevdshvhasdo;fhhadhgvosagh;
-          </p>
+          <p>{twitter}</p>
         </div>
         <div className={style.info__icons}>
           <div className={style.icon__reply}>
-            <div>
+            <div className={style.cursor}>
               <img className="" alt="reply button" />
             </div>
-            <span>25</span>
+            <span>{twitterReply}</span>
           </div>
           <div className={style.icon__like}>
-            <div>
+            <div className={style.cursor}>
               <img className="" alt="like button" />
             </div>
-            <span>56</span>
+            <span>{twitterLike}</span>
           </div>
         </div>
       </div>
