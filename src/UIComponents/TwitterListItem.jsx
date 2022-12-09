@@ -1,7 +1,7 @@
 import React from 'react'
-import style from './TweetListItem.module.scss'
+import style from './TwitterListItem.module.scss'
 
-export default function TweetListItem({
+export default function TwitterListItem({
   twitter,
   userAvatar,
   account,
@@ -39,6 +39,9 @@ export default function TweetListItem({
             <span>{twitterLike}</span>
           </div>
         </div>
+      </div>
+      <div className={style.div}>
+        <div className={style.line}></div>
       </div>
     </div>
   )

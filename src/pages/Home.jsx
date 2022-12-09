@@ -1,7 +1,8 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+// import { Outlet } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar'
 import PopularUser from '../components/popularUser/PopularUser'
+import MainTwitter from '../components/mainTwitter/MainTwitter'
 import style from './Home.module.scss'
 
 export default function Home() {
@@ -11,7 +12,9 @@ export default function Home() {
         <SideBar />
       </div>
       <div className={style.main__screen}>
-        <Outlet />
+        <div>
+          <MainTwitter />
+        </div>
       </div>
       <div className={style.popularUser}>
         <PopularUser />

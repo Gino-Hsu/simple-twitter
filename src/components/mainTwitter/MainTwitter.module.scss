@@ -1,0 +1,49 @@
+.main__container {
+  width: 100%;
+  height: 100vh;
+
+  .position {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .twitterInput {
+    width: 100%;
+    // position: fixed;
+    // top: 0;
+    // background-color: red;
+    // z-index: 5;
+  }
+
+  .twitterListItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+    height: 80.5vh;
+    overflow-y: scroll;
+  }
+}
+@media screen and (min-width: 576px) {
+  .position {
+    width: 100%;
+    height: 14.2rem;
+  }
+  .twitterInput {
+    width: 100%;
+  }
+  .line {
+    position: absolute;
+    top: 14.2rem;
+    width: 100%;
+    height: 10px;
+    background: #e6ecf0;
+    transform: rotate(-180deg);
+  }
+
+  .twitterListItem {
+    width: 100%;
+    height: 77.5vh;
+  }
+}

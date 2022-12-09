@@ -1,7 +1,7 @@
 import React from 'react'
-import ButtonUI from '../../../UIComponents/ButtonUI'
 
 import style from './TwitterInput.module.scss'
+import ButtonUI from '../../../UIComponents/ButtonUI'
 
 export default function TwitterInput() {
   return (
@@ -17,10 +17,17 @@ export default function TwitterInput() {
           <div className={style.avatar}>
             <img src="" alt="avatar" />
           </div>
-          <input className={style.input} />
+          <input
+            type="text"
+            placeholder="有什麼新鮮事？"
+            readOnly="true"
+            className={style.input}
+          />
         </div>
-        <div className={style.inputBox__btn}>
-          <ButtonUI />
+      </div>
+      <div className={style.btn__container}>
+        <div className={style.btn__type}>
+          <ButtonUI btnStyle="btn__pill__middle" text="推文" />
         </div>
       </div>
     </div>
