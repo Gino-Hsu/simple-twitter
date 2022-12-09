@@ -28,8 +28,8 @@
 // 只做了一個給登入註冊，之後須加入其他樣式
 
 // PopularUserItem 使用
-.btn__popularUser__following {
-  width: 96px;
+.btn__pill__middle {
+  width: 100%;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -40,8 +40,8 @@
   cursor: pointer;
 }
 
-.btn__popularUser__unFollow {
-  width: 64px;
+.btn__pill__middle__default {
+  width: 100%;
   height: 40px;
   display: flex;
   justify-content: center;
