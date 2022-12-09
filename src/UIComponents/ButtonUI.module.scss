@@ -26,3 +26,29 @@
 }
 
 // 只做了一個給登入註冊，之後須加入其他樣式
+
+// PopularUserItem 使用
+.btn__popularUser__following {
+  width: 96px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$brand-color;
+  @include mixin.font-setting(1rem, 400, var.$gray-1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn__popularUser__unFollow {
+  width: 64px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var.$brand-color;
+  background-color: var.$gray-1;
+  @include mixin.font-setting(1rem, 400, var.$brand-color);
+  border-radius: 50px;
+  cursor: pointer;
+}

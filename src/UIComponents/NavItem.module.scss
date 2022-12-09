@@ -1,8 +1,12 @@
+@use '../styles/var';
+@use '../styles/mixin';
+
 .icon__home {
   content: url('../public/nav/nav_home@2x.png');
   width: 22px;
   height: 20px;
   display: block;
+  cursor: pointer;
 }
 
 .icon__tweet {
@@ -10,6 +14,7 @@
   width: 22px;
   height: 20px;
   display: block;
+  cursor: pointer;
 }
 
 .icon__user {
@@ -17,6 +22,7 @@
   width: 22px;
   height: 20px;
   display: block;
+  cursor: pointer;
 }
 
 .icon__setting {
@@ -24,21 +30,21 @@
   width: 22px;
   height: 20px;
   display: block;
+  cursor: pointer;
 }
 @media screen and (min-width: 576px) {
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 26px;
-  gap: 17px;
-
-  .title {
-    display: none;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 26px;
+    gap: 17px;
+    cursor: pointer;
+    .title {
+      display: none;
+    }
   }
-}
-
 }
 
 @media screen and (min-width: 992px) {
@@ -47,6 +53,7 @@
     .title {
       width: 100%;
       display: block;
+      @include mixin.font-setting(1.125rem, 700, var.$gray-9);
     }
   }
 }

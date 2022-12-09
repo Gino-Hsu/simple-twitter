@@ -4,7 +4,7 @@ import style from './SideBar.module.scss'
 
 export default function SideBar() {
   return (
-    <div className={style.aaa}>
+    <>
       <div className={style.mobile}>
         <NavItem icon="icon__home" altName="home" />
         <NavItem icon="icon__tweet" altName="tweet" />
@@ -28,9 +28,9 @@ export default function SideBar() {
         </div>
         <div className={style.signOut}>
           <img alt="sign-out" />
-          <div className={style.btn_name}>登出</div>
+          <div className={style.btn__name}>登出</div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
