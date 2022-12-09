@@ -1,12 +1,12 @@
 import './App.scss'
-import TwitterInput from './components/mainTweets/twitterInput/TwitterInput'
+// import TwitterInput from './components/mainTweets/twitterInput/TwitterInput'
 // import TweetListItem from './UIComponents/TweetListItem'
-// import Regist from './pages/Regist'
-// import Login from './pages/Login'
 // import SideBar from './components/SideBar/SideBar'
 // import PopularUser from './components/popularUser/PopularUser'
+// import ReplyModal from './components/replyModal/ReplyModal'
 // import Home from './pages/Home'
-
+// import Regist from './pages/Regist'
+// import Login from './pages/Login'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         twitterLike="23"
         twitterReply="39"
       /> */}
-      <TwitterInput />
+      {/* <TwitterInput /> */}
     </div>
   )
 }
