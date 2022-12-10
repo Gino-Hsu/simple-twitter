@@ -3,7 +3,6 @@ import ReactDom from 'react-dom'
 import Modal from '../../UIComponents/Modal'
 import BackDrop from '../../UIComponents/BackDrop'
 import { Textarea } from '../../UIComponents/Input'
-import TweetListItem from '../../UIComponents/TweetListItem'
 
 import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
