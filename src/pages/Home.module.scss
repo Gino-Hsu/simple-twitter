@@ -42,19 +42,19 @@ body {
 
   .popularUser {
     display: block;
-    width: 18.5rem;
+    width: 14rem;
     margin-top: 1.375rem;
 
   }
 }
 
-// @media screen and (min-width: 761px) {
-//   .popularUser {
-//     display: flex;
-//     width: 14rem;
-//     margin-top: 1rem;
-//   }
-// }
+@media screen and (min-width: 900px) {
+  .popularUser {
+    display: block;
+    width: 18.5rem;
+    margin-top: 1rem;
+  }
+}
 
 @media screen and (min-width: 1200px) {
   .main__container {
