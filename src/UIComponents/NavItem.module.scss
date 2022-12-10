@@ -1,38 +1,44 @@
 @use '../styles/var';
 @use '../styles/mixin';
 
+.icon__style {
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+}
+
+.title {
+  display: none;
+}
+
 .icon__home {
   content: url('../public/nav/nav_home@2x.png');
-  width: 22px;
-  height: 20px;
+  width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__tweet {
   content: url('../public/nav/nav_btn@2x.png');
-  width: 22px;
-  height: 20px;
+  width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__user {
   content: url('../public/nav/nav_user@2x.png');
-  width: 22px;
-  height: 20px;
+  width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__setting {
   content: url('../public/nav/nav_set@2x.png');
-  width: 22px;
-  height: 20px;
+  width: 100%;
   display: block;
   cursor: pointer;
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 700px) {
   .container {
     display: flex;
     flex-direction: column;

@@ -3,6 +3,7 @@ import ReactDom from 'react-dom'
 import Modal from '../../UIComponents/Modal'
 import BackDrop from '../../UIComponents/BackDrop'
 import { Textarea } from '../../UIComponents/Input'
+import TweetListItem from '../../UIComponents/TweetListItem'
 
 import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
@@ -21,9 +22,7 @@ export default function ReplyModal() {
         <>
           <div className={style.view__container}>
             <Modal buttonText="回覆" title="推文">
-              <div className={style.other__user__container}>
-                {/* here */}
-              </div>
+              <div className={style.other__user__container}>{/* here */}</div>
 
               <div className={style.modal__main}>
                 <div className={style.avatar}>

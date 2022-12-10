@@ -40,6 +40,9 @@ export default function TweetListItem({
           </div>
         </div>
       </div>
+      <div className={style.div}>
+        <div className={style.line}></div>
+      </div>
     </div>
   )
 }
