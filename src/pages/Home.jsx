@@ -13,14 +13,13 @@ export default function Home() {
       </div>
       <div className={style.main__screen}>
         {/* <div> */}
-          <MainTweet />
-          <Outlet />
+        <MainTweet />
+        <Outlet />
         {/* </div> */}
       </div>
       <div className={style.popularUser}>
         <PopularUser />
       </div>
-
     </div>
   )
 }
