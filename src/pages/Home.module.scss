@@ -1,5 +1,10 @@
 @use '../styles/var' as color;
 
+// 固定整個頁面，不要隨著滾動條動作
+body {
+  overflow: hidden;
+}
+
 .main__container {
   width: 100vw;
   margin: 0 auto;
@@ -26,6 +31,7 @@
   .sideBar {
     width: 3.5rem;
     display: block;
+    
   }
 
   .main__screen {
@@ -36,7 +42,7 @@
 
   .popularUser {
     display: block;
-    width: 14.5rem;
+    width: 18.5rem;
     margin-top: 1.375rem;
 
   }
@@ -65,7 +71,7 @@
 
   .popularUser {
     display: block;
-    width: 17.1rem;
+    width: 17.06rem;
     margin-top: 1rem;
   }
 }
