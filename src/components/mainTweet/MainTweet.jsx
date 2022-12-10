@@ -1,20 +1,28 @@
 import React from 'react'
-import TwitterInput from './twitterInput/TwitterInput'
-import TwitterListItem from '../../UIComponents/TwitterListItem'
+import TweetInput from './tweetInput/TweetInput'
+import TweetListItem from '../../UIComponents/TweetListItem'
 
-import style from './MainTwitter.module.scss'
+import style from './MainTweet.module.scss'
 
-export default function MainTwitter() {
+export default function MainTweet() {
   return (
     <div className={style.main__container}>
       <div className={style.position}>
-        <div className={style.twitterInput}>
-          <TwitterInput />
+        <div className={style.tweetInput}>
+          <TweetInput />
         </div>
         <div className={style.line}></div>
       </div>
-      <div className={style.twitterListItem}>
-        <TwitterListItem
+      <div className={style.tweetListItem}>
+        <TweetListItem
+          twitter="1234fklhgkldfshgljfhaglkdshglsahglkhdslkghjl;ashglafshglasdhgvlkashglkvhdsalvkhfslbvlcsnvlfs5678"
+          account="@Apple"
+          userName="apple"
+          time="5小時"
+          twitterLike="23"
+          twitterReply="39"
+        />
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -22,7 +30,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -30,7 +38,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -38,7 +46,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -46,7 +54,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -54,7 +62,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -62,7 +70,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -70,7 +78,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -78,7 +86,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -86,7 +94,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -94,7 +102,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"
@@ -102,15 +110,7 @@ export default function MainTwitter() {
           twitterLike="23"
           twitterReply="39"
         />
-        <TwitterListItem
-          twitter="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TwitterListItem
+        <TweetListItem
           twitter="12345678"
           account="@Apple"
           userName="apple"

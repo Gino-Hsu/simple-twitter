@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar'
 import PopularUser from '../components/popularUser/PopularUser'
-import MainTwitter from '../components/mainTwitter/MainTwitter'
+import MainTweet from '../components/mainTweet/MainTweet'
 import style from './Home.module.scss'
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
       </div>
       <div className={style.main__screen}>
         {/* <div> */}
-          <MainTwitter />
+          <MainTweet />
           <Outlet />
         {/* </div> */}
       </div>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import style from './TwitterInput.module.scss'
+import style from './TweetInput.module.scss'
 import ButtonUI from '../../../UIComponents/ButtonUI'
 
-export default function TwitterInput() {
+export default function TweetInput() {
   return (
-    <div className={style.twitterInput__container}>
+    <div className={style.tweetInput__container}>
       <div className={style.mobile__avatar}>
         <img src="" alt="avatar" />
       </div>

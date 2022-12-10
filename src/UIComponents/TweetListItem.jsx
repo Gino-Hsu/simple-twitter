@@ -1,7 +1,7 @@
 import React from 'react'
-import style from './TwitterListItem.module.scss'
+import style from './TweetListItem.module.scss'
 
-export default function TwitterListItem({
+export default function TweetListItem({
   twitter,
   userAvatar,
   account,

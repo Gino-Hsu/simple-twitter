@@ -20,7 +20,7 @@ body {
   display: none;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   .main__container {
     display: flex;
     flex-direction: row;
@@ -42,19 +42,19 @@ body {
 
   .popularUser {
     display: block;
-    width: 14rem;
+    width: 18.5rem;
     margin-top: 1.375rem;
 
   }
 }
 
-@media screen and (min-width: 900px) {
-  .popularUser {
-    display: block;
-    width: 18.5rem;
-    margin-top: 1rem;
-  }
-}
+// @media screen and (min-width: 900px) {
+//   .popularUser {
+//     display: block;
+//     width: 18.5rem;
+//     margin-top: 1rem;
+//   }
+// }
 
 @media screen and (min-width: 1200px) {
   .main__container {

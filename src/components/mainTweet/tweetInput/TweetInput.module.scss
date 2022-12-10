@@ -1,7 +1,7 @@
 @use '../../../styles/mixin';
 @use '../../../styles/var' as color;
 
-.twitterInput__container {
+.tweetInput__container {
   display: flex;
   align-items: center;
   gap: 1.5rem;
@@ -39,8 +39,8 @@
   }
 }
 
-@media screen and (min-width: 700px) {
-  .twitterInput__container {
+@media screen and (min-width: 800px) {
+  .tweetInput__container {
     width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
