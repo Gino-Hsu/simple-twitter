@@ -6,7 +6,6 @@
   height: 19.625rem;
   position: relative;
   top: 0;
-  border: 1px solid red;
 
   .background__img {
     width: 100%;
@@ -87,6 +86,60 @@
   }
 
   .user {
-    display: none;
+    // display: none;
+    position: absolute;
+    top: 4rem;
+    left: 4.5rem;
+      width: 6.25rem;
+        height: 9.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .user__avatar {
+      width: 100%;
+      height: 100%;
+      display: flex;
+
+      .avatar__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 6.25rem;
+        height: 6.25rem;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 1;
+        .avatar__img {
+          content: url('../public/default_background@2x.png');
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          display: block;
+          z-index: 2;
+        }
+      }
+      
+    }
+        .title {
+          width: 6.25rem;
+          display: flex;
+          flex-direction: column;
+          // align-items: center;
+          text-align: center;
+    
+          .name {
+            width: 100%;
+            @include mixin.font-setting(1rem, 700, color.$gray-10);
+            line-height: 1.625rem;
+          }
+    
+          .account {
+            width: 90.54%;
+            @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+            line-height: 1.375rem;
+          }
+        }
   }
 }

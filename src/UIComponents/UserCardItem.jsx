@@ -35,7 +35,6 @@ export default function UserCardItem() {
         </div>
       </div>
       <div className={style.user}>
-        跳出頁面的頭像
         <div className={style.user__avatar}>
           <div className={style.avatar__container}>
             <img className={style.avatar__img} src="" alt="avatar" />
@@ -43,10 +42,10 @@ export default function UserCardItem() {
         </div>
         <div className={style.title}>
           <div className={style.name}>
-            <p>John Doe</p>
+            John Doe
           </div>
           <div className={style.account}>
-            <p>@john</p>
+            @john
           </div>
         </div>
       </div>
