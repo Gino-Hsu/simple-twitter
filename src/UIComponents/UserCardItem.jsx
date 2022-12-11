@@ -41,12 +41,8 @@ export default function UserCardItem() {
           </div>
         </div>
         <div className={style.title}>
-          <div className={style.name}>
-            John Doe
-          </div>
-          <div className={style.account}>
-            @john
-          </div>
+          <div className={style.name}>John Doe</div>
+          <div className={style.account}>@john</div>
         </div>
       </div>
     </div>
