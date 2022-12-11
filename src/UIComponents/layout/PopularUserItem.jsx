@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonUI from './ButtonUI'
+import ButtonUI from '../buttons/ButtonUI'
 import style from './PopularUserItem.module.scss'
 
 export default function PopularUserItem({ btnStyle, text, container }) {

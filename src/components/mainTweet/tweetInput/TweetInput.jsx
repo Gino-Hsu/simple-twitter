@@ -1,7 +1,7 @@
 import React from 'react'
 
 import style from './TweetInput.module.scss'
-import ButtonUI from '../../../UIComponents/ButtonUI'
+import ButtonUI from '../../../UIComponents/buttons/ButtonUI'
 
 export default function TweetInput() {
   return (
