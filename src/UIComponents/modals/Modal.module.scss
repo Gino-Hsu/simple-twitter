@@ -1,5 +1,5 @@
-@use '../styles/var' as color;
-@use '../styles/mixin';
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
 
 .modal {
   width: 100%;
@@ -28,7 +28,7 @@
         cursor: pointer;
 
         .return__icon {
-          content: url('../public/arrow@2x.png');
+          content: url('../../public/arrow@2x.png');
           width: 100%;
           display: block;
         }
@@ -54,7 +54,7 @@
           width: 17px;
           height: 17px;
           .return__icon {
-            content: url('../public/modal/modal_esc@2x.png');
+            content: url('../../public/modal/modal_esc@2x.png');
           }
         }
       }

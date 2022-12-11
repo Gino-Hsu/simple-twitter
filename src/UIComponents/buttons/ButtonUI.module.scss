@@ -1,5 +1,5 @@
-@use '../styles/var' as var;
-@use '../styles/mixin';
+@use '../../styles/var' as var;
+@use '../../styles/mixin';
 
 .btn__pill__large {
   width: 100%;
@@ -47,6 +47,32 @@
   justify-content: center;
   align-items: center;
   border: 1px solid var.$brand-color;
+  background-color: var.$gray-1;
+  @include mixin.font-setting(1rem, 400, var.$brand-color);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn__pill__small {
+  width: inherit;
+  height: 32px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var.$brand-color;
+  @include mixin.font-setting(1rem, 400, var.$gray-1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn__pill__small__default {
+  width: inherit;
+  height: 32px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var.$gray-1;
   @include mixin.font-setting(1rem, 400, var.$brand-color);
   border-radius: 50px;
