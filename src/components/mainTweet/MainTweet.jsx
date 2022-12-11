@@ -1,6 +1,6 @@
 import React from 'react'
 import TweetInput from './tweetInput/TweetInput'
-import TweetListItem from '../../UIComponents/TweetListItem'
+import TweetListItem from '../../UIComponents/tweetLists/TweetListItem'
 
 import style from './MainTweet.module.scss'
 

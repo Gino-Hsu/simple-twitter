@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { LoginAndRegistInput } from '../../UIComponents/Input'
-import ButtonUI from '../../UIComponents/ButtonUI'
+import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
+import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './LoginForm.module.scss'
 

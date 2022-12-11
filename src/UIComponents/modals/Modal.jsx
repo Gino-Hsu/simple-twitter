@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonUI from './ButtonUI'
+import ButtonUI from '../buttons/ButtonUI'
 
 import style from './Modal.module.scss'
 
