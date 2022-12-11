@@ -1,0 +1,50 @@
+@use '../../styles/mixin';
+@use '../../styles/var' as color;
+
+.tab__container {
+  width: 100%;
+  height: 3.3125rem;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid color.$assistant-gray-color;
+
+  .userFunction {
+    min-width: 8.125rem;
+    height: 100%;
+    text-align: center;
+
+    .tweet,
+    .tweet:hover {
+      width: 100%;
+      height: 100%;
+      padding: 0.9375rem 3.125rem;
+      @include mixin.font-setting(0.9375rem, 700, #657786);
+      line-height: 1.3575rem;
+    }
+
+    .reply,
+    .reply:hover {
+      width: 100%;
+      height: 100%;
+      padding: 0.9375rem 3.125rem;
+      @include mixin.font-setting(0.9375rem, 700, #657786);
+      line-height: 1.3575rem;
+    }
+
+    .like,
+    .like:hover {
+      width: 100%;
+      height: 100%;
+      padding: 0.9375rem 1.75rem 0.9375rem 1.6875rem;
+      @include mixin.font-setting(0.9375rem, 700, #657786);
+      line-height: 1.3575rem;
+    }
+
+    .tweet:hover,
+    .reply:hover,
+    .like:hover {
+      color: color.$brand-color;
+      border-bottom: 2px solid color.$brand-color;
+    }
+  }
+}

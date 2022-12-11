@@ -90,8 +90,8 @@
     position: absolute;
     top: 4rem;
     left: 4.5rem;
-      width: 6.25rem;
-        height: 9.625rem;
+    width: 6.25rem;
+    height: 9.625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,26 +120,25 @@
           z-index: 2;
         }
       }
-      
     }
-        .title {
-          width: 6.25rem;
-          display: flex;
-          flex-direction: column;
-          // align-items: center;
-          text-align: center;
-    
-          .name {
-            width: 100%;
-            @include mixin.font-setting(1rem, 700, color.$gray-10);
-            line-height: 1.625rem;
-          }
-    
-          .account {
-            width: 90.54%;
-            @include mixin.font-setting(0.875rem, 400, color.$primary-color);
-            line-height: 1.375rem;
-          }
-        }
+    .title {
+      width: 6.25rem;
+      display: flex;
+      flex-direction: column;
+      // align-items: center;
+      text-align: center;
+
+      .name {
+        width: 100%;
+        @include mixin.font-setting(1rem, 700, color.$gray-10);
+        line-height: 1.625rem;
+      }
+
+      .account {
+        width: 90.54%;
+        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        line-height: 1.375rem;
+      }
+    }
   }
 }
