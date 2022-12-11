@@ -1,10 +1,10 @@
 import './App.scss'
 
-import FollowTab from './UIComponents/tab/FollowTab'
+import UserFunctionTab from './UIComponents/tab/UserFunctionTab'
 function App() {
   return (
     <div className="App">
-      <FollowTab />
+      <UserFunctionTab />
     </div>
   )
 }
