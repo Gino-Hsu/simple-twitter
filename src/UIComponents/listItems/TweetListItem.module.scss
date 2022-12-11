@@ -1,5 +1,5 @@
-@use '../styles/mixin';
-@use '../styles/var' as color;
+@use '../../styles/mixin';
+@use '../../styles/var' as color;
 
 .listItem__container {
   display: flex;
@@ -19,7 +19,7 @@
     }
 
     img {
-      content: url('../public/logo_gray@2x.png');
+      content: url('../../public/logo_gray@2x.png');
       width: 100%;
       display: block;
     }
@@ -72,7 +72,7 @@
           height: 1rem;
           cursor: pointer;
           img {
-            content: url('../public/tweet/tweet_reply@2x.png');
+            content: url('../../public/tweet/tweet_reply@2x.png');
             width: 100%;
             display: block;
           }
@@ -95,7 +95,7 @@
           cursor: pointer;
 
           img {
-            content: url('../public/tweet/tweet_like@2x.png');
+            content: url('../../public/tweet/tweet_like@2x.png');
             width: 100%;
             display: block;
           }

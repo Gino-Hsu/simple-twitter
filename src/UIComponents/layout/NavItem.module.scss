@@ -1,5 +1,5 @@
-@use '../styles/var';
-@use '../styles/mixin';
+@use '../../styles/var';
+@use '../../styles/mixin';
 
 .icon__style {
   width: 1.5rem;
@@ -12,28 +12,28 @@
 }
 
 .icon__home {
-  content: url('../public/nav/nav_home@2x.png');
+  content: url('../../public/nav/nav_home@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__tweet {
-  content: url('../public/nav/nav_btn@2x.png');
+  content: url('../../public/nav/nav_btn@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__user {
-  content: url('../public/nav/nav_user@2x.png');
+  content: url('../../public/nav/nav_user@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;
 }
 
 .icon__setting {
-  content: url('../public/nav/nav_set@2x.png');
+  content: url('../../public/nav/nav_set@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;

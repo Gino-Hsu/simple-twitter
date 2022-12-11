@@ -1,5 +1,5 @@
-@use '../styles/mixin';
-@use '../styles/var' as color;
+@use '../../styles/mixin';
+@use '../../styles/var' as color;
 
 .item {
   width: 17rem;
@@ -16,7 +16,7 @@
   overflow: hidden;
 
   img {
-    content: url('../public/logo_gray@2x.png');
+    content: url('../../public/logo_gray@2x.png');
     width: 100%;
     display: block;
   }
