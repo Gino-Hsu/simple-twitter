@@ -1,5 +1,5 @@
 import React from 'react'
-import PopularUserItem from '../../UIComponents/PopularUserItem'
+import PopularUserItem from '../../UIComponents/layout/PopularUserItem'
 import style from './PopularUser.module.scss'
 
 export default function PopularUser() {
