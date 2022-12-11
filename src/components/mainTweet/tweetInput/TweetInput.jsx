@@ -14,21 +14,20 @@ export default function TweetInput() {
       </div>
       <div className={style.inputBox}>
         <div className={style.inputBox__input}>
-          <div className={style.avatar}>
-            <img src="" alt="avatar" />
+          <div className={style.avatar__container}>
+            <div className={style.avatar}>
+              <img src="" alt="avatar" />
+            </div>
           </div>
-          <input
-            type="text"
-            placeholder="有什麼新鮮事？"
-            readOnly="true"
-            className={style.input}
-          />
         </div>
-      </div>
-      <div className={style.btn__container}>
-        <div className={style.btn__type}>
-          <ButtonUI btnStyle="btn__pill__middle" text="推文" />
+        <div className={style.inputBox__context}>
+          <p className={style.text}>有什麼新鮮事？</p>
+          <div className={style.btn__type}>
+            <ButtonUI btnStyle="btn__pill__middle" text="推文" />
+          </div>
         </div>
+
+        {/* </div>   */}
       </div>
     </div>
   )

@@ -23,7 +23,7 @@ export default function SideBar() {
           </div>
           <div className={style.tweet}>
             <img alt="" />
-            <button>推文</button>
+            <div className={style.tweet__btn}>推文</div>
           </div>
         </div>
         <div className={style.signOut}>

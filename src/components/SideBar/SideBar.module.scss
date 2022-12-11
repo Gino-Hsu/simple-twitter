@@ -83,7 +83,7 @@
           display: block;
         }
 
-        button {
+        .tweet__btn {
           display: none;
         }
       }
@@ -130,10 +130,12 @@
           display: none;
         }
 
-        button {
+        .tweet__btn {
           @include mixin.font-setting(1.25rem, 400, color.$gray-1);
-          display: block;
           width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           background-color: color.$brand-color;
           line-height: 46px;
           cursor: pointer;
