@@ -11,7 +11,7 @@
   .listItem__avatar {
     margin-right: 0.5rem;
 
-    div {
+    .avatar__img {
       width: 3.125rem;
       height: 3.125rem;
       border-radius: 50%;
@@ -54,7 +54,6 @@
         max-height: 6.875rem;
         overflow: hidden;
         word-break: break-word;
-        // text-overflow: ellipsis;
       }
     }
 
