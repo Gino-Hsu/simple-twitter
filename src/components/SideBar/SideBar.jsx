@@ -1,5 +1,5 @@
 import React from 'react'
-import NavItem from '../../UIComponents/NavItem'
+import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
 export default function SideBar() {

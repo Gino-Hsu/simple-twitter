@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonUI from '../UIComponents/ButtonUI'
+import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './FollowListItem.module.scss'
 
