@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+// import { Outlet } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar'
 import PopularUser from '../components/popularUser/PopularUser'
 import MainTweet from '../components/mainTweet/MainTweet'
@@ -12,10 +12,8 @@ export default function Home() {
         <SideBar />
       </div>
       <div className={style.main__screen}>
-        {/* <div> */}
         <MainTweet />
-        <Outlet />
-        {/* </div> */}
+        {/* <Outlet /> */}
       </div>
       <div className={style.popularUser}>
         <PopularUser />

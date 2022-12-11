@@ -11,7 +11,7 @@
   .listItem__avatar {
     margin-right: 0.5rem;
 
-    div {
+    .avatar__img {
       width: 3.125rem;
       height: 3.125rem;
       border-radius: 50%;
@@ -30,7 +30,6 @@
     align-content: flex-start;
     gap: 0.5rem;
     width: 100%;
-    // width: 71.7%;
     height: 100%;
     .info__account {
       display: flex;
@@ -55,7 +54,6 @@
         max-height: 6.875rem;
         overflow: hidden;
         word-break: break-word;
-        // text-overflow: ellipsis;
       }
     }
 

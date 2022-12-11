@@ -1,17 +1,15 @@
 @use '../styles/var' as color;
 
-// 固定整個頁面，不要隨著滾動條動作
-body {
-  overflow: hidden;
-}
-
 .main__container {
   width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
+  overflow: hidden;
 
   .main__screen {
     width: 100%;
+    height: 100%;
     border: 1px solid color.$assistant-gray-color;
   }
 }
@@ -22,6 +20,7 @@ body {
 
 @media screen and (min-width: 800px) {
   .main__container {
+    width: 100%;
     display: flex;
     flex-direction: row;
     width: 90%;
@@ -35,23 +34,16 @@ body {
 
   .main__screen {
     flex: 1;
-    height: 100vh;
+    overflow: hidden;
   }
 
   .popularUser {
     display: block;
     width: 18.5rem;
     margin-top: 1.375rem;
+    padding: 1rem 0;
   }
 }
-
-// @media screen and (min-width: 900px) {
-//   .popularUser {
-//     display: block;
-//     width: 18.5rem;
-//     margin-top: 1rem;
-//   }
-// }
 
 @media screen and (min-width: 1200px) {
   .main__container {
