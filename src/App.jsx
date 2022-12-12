@@ -1,5 +1,4 @@
 import './App.scss'
-
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Layout from "./pages/layout/Layout"
 import Login from "./pages/Login" 

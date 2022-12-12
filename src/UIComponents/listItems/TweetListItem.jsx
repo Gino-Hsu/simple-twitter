@@ -2,7 +2,7 @@ import React from 'react'
 import style from './TweetListItem.module.scss'
 
 export default function TweetListItem({
-  twitter,
+  tweet,
   userAvatar,
   account,
   userName,
@@ -27,7 +27,7 @@ export default function TweetListItem({
           </div>
         </div>
         <div className={style.info__tweet}>
-          <p>{twitter}</p>
+          <p>{tweet}</p>
         </div>
         <div className={style.info__icons}>
           <div className={style.icon__reply}>
