@@ -1,11 +1,11 @@
 import './App.scss'
 
-import Home from './pages/Home'
+import CurrentUserTweet from './pages/CurrentUserTweet'
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <CurrentUserTweet />
     </div>
   )
 }

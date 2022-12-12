@@ -1,8 +1,8 @@
 import React from 'react'
 
-import style from './UserFunctionTab.module.scss'
+import style from './UserToggleMenu.module.scss'
 
-export default function UserFunctionTab() {
+export default function UserToggleMenu() {
   return (
     <div className={style.tab__container}>
       <div className={style.userFunction}>
