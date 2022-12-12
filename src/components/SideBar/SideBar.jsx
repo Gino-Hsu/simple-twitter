@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
@@ -22,8 +23,10 @@ export default function SideBar() {
             <NavItem icon="icon__setting" altName="setting" title="設定" />
           </div>
           <div className={style.tweet}>
-            <img alt="" />
-            <div className={style.tweet__btn}>推文</div>
+            <Link to={'/alphitter/home/#/tweet'}>
+              <img alt="" />
+              <div className={style.tweet__btn}>推文</div>
+            </Link>
           </div>
         </div>
         <div className={style.signOut}>

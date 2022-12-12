@@ -1,0 +1,65 @@
+@use '../../styles/var' as color;
+
+.main__container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+
+  .main__screen {
+    width: 100%;
+    height: 100%;
+    border: 1px solid color.$assistant-gray-color;
+  }
+}
+
+.popularUser {
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .main__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    gap: 1.5rem;
+  }
+
+  .sideBar {
+    width: 3.5rem;
+    display: block;
+  }
+
+  .main__screen {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .popularUser {
+    display: block;
+    width: 18.5rem;
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .main__container {
+    width: 80%;
+  }
+
+  .sideBar {
+    width: 11.125rem;
+  }
+
+  .main__screen {
+    flex: 1;
+  }
+
+  .popularUser {
+    display: block;
+    width: 17.06rem;
+    margin-top: 1rem;
+  }
+}
