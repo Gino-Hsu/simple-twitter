@@ -21,7 +21,7 @@
     .reply,
     .like {
       position: absolute;
-      
+
       width: 100%;
       height: 100%;
       display: flex;
@@ -35,6 +35,14 @@
     .reply:hover,
     .like:hover {
       color: color.$brand-color;
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .tab__container {
+    .userMenu {
+      width: 130px;
     }
   }
 }

@@ -5,10 +5,10 @@ import Login from './pages/Login'
 import Regist from './pages/Regist'
 import Home from './pages/Home'
 import Reply from './pages/Reply'
+import CurrentUserTweet from './pages/CurrentUserTweet'
 
-// import CurrenUserTweet from ''
-// import CurrenUserReply from ''
-// import CurrenUserLike from ''
+// import CurrentUserReply from ''
+// import CurrentUserLike from ''
 // import Follower from ''
 // import Following from ''
 // import OtherUserTweet from ''
@@ -29,10 +29,13 @@ function App() {
           <Route path="/alphitter" element={<Layout />}>
             <Route path="home" element={<Home />}></Route>
             <Route path="reply" element={<Reply />}></Route>
+            <Route
+              path="user/self/tweet"
+              element={<CurrentUserTweet />}
+            ></Route>
             {/* <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
-            <Route path="user/self/tweet" element={<CurrenUserTweet />}></Route>
             <Route path="user/self/reply" element={<CurrenUserReply />}></Route>
             <Route path="user/self/like" element={<CurrenUserLike />}></Route>
             <Route path="user/self/follower" element={<Follower />}></Route>
