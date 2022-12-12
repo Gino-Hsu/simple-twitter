@@ -1,8 +1,7 @@
 import React from 'react'
-import ButtonUI from '../buttons/ButtonUI'
-import style from './HeaderBtn.module.scss'
+import style from './TextHeader.module.scss'
 
-export default function HeaderBtn({ title, text }) {
+export default function HeaderText() {
   return (
     <div className={style.header__container}>
       <div className={style.header__return}>
@@ -13,12 +12,9 @@ export default function HeaderBtn({ title, text }) {
         </div>
         <div className={style.text}>
           <div className={style.text__container}>
-            <div className={style.title}>{title}</div>
+            <div className={style.title}>推文</div>
           </div>
         </div>
-      </div>
-      <div className={style.header__btn}>
-        <ButtonUI btnStyle="btn__pill__middle" text={text} />
       </div>
     </div>
   )
