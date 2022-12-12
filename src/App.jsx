@@ -1,11 +1,11 @@
 import './App.scss'
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Layout from "./pages/layout/Layout"
-import Login from "./pages/Login" 
-import Regist from "./pages/Regist"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './pages/layout/Layout'
+import Login from './pages/Login'
+import Regist from './pages/Regist'
 import Home from './pages/Home'
-import Reply from "./pages/Reply"
+import Reply from './pages/Reply'
 
 // import CurrenUserTweet from ''
 // import CurrenUserReply from ''
