@@ -2,8 +2,10 @@ import React from 'react'
 // import { Outlet } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar'
 import PopularUser from '../components/popularUser/PopularUser'
-import MainTweet from '../components/mainTweet/MainTweet'
+// import MainTweet from '../components/mainTweet/MainTweet'
 import style from './Home.module.scss'
+
+import Reply from '../pages/Reply'
 
 export default function Home() {
   return (
@@ -12,8 +14,9 @@ export default function Home() {
         <SideBar />
       </div>
       <div className={style.main__screen}>
-        <MainTweet />
-        {/* <Outlet /> */}
+        {/* <MainTweet /> */}
+        <Reply />
+        <Outlet />
       </div>
       <div className={style.popularUser}>
         <PopularUser />

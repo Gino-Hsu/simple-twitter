@@ -1,0 +1,198 @@
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
+
+.viewport {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet__container {
+  width: 100%;
+
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 19px;
+    padding: 30px 28px;
+    .arrow {
+      width: 17px;
+      height: 14px;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/arrow@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+    .title {
+      @include mixin.font-setting(1.5rem, 700, color.$gray-10);
+    }
+  }
+
+  .body {
+    padding: 16px 24px 0px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .user {
+      display: flex;
+      gap: 8px;
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        &__img {
+          content: url(../../public/logo_gray@2x.png);
+          width: 100%;
+          display: block;
+        }
+      }
+
+      &__info {
+        &__name {
+          @include mixin.font-setting(1rem, 700, color.$gray-10);
+          line-height: 26px;
+        }
+        &__account {
+          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        }
+      }
+    }
+
+    .tweet__text {
+      @include mixin.font-setting(1rem, 400, color.$gray-10);
+      line-height: 26px;
+    }
+
+    .createAt {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      &__time,
+      &__data {
+        @include mixin.font-setting(0.75rem, 500, color.$primary-color);
+      }
+
+      .spot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: color.$primary-color;
+      }
+    }
+
+    .counts {
+      margin: 0 24px;
+      padding: 16px;
+      display: flex;
+      gap: 24px;
+      border-top: 1px solid color.$assistant-gray-color;
+      border-bottom: 1px solid color.$assistant-gray-color;
+
+      .replyCount,
+      .likeCount {
+        display: flex;
+        gap: 0.3rem;
+      }
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 21px 42px;
+
+    .icon__reply,
+    .icon__like {
+      width: 20px;
+      height: 20px;
+      overflow: hidden;
+    }
+
+    .icon__reply__img {
+      content: url('../../public/tweet/tweet_reply@2x.png');
+      width: 100%;
+      display: block;
+    }
+    .icon__like__img {
+      content: url('../../public/tweet/tweet_like@2x.png');
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+.replyAction__container {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid color.$assistant-gray-color;
+
+  .currentUser {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &__avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      &__img {
+        content: url('../../public/seed/81803399afee0c76ba618049dfdf2441.jpg');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__text {
+      @include mixin.font-setting(0.75rem, 500, color.$primary-color);
+    }
+  }
+  .btn__reply {
+    width: 64px;
+  }
+}
+
+.replyLists {
+  flex: 1;
+  padding-bottom: 3.25rem;
+  overflow-y: scroll;
+}
+
+.border__bottom {
+  border-bottom: 1px solid color.$assistant-gray-color;
+}
+
+@media screen and (min-width: 800px) {
+  .tweet__container {
+    .body {
+      padding: 16px 16px 0px 16px;
+      .counts {
+        margin: 0;
+        padding: 16px 0;
+      }
+    }
+
+    .icons {
+      padding: 21px 16px;
+    }
+  }
+
+  .replyAction__container {
+    display: none;
+  }
+
+  .replyLists {
+    padding-bottom: 0;
+  }
+}
