@@ -40,7 +40,10 @@ export default function CurrentUser({
 
         <div className={style.edit}>
           <div className={style.edit__container}>
-            <ButtonUI btnStyle="btn__pill__small__default" text="編輯個人資料" />
+            <ButtonUI
+              btnStyle="btn__pill__small__default"
+              text="編輯個人資料"
+            />
           </div>
         </div>
 
