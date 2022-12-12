@@ -1,0 +1,41 @@
+@use '../../styles/mixin';
+@use '../../styles/var' as color;
+
+.header__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid color.$assistant-gray-color;
+
+  .header__return {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    .icon {
+      cursor: pointer;
+      .icon__container {
+        display: flex;
+        align-items: center;
+        width: 1.0625rem;
+        height: 0.875rem;
+
+        .img {
+          content: url('../../public/arrow@2x.png');
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+
+    .text {
+      .text__container {
+        .title {
+          @include mixin.font-setting(1.5rem, 700, color.$gray-10);
+          line-height: 1.625rem;
+        }
+      }
+    }
+  }
+}
