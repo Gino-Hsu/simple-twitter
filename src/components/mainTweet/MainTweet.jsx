@@ -11,7 +11,6 @@ export default function MainTweet() {
         <div className={style.tweetInput}>
           <TweetInput />
         </div>
-        <div className={style.line}></div>
       </div>
       <div className={style.tweetListItem}>
         <TweetListItem

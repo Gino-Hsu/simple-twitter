@@ -13,14 +13,18 @@ export default function TweetListItem({
   return (
     <div className={style.listItem__container}>
       <div className={style.listItem__avatar}>
-        <div>
+        <div className={style.avatar__img}>
           <img src={userAvatar} alt="user avatar" />
         </div>
       </div>
       <div className={style.listItem__info}>
         <div className={style.info__account}>
           <p>{userName}</p>
-          <span>{`${account} 。 ${time}`}</span>
+          <div className={style.subtitle}>
+            <span>{account}</span>
+            <span className={style.spot}></span>
+            <span>{time}</span>
+          </div>
         </div>
         <div className={style.info__tweet}>
           <p>{tweet}</p>
@@ -39,9 +43,6 @@ export default function TweetListItem({
             <span>{twitterLike}</span>
           </div>
         </div>
-      </div>
-      <div className={style.div}>
-        <div className={style.line}></div>
       </div>
     </div>
   )
