@@ -37,8 +37,19 @@
       p {
         @include mixin.font-setting(1rem, 700, color.$gray-10);
       }
-      span {
-        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+      .subtitle {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        span {
+          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        }
+        .spot {
+          width: 4px;
+          height: 4px;
+          background-color: color.$primary-color;
+          border-radius: 50%;
+        }
       }
     }
 
