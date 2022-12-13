@@ -14,6 +14,7 @@ import AdminUsers from './pages/AdminUsers'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
+import Setting from './pages/Setting'
 import Follower from './components/follow/Follower'
 import Following from './components/follow/Following'
 
@@ -25,6 +26,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/regist" element={<Regist />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
+          <Route path="/admin/tweets" element={<AdminTweets />}></Route>
+          <Route path="/admin/Users" element={<AdminUsers />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/setting" element={<Setting />}></Route>
           <Route path="/alphitter" element={<Layout />}>
@@ -41,19 +44,10 @@ function App() {
             <Route path="user/self/like" element={<CurrentUserLike />}></Route>
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
-            {/* <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
+            <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
-            {/* 
-            <Route path="user/self/follower" element={<Follower />}></Route>
-            <Route path="user/self/following" element={<Following />}></Route>
-            <Route path="/admin/Users" element={<AdminUsers />}></Route>
-            <Route path="/彈跳視窗" element={<TweetModal />}></Route>
-            <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
-            <Route path="/彈跳視窗" element={<EditModal />}></Route> */}
-          </Route>
-          <Route path="/admin/tweets" element={<AdminTweets />}></Route>
-          <Route path="/admin/Users" element={<AdminUsers />}></Route>
+          </Route> 
         </Routes>
       </BrowserRouter>
     </div>
@@ -61,3 +55,11 @@ function App() {
 }
 
 export default App
+
+  
+  // <Route path="user/self/follower" element={<Follower />}></Route>
+  // <Route path="user/self/following" element={<Following />}></Route>
+  // <Route path="/admin/Users" element={<AdminUsers />}></Route>
+  // <Route path="/彈跳視窗" element={<TweetModal />}></Route>
+  // <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
+  // <Route path="/彈跳視窗" element={<EditModal />}></Route> 

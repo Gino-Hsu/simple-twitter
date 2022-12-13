@@ -36,16 +36,6 @@
       width: 100%;
       margin: 39.8px 0 35.6px;
       gap: 45.6px;
-    .menu {
-      position: unset;
-      background-color: unset;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      margin: 39.8px 0 35.6px;
-      gap: 45.6px;
-    }
   }
 }
 .signOut {
@@ -61,6 +51,7 @@
   .btn__name {
     display: none;
   }
+}
 }
 
 @media screen and (min-width: 870px) {
