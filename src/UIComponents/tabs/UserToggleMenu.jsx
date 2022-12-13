@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './UserFunctionTab.module.scss'
+import style from './UserToggleMenu.module.scss'
 
 export default function UserFunctionTab() {
   return (

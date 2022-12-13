@@ -6,7 +6,7 @@ import Login from './pages/Login'
 import Regist from './pages/Regist'
 import Home from './pages/Home'
 import Reply from './pages/Reply'
-import Follower from './pages/Follower'
+import Follower from './components/follow/Follower'
 
 // import CurrenUserTweet from ''
 // import CurrenUserReply from ''

@@ -1,5 +1,5 @@
-@use '../styles/var' as color;
-@use '../styles/mixin';
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
 
 .currentUser__container {
   display: flex;
@@ -15,6 +15,7 @@
     overflow: hidden;
 
     &__img {
+      content: url('../../public/default_background@2x.png');
       width: 100%;
       display: block;
     }
@@ -35,6 +36,7 @@
       overflow: hidden;
 
       &__img {
+        content: url('../../public/logo_gray@2x.png');
         width: 100%;
         display: block;
       }
@@ -98,7 +100,7 @@
   }
 }
 
-.listsContainer {
-  flex: 1;
-  overflow: scroll;
-}
+// .listsContainer {
+//   flex: 1;
+//   overflow: scroll;
+// }
