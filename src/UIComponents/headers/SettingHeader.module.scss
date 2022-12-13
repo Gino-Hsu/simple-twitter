@@ -1,0 +1,18 @@
+@use '../../styles/mixin';
+@use '../../styles/var' as color;
+
+.header__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid color.$assistant-gray-color;
+
+  .title {
+    margin: 24px;
+
+    &__text {
+      @include mixin.font-setting(1.5rem, 700, color.$gray-10);
+      line-height: 1.625rem;
+    }
+  }
+}

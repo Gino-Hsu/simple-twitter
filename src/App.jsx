@@ -11,6 +11,7 @@ import TweetModal from './components/tweetModal/TweetModal'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
 import CurrentUserLike from './pages/CurrentUserLike'
+import Setting from './pages/Setting'
 // import Follower from './components/follow/Follower'
 // import Following from './components/follow/Following'
 // import Follower from ''
@@ -18,7 +19,6 @@ import CurrentUserLike from './pages/CurrentUserLike'
 // import OtherUserTweet from ''
 // import OtherUserReply from ''
 // import OtherUserLike from ''
-// import Setting from ''
 
 // import AdminUsers from ''
 
@@ -31,6 +31,7 @@ function App() {
           <Route path="/regist" element={<Regist />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
+          <Route path="/setting" element={<Setting />}></Route>
           <Route path="/alphitter" element={<Layout />}>
             <Route path="home" element={<Home />}>
               <Route path={'#/tweet'} element={<TweetModal />}></Route>
@@ -50,7 +51,6 @@ function App() {
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
-            <Route path="/setting" element={<Setting />}></Route>
             <Route path="/admin/Users" element={<AdminUsers />}></Route>
             <Route path="/彈跳視窗" element={<TweetModal />}></Route>
             <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
