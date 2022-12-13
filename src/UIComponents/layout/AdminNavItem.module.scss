@@ -6,14 +6,12 @@
   height: 1.5rem;
   line-height: 1.5rem;
 }
-
 .icon__home {
   content: url('../../public/nav/nav_home@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;
 }
-
 .icon__user {
   content: url('../../public/nav/nav_user@2x.png');
   width: 100%;
@@ -28,16 +26,14 @@
   height: 26px;
   gap: 17px;
   cursor: pointer;
-
   .title {
     display: none;
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 870px) {
   .container {
     flex-direction: row;
-
     .title {
       width: 100%;
       display: block;

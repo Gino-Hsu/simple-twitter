@@ -10,15 +10,14 @@ import Reply from './pages/Reply'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
 import CurrentUserLike from './pages/CurrentUserLike'
+import AdminUsers from './pages/AdminUsers'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-// import Follower from './components/follow/Follower'
-// import Following from './components/follow/Following'
-// import Follower from ''
-// import Following from ''
-// import Setting from ''
-// import AdminUsers from ''
+import Follower from './components/follow/Follower'
+import Following from './components/follow/Following'
+
+
 
 function App() {
   return (
@@ -41,10 +40,11 @@ function App() {
               element={<CurrentUserReply />}
             ></Route>
             <Route path="user/self/like" element={<CurrentUserLike />}></Route>
+            <Route path="user/self/follower" element={<Follower />}></Route>
+            <Route path="user/self/following" element={<Following />}></Route>
             {/* <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
-
             {/* 
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
@@ -55,6 +55,7 @@ function App() {
             <Route path="/彈跳視窗" element={<EditModal />}></Route> */}
           </Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
+          <Route path="/admin/Users" element={<AdminUsers />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
