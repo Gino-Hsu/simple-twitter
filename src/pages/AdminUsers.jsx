@@ -1,5 +1,5 @@
-import React from "react";
-import AdminSideBar from "../components/SideBar/AdminSideBar";
+import React from 'react'
+import AdminSideBar from '../components/SideBar/AdminSideBar'
 import AdminUserCard from '../UIComponents/admin/AdminUserCard'
 
 import style from './AdminUsers.module.scss'
