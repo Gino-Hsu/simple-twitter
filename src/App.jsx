@@ -18,8 +18,6 @@ import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
 
 
-
-
 function App() {
   return (
     <div className="App">

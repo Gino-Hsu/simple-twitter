@@ -1,0 +1,25 @@
+@use '../styles/var' as color;
+
+.setting {
+  width: 100%;
+  display: flex;
+
+  &__form{
+    width: 100%;
+    border-left: 1px solid color.$assistant-gray-color;
+    border-right: 1px solid color.$assistant-gray-color;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .setting {
+    width: 100%;
+    margin-left: 130px;
+    &__sideBar {
+      margin-right: 24px;
+    }
+    &__form {
+      width: 44vw;
+    }
+  }
+}
