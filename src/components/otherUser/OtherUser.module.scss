@@ -1,7 +1,7 @@
 @use '../../styles/var' as color;
 @use '../../styles/mixin';
 
-.currentUser__container {
+.otherUser__container {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -87,40 +87,39 @@
     &__followBtn {
       width: inherit;
     }
-    }
-    .description {
-      padding: 0 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+  }
+  .description {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
-      &__text {
-        @include mixin.font-setting(0.875rem, 400, color.$gray-10);
-        line-height: 22px;
+    &__text {
+      @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+      line-height: 22px;
+    }
+
+    .follows {
+      display: flex;
+      gap: 20px;
+
+      &__follower,
+      &__following {
+        display: flex;
       }
 
-      .follows {
-        display: flex;
-        gap: 20px;
+      &__follower__count,
+      &__following__count {
+        @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+      }
 
-        &__follower,
-        &__following {
-          display: flex;
-        }
-
-        &__follower__count,
-        &__following__count {
-          @include mixin.font-setting(0.875rem, 400, color.$gray-10);
-        }
-
-        &__follower__type,
-        &__following__type {
-          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
-        }
+      &__follower__type,
+      &__following__type {
+        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
       }
     }
   }
-
+}
 
 .listsContainer {
   flex: 1;
@@ -133,7 +132,7 @@
     padding-bottom: 0;
   }
 
-  .body{
+  .body {
     .buttons {
       gap: 16px;
     }

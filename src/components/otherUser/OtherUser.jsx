@@ -16,7 +16,7 @@ export default function OtherUser({
   children,
 }) {
   return (
-    <div className={style.currentUser__container}>
+    <div className={style.otherUser__container}>
       <div className={style.header}>
         <UserHeader name="Gino" tweetCount="99" />
       </div>
