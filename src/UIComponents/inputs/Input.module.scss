@@ -15,6 +15,7 @@
   &:has(:focus),
   &:has(:hover) {
     box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
+    transition: 0.3s 0s ease-out box-shadow;
   }
 
   .input__label {
@@ -56,9 +57,9 @@
 
 input:hover ~ .input__border__bottom,
 input:focus ~ .input__border__bottom {
-  border-bottom: 2px solid #50b5ff;
+  // border-bottom: 2px solid #50b5ff;
   transform: scaleX(1);
-  animation: border-bottom 1s 0s ease-out forwards;
+  animation: border-action 0.5s 0s ease-out forwards;
 }
 
 // textarea
@@ -79,3 +80,16 @@ input:focus ~ .input__border__bottom {
   }
 }
 
+@keyframes border-action {
+  0% {
+    border-color: color.$primary-color;
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  100% {
+    border-color: #50b5ff;
+    transform: scaleX(1);
+  }
+}
