@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
 import Regist from './pages/Regist'
+import AdminTweets from './pages/AdminTweets'
 import Home from './pages/Home'
 import Reply from './pages/Reply'
 import Follower from './components/follow/Follower'
@@ -18,7 +19,7 @@ import Following from './components/follow/Following'
 // import OtherUserLike from ''
 // import Setting from ''
 // import AdminLogin from ''
-// import AdminTweets from ''
+
 // import AdminUsers from ''
 
 function App() {
@@ -43,12 +44,13 @@ function App() {
 
             <Route path="/setting" element={<Setting />}></Route>
             <Route path="/admin" element={<AdminLogin />}></Route>
-            <Route path="/admin/tweets" element={<AdminTweets />}></Route>
+
             <Route path="/admin/Users" element={<AdminUsers />}></Route>
             <Route path="/彈跳視窗" element={<TweetModal />}></Route>
             <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
             <Route path="/彈跳視窗" element={<EditModal />}></Route> */}
           </Route>
+          <Route path="/admin/tweets" element={<AdminTweets />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
