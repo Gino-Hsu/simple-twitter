@@ -17,8 +17,6 @@ import OtherUserLike from './pages/OtherUserLike'
 import Follower from './components/follow/Follower'
 import Following from './components/follow/Following'
 
-
-
 function App() {
   return (
     <div className="App">
@@ -28,6 +26,7 @@ function App() {
           <Route path="/regist" element={<Regist />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
+          <Route path="/setting" element={<Setting />}></Route>
           <Route path="/alphitter" element={<Layout />}>
             <Route path="home" element={<Home />}></Route>
             <Route path="reply" element={<Reply />}></Route>
@@ -48,7 +47,6 @@ function App() {
             {/* 
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
-            <Route path="/setting" element={<Setting />}></Route>
             <Route path="/admin/Users" element={<AdminUsers />}></Route>
             <Route path="/彈跳視窗" element={<TweetModal />}></Route>
             <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
