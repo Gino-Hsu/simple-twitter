@@ -3,9 +3,9 @@ import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
 
-import style from './CurrentUser.module.scss'
+import style from './OtherUser.module.scss'
 
-export default function CurrentUser({
+export default function OtherUser({
   coverImg,
   name,
   account,
@@ -16,7 +16,7 @@ export default function CurrentUser({
   children,
 }) {
   return (
-    <div className={style.currentUser__container}>
+    <div className={style.otherUser__container}>
       <div className={style.header}>
         <UserHeader name="Gino" tweetCount="99" />
       </div>
@@ -40,12 +40,15 @@ export default function CurrentUser({
           </div>
         </div>
 
-        <div className={style.edit}>
-          <div className={style.edit__container}>
-            <ButtonUI
-              btnStyle="btn__pill__small__default"
-              text="編輯個人資料"
-            />
+        <div className={style.buttons}>
+          <div className={style.buttons__emailIcon}>
+            <img className={style.buttons__emailIcon__img} alt="" />
+          </div>
+          <div className={style.buttons__bellIcon}>
+            <img className={style.buttons__bellIcon__img} alt="" />
+          </div>
+          <div className={style.buttons__followBtn}>
+            <ButtonUI btnStyle="btn__pill__small" text="正在跟隨" />
           </div>
         </div>
 
