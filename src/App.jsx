@@ -7,12 +7,12 @@ import Regist from './pages/Regist'
 import Home from './pages/Home'
 import Reply from './pages/Reply'
 import Follower from './components/follow/Follower'
+import Following from './components/follow/Following'
 
 // import CurrenUserTweet from ''
 // import CurrenUserReply from ''
 // import CurrenUserLike from ''
 
-// import Following from ''
 // import OtherUserTweet from ''
 // import OtherUserReply from ''
 // import OtherUserLike from ''
@@ -32,6 +32,7 @@ function App() {
             <Route path="home" element={<Home />}></Route>
             <Route path="reply" element={<Reply />}></Route>
             <Route path="user/self/follower" element={<Follower />}></Route>
+            <Route path="user/self/following" element={<Following />}></Route>
             {/* <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
@@ -39,7 +40,7 @@ function App() {
             <Route path="user/self/reply" element={<CurrenUserReply />}></Route>
             <Route path="user/self/like" element={<CurrenUserLike />}></Route>
             
-            <Route path="user/self/following" element={<Following />}></Route>
+
             <Route path="/setting" element={<Setting />}></Route>
             <Route path="/admin" element={<AdminLogin />}></Route>
             <Route path="/admin/tweets" element={<AdminTweets />}></Route>
