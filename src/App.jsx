@@ -7,8 +7,6 @@ import Home from './pages/Home'
 import Reply from './pages/Reply'
 import Follower from './components/follow/Follower'
 import Following from './components/follow/Following'
-
-
 import TweetModal from './components/tweetModal/TweetModal'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
@@ -35,7 +33,6 @@ function App() {
               <Route path={'#/tweet'} element={<TweetModal />}></Route>
             </Route>
             <Route path="reply" element={<Reply />}></Route>
-
             <Route
               path="user/self/tweet"
               element={<CurrentUserTweet />}
