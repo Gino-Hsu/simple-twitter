@@ -31,6 +31,11 @@
 }
 
 @media screen and (min-width: 800px) {
+  .setting {
+    &__form {
+      padding: 24px 23px;
+    }
+  }
   .setting__form__buttons__logout {
     display: none;
   }

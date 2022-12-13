@@ -13,10 +13,13 @@
 
 @media screen and (min-width: 1200px) {
   .setting {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+    margin-left: 130px;
     &__sideBar {
       margin-right: 24px;
+    }
+    &__form {
+      width: 44vw;
     }
   }
 }
