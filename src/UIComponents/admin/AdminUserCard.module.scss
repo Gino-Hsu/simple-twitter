@@ -6,29 +6,26 @@
   height: 19.625rem;
   position: relative;
   top: 0;
-
   .background__img {
     width: 100%;
-
     .img__container {
       width: 15.3125rem;
       height: 8.75rem;
       border-radius: 10px 10px 0 0;
       .img {
-        content: url(../public/admin/admin_background@2x.png);
+        content: url(../../public/admin/admin_background@2x.png);
         width: 100%;
         display: block;
       }
     }
   }
-
   .info {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-
+    background-color: #f6f7f8;
     .info__action {
       width: 8.6875rem;
       height: 1.625rem;
@@ -48,12 +45,12 @@
           width: 1.5rem;
           height: 1.5rem;
           .icon__tweet {
-            content: url(../public/admin/admin_reply@2x.png);
+            content: url(../../public/admin/admin_reply@2x.png);
             width: 100%;
             display: block;
           }
           .icon__like {
-            content: url(../public/admin/admin_like@2x.png);
+            content: url(../../public/admin/admin_like@2x.png);
             width: 100%;
             display: block;
           }
@@ -66,7 +63,6 @@
         }
       }
     }
-
     .follow {
       display: flex;
       flex-direction: row;
@@ -84,9 +80,7 @@
       }
     }
   }
-
   .user {
-    // display: none;
     position: absolute;
     top: 4rem;
     left: 4.5rem;
@@ -95,12 +89,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     .user__avatar {
       width: 100%;
       height: 100%;
       display: flex;
-
       .avatar__container {
         display: flex;
         align-items: center;
@@ -112,7 +104,7 @@
         overflow: hidden;
         z-index: 1;
         .avatar__img {
-          content: url('../public/default_background@2x.png');
+          content: url('../../public/default_background@2x.png');
           width: 90%;
           height: 90%;
           border-radius: 50%;
@@ -125,15 +117,12 @@
       width: 6.25rem;
       display: flex;
       flex-direction: column;
-      // align-items: center;
       text-align: center;
-
       .name {
         width: 100%;
         @include mixin.font-setting(1rem, 700, color.$gray-10);
         line-height: 1.625rem;
       }
-
       .account {
         width: 90.54%;
         @include mixin.font-setting(0.875rem, 400, color.$primary-color);
