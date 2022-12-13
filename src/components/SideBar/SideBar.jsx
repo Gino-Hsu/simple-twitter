@@ -23,7 +23,7 @@ export default function SideBar() {
             <NavItem icon="icon__setting" altName="setting" title="設定" />
           </div>
           <div className={style.tweet}>
-            <Link to={'/alphitter/home/#/tweet'}>
+            <Link className={style.btn__link} to={'/alphitter/home/#/tweet'}>
               <img alt="" />
               <div className={style.tweet__btn}>推文</div>
             </Link>
