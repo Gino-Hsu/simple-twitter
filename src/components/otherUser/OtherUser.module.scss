@@ -54,47 +54,73 @@
     }
   }
 
-  .edit {
+  .buttons {
     display: flex;
     justify-content: flex-end;
     margin: 16px 24px 64px 24px;
-    &__container {
+    gap: 8px;
+
+    &__emailIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_msg@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__bellIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_notfi@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__followBtn {
       width: inherit;
     }
-  }
-
-  .description {
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-    &__text {
-      @include mixin.font-setting(0.875rem, 400, color.$gray-10);
-      line-height: 22px;
     }
-
-    .follows {
+    .description {
+      padding: 0 24px;
       display: flex;
-      gap: 20px;
+      flex-direction: column;
+      gap: 16px;
 
-      &__follower,
-      &__following {
-        display: flex;
-      }
-
-      &__follower__count,
-      &__following__count {
+      &__text {
         @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+        line-height: 22px;
       }
 
-      &__follower__type,
-      &__following__type {
-        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+      .follows {
+        display: flex;
+        gap: 20px;
+
+        &__follower,
+        &__following {
+          display: flex;
+        }
+
+        &__follower__count,
+        &__following__count {
+          @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+        }
+
+        &__follower__type,
+        &__following__type {
+          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        }
       }
     }
   }
-}
+
 
 .listsContainer {
   flex: 1;
@@ -105,5 +131,11 @@
 @media screen and (min-width: 800px) {
   .listsContainer {
     padding-bottom: 0;
+  }
+
+  .body{
+    .buttons {
+      gap: 16px;
+    }
   }
 }
