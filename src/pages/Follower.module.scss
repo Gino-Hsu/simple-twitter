@@ -1,0 +1,104 @@
+@use '../styles/var' as color;
+@use '../styles/mixin';
+
+.currentUser__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  position: relative;
+
+  .cover {
+    width: 100%;
+    height: 124px;
+    overflow: hidden;
+
+    &__img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .userInfo {
+    position: absolute;
+    top: 84px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      &__img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .info__container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .userInfo__name {
+        @include mixin.font-setting(1.125rem, 700, color.$gray-10);
+      }
+
+      .userInfo__account {
+        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+      }
+    }
+  }
+
+  .edit {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px 24px 64px 24px;
+
+    &__container {
+      width: inherit;
+    }
+  }
+
+  .description {
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__text {
+      @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+      line-height: 22px;
+    }
+
+    .follows {
+      display: flex;
+      gap: 20px;
+
+      &__follower,
+      &__following {
+        display: flex;
+      }
+
+      &__follower__count,
+      &__following__count {
+        @include mixin.font-setting(0.875rem, 400, color.$gray-10);
+      }
+
+      &__follower__type,
+      &__following__type {
+        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+      }
+    }
+  }
+}
+
+.listsContainer {
+  flex: 1;
+  overflow: scroll;
+}
