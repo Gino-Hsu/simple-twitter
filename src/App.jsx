@@ -12,7 +12,7 @@ import Following from './components/follow/Following'
 import TweetModal from './components/tweetModal/TweetModal'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
-// import CurrentUserLike from ''
+import CurrentUserLike from './pages/CurrentUserLike'
 // import Follower from ''
 // import Following from ''
 // import OtherUserTweet from ''
@@ -44,12 +44,12 @@ function App() {
               path="user/self/reply"
               element={<CurrentUserReply />}
             ></Route>
+            <Route path="user/self/like" element={<CurrentUserLike />}></Route>
             {/* <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
-            <Route path="user/self/like" element={<CurrenUserLike />}></Route>
-            
-
+            <Route path="user/self/follower" element={<Follower />}></Route>
+            <Route path="user/self/following" element={<Following />}></Route>
             <Route path="/setting" element={<Setting />}></Route>
             <Route path="/admin" element={<AdminLogin />}></Route>
             <Route path="/admin/tweets" element={<AdminTweets />}></Route>
