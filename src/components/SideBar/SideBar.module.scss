@@ -20,6 +20,10 @@
   display: none;
 }
 
+.btn__link {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 800px) {
   .mobile {
     display: none;
@@ -107,6 +111,7 @@
     }
   }
 }
+
 @media screen and (min-width: 1200px) {
   .nav__container {
     align-items: flex-start;
