@@ -1,7 +1,7 @@
 @use '../../styles/var' as color;
 @use '../../styles/mixin';
 
-.currentUser__container {
+.otherUser__container {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -54,15 +54,40 @@
     }
   }
 
-  .edit {
+  .buttons {
     display: flex;
     justify-content: flex-end;
     margin: 16px 24px 64px 24px;
-    &__container {
+    gap: 8px;
+
+    &__emailIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_msg@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__bellIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_notfi@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__followBtn {
       width: inherit;
     }
   }
-
   .description {
     padding: 0 24px;
     display: flex;
@@ -105,5 +130,11 @@
 @media screen and (min-width: 800px) {
   .listsContainer {
     padding-bottom: 0;
+  }
+
+  .body {
+    .buttons {
+      gap: 16px;
+    }
   }
 }

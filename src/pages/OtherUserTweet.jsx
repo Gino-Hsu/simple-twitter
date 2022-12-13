@@ -1,16 +1,16 @@
 import React from 'react'
-import CurrentUser from '../components/currentUser/CurrentUser'
+import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 
-import style from './CurrentUserLike.module.scss'
+import style from './OtherUserTweet.module.scss'
 
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserLike() {
+export default function OtherUserTweet() {
   return (
-    <div className={style.userLike__container}>
-      <CurrentUser
+    <div className={style.userTweet__container}>
+      <OtherUser
         coverImg={cover}
         name="Gino"
         account="gino"
@@ -82,7 +82,7 @@ export default function CurrentUserLike() {
           twitterReply="13"
           twitterLike="76"
         />
-      </CurrentUser>
+      </OtherUser>
     </div>
   )
 }
