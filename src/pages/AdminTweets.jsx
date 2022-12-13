@@ -1,6 +1,6 @@
-import React from "react";
-import AdminSideBar from "../components/SideBar/AdminSideBar";
-import AdminListItem from "../UIComponents/admin/AdminListItem";
+import React from 'react'
+import AdminSideBar from '../components/SideBar/AdminSideBar'
+import AdminListItem from '../UIComponents/admin/AdminListItem'
 
 import style from './AdminTweets.module.scss'
 
