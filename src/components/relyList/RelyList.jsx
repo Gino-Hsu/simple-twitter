@@ -81,7 +81,7 @@ export default function ReplyList({
 
       <div className={style.replyLists}>
         <ReplyListItem
-          avatar="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -89,7 +89,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
+          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -97,7 +97,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -105,7 +105,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
+          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -113,7 +113,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -121,7 +121,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
+          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -129,7 +129,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -137,7 +137,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
+          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -145,7 +145,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
           name="Gino"
           account="gino"
           time="12 小時"
@@ -153,7 +153,7 @@ export default function ReplyList({
           reply="等等前端QQ"
         />
         <ReplyListItem
-          avatar="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
+          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
           name="Gino"
           account="gino"
           time="12 小時"

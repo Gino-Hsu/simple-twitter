@@ -2,6 +2,7 @@
 @use '../../styles/mixin';
 
 .currentUser__container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -96,5 +97,12 @@
 
 .listsContainer {
   flex: 1;
-  overflow: scroll;
+  overflow-y: scroll;
+  padding-bottom: 3.25rem;
+}
+
+@media screen and (min-width: 800px) {
+  .listsContainer {
+    padding-bottom: 0;
+  }
 }

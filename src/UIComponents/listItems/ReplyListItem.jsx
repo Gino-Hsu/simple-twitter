@@ -3,7 +3,7 @@ import React from 'react'
 import style from './ReplyListItem.module.scss'
 
 export default function ReplyListItem({
-  avatar,
+  avatarImg,
   name,
   account,
   time,
@@ -13,7 +13,7 @@ export default function ReplyListItem({
   return (
     <div className={style.listItem__container}>
       <div className={style.avatar}>
-        <img className={style.avatar__img} src={avatar} alt="Avatar" />
+        <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
       </div>
       <div className={style.listItem__body}>
         <div className={style.replyBy}>

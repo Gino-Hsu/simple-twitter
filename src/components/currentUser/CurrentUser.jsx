@@ -2,6 +2,7 @@ import React from 'react'
 // import UserHeader
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
+import UserHeader from '../../UIComponents/headers/UserHeader'
 
 import style from './CurrentUser.module.scss'
 
@@ -17,7 +18,9 @@ export default function CurrentUser({
 }) {
   return (
     <div className={style.currentUser__container}>
-      <div className={style.header}>{/* userHeader */}</div>
+      <div className={style.header}>
+        <UserHeader name="Gino" tweetCount="99" />
+      </div>
 
       <div className={style.body}>
         <div className={style.cover}>
@@ -70,9 +73,7 @@ export default function CurrentUser({
         <UserToggleMenu />
       </div>
 
-      <div className={style.listsContainer}>
-        <div className={style.listsContainer__listItems}>{children}</div>
-      </div>
+      <div className={style.listsContainer}>{children}</div>
     </div>
   )
 }
