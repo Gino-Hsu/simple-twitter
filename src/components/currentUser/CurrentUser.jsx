@@ -73,9 +73,7 @@ export default function CurrentUser({
         <UserToggleMenu />
       </div>
 
-      <div className={style.listsContainer}>
-        {children}
-      </div>
+      <div className={style.listsContainer}>{children}</div>
     </div>
   )
 }
