@@ -1,6 +1,6 @@
-import React from "react";
-import AdminSideBar from "../components/SideBar/AdminSideBar";
-import AdminListItem from "../UIComponents/admin/AdminListItem";
+import React from 'react'
+import AdminSideBar from '../components/SideBar/AdminSideBar'
+import AdminListItem from '../UIComponents/admin/AdminListItem'
 
 import style from './AdminTweets.module.scss'
 
@@ -14,7 +14,6 @@ export default function AdminTweets() {
         <div className={style.admin__title}>
           <div className={style.title}>推文清單</div>
         </div>
-
         <div className={style.adminListItem}>
           <AdminListItem />
           <AdminListItem />
@@ -32,3 +31,4 @@ export default function AdminTweets() {
     </div>
   )
 }
+

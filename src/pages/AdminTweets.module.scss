@@ -6,47 +6,44 @@
   margin: 0 auto;
   display: flex;
   gap: 1.5rem;
-    
   overflow: hidden;
   .adminSideBar {
     width: 3.5rem;
   }
-    .admin__main {
-      border: 1px solid color.$assistant-gray-color;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      .admin__title {
-        margin-top: 1.5rem;
-        border-bottom: 1px solid color.$assistant-gray-color;
-        padding-left: 1.3075rem;
-        .title {
-            width: 100%;
-            height: 3.1875rem;
-            @include mixin.font-setting(1.5rem, 700, color.$gray-10)
-
-          }
-      }
-      
-      .adminListItem {
-        flex: 1;
-        overflow-y: scroll;
+  .admin__main {
+    border: 1px solid color.$assistant-gray-color;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .admin__title {
+      margin-top: 1.5rem;
+      border-bottom: 1px solid color.$assistant-gray-color;
+      padding-left: 1.3075rem;
+      .title {
+        width: 100%;
+        height: 3.1875rem;
+        @include mixin.font-setting(1.5rem, 700, color.$gray-10);
       }
     }
+    .adminListItem {
+      flex: 1;
+      overflow-y: scroll;
+    }
+  }
 }
 
 @media screen and (min-width: 576px) {
   .admin__container {
     width: 80%;
-
     .adminSideBar {
-        width: 11.125rem;
+      width: 11.125rem;
+    }
+    .admin__main {
+      .title {
       }
-    
-      .admin__main {
-        .title {}
-    
-        .adminListItem {}
+      .adminListItem {
       }
+    }
   }
 }
+

@@ -1,0 +1,58 @@
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
+
+.form__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 29px;
+    overflow: hidden;
+
+    .logo__img {
+      content: url('../../public/logo@2x.png');
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .title {
+    @include mixin.font-setting(1.75rem, 700, color.$gray-11);
+  }
+
+  .form {
+    width: 100%;
+
+    .input__container {
+      margin: 1rem 0 2.5rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
+
+  .link {
+    margin-top: 22px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .form__container {
+    .form {
+      width: 356px;
+
+      .input__container {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react'
-import RegistForm from '../components/registForm/RegistForm'
+import AdminLoginForm from '../components/adminLoginForm/AdminLoginForm'
 
 import style from './RegistAndLogin.module.scss'
 
-export default function Regist() {
+export default function AdminLogin() {
   return (
     <div className={style.form__container}>
-      <RegistForm />
+      <AdminLoginForm />
     </div>
   )
 }

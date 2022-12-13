@@ -5,7 +5,7 @@ import style from './RegistAndLogin.module.scss'
 
 export default function Login() {
   return (
-    <div className={style.regist__container}>
+    <div className={style.form__container}>
       <LoginForm />
     </div>
   )
