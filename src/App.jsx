@@ -11,11 +11,11 @@ import CurrentUserReply from './pages/CurrentUserReply'
 import CurrentUserLike from './pages/CurrentUserLike'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
+import OtherUserLike from './pages/OtherUserLike'
 // import Follower from './components/follow/Follower'
 // import Following from './components/follow/Following'
 // import Follower from ''
 // import Following from ''
-// import OtherUserLike from ''
 // import Setting from ''
 // import AdminLogin from ''
 
@@ -42,9 +42,9 @@ function App() {
             <Route path="user/self/like" element={<CurrentUserLike />}></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
+            <Route path="user/other/like" element={<OtherUserLike />}></Route>
 
             {/* 
-            <Route path="user/other/like" element={<OtherUserLike />}></Route>
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
             <Route path="/setting" element={<Setting />}></Route>
