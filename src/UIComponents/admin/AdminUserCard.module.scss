@@ -15,7 +15,7 @@
       height: 8.75rem;
       border-radius: 10px 10px 0 0;
       .img {
-        content: url(../public/admin/admin_background@2x.png);
+        content: url(../../public/admin/admin_background@2x.png);
         width: 100%;
         display: block;
       }
@@ -48,12 +48,12 @@
           width: 1.5rem;
           height: 1.5rem;
           .icon__tweet {
-            content: url(../public/admin/admin_reply@2x.png);
+            content: url(../../public/admin/admin_reply@2x.png);
             width: 100%;
             display: block;
           }
           .icon__like {
-            content: url(../public/admin/admin_like@2x.png);
+            content: url(../../public/admin/admin_like@2x.png);
             width: 100%;
             display: block;
           }
@@ -112,7 +112,7 @@
         overflow: hidden;
         z-index: 1;
         .avatar__img {
-          content: url('../public/default_background@2x.png');
+          content: url('../../public/default_background@2x.png');
           width: 90%;
           height: 90%;
           border-radius: 50%;

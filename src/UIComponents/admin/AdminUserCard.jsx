@@ -1,6 +1,6 @@
 import React from 'react'
 
-import style from './UserCardItem.module.scss'
+import style from './AdminUserCard.module.scss'
 
 export default function UserCardItem() {
   return (
