@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
 import Regist from './pages/Regist'
+import Setting from './pages/Setting'
 import AdminLogin from './pages/AdminLogin'
 import AdminTweets from './pages/AdminTweets'
 import AdminUsers from './pages/AdminUsers'
@@ -47,9 +48,6 @@ function App() {
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
           </Route>
-          {/* <Route path="/彈跳視窗" element={<TweetModal />}></Route>
-            <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
-            <Route path="/彈跳視窗" element={<EditModal />}></Route>  */}
         </Routes>
       </BrowserRouter>
     </div>
@@ -57,3 +55,7 @@ function App() {
 }
 
 export default App
+
+// <Route path="/彈跳視窗" element={<TweetModal />}></Route>
+// <Route path="/彈跳視窗" element={<ReplyModal />}></Route>
+// <Route path="/彈跳視窗" element={<EditModal />}></Route>

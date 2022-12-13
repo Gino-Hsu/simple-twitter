@@ -6,9 +6,7 @@ export default function UserCardItem() {
   return (
     <div className={style.card__container}>
       <div className={style.background__img}>
-        <div className={style.img__container}>
           <img className={style.img} alt="background img" />
-        </div>
       </div>
       <div className={style.info}>
         <div className={style.info__action}>
