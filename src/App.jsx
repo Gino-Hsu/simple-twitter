@@ -7,7 +7,6 @@ import Home from './pages/Home'
 import Reply from './pages/Reply'
 import Follower from './components/follow/Follower'
 import Following from './components/follow/Following'
-
 import TweetModal from './components/tweetModal/TweetModal'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
