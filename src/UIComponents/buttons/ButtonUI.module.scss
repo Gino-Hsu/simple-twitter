@@ -70,10 +70,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: unset;
 
   p {
     @include mixin.font-setting(1rem, 400, #0062ff);
     border-bottom: 1px solid #0062ff;
     cursor: pointer;
+    text-decoration: none;
   }
 }
