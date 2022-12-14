@@ -32,6 +32,7 @@
       .adminUserCards {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(15.57rem, 1fr));
+        // grid-auto-rows: 341px;
         grid-gap: 1rem;
       }
     }

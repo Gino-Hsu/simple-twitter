@@ -6,9 +6,13 @@ export default function UserCardItem() {
   return (
     <div className={style.card__container}>
       <div className={style.background__img}>
-          <img className={style.img} alt="background img" />
+        <img className={style.img} alt="background img" />
       </div>
       <div className={style.info}>
+        <div className={style.title}>
+          <div className={style.name}>John Doe</div>
+          <div className={style.account}>@john</div>
+        </div>
         <div className={style.info__action}>
           <div className={style.action__container}>
             <div className={style.icon}>
@@ -37,10 +41,6 @@ export default function UserCardItem() {
           <div className={style.avatar__container}>
             <img className={style.avatar__img} src="" alt="avatar" />
           </div>
-        </div>
-        <div className={style.title}>
-          <div className={style.name}>John Doe</div>
-          <div className={style.account}>@john</div>
         </div>
       </div>
     </div>
