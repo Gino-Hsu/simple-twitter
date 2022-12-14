@@ -1,0 +1,140 @@
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
+
+.view__container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: color.$gray-1;
+  z-index: 2;
+}
+
+.cover__container {
+  position: relative;
+  width: 100%;
+  height: 124px;
+  overflow: hidden;
+  &__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    -webkit-filter: brightness(0.6);
+  }
+  .icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 38.5px;
+    z-index: 1;
+    .coverChange {
+      width: 20px;
+      &__icon {
+        content: url('../../public/modal/modal_upload@2x.png');
+        width: 100%;
+        display: block;
+        cursor: pointer;
+      }
+    }
+    .coverDelete {
+      width: 15px;
+      &__icon {
+        content: url('../../public/modal/modal_cancel@2x.png');
+        width: 100%;
+        display: block;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.avatar {
+  position: absolute;
+  top: 159px;
+  left: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__img {
+    width: 100%;
+    display: block;
+    -webkit-filter: brightness(0.6);
+  }
+
+  .avatarChange {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 20px;
+    z-index: 1;
+    &__icon {
+      transform: translate(-50%, -50%);
+      content: url('../../public/modal/modal_upload@2x.png');
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
+
+.inputs {
+  margin: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  &__name__count,
+  &__description__count {
+    display: none;
+  }
+}
+
+.cover__input,
+.avatar__input {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .view__container {
+    position: relative;
+    margin: 56px auto;
+    width: 90vw;
+    height: inherit;
+    border-radius: 14px;
+    background-color: color.$gray-1;
+    z-index: 2;
+  }
+
+  .cover__container {
+    height: 200px;
+  }
+
+  .avatar {
+    top: 181px;
+    left: 16px;
+    width: 140px;
+    height: 140px;
+    border: 4px solid color.$gray-1;
+  }
+
+  .inputs {
+    &__name__count,
+    &__description__count {
+      display: flex;
+      justify-content: flex-end;
+      @include mixin.font-setting(0.75rem, 500, color.$gray-8);
+      line-height: 20px;
+    }
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .view__container { 
+    width: 634px;
+  }
+}
