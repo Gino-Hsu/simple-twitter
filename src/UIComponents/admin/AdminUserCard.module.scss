@@ -2,43 +2,61 @@
 @use '../../styles/var' as color;
 
 .card__container {
-  width: 15.3125rem;
-  height: 19.625rem;
+  // width: 15.5625rem;
+  // height: 19.625rem;
+  aspect-ratio: 1 / 1.26;
+  width: 100%;
   position: relative;
   top: 0;
+  display: flex;
+  flex-direction: column;
   .background__img {
     width: 100%;
-    .img__container {
-      width: 15.3125rem;
-      height: 8.75rem;
-      border-radius: 10px 10px 0 0;
-      .img {
-        content: url(../../public/admin/admin_background@2x.png);
-        width: 100%;
-        display: block;
-      }
+    height: 44.6%;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    // border: 1px solid red;
+    .img {
+      content: url(../../public/admin/admin_background@2x.png);
+      height: 100%;
+      display: block;
     }
   }
   .info {
     width: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    // padding-bottom: 1.5rem;
+    gap: 4.56%;
     background-color: #f6f7f8;
+    .title {
+        text-align: center;
+    
+        .name {
+          width: 100%;
+          @include mixin.font-setting(1rem, 700, color.$gray-10);
+          line-height: 1.625rem;
+        }
+    
+        .account {
+          width: 90.54%;
+          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+          line-height: 1.375rem;
+        }
+      }
     .info__action {
       width: 8.6875rem;
       height: 1.625rem;
-      margin: 5.875rem 3.3125rem 0 3.3125rem;
       display: flex;
-      flex-direction: row;
       align-items: center;
       gap: 1rem;
       .action__container {
         width: 3.8125rem;
         height: 1.5rem;
         display: flex;
-        flex-direction: row;
         align-items: center;
         gap: 0.5rem;
         .icon {
@@ -71,7 +89,6 @@
       width: 9.875rem;
       height: 1.375rem;
       gap: 0.5rem;
-      margin: 0 2.6875rem 1.5rem 2.75rem;
       p {
         @include mixin.font-setting(0.875rem, 400, color.$gray-10);
         span {
@@ -82,10 +99,10 @@
   }
   .user {
     position: absolute;
-    top: 4rem;
-    left: 4.5rem;
-    width: 6.25rem;
-    height: 9.625rem;
+    top: 22.4%;
+    left: 31.7%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,8 +114,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 6.25rem;
-        height: 6.25rem;
+        width: 31.84%;
+        height: 31.84%;
         border-radius: 50%;
         background-color: #fff;
         overflow: hidden;
@@ -112,22 +129,7 @@
           z-index: 2;
         }
       }
-    }
-    .title {
-      width: 6.25rem;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      .name {
-        width: 100%;
-        @include mixin.font-setting(1rem, 700, color.$gray-10);
-        line-height: 1.625rem;
-      }
-      .account {
-        width: 90.54%;
-        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
-        line-height: 1.375rem;
-      }
-    }
-  }
+    }}
+    
+  
 }
