@@ -12,8 +12,6 @@ export default function LoginForm({
   handleAccountChange,
   handlePasswordChange,
   handleLogin,
-  handleRegist,
-  handleAdminLogin,
   errorMessage,
 }) {
   return (
@@ -56,15 +54,11 @@ export default function LoginForm({
         <ButtonUI btnStyle="btn__pill__large" text="登入" />
         <div className={style.link}>
           <Link to="/regist">
-            <ButtonUI btnStyle="link" text="註冊" onClick={handleRegist} />
+            <ButtonUI btnStyle="link" text="註冊" />
           </Link>
           <div className={style.spot} />
           <Link to="/admin">
-            <ButtonUI
-              btnStyle="link"
-              text="後台登入"
-              onClick={handleAdminLogin}
-            />
+            <ButtonUI btnStyle="link" text="後台登入" />
           </Link>
         </div>
       </form>

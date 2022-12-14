@@ -23,7 +23,6 @@ export default function Login() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-  console.log(errorMessage)
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -69,14 +68,6 @@ export default function Login() {
       })
   }
 
-  // const handleRegist = () => {
-
-  // }
-
-  // const handleAdminLogin = () => {
-
-  // }
-
   return (
     <div className={style.form__container}>
       <LoginForm
@@ -86,8 +77,6 @@ export default function Login() {
         handlePasswordChange={handlePasswordChange}
         handleLogin={handleLogin}
         errorMessage={errorMessage}
-        // handleRegist={handleRegist}
-        // handleAdminLogin={handleAdminLogin}
       />
     </div>
   )
