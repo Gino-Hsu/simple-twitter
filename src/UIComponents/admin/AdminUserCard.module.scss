@@ -33,20 +33,20 @@
     gap: 4.56%;
     background-color: #f6f7f8;
     .title {
-        text-align: center;
-    
-        .name {
-          width: 100%;
-          @include mixin.font-setting(1rem, 700, color.$gray-10);
-          line-height: 1.625rem;
-        }
-    
-        .account {
-          width: 90.54%;
-          @include mixin.font-setting(0.875rem, 400, color.$primary-color);
-          line-height: 1.375rem;
-        }
+      text-align: center;
+
+      .name {
+        width: 100%;
+        @include mixin.font-setting(1rem, 700, color.$gray-10);
+        line-height: 1.625rem;
       }
+
+      .account {
+        width: 90.54%;
+        @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        line-height: 1.375rem;
+      }
+    }
     .info__action {
       width: 8.6875rem;
       height: 1.625rem;
@@ -129,7 +129,6 @@
           z-index: 2;
         }
       }
-    }}
-    
-  
+    }
+  }
 }

@@ -80,14 +80,14 @@ export default function EditModal() {
 
                 <div className={style.input__descripition}>
                   <div className={style.inputs__descripition}>
-                  <LoginAndRegistInput
-                    inputId="descripition"
-                    inputName="自我介紹"
-                    inputPlaceHolder="請輸入自我介紹"
-                    inputType="text"
-                    inputValue={description}
-                    onChange={handleDescriptionChange}
-                  />
+                    <LoginAndRegistInput
+                      inputId="descripition"
+                      inputName="自我介紹"
+                      inputPlaceHolder="請輸入自我介紹"
+                      inputType="text"
+                      inputValue={description}
+                      onChange={handleDescriptionChange}
+                    />
                   </div>
                   <p
                     className={style.inputs__description__count}

@@ -71,7 +71,6 @@
   justify-content: center;
   align-items: center;
   background-color: unset;
-  
 
   p {
     @include mixin.font-setting(1rem, 400, #0062ff);
