@@ -1,20 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './LoginForm.module.scss'
 
-export default function LoginForm() {
-  const [account, setAccount] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleAccountChange = (e) => {
-    setAccount(e.target.value)
-  }
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value)
-  }
-
+export default function LoginForm({
+  account,
+  password,
+  handleAccountChange,
+  handlePasswordChange,
+  handleLogin,
+  handleRegist,
+  handleAdminLogin,
+}) {
   return (
     <div className={style.form__container}>
       <div className={style.logo}>
@@ -40,11 +38,19 @@ export default function LoginForm() {
             onChange={handlePasswordChange}
           />
         </div>
-        <ButtonUI btnStyle="btn__pill__large" text="登入" />
+        <ButtonUI
+          btnStyle="btn__pill__large"
+          text="登入"
+          onClick={handleLogin}
+        />
         <div className={style.link}>
-          <ButtonUI btnStyle="link" text="註冊" />
+          <ButtonUI btnStyle="link" text="註冊" onClick={handleRegist} />
           <div className={style.spot} />
-          <ButtonUI btnStyle="link" text="後台登入" />
+          <ButtonUI
+            btnStyle="link"
+            text="後台登入"
+            onClick={handleAdminLogin}
+          />
         </div>
       </form>
     </div>

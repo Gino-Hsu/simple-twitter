@@ -19,11 +19,13 @@ import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
 import EditModal from './components/EditModal/EditModal'
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          <Route path="/modal" element={<TweetModal />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/regist" element={<Regist />}></Route>
           <Route path="/setting" element={<Setting />}></Route>
