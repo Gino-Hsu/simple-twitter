@@ -7,13 +7,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   .main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 56px;
     margin-top: 12px;
     margin-left: 1.5rem;
     .logo {
@@ -53,7 +52,7 @@
     }
   }
 }
-
+}
 @media screen and (min-width: 870px) {
   .nav__container {
     align-items: flex-start;
@@ -68,16 +67,18 @@
         margin-left: 16.9px;
       }
     }
+            .signOut {
+              display: flex;
+              margin-left: 16px;
+              align-items: center;
+              gap: 16px;
+      
+              .btn__name {
+                display: block;
+                width: inherit;
+                @include mixin.font-setting(1.125rem, 700, color.$gray-9);
+              }
+            }
   }
-  .signOut {
-    display: flex;
-    margin-left: 16px;
-    align-items: center;
-    gap: 16px;
-    .btn__name {
-      display: block;
-      width: 36px;
-      @include mixin.font-setting(1.125rem, 700, color.$gray-9);
-    }
-  }
+
 }
