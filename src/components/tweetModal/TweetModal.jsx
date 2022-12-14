@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import ReactDom from 'react-dom'
-import Modal from '../../UIComponents/modals/Modal'
+import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 

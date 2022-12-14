@@ -17,6 +17,7 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
+import EditModal from './components/EditModal/EditModal'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin/Users" element={<AdminUsers />}></Route>
+          <Route path="/edit" element={<EditModal />}></Route>
           <Route path="/alphitter" element={<Layout />}>
             <Route path="home" element={<Home />}></Route>
             <Route path="reply" element={<Reply />}></Route>
@@ -57,4 +59,3 @@ export default App
 
 ///<Route path="/彈跳視窗" element={<TweetModal />}></Route>
 ///<Route path="/彈跳視窗" element={<ReplyModal />}></Route>
-///<Route path="/彈跳視窗" element={<EditModal />}></Route>

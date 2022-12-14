@@ -11,21 +11,21 @@
   justify-content: space-between;
   background-color: #f5f8fa;
   border-radius: 2px 2px 4px 4px;
+}
 
-  .input__label {
-    margin: 0 1rem;
-    @include mixin.font-setting(0.9rem, 800, color.$gray-8);
-  }
-  .input {
-    margin: 0 1rem;
-    padding: 0;
-    border: none;
-    background-color: inherit;
-    @include mixin.font-setting(1rem, 400, color.$gray-10);
+.input__label {
+  margin: 0 1rem;
+  @include mixin.font-setting(0.9rem, 800, color.$gray-8);
+}
+.input {
+  margin: 0 1rem;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  @include mixin.font-setting(1rem, 400, color.$gray-10);
 
-    &::placeholder {
-      @include mixin.font-setting(1rem, 400, color.$gray-6);
-    }
+  &::placeholder {
+    @include mixin.font-setting(1rem, 400, color.$gray-6);
   }
 }
 
