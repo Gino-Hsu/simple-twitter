@@ -67,18 +67,17 @@
         margin-left: 16.9px;
       }
     }
-            .signOut {
-              display: flex;
-              margin-left: 16px;
-              align-items: center;
-              gap: 16px;
-      
-              .btn__name {
-                display: block;
-                width: inherit;
-                @include mixin.font-setting(1.125rem, 700, color.$gray-9);
-              }
-            }
-  }
+    .signOut {
+      display: flex;
+      margin-left: 16px;
+      align-items: center;
+      gap: 16px;
 
+      .btn__name {
+        display: block;
+        width: inherit;
+        @include mixin.font-setting(1.125rem, 700, color.$gray-9);
+      }
+    }
+  }
 }
