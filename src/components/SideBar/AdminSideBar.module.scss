@@ -35,20 +35,21 @@
       width: 100%;
       margin: 39.8px 0 35.6px;
       gap: 45.6px;
+    }
   }
-}
-.signOut {
-  display: block;
-  margin-bottom: 16px;
-  cursor: pointer;
-  img {
-    content: url('../../public/nav/nav_signout@2x.png');
-    width: 24px;
-    height: 24px;
+  .signOut {
     display: block;
-  }
-  .btn__name {
-    display: none;
+    margin-bottom: 16px;
+    cursor: pointer;
+    img {
+      content: url('../../public/nav/nav_signout@2x.png');
+      width: 24px;
+      height: 24px;
+      display: block;
+    }
+    .btn__name {
+      display: none;
+    }
   }
 }
 }

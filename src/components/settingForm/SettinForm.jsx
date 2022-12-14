@@ -78,10 +78,10 @@ export default function SettinForm() {
         </div>
         <div className={style.setting__form__buttons}>
           <div className={style.setting__form__buttons__save}>
-          <ButtonUI btnStyle="btn__pill__large" text="儲存" />
+            <ButtonUI btnStyle="btn__pill__large" text="儲存" />
           </div>
           <div className={style.setting__form__buttons__logout}>
-          <ButtonUI btnStyle="link" text="登出" />
+            <ButtonUI btnStyle="link" text="登出" />
           </div>
         </div>
       </div>
