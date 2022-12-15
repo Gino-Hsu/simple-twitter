@@ -17,7 +17,7 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-import EditModal from './components/EditModal/EditModal'
+import EditModal from './components/editModal/EditModal'
 
 function App() {
   return (
