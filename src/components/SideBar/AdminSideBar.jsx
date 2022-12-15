@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import AdminNavItem from '../../UIComponents/layout/AdminNavItem'
 import style from './AdminSideBar.module.scss'
 
@@ -11,8 +12,44 @@ export default function AdminSideBar() {
             <img alt="logo" />
           </div>
           <div className={style.menu}>
-            <AdminNavItem icon="icon__home" altName="home" title="推文清單" />
-            <AdminNavItem icon="icon__user" altName="user" title="使用者列表" />
+            <NavLink to="/admin/tweets">
+              {({ isActive }) =>
+                isActive ? (
+                  <AdminNavItem
+                    iconStyle="icon__home__action"
+                    textStyle="title__action"
+                    altName="home"
+                    title="推文清單"
+                  />
+                ) : (
+                  <AdminNavItem
+                    iconStyle="icon__home"
+                    textStyle="title"
+                    altName="home"
+                    title="推文清單"
+                  />
+                )
+              }
+            </NavLink>
+            <NavLink to="/admin/Users">
+              {({ isActive }) =>
+                isActive ? (
+                  <AdminNavItem
+                    iconStyle="icon__user__action"
+                    textStyle="title__action"
+                    altName="user"
+                    title="使用者列表"
+                  />
+                ) : (
+                  <AdminNavItem
+                    iconStyle="icon__user"
+                    textStyle="title"
+                    altName="user"
+                    title="使用者列表"
+                  />
+                )
+              }
+            </NavLink>
           </div>
         </div>
         <div className={style.signOut}>

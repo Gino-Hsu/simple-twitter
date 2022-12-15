@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
@@ -52,22 +53,31 @@ export default function CurrentUser({
         <div className={style.description}>
           <div className={style.description__text}>{description}</div>
           <div className={style.follows}>
-            <div className={style.follows__follower}>
-              <p
-                className={style.follows__follower__count}
-              >{`${followerCount} 個`}</p>
-              <p className={style.follows__follower__type}>跟隨中</p>
-            </div>
-            <div className={style.follows__following}>
-              <p
-                className={style.follows__following__count}
-              >{`${followingCount} 個`}</p>
-              <p className={style.follows__following__type}>跟隨者</p>
-            </div>
+            <Link
+              className={style.router__link}
+              to="/alphitter/user/self/follower"
+            >
+              <div className={style.follows__follower}>
+                <p
+                  className={style.follows__follower__count}
+                >{`${followerCount} 個`}</p>
+                <p className={style.follows__follower__type}>跟隨中</p>
+              </div>
+            </Link>
+            <Link
+              className={style.router__link}
+              to="/alphitter/user/self/following"
+            >
+              <div className={style.follows__following}>
+                <p
+                  className={style.follows__following__count}
+                >{`${followingCount} 個`}</p>
+                <p className={style.follows__following__type}>跟隨者</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
-
       <div className={style.lists__header}>
         <UserToggleMenu />
       </div>

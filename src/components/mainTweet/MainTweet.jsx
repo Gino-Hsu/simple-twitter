@@ -14,7 +14,7 @@ export default function MainTweet() {
       </div>
       <div className={style.tweetListItem}>
         <TweetListItem
-          twitter="1234fklhgkldfshgljfhaglkdshglsahglkhdslkghjl;ashglafshglasdhgvlkashglkvhdsalvkhfslbvlcsnvlfs5678"
+          tweet="1234fklhgkldfshgljfhaglkdshglsahglkhdslkghjl;ashglafshglasdhgvlkashglkvhdsalvkhfslbvlcsnvlfs5678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -22,7 +22,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -30,7 +30,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -38,7 +38,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -46,7 +46,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -54,7 +54,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -62,7 +62,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -70,7 +70,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -78,7 +78,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -86,7 +86,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -94,7 +94,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -102,7 +102,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"
@@ -110,7 +110,7 @@ export default function MainTweet() {
           twitterReply="39"
         />
         <TweetListItem
-          twitter="12345678"
+          tweet="12345678"
           account="@Apple"
           userName="apple"
           time="5小時"

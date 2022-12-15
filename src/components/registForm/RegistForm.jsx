@@ -101,11 +101,11 @@ export default function RegistForm({
           </div>
         </div>
         <ButtonUI btnStyle="btn__pill__large" text="註冊" />
-        <Link to="/login">
-          <div className={style.link}>
+        <div className={style.link}>
+          <Link to="/login">
             <ButtonUI btnStyle="link" text="取消" />
-          </div>
-        </Link>
+          </Link>
+        </div>
       </form>
     </div>
   )

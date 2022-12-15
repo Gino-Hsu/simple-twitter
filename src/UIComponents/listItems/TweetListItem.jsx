@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
 
 export default function TweetListItem({
@@ -26,9 +27,11 @@ export default function TweetListItem({
             <span>{time}</span>
           </div>
         </div>
-        <div className={style.info__tweet}>
-          <p>{tweet}</p>
-        </div>
+        <Link to="/alphitter/reply">
+          <div className={style.info__tweet}>
+            <p>{tweet}</p>
+          </div>
+        </Link>
         <div className={style.info__icons}>
           <div className={style.icon__reply}>
             <div className={style.cursor}>
