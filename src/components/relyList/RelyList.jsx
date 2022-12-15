@@ -9,7 +9,6 @@ export default function ReplyList({
   account,
   tweet,
   time,
-  data,
   replyCount,
   likeCount,
 }) {
@@ -40,8 +39,8 @@ export default function ReplyList({
           <div className={style.tweet__text}>{tweet}</div>
           <div className={style.createAt}>
             <div className={style.createAt__time}>{time}</div>
-            <div className={style.spot} />
-            <div className={style.createAt__data}>{data}</div>
+            {/* <div className={style.spot} />
+            <div className={style.createAt__data}>{data}</div> */}
           </div>
           <div className={style.counts}>
             <div className={style.replyCount}>

@@ -30,11 +30,11 @@ function App() {
           <Route path="/setting" element={<Setting />}></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
-          <Route path="/admin/Users" element={<AdminUsers />}></Route>
+          <Route path="/admin/users" element={<AdminUsers />}></Route>
           <Route path="/edit" element={<EditModal />}></Route>
           <Route path="/alphitter" element={<Layout />}>
             <Route path="home" element={<Home />}></Route>
-            <Route path="reply" element={<Reply />}></Route>
+            <Route path="reply/:tweet_id" element={<Reply />}></Route>
             <Route
               path="user/self/tweet"
               element={<CurrentUserTweet />}
@@ -47,7 +47,7 @@ function App() {
             <Route path="user/self/follower" element={<Follower />}></Route>
             <Route path="user/self/following" element={<Following />}></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
-            <Route path="user/other/reply" element={<OtherUserReply />}></Route>
+            <Route path="user/other/reply/" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
           </Route>
         </Routes>

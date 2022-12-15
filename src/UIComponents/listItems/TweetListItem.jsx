@@ -10,6 +10,7 @@ export default function TweetListItem({
   time,
   twitterReply,
   twitterLike,
+  tweetId
 }) {
   return (
     <div className={style.listItem__container}>
@@ -27,7 +28,7 @@ export default function TweetListItem({
             <span>{time}</span>
           </div>
         </div>
-        <Link to="/alphitter/reply">
+        <Link to={`/alphitter/reply/${tweetId}`}>
           <div className={style.info__tweet}>
             <p>{tweet}</p>
           </div>

@@ -1,30 +1,53 @@
 import React, {useState, useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import MainTweet from '../components/mainTweet/MainTweet'
-import TweetApi from '../API/tweetApi'
-import UserApi from '../API/userApi'
-// import { Toast } from '../utils/helpers'
+import tweetApi from '../API/tweetApi'
+import userApi from '../API/userApi'
+import { Alert } from '../utils/helpers'
 
 import style from './Home.module.scss'
 
 export default function Home() {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
-    TweetApi
+    tweetApi
       .getTweets()
       .then(res => {
         const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
         setTweets(data)
+      })
+      .catch((error) => {
+        setTweets([])
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入!',
+        })
+        navigate('/login')
+        console.error(error)
       })
   }, [])
 
   useEffect(() => {
-    UserApi
+    userApi
       .getCurrentUser()
       .then(res => {
         const {data} = res
         setCurrentUser(data)
+      })
+      .catch((error) => {
+        setCurrentUser([])
+         Alert.fire({
+          icon: 'error',
+          title: '請重新登入!',
+        })
+        navigate('/login')
+        console.error(error)
       })
   }, [])
 

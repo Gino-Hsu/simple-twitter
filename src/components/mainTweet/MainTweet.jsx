@@ -22,6 +22,7 @@ export default function MainTweet({tweets, currentUser}) {
             account={tweet.User.account}
             userName={tweet.User.name}
             time={tweet.relativeTime}
+            tweetId={tweet.id}
             twitterLike="23"
             twitterReply="39"
           />
