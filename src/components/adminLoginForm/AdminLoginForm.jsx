@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
+import { Link } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './AdminLoginForm.module.scss'
@@ -42,11 +43,11 @@ export default function AdminLoginForm() {
           />
         </div>
         <ButtonUI btnStyle="btn__pill__large" text="登入" />
-        <div className={style.link}>
-          <Link to="/login">
+        <Link to="/login">
+          <div className={style.link}>
             <ButtonUI btnStyle="link" text="前台登入" />
-          </Link>
-        </div>
+          </div>
+        </Link>
       </form>
     </div>
   )

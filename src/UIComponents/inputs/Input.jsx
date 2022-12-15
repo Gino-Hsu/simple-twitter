@@ -9,6 +9,7 @@ export function LoginAndRegistInput({
   inputType,
   inputValue,
   onChange,
+  error,
 }) {
   return (
     <label htmlFor={inputId} className={style.input__container}>
@@ -21,7 +22,13 @@ export function LoginAndRegistInput({
         value={inputValue}
         onChange={(e) => onChange(e)}
       />
-      <div className={style.input__border__bottom} />
+      <div
+        className={
+          error === ''
+            ? style.input__border__bottom
+            : style.input__border__bottom__error
+        }
+      />
     </label>
 
     // 增加錯誤題是

@@ -7,9 +7,11 @@ export const apiHelper = axios.create({
   baseURL,
 })
 
-export const Tost = Swal.mixin({
+export const Toast = Swal.mixin({
   toast: true,
   position: 'top-end',
   showConfirmButton: false,
+  heightAuto: false,
+  width: 250,
   timer: 3000,
 })
