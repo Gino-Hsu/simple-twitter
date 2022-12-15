@@ -4,7 +4,6 @@ import LoginForm from '../components/loginForm/LoginForm'
 
 import authorizationAPI from '../API/authorization'
 import { Toast } from '../utils/helpers'
-// import {loginValid} from '../validation/loginValidation'
 
 import style from './RegistAndLogin.module.scss'
 
@@ -26,7 +25,6 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    // 表單字數驗證
 
     if (account.trim().length === 0 && password.trim().length === 0) {
       setErrorMessage({ account: '帳號不能空白', password: '密碼不能空白' })
@@ -48,7 +46,7 @@ export default function Login() {
       })
       .then((res) => {
         const { data } = res
-        if (data.status === 'error') {
+        if (res.status !== 200) {
           throw new Error(data.message)
         }
         localStorage.setItem('token', data.token)

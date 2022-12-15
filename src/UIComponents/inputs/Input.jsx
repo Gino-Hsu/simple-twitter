@@ -24,14 +24,12 @@ export function LoginAndRegistInput({
       />
       <div
         className={
-          error === ''
+          (error === '' || !error)
             ? style.input__border__bottom
             : style.input__border__bottom__error
         }
       />
     </label>
-
-    // 增加錯誤題是
   )
 }
 
