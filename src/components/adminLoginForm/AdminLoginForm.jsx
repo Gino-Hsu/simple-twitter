@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import { Link } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'

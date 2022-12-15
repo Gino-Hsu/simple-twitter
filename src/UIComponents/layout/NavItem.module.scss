@@ -1,4 +1,4 @@
-@use '../../styles/var';
+@use '../../styles/var' as color;
 @use '../../styles/mixin';
 
 .icon__style {
@@ -18,6 +18,13 @@
   cursor: pointer;
 }
 
+.icon__home__action {
+  content: url('../../public/nav/nav_home_action@2x.png');
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
 .icon__tweet {
   content: url('../../public/nav/nav_btn@2x.png');
   height: 100%;
@@ -32,8 +39,22 @@
   cursor: pointer;
 }
 
+.icon__user__action {
+  content: url('../../public/nav/nav_user_action@2x.png');
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
 .icon__setting {
   content: url('../../public/nav/nav_set@2x.png');
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.icon__setting__action {
+  content: url('../../public/nav/nav_signout_action@2x.png');
   height: 100%;
   display: block;
   cursor: pointer;
@@ -60,7 +81,12 @@
     .title {
       width: 100%;
       display: block;
-      @include mixin.font-setting(1.125rem, 700, var.$gray-9);
+      @include mixin.font-setting(1.125rem, 700, color.$gray-9);
+    }
+    .title__action {
+      width: 100%;
+      display: block;
+      @include mixin.font-setting(1.125rem, 700, color.$brand-color);
     }
   }
 }
