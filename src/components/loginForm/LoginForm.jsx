@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
@@ -44,13 +45,17 @@ export default function LoginForm({
           onClick={handleLogin}
         />
         <div className={style.link}>
-          <ButtonUI btnStyle="link" text="註冊" onClick={handleRegist} />
+          <Link to="/regist">
+            <ButtonUI btnStyle="link" text="註冊" onClick={handleRegist} />
+          </Link>
           <div className={style.spot} />
-          <ButtonUI
-            btnStyle="link"
-            text="後台登入"
-            onClick={handleAdminLogin}
-          />
+          <Link to="/admin">
+            <ButtonUI
+              btnStyle="link"
+              text="後台登入"
+              onClick={handleAdminLogin}
+            />
+          </Link>
         </div>
       </form>
     </div>

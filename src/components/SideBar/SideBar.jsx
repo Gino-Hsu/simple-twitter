@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
@@ -7,10 +7,36 @@ export default function SideBar() {
   return (
     <>
       <div className={style.mobile}>
-        <NavItem icon="icon__home" altName="home" />
-        <NavItem icon="icon__tweet" altName="tweet" />
-        <NavItem icon="icon__user" altName="user" />
-        <NavItem icon="icon__setting" altName="setting" />
+        <NavLink to="/alphitter/home">
+          {({ isActive }) =>
+            isActive ? (
+              <NavItem icon="iconStyle__home__action" altName="home" />
+            ) : (
+              <NavItem iconStyle="icon__home" altName="home" />
+            )
+          }
+        </NavLink>
+        <NavLink to="#">
+          <NavItem iconStyle="icon__tweet" altName="tweet" />
+        </NavLink>
+        <NavLink to="/alphitter/user/self/tweet">
+          {({ isActive }) =>
+            isActive ? (
+              <NavItem iconStyle="icon__user__action" altName="user" />
+            ) : (
+              <NavItem iconStyle="icon__user" altName="user" />
+            )
+          }
+        </NavLink>
+        <NavLink to="/setting">
+          {({ isActive }) =>
+            isActive ? (
+              <NavItem iconStyle="icon__setting__action" altName="setting" />
+            ) : (
+              <NavItem iconStyle="icon__setting" altName="setting" />
+            )
+          }
+        </NavLink>
       </div>
       <div className={style.nav__container}>
         <div className={style.main}>
@@ -18,9 +44,66 @@ export default function SideBar() {
             <img alt="logo" />
           </div>
           <div className={style.menu}>
-            <NavItem icon="icon__home" altName="home" title="首頁" />
-            <NavItem icon="icon__user" altName="user" title="個人資料" />
-            <NavItem icon="icon__setting" altName="setting" title="設定" />
+            <NavLink className={style.btn__link} to="/alphitter/home">
+              {({ isActive }) =>
+                isActive ? (
+                  <NavItem
+                    iconStyle="icon__home__action"
+                    textStyle="title__action"
+                    altName="home"
+                    title="首頁"
+                  />
+                ) : (
+                  <NavItem
+                    iconStyle="icon__home"
+                    textStyle="title"
+                    altName="home"
+                    title="首頁"
+                  />
+                )
+              }
+            </NavLink>
+            <NavLink
+              className={style.btn__link}
+              to="/alphitter/user/self/tweet"
+            >
+              {({ isActive }) =>
+                isActive ? (
+                  <NavItem
+                    iconStyle="icon__user__action"
+                    textStyle="title__action"
+                    altName="user"
+                    title="個人資料"
+                  />
+                ) : (
+                  <NavItem
+                    iconStyle="icon__user"
+                    textStyle="title"
+                    altName="user"
+                    title="個人資料"
+                  />
+                )
+              }
+            </NavLink>
+            <NavLink className={style.btn__link} to="/setting">
+              {({ isActive }) =>
+                isActive ? (
+                  <NavItem
+                    iconStyle="icon__setting__action"
+                    textStyle="title__action"
+                    altName="setting"
+                    title="設定"
+                  />
+                ) : (
+                  <NavItem
+                    iconStyle="icon__setting"
+                    textStyle="title"
+                    altName="setting"
+                    title="設定"
+                  />
+                )
+              }
+            </NavLink>
           </div>
           <div className={style.tweet}>
             <Link className={style.btn__link} to={'/alphitter/home/#/tweet'}>

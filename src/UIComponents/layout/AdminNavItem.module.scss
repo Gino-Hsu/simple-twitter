@@ -1,4 +1,4 @@
-@use '../../styles/var';
+@use '../../styles/var' as color;
 @use '../../styles/mixin';
 
 .icon__style {
@@ -12,8 +12,20 @@
   display: block;
   cursor: pointer;
 }
+.icon__home__action {
+  content: url('../../public/nav/nav_home_action@2x.png');
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
 .icon__user {
   content: url('../../public/nav/nav_user@2x.png');
+  width: 100%;
+  display: block;
+  cursor: pointer;
+}
+.icon__user__action {
+  content: url('../../public/nav/nav_user_action@2x.png');
   width: 100%;
   display: block;
   cursor: pointer;
@@ -37,7 +49,12 @@
     .title {
       width: 100%;
       display: block;
-      @include mixin.font-setting(1.125rem, 700, var.$gray-9);
+      @include mixin.font-setting(1.125rem, 700, color.$gray-9);
     }
+        .title__action {
+          width: 100%;
+          display: block;
+          @include mixin.font-setting(1.125rem, 700, color.$brand-color);
+        }
   }
 }

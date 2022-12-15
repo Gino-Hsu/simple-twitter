@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
@@ -78,7 +79,9 @@ export default function RegistForm() {
         </div>
         <ButtonUI btnStyle="btn__pill__large" text="註冊" />
         <div className={style.link}>
-          <ButtonUI btnStyle="link" text="取消" />
+          <Link to="/login">
+            <ButtonUI btnStyle="link" text="取消" />
+          </Link>
         </div>
       </form>
     </div>
