@@ -8,7 +8,13 @@
   gap: 16px;
   border-bottom: 1px solid color.$assistant-gray-color;
 
-  .follow {
+  .navlink {
+    text-decoration: none;
+    color: #657786;
+  }
+
+  .follow,
+  .follow__action {
     position: relative;
     width: 90px;
     height: 52px;
@@ -21,7 +27,7 @@
     .follower,
     .following {
       position: absolute;
-
+      text-decoration: none;
       width: 100%;
       height: 100%;
       display: flex;
@@ -31,10 +37,23 @@
       line-height: 1.375rem;
     }
 
-    .follower:hover,
-    .following:hover {
-      color: color.$brand-color;
+    .follower__action,
+    .following__action {
+      position: absolute;
+      text-decoration: none;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.375rem;
+      @include mixin.font-setting(0.9375rem, 700, color.$brand-color);
     }
+
+  }
+
+  .follow__action {
+    border-bottom: 2px solid color.$brand-color;
   }
 }
 
