@@ -4,119 +4,28 @@ import TweetListItem from '../../UIComponents/listItems/TweetListItem'
 
 import style from './MainTweet.module.scss'
 
-export default function MainTweet() {
+export default function MainTweet({tweets, currentUser}) {
+  // console.log(tweets)
+
   return (
     <div className={style.main__container}>
       <div className={style.position}>
         <div className={style.tweetInput}>
-          <TweetInput />
+          <TweetInput currentUser={currentUser} />
         </div>
       </div>
       <div className={style.tweetListItem}>
-        <TweetListItem
-          tweet="1234fklhgkldfshgljfhaglkdshglsahglkhdslkghjl;ashglafshglasdhgvlkashglkvhdsalvkhfslbvlcsnvlfs5678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
-        <TweetListItem
-          tweet="12345678"
-          account="@Apple"
-          userName="apple"
-          time="5小時"
-          twitterLike="23"
-          twitterReply="39"
-        />
+        {tweets.map((tweet) => (
+          <TweetListItem
+            key={tweet.id}
+            tweet={tweet.description}
+            account={tweet.User.account}
+            userName={tweet.User.name}
+            time={tweet.relativeTime}
+            twitterLike="23"
+            twitterReply="39"
+          />
+        ))}
       </div>
     </div>
   )

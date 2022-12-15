@@ -24,7 +24,7 @@ export function LoginAndRegistInput({
       />
       <div
         className={
-          (error === '' || !error)
+          error === '' || !error
             ? style.input__border__bottom
             : style.input__border__bottom__error
         }

@@ -50,6 +50,7 @@ export default function Login() {
           throw new Error(data.message)
         }
         localStorage.setItem('token', data.token)
+        localStorage.setItem('userId', data.user.id)
         Toast.fire({
           icon: 'success',
           title: '成功登入!',
