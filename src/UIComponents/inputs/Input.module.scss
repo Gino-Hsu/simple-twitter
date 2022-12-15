@@ -18,7 +18,6 @@
   }
 }
 
-
 .input__label {
   z-index: 1;
   margin: 0 1rem;
@@ -53,6 +52,9 @@
   border-bottom: 2px solid color.$primary-color;
   border-radius: 0 0 4px 4px;
   transition: 0.3s 0s ease-out all;
+  &__error {
+    border-bottom: 2px solid color.$error-color;
+  }
 }
 
 input:hover ~ .input__border__bottom,

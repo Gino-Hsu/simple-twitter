@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
+import { Link } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './RegistForm.module.scss'
@@ -77,9 +78,11 @@ export default function RegistForm() {
           />
         </div>
         <ButtonUI btnStyle="btn__pill__large" text="註冊" />
-        <div className={style.link}>
-          <ButtonUI btnStyle="link" text="取消" />
-        </div>
+        <Link to="/login">
+          <div className={style.link}>
+            <ButtonUI btnStyle="link" text="取消" />
+          </div>
+        </Link>
       </form>
     </div>
   )
