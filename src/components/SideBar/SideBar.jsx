@@ -10,7 +10,7 @@ export default function SideBar() {
         <NavLink to="/alphitter/home">
           {({ isActive }) =>
             isActive ? (
-              <NavItem icon="iconStyle__home__action" altName="home" />
+              <NavItem iconStyle="icon__home__action" altName="home" />
             ) : (
               <NavItem iconStyle="icon__home" altName="home" />
             )

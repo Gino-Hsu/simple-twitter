@@ -11,11 +11,24 @@
   }
 }
 
+@media screen and (min-width: 800px) {
+  .setting {
+    &__sideBar {
+      width: 3.5rem;
+      // display: block;
+      margin-left: 52px;
+      margin-right: 24px;
+    }
+  }
+}
+
 @media screen and (min-width: 1200px) {
   .setting {
     width: inherit;
-    margin-left: 130px;
+    margin-left: 123px;
     &__sideBar {
+      width: 11.125rem;
+      margin-left: 0;
       margin-right: 24px;
     }
     &__form {

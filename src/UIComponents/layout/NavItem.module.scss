@@ -54,7 +54,7 @@
 }
 
 .icon__setting__action {
-  content: url('../../public/nav/nav_signout_action@2x.png');
+  content: url('../../public/nav/nav_set_action@2x.png');
   height: 100%;
   display: block;
   cursor: pointer;
@@ -68,7 +68,8 @@
     height: 26px;
     gap: 17px;
     cursor: pointer;
-    .title {
+    .title,
+    .title__action {
       display: none;
     }
   }
