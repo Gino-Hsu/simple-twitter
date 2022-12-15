@@ -8,13 +8,26 @@
   gap: 16px;
   border-bottom: 1px solid color.$assistant-gray-color;
 
-  .navlink {
-    text-decoration: none;
-    color: #657786;
-  }
+  .active {
+      position: relative;
+      width: 90px;
+      height: 52px;
+      padding: 0 1px 13px 1px;
+      border-bottom: 2px solid color.$brand-color;
+  
+      .follow__text__action {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 1.375rem;
+      @include mixin.font-setting(0.9375rem, 700, color.$brand-color);
+    }}
 
-  .follow,
-  .follow__action {
+
+  .follow {
     position: relative;
     width: 90px;
     height: 52px;
@@ -24,10 +37,8 @@
       border-bottom: 2px solid color.$brand-color;
     }
 
-    .follower,
-    .following {
+    .follow__text {
       position: absolute;
-      text-decoration: none;
       width: 100%;
       height: 100%;
       display: flex;
@@ -36,23 +47,6 @@
       @include mixin.font-setting(0.9375rem, 700, #657786);
       line-height: 1.375rem;
     }
-
-    .follower__action,
-    .following__action {
-      position: absolute;
-      text-decoration: none;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 1.375rem;
-      @include mixin.font-setting(0.9375rem, 700, color.$brand-color);
-    }
-  }
-
-  .follow__action {
-    border-bottom: 2px solid color.$brand-color;
   }
 }
 

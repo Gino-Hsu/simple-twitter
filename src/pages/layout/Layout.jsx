@@ -13,6 +13,7 @@ export default function Layout() {
       <div className={style.main__screen}>
         <Outlet />
       </div>
+
       <div className={style.popularUser}>
         <PopularUser />
       </div>

@@ -1,16 +1,16 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
 export default function SideBar() {
-  const [controlColor, setControlColor] = useState('0')
+  const [controlStep, setControlStep] = useState('0')
   const handelClickStep = () => {
-    setControlColor('1')
+    setControlStep('1')
   }
 
   const handelClickNotStep = () => {
-    setControlColor('0')
+    setControlStep('0')
   }
   return (
     <>
@@ -52,21 +52,13 @@ export default function SideBar() {
             <img alt="logo" />
           </div>
           <div className={style.menu}>
-            {/* <Link to="/alphitter/home">
-              <NavItem
-                iconStyle="icon__home"
-                textStyle="title"
-                altName="home"
-                title="首頁"
-              />
-            </Link> */}
             <NavLink
               onClick={handelClickNotStep}
               className={style.btn__link}
               to="/alphitter/home"
             >
               {({ isActive }) =>
-            isActive ? (
+                isActive ? (
                   <NavItem
                     iconStyle="icon__home__action"
                     textStyle="title__action"
@@ -83,29 +75,25 @@ export default function SideBar() {
                 )
               }
             </NavLink>
-            <Link onClick={handelClickStep} to="/alphitter/user/self/tweet">
-              {controlColor === '1' ? (
-                <NavItem
-                  iconStyle="icon__user__action"
-                  textStyle="title__action"
-                  altName="user"
-                  title="個人資料"
-                />
-              ) : (
-                <NavItem
-                  iconStyle="icon__user"
-                  textStyle="title"
-                  altName="user"
-                  title="個人資料"
-                />
-              )}
-            </Link>
-            {/* <NavLink
-              className={style.btn__link}
-              to="/alphitter/user/self/tweet"
-            >
+            <NavLink onClick={handelClickStep} to="/alphitter/user/self/tweet">
               {({ isActive }) =>
                 isActive ? (
+                  isActive ? (
+                    <NavItem
+                      iconStyle="icon__user__action"
+                      textStyle="title__action"
+                      altName="user"
+                      title="個人資料"
+                    />
+                  ) : (
+                    <NavItem
+                      iconStyle="icon__user"
+                      textStyle="title"
+                      altName="user"
+                      title="個人資料"
+                    />
+                  )
+                ) : controlStep === '1' ? (
                   <NavItem
                     iconStyle="icon__user__action"
                     textStyle="title__action"
@@ -121,7 +109,7 @@ export default function SideBar() {
                   />
                 )
               }
-            </NavLink> */}
+            </NavLink>
             <NavLink
               onClick={handelClickNotStep}
               className={style.btn__link}

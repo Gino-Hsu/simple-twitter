@@ -1,0 +1,146 @@
+.view__container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 2;
+}
+.view__container .flexbox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.view__container .flexbox .other__user__container {
+  width: 100%;
+  padding: 1rem 1.5rem 10px 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.view__container .flexbox .other__user__container .other__avatar__container {
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+}
+.view__container .flexbox .other__user__container .other__avatar__container .other__avatar {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.view__container .flexbox .other__user__container .other__avatar__container .other__avatar__img {
+  width: 100%;
+  display: block;
+}
+.view__container .flexbox .other__user__container .other__avatar__container .straight__line {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: #b5b5be;
+}
+.view__container .flexbox .other__user__container .tweet__container {
+  padding: 0.5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.view__container .flexbox .other__user__container .tweet__container .tweet__owner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #171725;
+}
+.view__container .flexbox .other__user__container .tweet__container .tweetby {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+.view__container .flexbox .other__user__container .tweet__container .tweetby .spot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #6c757d;
+}
+.view__container .flexbox .other__user__container .tweet__container .reply__context {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #171725;
+  line-height: 1.2rem;
+}
+.view__container .flexbox .modal__main {
+  width: 100%;
+  height: 100%;
+  padding: 0 1.5rem 1rem 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+.view__container .flexbox .modal__main .avatar {
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.view__container .flexbox .modal__main .avatar__img {
+  width: 100%;
+  display: block;
+}
+.view__container .flexbox .modal__main .input__container {
+  height: 100%;
+  flex: 1;
+}
+
+.reply__for__mobile,
+.reply__for {
+  display: flex;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+.reply__for__mobile .account,
+.reply__for .account {
+  color: #ff6600;
+}
+
+.reply__for {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .view__container {
+    margin: 3.5rem auto 0 auto;
+    width: 90vw;
+    height: inherit;
+    background-color: #ffffff;
+    border-radius: 14px;
+  }
+  .tweet__container {
+    position: relative;
+  }
+  .tweet__container .reply__for__mobile {
+    display: none;
+  }
+  .tweet__container .reply__for {
+    display: flex;
+  }
+}
+@media screen and (min-width: 992px) {
+  .view__container {
+    width: 643px;
+  }
+  .view__container .flexbox .modal__main .input__container {
+    flex: unset;
+    width: calc(100% - 130px);
+  }
+}/*# sourceMappingURL=ReplyModal.module.css.map */
