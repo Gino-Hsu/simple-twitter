@@ -1,7 +1,7 @@
 import React from 'react'
 import style from './NavItem.module.scss'
 
-export default function NavItem({ iconStyle,textStyle, altName, title, }) {
+export default function NavItem({ iconStyle, textStyle, altName, title }) {
   return (
     <div className={style.container}>
       <div className={style.icon__style}>

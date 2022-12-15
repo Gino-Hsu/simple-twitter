@@ -5,7 +5,6 @@ import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './AdminLoginForm.module.scss'
 
-
 export default function AdminLoginForm() {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')

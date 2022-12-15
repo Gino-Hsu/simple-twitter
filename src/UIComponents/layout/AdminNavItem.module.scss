@@ -38,7 +38,8 @@
   height: 26px;
   gap: 17px;
   cursor: pointer;
-  .title {
+  .title,
+  .title__action {
     display: none;
   }
 }
@@ -51,10 +52,10 @@
       display: block;
       @include mixin.font-setting(1.125rem, 700, color.$gray-9);
     }
-        .title__action {
-          width: 100%;
-          display: block;
-          @include mixin.font-setting(1.125rem, 700, color.$brand-color);
-        }
+    .title__action {
+      width: 100%;
+      display: block;
+      @include mixin.font-setting(1.125rem, 700, color.$brand-color);
+    }
   }
 }
