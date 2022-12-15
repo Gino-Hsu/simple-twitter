@@ -1,4 +1,5 @@
 import React from 'react'
+// import {useLocation} from 'react-router-dom'
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
@@ -67,7 +68,6 @@ export default function CurrentUser({
           </div>
         </div>
       </div>
-
       <div className={style.lists__header}>
         <UserToggleMenu />
       </div>
