@@ -1,40 +1,39 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
-export default function SideBar() {
-  const [controlStep, setControlStep] = useState('0')
-  const handelClickStep = () => {
-    setControlStep('1')
+export default function SideBar({ step, setStep }) {
+  const handelClickHome = () => {
+    setStep('home')
   }
 
-  const handelClickNotStep = () => {
-    setControlStep('0')
+  const handelClickUser = () => {
+    setStep('user')
   }
+
+  // const handelClickSetting = () => {
+  //   setStep('setting')
+  // }
   return (
     <>
       <div className={style.mobile}>
-        <NavLink to="/alphitter/home">
-          {({ isActive }) =>
-            isActive ? (
-              <NavItem iconStyle="icon__home__action" altName="home" />
-            ) : (
-              <NavItem iconStyle="icon__home" altName="home" />
-            )
-          }
+        <NavLink onClick={handelClickHome} to="/alphitter/home">
+          {step === 'home' ? (
+            <NavItem iconStyle="icon__home__action" altName="home" />
+          ) : (
+            <NavItem iconStyle="icon__home" altName="home" />
+          )}
         </NavLink>
-        <NavLink to="#">
+        <NavLink onClick={handelClickUser} to="#">
           <NavItem iconStyle="icon__tweet" altName="tweet" />
         </NavLink>
         <NavLink to="/alphitter/user/self/tweet">
-          {({ isActive }) =>
-            isActive ? (
-              <NavItem iconStyle="icon__user__action" altName="user" />
-            ) : (
-              <NavItem iconStyle="icon__user" altName="user" />
-            )
-          }
+          {step === 'user' ? (
+            <NavItem iconStyle="icon__user__action" altName="user" />
+          ) : (
+            <NavItem iconStyle="icon__user" altName="user" />
+          )}
         </NavLink>
         <NavLink to="/setting">
           {({ isActive }) =>
@@ -53,68 +52,48 @@ export default function SideBar() {
           </div>
           <div className={style.menu}>
             <NavLink
-              onClick={handelClickNotStep}
+              onClick={handelClickHome}
               className={style.btn__link}
               to="/alphitter/home"
             >
-              {({ isActive }) =>
-                isActive ? (
-                  <NavItem
-                    iconStyle="icon__home__action"
-                    textStyle="title__action"
-                    altName="home"
-                    title="首頁"
-                  />
-                ) : (
-                  <NavItem
-                    iconStyle="icon__home"
-                    textStyle="title"
-                    altName="home"
-                    title="首頁"
-                  />
-                )
-              }
-            </NavLink>
-            <NavLink onClick={handelClickStep} to="/alphitter/user/self/tweet">
-              {({ isActive }) =>
-                isActive ? (
-                  isActive ? (
-                    <NavItem
-                      iconStyle="icon__user__action"
-                      textStyle="title__action"
-                      altName="user"
-                      title="個人資料"
-                    />
-                  ) : (
-                    <NavItem
-                      iconStyle="icon__user"
-                      textStyle="title"
-                      altName="user"
-                      title="個人資料"
-                    />
-                  )
-                ) : controlStep === '1' ? (
-                  <NavItem
-                    iconStyle="icon__user__action"
-                    textStyle="title__action"
-                    altName="user"
-                    title="個人資料"
-                  />
-                ) : (
-                  <NavItem
-                    iconStyle="icon__user"
-                    textStyle="title"
-                    altName="user"
-                    title="個人資料"
-                  />
-                )
-              }
+              {step === 'home' ? (
+                <NavItem
+                  iconStyle="icon__home__action"
+                  textStyle="title__action"
+                  altName="home"
+                  title="首頁"
+                />
+              ) : (
+                <NavItem
+                  iconStyle="icon__home"
+                  textStyle="title"
+                  altName="home"
+                  title="首頁"
+                />
+              )}
             </NavLink>
             <NavLink
-              onClick={handelClickNotStep}
+              onClick={handelClickUser}
               className={style.btn__link}
-              to="/setting"
+              to="/alphitter/user/self/tweet"
             >
+              {step === 'user' ? (
+                <NavItem
+                  iconStyle="icon__user__action"
+                  textStyle="title__action"
+                  altName="user"
+                  title="個人資料"
+                />
+              ) : (
+                <NavItem
+                  iconStyle="icon__user"
+                  textStyle="title"
+                  altName="user"
+                  title="個人資料"
+                />
+              )}
+            </NavLink>
+            <NavLink className={style.btn__link} to="/setting">
               {({ isActive }) =>
                 isActive ? (
                   <NavItem

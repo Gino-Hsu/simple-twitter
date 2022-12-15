@@ -7,7 +7,6 @@ import style from './Follower.module.scss'
 
 import avatar from '../../public/logo_gray@2x.png'
 export default function Follower() {
-
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>

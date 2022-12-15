@@ -9,13 +9,13 @@
   border-bottom: 1px solid color.$assistant-gray-color;
 
   .active {
-      position: relative;
-      width: 90px;
-      height: 52px;
-      padding: 0 1px 13px 1px;
-      border-bottom: 2px solid color.$brand-color;
-  
-      .follow__text__action {
+    position: relative;
+    width: 90px;
+    height: 52px;
+    padding: 0 1px 13px 1px;
+    border-bottom: 2px solid color.$brand-color;
+
+    .follow__text__action {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -24,8 +24,8 @@
       align-items: center;
       line-height: 1.375rem;
       @include mixin.font-setting(0.9375rem, 700, color.$brand-color);
-    }}
-
+    }
+  }
 
   .follow {
     position: relative;

@@ -22,8 +22,7 @@ export default function Follower() {
         />
       </div>
       <div className={style.tab}>
-        <FollowTab
-        />
+        <FollowTab />
       </div>
       <div className={style.follower__list}>
         <FollowListItem

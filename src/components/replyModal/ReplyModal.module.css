@@ -22,17 +22,29 @@
   align-items: center;
   overflow: hidden;
 }
-.view__container .flexbox .other__user__container .other__avatar__container .other__avatar {
+.view__container
+  .flexbox
+  .other__user__container
+  .other__avatar__container
+  .other__avatar {
   width: 50px;
   height: 50px;
   overflow: hidden;
   border-radius: 50%;
 }
-.view__container .flexbox .other__user__container .other__avatar__container .other__avatar__img {
+.view__container
+  .flexbox
+  .other__user__container
+  .other__avatar__container
+  .other__avatar__img {
   width: 100%;
   display: block;
 }
-.view__container .flexbox .other__user__container .other__avatar__container .straight__line {
+.view__container
+  .flexbox
+  .other__user__container
+  .other__avatar__container
+  .straight__line {
   position: absolute;
   top: 60px;
   bottom: 0;
@@ -49,7 +61,11 @@
   flex-direction: column;
   gap: 1rem;
 }
-.view__container .flexbox .other__user__container .tweet__container .tweet__owner {
+.view__container
+  .flexbox
+  .other__user__container
+  .tweet__container
+  .tweet__owner {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -65,13 +81,22 @@
   font-weight: 400;
   color: #6c757d;
 }
-.view__container .flexbox .other__user__container .tweet__container .tweetby .spot {
+.view__container
+  .flexbox
+  .other__user__container
+  .tweet__container
+  .tweetby
+  .spot {
   width: 3px;
   height: 3px;
   border-radius: 50%;
   background-color: #6c757d;
 }
-.view__container .flexbox .other__user__container .tweet__container .reply__context {
+.view__container
+  .flexbox
+  .other__user__container
+  .tweet__container
+  .reply__context {
   font-size: 0.875rem;
   font-weight: 400;
   color: #171725;
@@ -143,4 +168,4 @@
     flex: unset;
     width: calc(100% - 130px);
   }
-}/*# sourceMappingURL=ReplyModal.module.css.map */
+} /*# sourceMappingURL=ReplyModal.module.css.map */
