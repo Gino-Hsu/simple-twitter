@@ -10,7 +10,7 @@ export default function TweetListItem({
   time,
   twitterReply,
   twitterLike,
-  handleChangeTab
+  handleChangeTab,
 }) {
   return (
     <div className={style.listItem__container}>

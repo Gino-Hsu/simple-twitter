@@ -71,7 +71,10 @@ function App() {
               element={<Following handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
-            <Route path="user/other/reply/" element={<OtherUserReply />}></Route>
+            <Route
+              path="user/other/reply/"
+              element={<OtherUserReply />}
+            ></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
           </Route>
         </Routes>

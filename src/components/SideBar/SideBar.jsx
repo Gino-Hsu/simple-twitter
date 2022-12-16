@@ -1,9 +1,11 @@
-import React from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
+import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
 
 export default function SideBar({ step, handleChangeTab }) {
+  const [replyModelIsShow, setReplyModelIsShow] = useState(false)
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
@@ -21,6 +23,14 @@ export default function SideBar({ step, handleChangeTab }) {
     localStorage.removeItem('token')
     navigate('/login')
   }
+
+  const handleShowReplyModel = () => {
+    setReplyModelIsShow(true)
+  }
+
+  const handleHideReplyModel = () => {
+    setReplyModelIsShow(false)
+  }
   return (
     <>
       <div className={style.mobile}>
@@ -35,7 +45,7 @@ export default function SideBar({ step, handleChangeTab }) {
             onClick={() => handelClickHome()}
           />
         </NavLink>
-        <NavItem iconStyle="icon__tweet" altName="tweet" />
+        <NavItem iconStyle="icon__tweet" altName="tweet"></NavItem>
         <NavLink
           onClick={handelClickUser}
           className={style.btn__link}
@@ -109,11 +119,14 @@ export default function SideBar({ step, handleChangeTab }) {
               />
             </NavLink>
           </div>
-          <div className={style.tweet}>
-            <Link className={style.btn__link} to={'/alphitter/home/#/tweet'}>
-              <img alt="" />
-              <div className={style.tweet__btn}>推文</div>
-            </Link>
+          <div onClick={handleShowReplyModel} className={style.tweet}>
+            {replyModelIsShow && (
+              <TweetModal onHideReplyModel={handleHideReplyModel} />
+            )}
+            {/* <Link className={style.btn__link} to={'/alphitter/home/#/tweet'}> */}
+            <img alt="tweet" />
+            <div className={style.tweet__btn}>推文</div>
+            {/* </Link> */}
           </div>
         </div>
         <div onClick={() => handelSignOut()} className={style.signOut}>

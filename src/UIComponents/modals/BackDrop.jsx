@@ -2,10 +2,10 @@ import React from 'react'
 
 import style from './BackDrop.module.scss'
 
-export default function BackDrop({ resetConfirmed }) {
+export default function BackDrop(props) {
   return (
     <>
-      <div className={style.backdrop} onClick={resetConfirmed} />
+      <div className={style.backdrop} onClick={props.onHideReplyModel} />
     </>
   )
 }

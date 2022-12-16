@@ -17,22 +17,21 @@
 
 @media screen and (min-width: 800px) {
   .setting {
-        display: flex;
-          width: 90%;
-          gap: 1.5rem;
+    display: flex;
+    width: 90%;
+    gap: 1.5rem;
     &__sideBar {
       width: 3.5rem;
       display: block;
     }
 
     .setting__form {
-
     }
 
     .unContainer {
-     display: block;
-     width: 18.5rem;
-     padding: 1rem 0;
+      display: block;
+      width: 18.5rem;
+      padding: 1rem 0;
     }
   }
 }
@@ -46,10 +45,10 @@
     &__form {
       flex: 1;
     }
-        .unContainer {
-    display: block;
+    .unContainer {
+      display: block;
       width: 17.06rem;
       margin-top: 1rem;
-        }
+    }
   }
 }
