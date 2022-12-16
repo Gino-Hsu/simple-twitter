@@ -9,7 +9,7 @@ export default {
   },
   getAdminUsers() {
     return apiHelper.get('/admin/users', {
-      headers: {Authorization: `Bearer ${getToken()}`}
+      headers: { Authorization: `Bearer ${getToken()}` },
     })
-  }
+  },
 }

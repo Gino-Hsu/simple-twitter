@@ -13,6 +13,7 @@ export default function Setting({ step, handleChangeTab }) {
       <div className={style.setting__form}>
         <SettingForm />
       </div>
+      <div className={style.unContainer} />
     </div>
   )
 }

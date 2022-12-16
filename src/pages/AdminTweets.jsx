@@ -15,7 +15,7 @@ export default function AdminTweets() {
   useEffect(() => {
     tweetApi
       .getAdminTweets()
-      .then(res => {
+      .then((res) => {
         const { data } = res
         setTweets(data)
       })
@@ -23,7 +23,7 @@ export default function AdminTweets() {
         setTweets([])
         Alert.fire({
           icon: 'error',
-          tilte: '請重新登入!'
+          tilte: '請重新登入!',
         })
         navigate('/admin')
         console.error(error)
@@ -40,7 +40,7 @@ export default function AdminTweets() {
           <div className={style.title}>推文清單</div>
         </div>
         <div className={style.adminListItem}>
-          {tweets.map(tweet => (
+          {tweets.map((tweet) => (
             <AdminListItem
               key={tweet.id}
               avatar={tweet.User.avatar}

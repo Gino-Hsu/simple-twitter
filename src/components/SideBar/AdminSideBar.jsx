@@ -1,9 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import AdminNavItem from '../../UIComponents/layout/AdminNavItem'
 import style from './AdminSideBar.module.scss'
 
 export default function AdminSideBar() {
+  const navigate = useNavigate()
+
+  const handelSignOut = () => {
+    localStorage.removeItem('token')
+    navigate('/admin')
+  }
   return (
     <>
       <div className={style.nav__container}>
@@ -52,7 +58,7 @@ export default function AdminSideBar() {
             </NavLink>
           </div>
         </div>
-        <div className={style.signOut}>
+        <div onClick={() => handelSignOut()} className={style.signOut}>
           <img alt="sign-out" />
           <div className={style.btn__name}>登出</div>
         </div>

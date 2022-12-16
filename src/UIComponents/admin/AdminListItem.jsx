@@ -2,7 +2,13 @@ import React from 'react'
 
 import style from './AdminListItem.module.scss'
 
-export default function AdminListItem({avatar, name, account, description, time}) {
+export default function AdminListItem({
+  avatar,
+  name,
+  account,
+  description,
+  time,
+}) {
   return (
     <div className={style.listItem__container}>
       <div className={style.avatar}>
@@ -24,9 +30,7 @@ export default function AdminListItem({avatar, name, account, description, time}
             </div>
           </div>
         </div>
-        <div className={style.tweet__text}>
-          {description}
-        </div>
+        <div className={style.tweet__text}>{description}</div>
       </div>
     </div>
   )

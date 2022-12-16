@@ -26,8 +26,6 @@ export default function TweetInput({ currentUser }) {
             <ButtonUI btnStyle="btn__pill__middle" text="推文" />
           </div>
         </div>
-
-        {/* </div>   */}
       </div>
     </div>
   )
