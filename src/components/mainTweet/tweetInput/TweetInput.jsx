@@ -3,7 +3,7 @@ import React from 'react'
 import style from './TweetInput.module.scss'
 import ButtonUI from '../../../UIComponents/buttons/ButtonUI'
 
-export default function TweetInput({currentUser}) {
+export default function TweetInput({ currentUser }) {
   return (
     <div className={style.tweetInput__container}>
       <div className={style.mobile__avatar}>

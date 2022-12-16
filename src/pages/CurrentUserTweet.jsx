@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
@@ -15,17 +15,17 @@ export default function CurrentUserTweet({ handleChangeTab }) {
   useEffect(() => {
     userApi
       .getCurrentUser()
-      .then(res => {
-        const {data} = res
-        if(res.status !== 200) {
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
           throw new Error(data.message)
         }
         setCurrentUser(data)
       })
-      .catch(error => {
+      .catch((error) => {
         Alert.fire({
           icon: 'error',
-          title: '請重新登入!'
+          title: '請重新登入!',
         })
         navigate('/login')
         console.error(error)
