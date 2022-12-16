@@ -7,7 +7,12 @@ import { Alert } from '../utils/helpers'
 
 import style from './Home.module.scss'
 
-export default function Home({ handleChangeTab }) {
+export default function Home({
+  handleChangeTab,
+  handleShowTweetModel,
+  handleHideTweetModel,
+  tweetModelIsShow,
+}) {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
@@ -50,14 +55,19 @@ export default function Home({ handleChangeTab }) {
         console.error(error)
       })
   }, [])
-
+  console.log('home', tweetModelIsShow)
   return (
-    <div className={style.main__screen}>
-      <MainTweet
-        tweets={tweets}
-        currentUser={currentUser}
-        handleChangeTab={handleChangeTab}
-      />
-    </div>
+    <>
+      <div className={style.main__screen}>
+        <MainTweet
+          tweets={tweets}
+          currentUser={currentUser}
+          handleChangeTab={handleChangeTab}
+          handleShowTweetMode={handleShowTweetModel}
+          handleHideTweetModel={handleHideTweetModel}
+          tweetModelIsShow={tweetModelIsShow}
+        />
+      </div>
+    </>
   )
 }

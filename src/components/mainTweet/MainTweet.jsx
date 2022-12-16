@@ -1,17 +1,34 @@
 import React from 'react'
 import TweetInput from './tweetInput/TweetInput'
 import TweetListItem from '../../UIComponents/listItems/TweetListItem'
+import TweetModal from '../tweetModal/TweetModal'
 
 import style from './MainTweet.module.scss'
 
-export default function MainTweet({ tweets, currentUser, handleChangeTab }) {
+export default function MainTweet({
+  tweets,
+  currentUser,
+  handleChangeTab,
+  handleShowTweetModel,
+  handleHideTweetModel,
+  tweetModelIsShow,
+}) {
+  console.log('MainTweet', tweetModelIsShow)
   return (
-    <div className={style.main__container}>
-      <div className={style.position}>
+    <div  className={style.main__container}>
+      <div onClick={handleShowTweetModel} className={style.position}>
         <div className={style.tweetInput}>
-          <TweetInput currentUser={currentUser} />
+          <TweetInput
+            handleShowTweetMode={handleShowTweetModel}
+            handleHideTweetModel={handleHideTweetModel}
+            tweetModelIsShow={tweetModelIsShow}
+            currentUser={currentUser}
+          />
         </div>
       </div>
+      {tweetModelIsShow && (
+        <TweetModal onHideTweetModel={handleHideTweetModel} />
+      )}
       <div className={style.tweetListItem}>
         {tweets.map((tweet) => (
           <TweetListItem

@@ -22,8 +22,17 @@ import EditModal from './components/EditModal/EditModal'
 
 function App() {
   const [step, setStep] = useState('home')
+  const [tweetModelIsShow, setTweetModelIsShow] = useState(false)
   const handleChangeTab = (tab) => {
     setStep(tab)
+  }
+
+  const handleShowTweetModel = () => {
+    setTweetModelIsShow(true)
+  }
+
+  const handleHideTweetModel = () => {
+    setTweetModelIsShow(false)
   }
   return (
     <div className="App">
@@ -42,7 +51,15 @@ function App() {
           <Route path="/edit" element={<EditModal />}></Route>
           <Route
             path="/alphitter"
-            element={<Layout step={step} handleChangeTab={handleChangeTab} />}
+            element={
+              <Layout
+                step={step}
+                handleChangeTab={handleChangeTab}
+                handleShowTweetModel={handleShowTweetModel}
+                handleHideTweetModel={handleHideTweetModel}
+                tweetModelIsShow={tweetModelIsShow}
+              />
+            }
           >
             <Route
               path="user/self/tweet"
@@ -50,7 +67,14 @@ function App() {
             ></Route>
             <Route
               path="home"
-              element={<Home handleChangeTab={handleChangeTab} />}
+              element={
+                <Home
+                  handleChangeTab={handleChangeTab}
+                  handleShowTweetModel={handleShowTweetModel}
+                  handleHideTweetModel={handleHideTweetModel}
+                  tweetModelIsShow={tweetModelIsShow}
+                />
+              }
             ></Route>
             <Route path="reply" element={<Reply />}></Route>
 

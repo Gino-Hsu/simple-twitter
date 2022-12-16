@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
 
-export default function SideBar({ step, handleChangeTab }) {
-  const [tweetModelIsShow, setTweetModelIsShow] = useState(false)
+export default function SideBar({
+  step,
+  handleChangeTab,
+  handleShowTweetModel,
+  handleHideTweetModel,
+  tweetModelIsShow,
+}) {
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
@@ -24,13 +29,6 @@ export default function SideBar({ step, handleChangeTab }) {
     navigate('/login')
   }
 
-  const handleShowTweetModel = () => {
-    setTweetModelIsShow(true)
-  }
-
-  const handleHideTweetModel = () => {
-    setTweetModelIsShow(false)
-  }
   return (
     <>
       <div className={style.mobile}>
