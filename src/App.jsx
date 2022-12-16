@@ -52,7 +52,7 @@ function App() {
               path="home"
               element={<Home handleChangeTab={handleChangeTab} />}
             ></Route>
-            <Route path="reply" element={<Reply />}></Route>
+            <Route path="reply/:tweet_id" element={<Reply />}></Route>
 
             <Route
               path="user/self/reply"
@@ -71,7 +71,10 @@ function App() {
               element={<Following handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
-            <Route path="user/other/reply/" element={<OtherUserReply />}></Route>
+            <Route
+              path="user/other/reply/"
+              element={<OtherUserReply />}
+            ></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
           </Route>
         </Routes>

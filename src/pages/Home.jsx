@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MainTweet from '../components/mainTweet/MainTweet'
 import tweetApi from '../API/tweetApi'
@@ -15,8 +15,8 @@ export default function Home({ handleChangeTab }) {
   useEffect(() => {
     tweetApi
       .getTweets()
-      .then(res => {
-        const {data} = res
+      .then((res) => {
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
@@ -36,13 +36,13 @@ export default function Home({ handleChangeTab }) {
   useEffect(() => {
     userApi
       .getCurrentUser()
-      .then(res => {
-        const {data} = res
+      .then((res) => {
+        const { data } = res
         setCurrentUser(data)
       })
       .catch((error) => {
         setCurrentUser([])
-         Alert.fire({
+        Alert.fire({
           icon: 'error',
           title: '請重新登入!',
         })
@@ -53,7 +53,11 @@ export default function Home({ handleChangeTab }) {
 
   return (
     <div className={style.main__screen}>
-      <MainTweet tweets={tweets} currentUser={currentUser} handleChangeTab={handleChangeTab} />
+      <MainTweet
+        tweets={tweets}
+        currentUser={currentUser}
+        handleChangeTab={handleChangeTab}
+      />
     </div>
   )
 }

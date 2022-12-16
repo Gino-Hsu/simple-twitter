@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import RelyList from '../components/relyList/RelyList'
 
@@ -9,23 +9,19 @@ export default function Reply() {
   const [tweet, setTweet] = useState([])
   const [replies, setReplies] = useState([])
   const param = useParams()
-  
+
   useEffect(() => {
-    tweetApi
-      .getTweet(param.tweet_id)
-      .then(res => {
-        const {data} = res
-        setTweet(data)
-      })
+    tweetApi.getTweet(param.tweet_id).then((res) => {
+      const { data } = res
+      setTweet(data)
+    })
   }, [])
 
   useEffect(() => {
-    replyApi
-      .getRelies(param.tweet_id)
-      .then(res => {
-        const {data} = res
-        setReplies(data)
-      })
+    replyApi.getRelies(param.tweet_id).then((res) => {
+      const { data } = res
+      setReplies(data)
+    })
   })
 
   return (
