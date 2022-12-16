@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
+import ReplyModal from '../../components/replyModal/ReplyModal'
 
 export default function TweetListItem({
   tweet,
@@ -12,6 +13,9 @@ export default function TweetListItem({
   twitterLike,
   tweetId,
   handleChangeTab,
+  handleShowReplyModel,
+  handleHideModel,
+  replyModelIsShow,
 }) {
   return (
     <div className={style.listItem__container}>
@@ -39,9 +43,12 @@ export default function TweetListItem({
         </Link>
         <div className={style.info__icons}>
           <div className={style.icon__reply}>
-            <div className={style.cursor}>
+            <div onClick={handleShowReplyModel} className={style.cursor}>
               <img className="" alt="reply button" />
             </div>
+            {replyModelIsShow && (
+              <ReplyModal handleHideModel={handleHideModel} />
+            )}
             <span>{twitterReply}</span>
           </div>
           <div className={style.icon__like}>

@@ -5,7 +5,11 @@ import RelyList from '../components/relyList/RelyList'
 import tweetApi from '../API/tweetApi'
 import replyApi from '../API/ReplyApi'
 
-export default function Reply() {
+export default function Reply(
+  handleShowReplyModel,
+  handleHideModel,
+  replyModelIsShow
+) {
   const [tweet, setTweet] = useState([])
   const [replies, setReplies] = useState([])
   const param = useParams()
@@ -34,6 +38,9 @@ export default function Reply() {
         replyCount="34"
         likeCount="808"
         replies={replies}
+        handleShowReplyModel={handleShowReplyModel}
+        handleHideModel={handleHideModel}
+        replyModelIsShow={replyModelIsShow}
       />
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReactDom from 'react-dom'
+import ReactDOM from 'react-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
@@ -16,92 +16,83 @@ const DUMMYDATA = {
     'Lorem ipsum dolor, sit amet consectetur adipisicing elit. In ex quisquam magnam accusantium eius culpa? Doloremque natus molestias reiciendis maxime voluptatibus cum deserunt necessitatibus, sequi deleniti expedita tenetur omnis. Nam.',
 }
 
-export default function ReplyModal() {
+export default function ReplyModal({ handleHideModel }) {
   const [reply, setReply] = useState('')
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
   }
-
+  const portalElement = document.getElementById('modal-root')
   return (
     <>
-      {ReactDom.createPortal(
-        <>
-          <div className={style.view__container}>
-            <Modal buttonText="回覆" title="推文">
-              <div className={style.flexbox}>
-                <div className={style.other__user__container}>
-                  <div className={style.other__avatar__container}>
-                    <div className={style.other__avatar}>
-                      <img
-                        className={style.other__avatar__img}
-                        src={avatar}
-                        alt="Avatar"
-                      />
-                    </div>
-                    <div className={style.straight__line} />
-                  </div>
-
-                  <div className={style.tweet__container}>
-                    <div className={style.tweet__owner}>
-                      <div className={style.other__user__name}>
-                        {DUMMYDATA.name}
-                      </div>
-                      <div className={style.tweetby}>
-                        <div className={style.other__user__account}>
-                          {`@${DUMMYDATA.account}`}
-                        </div>
-                        <div className={style.spot} />
-                        <div className={style.tweet__time}>
-                          {DUMMYDATA.time}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={style.reply__for__mobile}>
-                      <p>回覆</p>
-                      <p className={style.account}>
-                        {' '}
-                        {`@${DUMMYDATA.account}`}
-                      </p>
-                    </div>
-
-                    <div className={style.reply__context}>
-                      {DUMMYDATA.tweet}
-                    </div>
-
-                    <div className={style.reply__for}>
-                      <p>回覆</p>
-                      <p className={style.account}>
-                        {' '}
-                        {`@${DUMMYDATA.account}`}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={style.modal__main}>
-                  <div className={style.avatar}>
+      {ReactDOM.createPortal(
+        <BackDrop onHideModel={handleHideModel} />,
+        portalElement
+      )}
+      {ReactDOM.createPortal(
+        <div className={style.view__container}>
+          <Modal onHideModel={handleHideModel} buttonText="回覆" title="推文">
+            <div className={style.flexbox}>
+              <div className={style.other__user__container}>
+                <div className={style.other__avatar__container}>
+                  <div className={style.other__avatar}>
                     <img
-                      className={style.avatar__img}
+                      className={style.other__avatar__img}
                       src={avatar}
                       alt="Avatar"
                     />
                   </div>
-                  <div className={style.input__container}>
-                    <Textarea
-                      textareaPlaceHolder="推你的回覆"
-                      textareaValue={reply}
-                      onChange={handleReplyChange}
-                    />
+                  <div className={style.straight__line} />
+                </div>
+
+                <div className={style.tweet__container}>
+                  <div className={style.tweet__owner}>
+                    <div className={style.other__user__name}>
+                      {DUMMYDATA.name}
+                    </div>
+                    <div className={style.tweetby}>
+                      <div className={style.other__user__account}>
+                        {`@${DUMMYDATA.account}`}
+                      </div>
+                      <div className={style.spot} />
+                      <div className={style.tweet__time}>{DUMMYDATA.time}</div>
+                    </div>
+                  </div>
+
+                  <div className={style.reply__for__mobile}>
+                    <p>回覆</p>
+                    <p className={style.account}> {`@${DUMMYDATA.account}`}</p>
+                  </div>
+
+                  <div className={style.reply__context}>{DUMMYDATA.tweet}</div>
+
+                  <div className={style.reply__for}>
+                    <p>回覆</p>
+                    <p className={style.account}> {`@${DUMMYDATA.account}`}</p>
                   </div>
                 </div>
               </div>
-            </Modal>
-          </div>
-          <BackDrop />
-        </>,
-        document.getElementById('modal-root')
+
+              <div className={style.modal__main}>
+                <div className={style.avatar}>
+                  <img
+                    className={style.avatar__img}
+                    src={avatar}
+                    alt="Avatar"
+                  />
+                </div>
+                <div className={style.input__container}>
+                  <Textarea
+                    textareaPlaceHolder="推你的回覆"
+                    textareaValue={reply}
+                    onChange={handleReplyChange}
+                  />
+                </div>
+              </div>
+            </div>
+          </Modal>
+        </div>,
+        portalElement
       )}
     </>
   )
