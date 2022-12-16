@@ -8,6 +8,8 @@ export default function AdminListItem({
   account,
   description,
   time,
+  tweetId,
+  onClick,
 }) {
   return (
     <div className={style.listItem__container}>
@@ -24,10 +26,8 @@ export default function AdminListItem({
               <div className={style.info__item__time}>{time}</div>
             </div>
           </div>
-          <div className={style.header__btn}>
-            <div className={style.btn__delete}>
-              <img className={style.delete__icon} alt="Delete" />
-            </div>
+          <div className={style.btn__delete} onClick={() => onClick(tweetId)}>
+            <img className={style.delete__icon} alt="Delete" />
           </div>
         </div>
         <div className={style.tweet__text}>{description}</div>

@@ -56,7 +56,7 @@ export default function Home({
         console.error(error)
       })
   }, [])
-  console.log('home', tweetModelIsShow)
+
   return (
     <>
       <div className={style.main__screen}>
