@@ -6,7 +6,7 @@ import FollowListItem from '../../UIComponents/listItems/FollowListItem'
 import style from './Follower.module.scss'
 
 import avatar from '../../public/logo_gray@2x.png'
-export default function Follower() {
+export default function Follower({ setStep }) {
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>
@@ -22,7 +22,7 @@ export default function Follower() {
         />
       </div>
       <div className={style.tab}>
-        <FollowTab />
+        <FollowTab setStep={setStep} />
       </div>
       <div className={style.follower__list}>
         <FollowListItem

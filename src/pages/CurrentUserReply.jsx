@@ -7,10 +7,11 @@ import style from './CurrentUserReply.module.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserReply() {
+export default function CurrentUserReply({ setStep }) {
   return (
     <div className={style.userReply__container}>
       <CurrentUser
+        setStep={setStep}
         coverImg={cover}
         name="Gino"
         account="gino"

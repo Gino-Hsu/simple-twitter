@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 import style from './FollowTab.module.scss'
 
-export default function FollowTab() {
+export default function FollowTab({ setStep }) {
   return (
     <div className={style.tab__container}>
-      <NavLink to="/alphitter/user/self/follower">
+      <NavLink onClick={() => setStep('')} to="/alphitter/user/self/follower">
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
@@ -19,7 +19,7 @@ export default function FollowTab() {
           )
         }
       </NavLink>
-      <NavLink to="/alphitter/user/self/following">
+      <NavLink onClick={() => setStep('')} to="/alphitter/user/self/following">
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
