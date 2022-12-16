@@ -4,7 +4,7 @@ import TweetListItem from '../../UIComponents/listItems/TweetListItem'
 
 import style from './MainTweet.module.scss'
 
-export default function MainTweet() {
+export default function MainTweet({ handleChangeTab }) {
   return (
     <div className={style.main__container}>
       <div className={style.position}>
@@ -14,6 +14,7 @@ export default function MainTweet() {
       </div>
       <div className={style.tweetListItem}>
         <TweetListItem
+          handleChangeTab={handleChangeTab}
           tweet="1234fklhgkldfshgljfhaglkdshglsahglkhdslkghjl;ashglafshglasdhgvlkashglkvhdsalvkhfslbvlcsnvlfs5678"
           account="@Apple"
           userName="apple"
