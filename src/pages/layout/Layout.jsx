@@ -4,12 +4,12 @@ import SideBar from '../../components/SideBar/SideBar'
 import PopularUser from '../../components/popularUser/PopularUser'
 import style from './Layout.module.scss'
 
-export default function Layout({ step, setStep }) {
+export default function Layout({ step, handleChangeTab }) {
   // const [step, setStep] = useState('home')
   return (
     <div className={style.main__container}>
       <div className={style.sideBar}>
-        <SideBar step={step} setStep={setStep} />
+        <SideBar step={step} handleChangeTab={handleChangeTab} />
       </div>
       <div className={style.main__screen}>
         <Outlet />

@@ -1,49 +1,43 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
-export default function SideBar({ step, setStep }) {
+export default function SideBar({ step, handleChangeTab }) {
+  const navigate = useNavigate()
   const handelClickHome = () => {
-    setStep('home')
+    handleChangeTab('home')
+    navigate('/alphitter/home')
   }
 
   const handelClickUser = () => {
-    setStep('user')
+    handleChangeTab('user')
+    navigate('/alphitter/user/self/tweet')
   }
 
-  // const handelClickSetting = () => {
-  //   setStep('setting')
-  // }
+  const handelClickSetting = () => {
+    handleChangeTab('setting')
+    navigate('/setting')
+  }
   return (
     <>
       <div className={style.mobile}>
-        <NavLink onClick={handelClickHome} to="/alphitter/home">
-          {step === 'home' ? (
-            <NavItem iconStyle="icon__home__action" altName="home" />
-          ) : (
-            <NavItem iconStyle="icon__home" altName="home" />
-          )}
-        </NavLink>
-        <NavLink to="#">
-          <NavItem setStep={setStep} iconStyle="icon__tweet" altName="tweet" />
-        </NavLink>
-        <NavLink onClick={handelClickUser} to="/alphitter/user/self/tweet">
-          {step === 'user' ? (
-            <NavItem iconStyle="icon__user__action" altName="user" />
-          ) : (
-            <NavItem iconStyle="icon__user" altName="user" />
-          )}
-        </NavLink>
-        <NavLink to="/setting">
-          {({ isActive }) =>
-            isActive ? (
-              <NavItem iconStyle="icon__setting__action" altName="setting" />
-            ) : (
-              <NavItem iconStyle="icon__setting" altName="setting" />
-            )
+        <NavItem
+          iconStyle={step === 'home' ? 'icon__home__action' : 'icon__home'}
+          altName="home"
+          onClick={() => handelClickHome()}
+        />
+        <NavItem iconStyle="icon__tweet" altName="tweet" />
+        <NavItem
+          iconStyle={step === 'user' ? 'icon__user__action' : 'icon__user'}
+          onClick={() => handelClickUser()}
+        />
+        <NavItem
+          iconStyle={
+            step === 'setting' ? 'icon__setting__action' : 'icon__setting'
           }
-        </NavLink>
+          onClick={() => handelClickSetting()}
+        />
       </div>
       <div className={style.nav__container}>
         <div className={style.main}>
@@ -56,61 +50,38 @@ export default function SideBar({ step, setStep }) {
               className={style.btn__link}
               to="/alphitter/home"
             >
-              {step === 'home' ? (
-                <NavItem
-                  iconStyle="icon__home__action"
-                  textStyle="title__action"
-                  altName="home"
-                  title="首頁"
-                />
-              ) : (
-                <NavItem
-                  iconStyle="icon__home"
-                  textStyle="title"
-                  altName="home"
-                  title="首頁"
-                />
-              )}
+              <NavItem
+                iconStyle={
+                  step === 'home' ? 'icon__home__action' : 'icon__home'
+                }
+                textStyle={step === 'home' ? 'title__action' : 'title'}
+                altName="home"
+                title="首頁"
+              />
             </NavLink>
             <NavLink
               onClick={handelClickUser}
               className={style.btn__link}
               to="/alphitter/user/self/tweet"
             >
-              {step === 'user' ? (
-                <NavItem
-                  iconStyle="icon__user__action"
-                  textStyle="title__action"
-                  altName="user"
-                  title="個人資料"
-                />
-              ) : (
-                <NavItem
-                  iconStyle="icon__user"
-                  textStyle="title"
-                  altName="user"
-                  title="個人資料"
-                />
-              )}
+              <NavItem
+                iconStyle={
+                  step === 'user' ? 'icon__user__action' : 'icon__user'
+                }
+                textStyle={step === 'user' ? 'title__action' : 'title'}
+                altName="user"
+                title="個人資料"
+              />
             </NavLink>
             <NavLink className={style.btn__link} to="/setting">
-              {({ isActive }) =>
-                isActive ? (
-                  <NavItem
-                    iconStyle="icon__setting__action"
-                    textStyle="title__action"
-                    altName="setting"
-                    title="設定"
-                  />
-                ) : (
-                  <NavItem
-                    iconStyle="icon__setting"
-                    textStyle="title"
-                    altName="setting"
-                    title="設定"
-                  />
-                )
-              }
+              <NavItem
+                iconStyle={
+                  step === 'setting' ? 'icon__setting__action' : 'icon__setting'
+                }
+                textStyle={step === 'setting' ? 'title__action' : 'title'}
+                altName="setting"
+                title="設定"
+              />
             </NavLink>
           </div>
           <div className={style.tweet}>

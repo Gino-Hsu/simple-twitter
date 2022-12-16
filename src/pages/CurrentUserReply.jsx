@@ -7,11 +7,11 @@ import style from './CurrentUserReply.module.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserReply({ setStep }) {
+export default function CurrentUserReply({ handleChangeTab }) {
   return (
     <div className={style.userReply__container}>
       <CurrentUser
-        setStep={setStep}
+        handleChangeTab={handleChangeTab}
         coverImg={cover}
         name="Gino"
         account="gino"

@@ -22,6 +22,9 @@ import EditModal from './components/EditModal/EditModal'
 
 function App() {
   const [step, setStep] = useState('home')
+  const handleChangeTab = (tab) => {
+    setStep(tab)
+  }
   return (
     <div className="App">
       <BrowserRouter>
@@ -36,29 +39,33 @@ function App() {
           <Route path="/edit" element={<EditModal />}></Route>
           <Route
             path="/alphitter"
-            element={<Layout step={step} setStep={setStep} />}
+            element={<Layout step={step} handleChangeTab={handleChangeTab} />}
           >
-            <Route path="home" element={<Home />}></Route>
-            <Route path="reply" element={<Reply />}></Route>
             <Route
               path="user/self/tweet"
-              element={<CurrentUserTweet setStep={setStep} />}
+              element={<CurrentUserTweet handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route
+              path="home"
+              element={<Home handleChangeTab={handleChangeTab} />}
+            ></Route>
+            <Route path="reply" element={<Reply />}></Route>
+
+            <Route
               path="user/self/reply"
-              element={<CurrentUserReply setStep={setStep} />}
+              element={<CurrentUserReply handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route
               path="user/self/like"
-              element={<CurrentUserLike setStep={setStep} />}
+              element={<CurrentUserLike handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route
               path="user/self/follower"
-              element={<Follower setStep={setStep} />}
+              element={<Follower handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route
               path="user/self/following"
-              element={<Following setStep={setStep} />}
+              element={<Following handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply" element={<OtherUserReply />}></Route>

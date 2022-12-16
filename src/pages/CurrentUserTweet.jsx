@@ -7,11 +7,11 @@ import style from './CurrentUserTweet.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserTweet({ setStep }) {
+export default function CurrentUserTweet({ handleChangeTab }) {
   return (
     <div className={style.userTweet__container}>
       <CurrentUser
-        setStep={setStep}
+        handleChangeTab={handleChangeTab}
         coverImg={cover}
         name="Gino"
         account="gino"
@@ -21,7 +21,7 @@ export default function CurrentUserTweet({ setStep }) {
         followingCount="59"
       >
         <TweetListItem
-          setStep={setStep}
+          handleChangeTab={handleChangeTab}
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           userAvatar={avatar}
           account="gino"
