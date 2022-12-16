@@ -3,15 +3,12 @@ import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import style from './Modal.module.scss'
 
-export function Modal({ children, title, buttonText, onHideTweetModel }) {
+export function Modal({ children, title, buttonText, onHideModel }) {
   return (
     <div className={style.modal}>
       <div className={style.modal__header}>
         <div className={style.header__container}>
-          <div
-            onClick={() => onHideTweetModel()}
-            className={style.control__return}
-          >
+          <div onClick={() => onHideModel()} className={style.control__return}>
             <img className={style.return__icon} alt="Return" />
           </div>
           <div className={style.title}>
@@ -27,12 +24,12 @@ export function Modal({ children, title, buttonText, onHideTweetModel }) {
   )
 }
 
-export function EditModalUi({ children, title, buttonText }) {
+export function EditModalUi({ children, title, buttonText, onHideModel }) {
   return (
     <div className={style.modal}>
       <div className={style.modal__header}>
         <div className={style.header__container}>
-          <div className={style.control__return}>
+          <div onClick={() => onHideModel()} className={style.control__return}>
             <img className={style.return__icon} alt="Return" />
           </div>
           <div className={style.title}>

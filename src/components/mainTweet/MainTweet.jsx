@@ -10,8 +10,10 @@ export default function MainTweet({
   currentUser,
   handleChangeTab,
   handleShowTweetModel,
-  handleHideTweetModel,
+  handleHideModel,
   tweetModelIsShow,
+  handleShowReplyModel,
+  replyModelIsShow,
 }) {
   return (
     <div className={style.main__container}>
@@ -20,9 +22,7 @@ export default function MainTweet({
           <TweetInput currentUser={currentUser} />
         </div>
       </div>
-      {tweetModelIsShow && (
-        <TweetModal onHideTweetModel={handleHideTweetModel} />
-      )}
+      {tweetModelIsShow && <TweetModal onHideTweetModel={handleHideModel} />}
       <div className={style.tweetListItem}>
         {tweets.map((tweet) => (
           <TweetListItem
@@ -35,9 +35,9 @@ export default function MainTweet({
             twitterLike="23"
             twitterReply="39"
             handleChangeTab={handleChangeTab}
-            handleShowTweetModel={handleShowTweetModel}
-            handleHideTweetModel={handleHideTweetModel}
-            tweetModelIsShow={tweetModelIsShow}
+            handleShowReplyModel={handleShowReplyModel}
+            handleHideModel={handleHideModel}
+            replyModelIsShow={replyModelIsShow}
           />
         ))}
       </div>

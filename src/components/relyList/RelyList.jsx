@@ -1,6 +1,7 @@
 import React from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
+import ReplyModal from '../replyModal/ReplyModal'
 
 import style from './ReplyList.module.scss'
 
@@ -11,6 +12,9 @@ export default function ReplyList({
   time,
   replyCount,
   likeCount,
+  handleShowReplyModel,
+  handleHideModel,
+  replyModelIsShow,
 }) {
   return (
     <div className={style.viewport}>
@@ -54,9 +58,10 @@ export default function ReplyList({
           </div>
         </div>
         <div className={style.icons}>
-          <div className={style.icon__reply}>
+          <div onClick={handleShowReplyModel} className={style.icon__reply}>
             <img className={style.icon__reply__img} />
           </div>
+          {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
           <div className={style.icon__like}>
             <img className={style.icon__like__img} />
           </div>

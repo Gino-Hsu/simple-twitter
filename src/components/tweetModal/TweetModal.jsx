@@ -47,7 +47,7 @@ export default function TweetModal({ onHideTweetModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideTweetModel={onHideTweetModel} />,
+        <BackDrop onHideModel={onHideTweetModel} />,
         portalElement
       )}
       {ReactDOM.createPortal(
@@ -55,7 +55,7 @@ export default function TweetModal({ onHideTweetModel }) {
           className={style.view__container}
           onSubmit={(e) => handleSubmit(e)}
         >
-          <Modal onHideTweetModel={onHideTweetModel} buttonText="推文">
+          <Modal onHideModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
                 <img className={style.avatar__img} src={avatar} alt="Avatar" />

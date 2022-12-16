@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
+import EditModal from '../EditModal/EditModal'
 
 import style from './CurrentUser.module.scss'
 
@@ -16,6 +17,9 @@ export default function CurrentUser({
   followingCount,
   children,
   handleChangeTab,
+  handleShowEditModel,
+  handleHideModel,
+  editModelIsShow,
 }) {
   return (
     <div className={style.currentUser__container}>
@@ -42,7 +46,7 @@ export default function CurrentUser({
           </div>
         </div>
 
-        <div className={style.edit}>
+        <div onClick={handleShowEditModel} className={style.edit}>
           <div className={style.edit__container}>
             <ButtonUI
               btnStyle="btn__pill__small__default"
@@ -50,6 +54,7 @@ export default function CurrentUser({
             />
           </div>
         </div>
+        {editModelIsShow && <EditModal handleHideModel={handleHideModel} />}
 
         <div className={style.description}>
           <div className={style.description__text}>{description}</div>
