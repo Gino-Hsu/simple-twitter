@@ -2,8 +2,6 @@
 @use '../../styles/var' as color;
 
 .card__container {
-  // width: 15.5625rem;
-  // height: 19.625rem;
   aspect-ratio: 1 / 1.26;
   width: 100%;
   position: relative;
@@ -15,9 +13,8 @@
     height: 44.6%;
     overflow: hidden;
     border-radius: 10px 10px 0 0;
-    // border: 1px solid red;
+
     .img {
-      content: url(../../public/admin/admin_background@2x.png);
       height: 100%;
       display: block;
     }
@@ -29,7 +26,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // padding-bottom: 1.5rem;
     gap: 4.56%;
     background-color: #f6f7f8;
     .title {
@@ -121,7 +117,6 @@
         overflow: hidden;
         z-index: 1;
         .avatar__img {
-          content: url('../../public/default_background@2x.png');
           width: 90%;
           height: 90%;
           border-radius: 50%;

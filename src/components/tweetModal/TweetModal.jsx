@@ -4,6 +4,9 @@ import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 
+import tweetApi from '../../API/tweetApi'
+import { Toast } from '../../utils/helpers'
+
 import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
 import style from './TweetModal.module.scss'
@@ -15,6 +18,31 @@ export default function TweetModal({ onHideTweetModel }) {
     setTweet(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    tweetApi
+      .postTweets(tweet)
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        Toast.fire({
+          icon: 'success',
+          title: '推文成功!'
+        })
+        setTweet('')
+        // 關掉 modal
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: 'error',
+          title: '推文失敗!'
+        })
+        console.error(error)
+      })
+  }
+
   const portalElement = document.getElementById('modal-root')
   return (
     <>
@@ -23,7 +51,7 @@ export default function TweetModal({ onHideTweetModel }) {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <div className={style.view__container}>
+        <form className={style.view__container} onSubmit={(e) => handleSubmit(e)}>
           <Modal onHideTweetModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
@@ -38,9 +66,6 @@ export default function TweetModal({ onHideTweetModel }) {
               </div>
             </div>
           </Modal>
-        </div>,
-        portalElement
-      )}
-    </>
-  )
+        </form>,
+        portalElement)}</>)
 }

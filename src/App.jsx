@@ -76,7 +76,7 @@ function App() {
                 />
               }
             ></Route>
-            <Route path="reply" element={<Reply />}></Route>
+            <Route path="reply/:tweet_id" element={<Reply />}></Route>
 
             <Route
               path="user/self/reply"
