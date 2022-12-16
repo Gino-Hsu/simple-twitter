@@ -10,7 +10,6 @@ export default function TweetListItem({
   time,
   twitterReply,
   twitterLike,
-  tweetId,
   handleChangeTab
 }) {
   return (
@@ -29,7 +28,7 @@ export default function TweetListItem({
             <span>{time}</span>
           </div>
         </div>
-        <Link onClick={() => handleChangeTab('home')} to={`/alphitter/reply/${tweetId}`}>
+        <Link onClick={() => handleChangeTab('home')} to={'/alphitter/reply/'}>
           <div className={style.info__tweet}>
             <p>{tweet}</p>
           </div>

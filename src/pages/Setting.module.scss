@@ -2,6 +2,7 @@
 
 .setting {
   width: 100%;
+  margin: 0 auto;
   display: flex;
 
   &__form {
@@ -9,30 +10,46 @@
     border-left: 1px solid color.$assistant-gray-color;
     border-right: 1px solid color.$assistant-gray-color;
   }
+  .unContainer {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 800px) {
   .setting {
+        display: flex;
+          width: 90%;
+          gap: 1.5rem;
     &__sideBar {
       width: 3.5rem;
-      // display: block;
-      margin-left: 52px;
-      margin-right: 24px;
+      display: block;
+    }
+
+    .setting__form {
+
+    }
+
+    .unContainer {
+     display: block;
+     width: 18.5rem;
+     padding: 1rem 0;
     }
   }
 }
 
 @media screen and (min-width: 1200px) {
   .setting {
-    width: inherit;
-    margin-left: 123px;
+    width: 80%;
     &__sideBar {
       width: 11.125rem;
-      margin-left: 0;
-      margin-right: 24px;
     }
     &__form {
-      width: 44vw;
+      flex: 1;
     }
+        .unContainer {
+    display: block;
+      width: 17.06rem;
+      margin-top: 1rem;
+        }
   }
 }
