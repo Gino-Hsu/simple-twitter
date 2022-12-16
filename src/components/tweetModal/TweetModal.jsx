@@ -1,10 +1,11 @@
-// 目前缺關掉 modal 的邏輯，等 API
-
 import React, { useState } from 'react'
 import ReactDom from 'react-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
+
+import tweetApi from '../../API/tweetApi'
+import { Toast } from '../../utils/helpers'
 
 import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
@@ -17,11 +18,36 @@ export default function TweetModal() {
     setTweet(e.target.value)
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    tweetApi
+      .postTweets(tweet)
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        Toast.fire({
+          icon: 'success',
+          title: '推文成功!'
+        })
+        setTweet('')
+        // 關掉 modal
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: 'error',
+          title: '推文失敗!'
+        })
+        console.error(error)
+      })
+  }
+
   return (
     <>
       {ReactDom.createPortal(
         <>
-          <div className={style.view__container}>
+          <form className={style.view__container} onSubmit={(e) => handleSubmit(e)}>
             <Modal buttonText="推文">
               <div className={style.modal__main}>
                 <div className={style.avatar}>
@@ -40,7 +66,7 @@ export default function TweetModal() {
                 </div>
               </div>
             </Modal>
-          </div>
+          </form>
           <BackDrop />
         </>,
         document.getElementById('modal-root')

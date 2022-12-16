@@ -12,6 +12,12 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
+  postTweets(description) {
+    return apiHelper.post('/tweets', {
+      description,
+      headers: { Authorization: `Bearer ${getToken()}` }
+    })
+  },
   getAdminTweets() {
     return apiHelper.get('/admin/tweets', {
       headers: { Authorization: `Bearer ${getToken()}` }
