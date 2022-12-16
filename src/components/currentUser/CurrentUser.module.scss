@@ -1,8 +1,6 @@
 @use '../../styles/var' as color;
 @use '../../styles/mixin';
-.router__link {
-  text-decoration: none;
-}
+
 .currentUser__container {
   height: 100vh;
   display: flex;

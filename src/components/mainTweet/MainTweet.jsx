@@ -4,9 +4,7 @@ import TweetListItem from '../../UIComponents/listItems/TweetListItem'
 
 import style from './MainTweet.module.scss'
 
-export default function MainTweet({tweets, currentUser}) {
-  // console.log(tweets)
-
+export default function MainTweet({tweets, currentUser, handleChangeTab}) {
   return (
     <div className={style.main__container}>
       <div className={style.position}>
@@ -25,6 +23,7 @@ export default function MainTweet({tweets, currentUser}) {
             tweetId={tweet.id}
             twitterLike="23"
             twitterReply="39"
+            handleChangeTab={handleChangeTab}
           />
         ))}
       </div>

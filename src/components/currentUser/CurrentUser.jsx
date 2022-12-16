@@ -15,6 +15,7 @@ export default function CurrentUser({
   followerCount,
   followingCount,
   children,
+  handleChangeTab,
 }) {
   return (
     <div className={style.currentUser__container}>
@@ -54,6 +55,7 @@ export default function CurrentUser({
           <div className={style.description__text}>{description}</div>
           <div className={style.follows}>
             <Link
+              onClick={() => handleChangeTab('')}
               className={style.router__link}
               to="/alphitter/user/self/follower"
             >
@@ -65,6 +67,7 @@ export default function CurrentUser({
               </div>
             </Link>
             <Link
+              onClick={() => handleChangeTab('')}
               className={style.router__link}
               to="/alphitter/user/self/following"
             >

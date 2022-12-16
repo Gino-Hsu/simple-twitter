@@ -1,4 +1,5 @@
 import './App.scss'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
@@ -20,6 +21,10 @@ import OtherUserLike from './pages/OtherUserLike'
 import EditModal from './components/editModal/EditModal'
 
 function App() {
+  const [step, setStep] = useState('home')
+  const handleChangeTab = (tab) => {
+    setStep(tab)
+  }
   return (
     <div className="App">
       <BrowserRouter>
@@ -27,25 +32,44 @@ function App() {
           <Route path="/modal" element={<EditModal />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/regist" element={<Regist />}></Route>
-          <Route path="/setting" element={<Setting />}></Route>
+          <Route
+            path="/setting"
+            element={<Setting step={step} handleChangeTab={handleChangeTab} />}
+          ></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin/users" element={<AdminUsers />}></Route>
           <Route path="/edit" element={<EditModal />}></Route>
-          <Route path="/alphitter" element={<Layout />}>
-            <Route path="home" element={<Home />}></Route>
-            <Route path="reply/:tweet_id" element={<Reply />}></Route>
+          <Route
+            path="/alphitter"
+            element={<Layout step={step} handleChangeTab={handleChangeTab} />}
+          >
             <Route
               path="user/self/tweet"
-              element={<CurrentUserTweet />}
+              element={<CurrentUserTweet handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route
-              path="user/self/reply"
-              element={<CurrentUserReply />}
+              path="home"
+              element={<Home handleChangeTab={handleChangeTab} />}
             ></Route>
-            <Route path="user/self/like" element={<CurrentUserLike />}></Route>
-            <Route path="user/self/follower" element={<Follower />}></Route>
-            <Route path="user/self/following" element={<Following />}></Route>
+            <Route path="reply" element={<Reply />}></Route>
+
+            <Route
+              path="user/self/reply"
+              element={<CurrentUserReply handleChangeTab={handleChangeTab} />}
+            ></Route>
+            <Route
+              path="user/self/like"
+              element={<CurrentUserLike handleChangeTab={handleChangeTab} />}
+            ></Route>
+            <Route
+              path="user/self/follower"
+              element={<Follower handleChangeTab={handleChangeTab} />}
+            ></Route>
+            <Route
+              path="user/self/following"
+              element={<Following handleChangeTab={handleChangeTab} />}
+            ></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
             <Route path="user/other/reply/" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import UserHeader from '../../UIComponents/headers/UserHeader'
 import MobileUser from '../../components/currentUser/MobileUser'
 import FollowTab from '../../UIComponents/tabs/FollowTab'
@@ -6,24 +6,7 @@ import FollowListItem from '../../UIComponents/listItems/FollowListItem'
 import style from './Follower.module.scss'
 
 import avatar from '../../public/logo_gray@2x.png'
-export default function Follower() {
-  const [follower, setFollower] = useState('follower__action')
-  const [following, setFollowing] = useState('following')
-  const [followerLink, setFollowerLink] = useState('follow__action')
-  const [followingLink, setFollowingLink] = useState('follow')
-  const onChangeColorFollower = () => {
-    setFollower('follower__action')
-    setFollowing('following')
-    setFollowerLink('follow__action')
-    setFollowerLink('follow')
-  }
-  const onChangeColorFollowing = () => {
-    setFollower('follower')
-    setFollowing('following__action')
-    setFollowerLink('follow')
-    setFollowingLink('follow__action')
-  }
-
+export default function Follower({ handleChangeTab }) {
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>
@@ -39,14 +22,7 @@ export default function Follower() {
         />
       </div>
       <div className={style.tab}>
-        <FollowTab
-          styleFollower={follower}
-          styleFollowing={following}
-          bottomFollower={followerLink}
-          bottomFollowing={followingLink}
-          onChange1={() => onChangeColorFollower()}
-          onChange2={() => onChangeColorFollowing()}
-        />
+        <FollowTab handleChangeTab={handleChangeTab} />
       </div>
       <div className={style.follower__list}>
         <FollowListItem
