@@ -3,11 +3,11 @@ import React from 'react'
 import style from './TweetInput.module.scss'
 import ButtonUI from '../../../UIComponents/buttons/ButtonUI'
 
-export default function TweetInput() {
+export default function TweetInput({currentUser}) {
   return (
     <div className={style.tweetInput__container}>
       <div className={style.mobile__avatar}>
-        <img src="" alt="avatar" />
+        <img src={currentUser.avatar} alt="avatar" />
       </div>
       <div className={style.title}>
         <p>首頁</p>

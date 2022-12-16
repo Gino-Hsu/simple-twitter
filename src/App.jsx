@@ -18,7 +18,7 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-import EditModal from './components/EditModal/EditModal'
+import EditModal from './components/editModal/EditModal'
 
 function App() {
   const [step, setStep] = useState('home')
@@ -38,7 +38,7 @@ function App() {
           ></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
-          <Route path="/admin/Users" element={<AdminUsers />}></Route>
+          <Route path="/admin/users" element={<AdminUsers />}></Route>
           <Route path="/edit" element={<EditModal />}></Route>
           <Route
             path="/alphitter"
@@ -71,7 +71,7 @@ function App() {
               element={<Following handleChangeTab={handleChangeTab} />}
             ></Route>
             <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
-            <Route path="user/other/reply" element={<OtherUserReply />}></Route>
+            <Route path="user/other/reply/" element={<OtherUserReply />}></Route>
             <Route path="user/other/like" element={<OtherUserLike />}></Route>
           </Route>
         </Routes>
