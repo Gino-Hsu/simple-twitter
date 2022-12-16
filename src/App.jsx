@@ -32,7 +32,10 @@ function App() {
           <Route path="/modal" element={<EditModal />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/regist" element={<Regist />}></Route>
-          <Route path="/setting" element={<Setting />}></Route>
+          <Route
+            path="/setting"
+            element={<Setting step={step} handleChangeTab={handleChangeTab} />}
+          ></Route>
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin/Users" element={<AdminUsers />}></Route>

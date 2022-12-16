@@ -2,7 +2,14 @@ import React from 'react'
 import ButtonUI from '../buttons/ButtonUI'
 import style from './PopularUserItem.module.scss'
 
-export default function PopularUserItem({ btnStyle, text, container, name, account, avatar }) {
+export default function PopularUserItem({
+  btnStyle,
+  text,
+  container,
+  name,
+  account,
+  avatar,
+}) {
   return (
     <div className={style.item}>
       <div className={style.user__avatar}>

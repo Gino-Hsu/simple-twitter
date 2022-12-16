@@ -6,6 +6,9 @@ import style from './Layout.module.scss'
 
 export default function Layout({ step, handleChangeTab }) {
   // const [step, setStep] = useState('home')
+  // const handleSideBarClick = () => {
+  //   handleChangeTab()
+  // }
   return (
     <div className={style.main__container}>
       <div className={style.sideBar}>

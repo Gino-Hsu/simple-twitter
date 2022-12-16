@@ -1,23 +1,19 @@
 import React from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import style from './SideBar.module.scss'
 
 export default function SideBar({ step, handleChangeTab }) {
-  const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
-    navigate('/alphitter/home')
   }
 
   const handelClickUser = () => {
     handleChangeTab('user')
-    navigate('/alphitter/user/self/tweet')
   }
 
   const handelClickSetting = () => {
     handleChangeTab('setting')
-    navigate('/setting')
   }
   return (
     <>
@@ -73,7 +69,11 @@ export default function SideBar({ step, handleChangeTab }) {
                 title="個人資料"
               />
             </NavLink>
-            <NavLink className={style.btn__link} to="/setting">
+            <NavLink
+              onClick={handelClickSetting}
+              className={style.btn__link}
+              to="/setting"
+            >
               <NavItem
                 iconStyle={
                   step === 'setting' ? 'icon__setting__action' : 'icon__setting'

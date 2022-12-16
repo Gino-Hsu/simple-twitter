@@ -7,7 +7,8 @@ import user2 from '../../public/seed/chat.png'
 import user3 from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 import cover from '../../public/default_background@2x.png'
 
-const PROFILE__CURRENT__USER =[{
+const PROFILE__CURRENT__USER = [
+  {
     id: 1,
     name: 'Jeff',
     account: 'jeff000',
@@ -16,8 +17,9 @@ const PROFILE__CURRENT__USER =[{
     cover: { cover },
     followerCount: 20,
     followingCount: 25,
-    follow: [3],
-  }]
+    follow: [3, 5],
+  },
+]
 
 const PROFILE__USER = [
   {
@@ -53,26 +55,59 @@ const PROFILE__USER = [
     followingCount: 8,
     follow: [],
   },
+
+  {
+    id: 4,
+    name: 'Dog',
+    account: 'dog1234',
+    avatar: { user2 },
+    introduction: '旺旺旺',
+    cover: { cover },
+    followerCount: 14,
+    followingCount: 24,
+    follow: [],
+  },
+  {
+    id: 5,
+    name: 'Cat',
+    account: 'cat4321',
+    avatar: { user3 },
+    introduction: '喵喵喵',
+    cover: { cover },
+    followerCount: 40,
+    followingCount: 8,
+    follow: [],
+  },
 ]
 
 export default function PopularUser() {
-  console.log(PROFILE__CURRENT__USER.follow)
   return (
     <div className={style.popularUser__container}>
       <div className={style.popularUser__title}>推薦跟隨</div>
       <div className={style.line}></div>
       <div className={style.popularUser__main}>
         {PROFILE__USER.map((item) => {
-          console.log()
           return (
             <PopularUserItem
               key={item.id}
               name={item.name}
-              account={item.account} 
+              account={item.account}
               avatar={item.avatar}
-              btnStyle="btn__pill__middle"
-              text="正在跟隨"
-              container="btn__follow__container__action"
+              btnStyle={
+                PROFILE__CURRENT__USER[0].follow.includes(item.id)
+                  ? 'btn__pill__middle'
+                  : 'btn__pill__middle__default'
+              }
+              text={
+                PROFILE__CURRENT__USER[0].follow.includes(item.id)
+                  ? '正在跟隨'
+                  : '跟隨'
+              }
+              container={
+                PROFILE__CURRENT__USER[0].follow.includes(item.id)
+                  ? 'btn__follow__container__action'
+                  : 'btn__follow__container'
+              }
             />
           )
         })}
