@@ -25,10 +25,10 @@ export default function SideBar({ step, setStep }) {
             <NavItem iconStyle="icon__home" altName="home" />
           )}
         </NavLink>
-        <NavLink onClick={handelClickUser} to="#">
+        <NavLink to="#">
           <NavItem setStep={setStep} iconStyle="icon__tweet" altName="tweet" />
         </NavLink>
-        <NavLink to="/alphitter/user/self/tweet">
+        <NavLink onClick={handelClickUser} to="/alphitter/user/self/tweet">
           {step === 'user' ? (
             <NavItem iconStyle="icon__user__action" altName="user" />
           ) : (
@@ -75,10 +75,7 @@ export default function SideBar({ step, setStep }) {
             <NavLink
               onClick={handelClickUser}
               className={style.btn__link}
-              to={{
-                pathname: '/alphitter/user/self/tweet',
-                state: { text: '666' },
-              }}
+              to="/alphitter/user/self/tweet"
             >
               {step === 'user' ? (
                 <NavItem
@@ -96,7 +93,7 @@ export default function SideBar({ step, setStep }) {
                 />
               )}
             </NavLink>
-            <NavLink className={style.btn__link} to="/alphitter/setting">
+            <NavLink className={style.btn__link} to="/setting">
               {({ isActive }) =>
                 isActive ? (
                   <NavItem
