@@ -64,7 +64,7 @@ export default function Home({
           tweets={tweets}
           currentUser={currentUser}
           handleChangeTab={handleChangeTab}
-          handleShowTweetMode={handleShowTweetModel}
+          handleShowTweetModel={handleShowTweetModel}
           handleHideTweetModel={handleHideTweetModel}
           tweetModelIsShow={tweetModelIsShow}
         />
