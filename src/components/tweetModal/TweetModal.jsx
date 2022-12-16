@@ -1,5 +1,3 @@
-// 目前缺關掉 modal 的邏輯，等 API
-
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
@@ -10,7 +8,7 @@ import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
 import style from './TweetModal.module.scss'
 
-export default function TweetModal(props) {
+export default function TweetModal({ onHideTweetModel }) {
   const [tweet, setTweet] = useState('')
 
   const handleTweetChange = (e) => {
@@ -18,16 +16,15 @@ export default function TweetModal(props) {
   }
 
   const portalElement = document.getElementById('modal-root')
-
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideReplyModel={props.onHideReplyModel} />,
+        <BackDrop onHideTweetModel={onHideTweetModel} />,
         portalElement
       )}
       {ReactDOM.createPortal(
         <div className={style.view__container}>
-          <Modal buttonText="推文">
+          <Modal onHideTweetModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
                 <img className={style.avatar__img} src={avatar} alt="Avatar" />

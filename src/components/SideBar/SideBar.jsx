@@ -5,7 +5,7 @@ import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
 
 export default function SideBar({ step, handleChangeTab }) {
-  const [replyModelIsShow, setReplyModelIsShow] = useState(false)
+  const [tweetModelIsShow, setTweetModelIsShow] = useState(false)
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
@@ -24,12 +24,12 @@ export default function SideBar({ step, handleChangeTab }) {
     navigate('/login')
   }
 
-  const handleShowReplyModel = () => {
-    setReplyModelIsShow(true)
+  const handleShowTweetModel = () => {
+    setTweetModelIsShow(true)
   }
 
-  const handleHideReplyModel = () => {
-    setReplyModelIsShow(false)
+  const handleHideTweetModel = () => {
+    setTweetModelIsShow(false)
   }
   return (
     <>
@@ -119,15 +119,13 @@ export default function SideBar({ step, handleChangeTab }) {
               />
             </NavLink>
           </div>
-          <div onClick={handleShowReplyModel} className={style.tweet}>
-            {replyModelIsShow && (
-              <TweetModal onHideReplyModel={handleHideReplyModel} />
-            )}
-            {/* <Link className={style.btn__link} to={'/alphitter/home/#/tweet'}> */}
+          <div onClick={handleShowTweetModel} className={style.tweet}>
             <img alt="tweet" />
             <div className={style.tweet__btn}>推文</div>
-            {/* </Link> */}
           </div>
+          {tweetModelIsShow && (
+            <TweetModal onHideTweetModel={handleHideTweetModel} />
+          )}
         </div>
         <div onClick={() => handelSignOut()} className={style.signOut}>
           <img alt="sign-out" />
