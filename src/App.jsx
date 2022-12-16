@@ -18,7 +18,6 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-import EditModal from './components/EditModal/EditModal'
 
 function App() {
   const [step, setStep] = useState('home')
@@ -50,7 +49,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/modal" element={<EditModal />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/regist" element={<Regist />}></Route>
           <Route
@@ -60,7 +58,6 @@ function App() {
           <Route path="/admin" element={<AdminLogin />}></Route>
           <Route path="/admin/tweets" element={<AdminTweets />}></Route>
           <Route path="/admin/users" element={<AdminUsers />}></Route>
-          <Route path="/edit" element={<EditModal />}></Route>
           <Route
             path="/alphitter"
             element={

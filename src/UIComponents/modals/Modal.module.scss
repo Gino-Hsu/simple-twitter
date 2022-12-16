@@ -41,6 +41,7 @@
     }
 
     .btn__container {
+      margin: 17px 0;
       width: 4rem;
     }
   }
@@ -50,7 +51,7 @@
   width: 4rem;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 800px) {
   .modal {
     .modal__header {
       .header__container {
@@ -66,8 +67,9 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .btn__container {
+    margin: unset;
     position: absolute;
     bottom: 1rem;
     right: 1rem;
