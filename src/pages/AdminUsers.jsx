@@ -16,7 +16,7 @@ export default function AdminUsers() {
     userApi
       .getAdminUsers()
       .then((res) => {
-        const {data} = res
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
@@ -25,7 +25,7 @@ export default function AdminUsers() {
       .catch((error) => {
         Alert.fire({
           icon: 'error',
-          title: '請重新登入!'
+          title: '請重新登入!',
         })
         navigate('/admin')
         console.error(error)
@@ -44,7 +44,7 @@ export default function AdminUsers() {
 
         <div className={style.admin__card}>
           <div className={style.adminUserCards}>
-            {users.map(user => (
+            {users.map((user) => (
               <AdminUserCard
                 key={user.id}
                 cover={user.cover}

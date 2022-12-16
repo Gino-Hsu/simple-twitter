@@ -22,14 +22,14 @@ export default function TweetModal({ onHideTweetModel }) {
     e.preventDefault()
     tweetApi
       .postTweets(tweet)
-      .then(res => {
-        const {data} = res
+      .then((res) => {
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
         Toast.fire({
           icon: 'success',
-          title: '推文成功!'
+          title: '推文成功!',
         })
         setTweet('')
         // 關掉 modal
@@ -37,7 +37,7 @@ export default function TweetModal({ onHideTweetModel }) {
       .catch((error) => {
         Toast.fire({
           icon: 'error',
-          title: '推文失敗!'
+          title: '推文失敗!',
         })
         console.error(error)
       })
@@ -51,7 +51,10 @@ export default function TweetModal({ onHideTweetModel }) {
         portalElement
       )}
       {ReactDOM.createPortal(
-        <form className={style.view__container} onSubmit={(e) => handleSubmit(e)}>
+        <form
+          className={style.view__container}
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <Modal onHideTweetModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
@@ -67,5 +70,8 @@ export default function TweetModal({ onHideTweetModel }) {
             </div>
           </Modal>
         </form>,
-        portalElement)}</>)
+        portalElement
+      )}
+    </>
+  )
 }

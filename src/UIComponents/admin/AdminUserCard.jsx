@@ -2,7 +2,16 @@ import React from 'react'
 
 import style from './AdminUserCard.module.scss'
 
-export default function UserCardItem({cover, name, avatar, account, tweetCount, likeCount, followingCount, followerCount}) {
+export default function UserCardItem({
+  cover,
+  name,
+  avatar,
+  account,
+  tweetCount,
+  likeCount,
+  followingCount,
+  followerCount,
+}) {
   return (
     <div className={style.card__container}>
       <div className={style.background__img}>
