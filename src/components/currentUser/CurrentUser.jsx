@@ -13,6 +13,7 @@ export default function CurrentUser({
   account,
   avatarImg,
   description,
+  tweetCount,
   followerCount,
   followingCount,
   children,
@@ -24,7 +25,7 @@ export default function CurrentUser({
   return (
     <div className={style.currentUser__container}>
       <div className={style.header}>
-        <UserHeader name="Gino" tweetCount="99" />
+        <UserHeader name={name} tweetCount={tweetCount} />
       </div>
 
       <div className={style.body}>

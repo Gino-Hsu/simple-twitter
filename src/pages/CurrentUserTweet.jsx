@@ -70,6 +70,7 @@ export default function CurrentUserTweet({
         account={currentUser.account}
         avatarImg={currentUser.avatar}
         description={currentUser.introduction}
+        tweetCount={currentUser.tweetCount}
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
         handleChangeTab={handleChangeTab}
@@ -81,6 +82,7 @@ export default function CurrentUserTweet({
           <TweetListItem
             key={tweet.id}
             tweet={tweet.description}
+            tweetId={tweet.id}
             userId={tweet.User.id}
             userAvatar={tweet.User.avatar}
             account={tweet.User.account}

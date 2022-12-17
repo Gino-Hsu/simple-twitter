@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import RelyList from '../components/relyList/RelyList'
 
 import tweetApi from '../API/tweetApi'
-import replyApi from '../API/ReplyApi'
+import replyApi from '../API/replyApi'
 
 export default function Reply(
   handleShowReplyModel,

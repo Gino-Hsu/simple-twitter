@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { profileLink } from '../../utils/routeLink'
+
 import style from './ReplyListItem.module.scss'
 
 export default function ReplyListItem({
@@ -10,11 +12,12 @@ export default function ReplyListItem({
   account,
   time,
   forAccount,
+  forUserId,
   reply,
 }) {
   return (
     <div className={style.listItem__container}>
-      <Link to={`user/other/tweet/${userId}`}>
+      <Link to={profileLink(userId, 'tweet')}>
         <div className={style.avatar}>
           <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
         </div>
@@ -30,7 +33,9 @@ export default function ReplyListItem({
         </div>
         <div className={style.reply__for}>
           <p>回覆</p>
-          <p className={style.account}>{`@${forAccount}`}</p>
+          <Link to={profileLink(forUserId, 'tweet')}>
+            <p className={style.account}>{`@${forAccount}`}</p>
+          </Link>
         </div>
         <div className={style.reply__text}>{reply}</div>
       </div>
