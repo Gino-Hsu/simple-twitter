@@ -17,18 +17,14 @@ export default function TweetModal({ onHideTweetModel }) {
   const navigate = useNavigate()
 
   const handleTweetChange = (e) => {
-    setTweet(e.target.value)
+    setDescription(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     tweetApi
-      .postTweets(tweet)
+      .postTweet(description)
       .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
@@ -84,7 +80,7 @@ export default function TweetModal({ onHideTweetModel }) {
               <div className={style.input__container}>
                 <Textarea
                   textareaPlaceHolder="有什麼新鮮事嗎？"
-                  textareaValue={tweet}
+                  textareaValue={description}
                   onChange={handleTweetChange}
                 />
               </div>
