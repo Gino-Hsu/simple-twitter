@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
+import { profileLink } from '../../utils/routeLink'
 import ReplyModal from '../../components/replyModal/ReplyModal'
 
 export default function TweetListItem({
@@ -20,7 +21,7 @@ export default function TweetListItem({
 }) {
   return (
     <div className={style.listItem__container}>
-      <Link to={`/alphitter/user/other/tweet/${userId}`}>
+      <Link to={profileLink(userId, 'tweet')}>
         <div className={style.listItem__avatar}>
           <div className={style.avatar__img}>
             <img src={userAvatar} alt="user avatar" />

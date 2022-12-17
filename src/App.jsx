@@ -172,7 +172,7 @@ function App() {
               }
             ></Route>
             <Route
-              path="user/other/reply/"
+              path="user/other/reply/:user_id"
               element={<OtherUserReply />}
             ></Route>
             <Route

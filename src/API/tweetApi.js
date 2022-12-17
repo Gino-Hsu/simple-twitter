@@ -14,7 +14,7 @@ export default {
   },
   getUserTweets(userId) {
     return apiHelper.get(`/users/${userId}/tweets`, {
-      headers: { Authorization: `Bear ${getToken()}` },
+      headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
   postTweet(description) {

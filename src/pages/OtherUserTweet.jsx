@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, {useState, useEffect} from 'react'
+// import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 
 import userApi from '../API/userApi'
+import tweetApi from '../API/tweetApi'
 
 import style from './OtherUserTweet.module.scss'
 
-import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
 export default function OtherUserTweet({
   handleShowReplyModel,
@@ -15,18 +16,40 @@ export default function OtherUserTweet({
   replyModelIsShow,
 }) {
   const [user, setUser] = useState('')
+  const [tweets, setTweets] = useState([])
   const param = useParams()
-
-  console.log(user)
+  // const navigate = useNavigate()
 
   useEffect(() => {
-    userApi.getOtherUser(param.user_id).then((res) => {
-      const { data } = res
-      if (res.status !== 200) {
-        throw new Error(data.message)
-      }
-      setUser(data)
-    })
+    userApi
+      .getOtherUser(param.user_id)
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setUser(data)
+      })
+      .catch(error => {
+        console.error(error)
+        // navigate('/login')
+      })
+  }, [])
+
+  useEffect(() => {
+    tweetApi
+      .getUserTweets(param.user_id)
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setTweets(data)
+      })
+      .catch(error => {
+        console.log(error)
+        // navigate('/login')
+      })
   }, [])
 
   return (
@@ -40,75 +63,22 @@ export default function OtherUserTweet({
         followerCount={user.followersCount}
         followingCount={user.followingCount}
       >
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-          handleShowReplyModel={handleShowReplyModel}
-          handleHideModel={handleHideModel}
-          replyModelIsShow={replyModelIsShow}
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-          handleShowReplyModel={handleShowReplyModel}
-          handleHideModel={handleHideModel}
-          replyModelIsShow={replyModelIsShow}
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-        />
-        <TweetListItem
-          tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-          userAvatar={avatar}
-          account="gino"
-          userName="Gino"
-          time="3 小時"
-          twitterReply="13"
-          twitterLike="76"
-        />
+        {tweets.map(tweet => (
+          <TweetListItem
+            key={tweet.id}
+            tweet={tweet.description}
+            userId={tweet.User.id}
+            userAvatar={tweet.User.avatar}
+            account={tweet.User.account}
+            userName={tweet.User.name}
+            time={tweet.relativeTime}
+            replyCount={tweet.replyCount}
+            likeCount={tweet.likeCount}
+            handleShowReplyModel={handleShowReplyModel}
+            handleHideModel={handleHideModel}
+            replyModelIsShow={replyModelIsShow}
+          />
+        ))}
       </OtherUser>
     </div>
   )
