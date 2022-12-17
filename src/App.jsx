@@ -62,10 +62,10 @@ function App() {
   }
 
   const handleHideModel = () => {
-    setTweetModelIsShow(false)
     setReplyModelIsShow(false)
     setEditModelIsShow(false)
   }
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -86,7 +86,7 @@ function App() {
                 step={step}
                 handleChangeTab={handleChangeTab}
                 handleShowTweetModel={handleShowTweetModel}
-                handleHideModel={handleHideModel}
+                handleHideTweetModel={handleHideTweetModel}
                 tweetModelIsShow={tweetModelIsShow}
               />
             }
@@ -110,6 +110,7 @@ function App() {
                 <Home
                   handleChangeTab={handleChangeTab}
                   handleShowTweetModel={handleShowTweetModel}
+                  handleHideTweetModel={handleHideTweetModel}
                   handleHideModel={handleHideModel}
                   tweetModelIsShow={tweetModelIsShow}
                   handleShowReplyModel={handleShowReplyModel}

@@ -8,7 +8,7 @@ export default function SideBar({
   step,
   handleChangeTab,
   handleShowTweetModel,
-  handleHideModel,
+  handleHideTweetModel,
   tweetModelIsShow,
 }) {
   const navigate = useNavigate()
@@ -45,7 +45,7 @@ export default function SideBar({
         </NavLink>
         <NavItem
           handleShowTweetModel={handleShowTweetModel}
-          handleHideModel={handleHideModel}
+          handleHideTweetModel={handleHideTweetModel}
           tweetModelIsShow={tweetModelIsShow}
           iconStyle="icon__tweet"
           altName="tweet"
@@ -128,7 +128,7 @@ export default function SideBar({
             <div className={style.tweet__btn}>推文</div>
           </div>
           {tweetModelIsShow && (
-            <TweetModal onHideTweetModel={handleHideModel} />
+            <TweetModal onHideModel={handleHideTweetModel} />
           )}
         </div>
         <div onClick={() => handelSignOut()} className={style.signOut}>

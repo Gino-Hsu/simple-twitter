@@ -8,7 +8,7 @@ export default function Layout({
   step,
   handleChangeTab,
   handleShowTweetModel,
-  handleHideModel,
+  handleHideTweetModel,
   tweetModelIsShow,
 }) {
   return (
@@ -18,7 +18,7 @@ export default function Layout({
           step={step}
           handleChangeTab={handleChangeTab}
           handleShowTweetModel={handleShowTweetModel}
-          handleHideModel={handleHideModel}
+          handleHideTweetModel={handleHideTweetModel}
           tweetModelIsShow={tweetModelIsShow}
         />
       </div>
