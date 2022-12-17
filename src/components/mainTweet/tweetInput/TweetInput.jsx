@@ -16,7 +16,7 @@ export default function TweetInput({ currentUser }) {
         <div className={style.inputBox__input}>
           <div className={style.avatar__container}>
             <div className={style.avatar}>
-              <img src="" alt="avatar" />
+              <img src={currentUser.avatar} alt="avatar" />
             </div>
           </div>
         </div>

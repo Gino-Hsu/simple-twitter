@@ -12,7 +12,7 @@ import { Toast, Alert } from '../../utils/helpers'
 import style from './TweetModal.module.scss'
 
 export default function TweetModal({ onHideTweetModel }) {
-  const [tweet, setTweet] = useState('')
+  const [description, setDescription] = useState('')
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
 
@@ -25,18 +25,21 @@ export default function TweetModal({ onHideTweetModel }) {
     tweetApi
       .postTweet(description)
       .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
         })
-        setTweet('')
+        setDescription('')
       })
       .catch((error) => {
         Toast.fire({
           icon: 'error',
           title: '推文失敗!',
         })
-        navigate('/login')
         console.error(error)
       })
   }
@@ -44,21 +47,22 @@ export default function TweetModal({ onHideTweetModel }) {
   useEffect(() => {
     userApi
       .getCurrentUser()
-      .then(res => {
-        const {data} = res
+      .then((res) => {
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
         setCurrentUser(data)
       })
-      .catch(error => {
+      .catch((error) => {
         Alert.fire({
           icon: 'error',
-          title: '請重新登入!'
+          title: '請重新登入!',
         })
+        navigate('/login')
         console.error(error)
       })
-  })
+  }, [])
 
   const portalElement = document.getElementById('modal-root')
   return (
@@ -75,7 +79,11 @@ export default function TweetModal({ onHideTweetModel }) {
           <Modal onHideModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
-                <img className={style.avatar__img} src={currentUser.avatar} alt="Avatar" />
+                <img
+                  className={style.avatar__img}
+                  src={currentUser.avatar}
+                  alt="Avatar"
+                />
               </div>
               <div className={style.input__container}>
                 <Textarea

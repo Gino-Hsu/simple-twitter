@@ -1,6 +1,6 @@
 import './App.scss'
 import React, { useState } from 'react'
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
@@ -19,7 +19,7 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-import { WarnAlert } from './utils/helpers'
+// import { WarnAlert } from './utils/helpers'
 
 function App() {
   const [step, setStep] = useState('home')
@@ -33,24 +33,26 @@ function App() {
   const handleShowTweetModel = () => {
     setTweetModelIsShow(true)
   }
-  
-  const handleHideTweetModel = () => {
-    WarnAlert.fire({
-      title: '文章還沒推出去，確定要離開嗎?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: '確定，沒有要發文了!',
-      cancelButtonText: '保留!',
-      reverseButtons: true,
-    }).then((result) => {
-      if (result.isConfirmed) {
-       WarnAlert.fire('已關閉推文', '要記得回來喔!', 'success')
 
-      setTweetModelIsShow(false)
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-         WarnAlert.fire('繼續編輯文章', '你的朋友正在等著你的文章 :)', 'info')
-      }
-    })
+  // const handleHideTweetModel = () => {
+  //   WarnAlert.fire({
+  //     title: '文章還沒推出去，確定要離開嗎?',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonText: '確定，沒有要發文了!',
+  //     cancelButtonText: '保留!',
+  //     reverseButtons: true,
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //      WarnAlert.fire('已關閉推文', '要記得回來喔!', 'success')
+
+  //     setTweetModelIsShow(false)
+  //     } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //        WarnAlert.fire('繼續編輯文章', '你的朋友正在等著你的文章 :)', 'info')
+  //     }
+  //   })
+  // }
+
   const handleShowReplyModel = () => {
     setReplyModelIsShow(true)
   }
