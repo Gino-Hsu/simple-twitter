@@ -12,26 +12,23 @@ import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 import style from './TweetModal.module.scss'
 
 export default function TweetModal({ onHideTweetModel }) {
-  const [tweet, setTweet] = useState('')
+  const [description, setDescription] = useState('')
 
   const handleTweetChange = (e) => {
-    setTweet(e.target.value)
+    setDescription(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     tweetApi
-      .postTweets(tweet)
+      .postTweet(description)
       .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
         })
-        setTweet('')
+        console.log(res)
+        setDescription('')
         // 關掉 modal
       })
       .catch((error) => {
@@ -39,7 +36,7 @@ export default function TweetModal({ onHideTweetModel }) {
           icon: 'error',
           title: '推文失敗!',
         })
-        console.error(error)
+        console.error('catch here', error)
       })
   }
 
@@ -63,7 +60,7 @@ export default function TweetModal({ onHideTweetModel }) {
               <div className={style.input__container}>
                 <Textarea
                   textareaPlaceHolder="有什麼新鮮事嗎？"
-                  textareaValue={tweet}
+                  textareaValue={description}
                   onChange={handleTweetChange}
                 />
               </div>
