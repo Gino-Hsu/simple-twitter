@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 
 import tweetApi from '../../API/tweetApi'
-import { Toast } from '../../utils/helpers'
-
-import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
+import userApi from '../../API/userApi'
+import { Toast, Alert } from '../../utils/helpers'
 
 import style from './TweetModal.module.scss'
 
 export default function TweetModal({ onHideTweetModel }) {
-  const [description, setDescription] = useState('')
+  const [tweet, setTweet] = useState('')
+  const [currentUser, setCurrentUser] = useState([])
+  const navigate = useNavigate()
 
   const handleTweetChange = (e) => {
     setDescription(e.target.value)
@@ -27,18 +29,36 @@ export default function TweetModal({ onHideTweetModel }) {
           icon: 'success',
           title: '推文成功!',
         })
-        console.log(res)
-        setDescription('')
-        // 關掉 modal
+        setTweet('')
       })
       .catch((error) => {
         Toast.fire({
           icon: 'error',
           title: '推文失敗!',
         })
-        console.error('catch here', error)
+        navigate('/login')
+        console.error(error)
       })
   }
+
+  useEffect(() => {
+    userApi
+      .getCurrentUser()
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setCurrentUser(data)
+      })
+      .catch(error => {
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入!'
+        })
+        console.error(error)
+      })
+  })
 
   const portalElement = document.getElementById('modal-root')
   return (
@@ -55,7 +75,7 @@ export default function TweetModal({ onHideTweetModel }) {
           <Modal onHideModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
-                <img className={style.avatar__img} src={avatar} alt="Avatar" />
+                <img className={style.avatar__img} src={currentUser.avatar} alt="Avatar" />
               </div>
               <div className={style.input__container}>
                 <Textarea

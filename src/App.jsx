@@ -19,7 +19,6 @@ import Following from './components/follow/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-
 import { WarnAlert } from './utils/helpers'
 
 function App() {
