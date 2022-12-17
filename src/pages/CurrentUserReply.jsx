@@ -7,7 +7,12 @@ import style from './CurrentUserReply.module.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserReply({ handleChangeTab }) {
+export default function CurrentUserReply({
+  handleChangeTab,
+  handleShowEditModel,
+  handleHideModel,
+  editModelIsShow,
+}) {
   return (
     <div className={style.userReply__container}>
       <CurrentUser
@@ -19,6 +24,9 @@ export default function CurrentUserReply({ handleChangeTab }) {
         description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum in quibusdam possimus atque velit, a adipisci perferendis, porro et enim ipsum dignissimos laboriosam veritatis quaerat tempore saepe doloribus laborum!"
         followerCount="34"
         followingCount="59"
+        handleShowEditModel={handleShowEditModel}
+        handleHideModel={handleHideModel}
+        editModelIsShow={editModelIsShow}
       >
         <ReplyListItem
           avatarImg={avatar}

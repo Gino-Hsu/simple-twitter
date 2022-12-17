@@ -25,6 +25,8 @@ import { WarnAlert } from './utils/helpers'
 function App() {
   const [step, setStep] = useState('home')
   const [tweetModelIsShow, setTweetModelIsShow] = useState(false)
+  const [replyModelIsShow, setReplyModelIsShow] = useState(false)
+  const [editModelIsShow, setEditModelIsShow] = useState(false)
   const handleChangeTab = (tab) => {
     setStep(tab)
   }
@@ -32,7 +34,7 @@ function App() {
   const handleShowTweetModel = () => {
     setTweetModelIsShow(true)
   }
-
+  
   const handleHideTweetModel = () => {
     WarnAlert.fire({
       title: '文章還沒推出去，確定要離開嗎?',
@@ -50,8 +52,18 @@ function App() {
          WarnAlert.fire('繼續編輯文章', '你的朋友正在等著你的文章 :)', 'info')
       }
     })
+  const handleShowReplyModel = () => {
+    setReplyModelIsShow(true)
+  }
 
-    
+  const handleShowEditModel = () => {
+    setEditModelIsShow(true)
+  }
+
+  const handleHideModel = () => {
+    setTweetModelIsShow(false)
+    setReplyModelIsShow(false)
+    setEditModelIsShow(false)
   }
   return (
     <div className="App">
@@ -73,14 +85,23 @@ function App() {
                 step={step}
                 handleChangeTab={handleChangeTab}
                 handleShowTweetModel={handleShowTweetModel}
-                handleHideTweetModel={handleHideTweetModel}
+                handleHideModel={handleHideModel}
                 tweetModelIsShow={tweetModelIsShow}
               />
             }
           >
             <Route
               path="user/self/tweet"
-              element={<CurrentUserTweet handleChangeTab={handleChangeTab} />}
+              element={
+                <CurrentUserTweet
+                  handleChangeTab={handleChangeTab}
+                  handleShowReplyModel={handleShowReplyModel}
+                  handleHideModel={handleHideModel}
+                  replyModelIsShow={replyModelIsShow}
+                  handleShowEditModel={handleShowEditModel}
+                  editModelIsShow={editModelIsShow}
+                />
+              }
             ></Route>
             <Route
               path="home"
@@ -88,20 +109,47 @@ function App() {
                 <Home
                   handleChangeTab={handleChangeTab}
                   handleShowTweetModel={handleShowTweetModel}
-                  handleHideTweetModel={handleHideTweetModel}
+                  handleHideModel={handleHideModel}
                   tweetModelIsShow={tweetModelIsShow}
+                  handleShowReplyModel={handleShowReplyModel}
+                  replyModelIsShow={replyModelIsShow}
                 />
               }
             ></Route>
-            <Route path="reply/:tweet_id" element={<Reply />}></Route>
+            <Route
+              path="reply/:tweet_id"
+              element={
+                <Reply
+                  handleShowReplyModel={handleShowReplyModel}
+                  handleHideModel={handleHideModel}
+                  replyModelIsShow={replyModelIsShow}
+                />
+              }
+            ></Route>
 
             <Route
               path="user/self/reply"
-              element={<CurrentUserReply handleChangeTab={handleChangeTab} />}
+              element={
+                <CurrentUserReply
+                  handleChangeTab={handleChangeTab}
+                  handleHideModel={handleHideModel}
+                  handleShowEditModel={handleShowEditModel}
+                  editModelIsShow={editModelIsShow}
+                />
+              }
             ></Route>
             <Route
               path="user/self/like"
-              element={<CurrentUserLike handleChangeTab={handleChangeTab} />}
+              element={
+                <CurrentUserLike
+                  handleChangeTab={handleChangeTab}
+                  handleHideModel={handleHideModel}
+                  handleShowReplyModel={handleShowReplyModel}
+                  replyModelIsShow={replyModelIsShow}
+                  handleShowEditModel={handleShowEditModel}
+                  editModelIsShow={editModelIsShow}
+                />
+              }
             ></Route>
             <Route
               path="user/self/follower"
@@ -111,12 +159,30 @@ function App() {
               path="user/self/following"
               element={<Following handleChangeTab={handleChangeTab} />}
             ></Route>
-            <Route path="user/other/tweet" element={<OtherUserTweet />}></Route>
+            <Route
+              path="user/other/tweet"
+              element={
+                <OtherUserTweet
+                  handleShowReplyModel={handleShowReplyModel}
+                  handleHideModel={handleHideModel}
+                  replyModelIsShow={replyModelIsShow}
+                />
+              }
+            ></Route>
             <Route
               path="user/other/reply/"
               element={<OtherUserReply />}
             ></Route>
-            <Route path="user/other/like" element={<OtherUserLike />}></Route>
+            <Route
+              path="user/other/like"
+              element={
+                <OtherUserLike
+                  handleShowReplyModel={handleShowReplyModel}
+                  handleHideModel={handleHideModel}
+                  replyModelIsShow={replyModelIsShow}
+                />
+              }
+            ></Route>
           </Route>
         </Routes>
       </BrowserRouter>

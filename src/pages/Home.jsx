@@ -11,8 +11,10 @@ import style from './Home.module.scss'
 export default function Home({
   handleChangeTab,
   handleShowTweetModel,
-  handleHideTweetModel,
+  handleHideModel,
   tweetModelIsShow,
+  handleShowReplyModel,
+  replyModelIsShow,
 }) {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
@@ -64,9 +66,11 @@ export default function Home({
           tweets={tweets}
           currentUser={currentUser}
           handleChangeTab={handleChangeTab}
-          handleShowTweetMode={handleShowTweetModel}
-          handleHideTweetModel={handleHideTweetModel}
+          handleShowTweetModel={handleShowTweetModel}
+          handleHideModel={handleHideModel}
           tweetModelIsShow={tweetModelIsShow}
+          handleShowReplyModel={handleShowReplyModel}
+          replyModelIsShow={replyModelIsShow}
         />
       </div>
     </>

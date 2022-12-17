@@ -7,7 +7,11 @@ import style from './OtherUserTweet.module.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function OtherUserTweet() {
+export default function OtherUserTweet({
+  handleShowReplyModel,
+  handleHideModel,
+  replyModelIsShow,
+}) {
   return (
     <div className={style.userTweet__container}>
       <OtherUser
@@ -27,6 +31,9 @@ export default function OtherUserTweet() {
           time="3 小時"
           twitterReply="13"
           twitterLike="76"
+          handleShowReplyModel={handleShowReplyModel}
+          handleHideModel={handleHideModel}
+          replyModelIsShow={replyModelIsShow}
         />
         <TweetListItem
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
@@ -36,6 +43,9 @@ export default function OtherUserTweet() {
           time="3 小時"
           twitterReply="13"
           twitterLike="76"
+          handleShowReplyModel={handleShowReplyModel}
+          handleHideModel={handleHideModel}
+          replyModelIsShow={replyModelIsShow}
         />
         <TweetListItem
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
