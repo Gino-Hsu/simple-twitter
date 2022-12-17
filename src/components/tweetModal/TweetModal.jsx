@@ -11,10 +11,11 @@ import { Toast, Alert } from '../../utils/helpers'
 
 import style from './TweetModal.module.scss'
 
-export default function TweetModal({ onHideTweetModel }) {
+export default function TweetModal({ onHideModel }) {
   const [tweet, setTweet] = useState('')
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
+  // const [description, setDescription] = useState['']
 
   const handleTweetChange = (e) => {
     setTweet(e.target.value)
@@ -25,6 +26,10 @@ export default function TweetModal({ onHideTweetModel }) {
     tweetApi
       .postTweet(tweet)
       .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
@@ -64,7 +69,7 @@ export default function TweetModal({ onHideTweetModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideModel={onHideTweetModel} />,
+        <BackDrop onHideModel={onHideModel} />,
         portalElement
       )}
       {ReactDOM.createPortal(
@@ -72,7 +77,7 @@ export default function TweetModal({ onHideTweetModel }) {
           className={style.view__container}
           onSubmit={(e) => handleSubmit(e)}
         >
-          <Modal onHideModel={onHideTweetModel} buttonText="推文">
+          <Modal onHideModel={onHideModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
                 <img
