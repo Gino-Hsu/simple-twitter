@@ -26,7 +26,7 @@ export default function Reply(
       const { data } = res
       setReplies(data)
     })
-  })
+  }, [])
 
   return (
     <div>

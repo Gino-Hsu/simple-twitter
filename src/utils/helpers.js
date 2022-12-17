@@ -26,6 +26,6 @@ export const Alert = Swal.mixin({
 export const WarnAlert = Swal.mixin({
   customClass: {
     confirmButton: 'btn btn-success',
-    cancelButton: 'btn btn-danger'
+    cancelButton: 'btn btn-danger',
   },
 })

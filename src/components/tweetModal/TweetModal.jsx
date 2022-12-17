@@ -11,6 +11,7 @@ import { Toast, Alert } from '../../utils/helpers'
 
 import style from './TweetModal.module.scss'
 
+
 export default function TweetModal({ onHideModel }) {
   const [tweet, setTweet] = useState('')
   const [currentUser, setCurrentUser] = useState([])
@@ -34,14 +35,13 @@ export default function TweetModal({ onHideModel }) {
           icon: 'success',
           title: '推文成功!',
         })
-        setTweet('')
+        setDescription('')
       })
       .catch((error) => {
         Toast.fire({
           icon: 'error',
           title: '推文失敗!',
         })
-        navigate('/login')
         console.error(error)
       })
   }
@@ -49,21 +49,22 @@ export default function TweetModal({ onHideModel }) {
   useEffect(() => {
     userApi
       .getCurrentUser()
-      .then(res => {
-        const {data} = res
+      .then((res) => {
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
         setCurrentUser(data)
       })
-      .catch(error => {
+      .catch((error) => {
         Alert.fire({
           icon: 'error',
-          title: '請重新登入!'
+          title: '請重新登入!',
         })
+        navigate('/login')
         console.error(error)
       })
-  })
+  }, [])
 
   const portalElement = document.getElementById('modal-root')
   return (
