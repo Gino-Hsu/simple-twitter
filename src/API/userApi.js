@@ -7,6 +7,11 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
+  getOtherUser(userId) {
+    return apiHelper.get(`/users/${userId}`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    })
+  },
   getAdminUsers() {
     return apiHelper.get('/admin/users', {
       headers: { Authorization: `Bearer ${getToken()}` },

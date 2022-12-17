@@ -31,6 +31,8 @@ export default function MainTweet({
               tweet={tweet.description}
               account={tweet.User.account}
               userName={tweet.User.name}
+              userId={tweet.User.id}
+              userAvatar={tweet.User.avatar}
               time={tweet.relativeTime}
               tweetId={tweet.id}
               twitterLike="23"
@@ -43,7 +45,9 @@ export default function MainTweet({
           ))}
         </div>
       </div>
-      {tweetModelIsShow && <TweetModal onHideTweetModel={handleHideTweetModel} />}
+      {tweetModelIsShow && (
+        <TweetModal onHideTweetModel={handleHideTweetModel} />
+      )}
     </>
   )
 }

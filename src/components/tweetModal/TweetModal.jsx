@@ -11,21 +11,19 @@ import { Toast, Alert } from '../../utils/helpers'
 
 import style from './TweetModal.module.scss'
 
-
-export default function TweetModal({ onHideModel }) {
-  const [tweet, setTweet] = useState('')
+export default function TweetModal({ onHideTweetModel }) {
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
-  // const [description, setDescription] = useState['']
+  const [description, setDescription] = useState('')
 
   const handleTweetChange = (e) => {
-    setTweet(e.target.value)
+    setDescription(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     tweetApi
-      .postTweet(tweet)
+      .postTweet(description)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {
@@ -70,7 +68,7 @@ export default function TweetModal({ onHideModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideModel={onHideModel} />,
+        <BackDrop onHideModel={onHideTweetModel} />,
         portalElement
       )}
       {ReactDOM.createPortal(
@@ -78,7 +76,7 @@ export default function TweetModal({ onHideModel }) {
           className={style.view__container}
           onSubmit={(e) => handleSubmit(e)}
         >
-          <Modal onHideModel={onHideModel} buttonText="推文">
+          <Modal onHideModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
                 <img
@@ -90,7 +88,7 @@ export default function TweetModal({ onHideModel }) {
               <div className={style.input__container}>
                 <Textarea
                   textareaPlaceHolder="有什麼新鮮事嗎？"
-                  textareaValue={tweet}
+                  textareaValue={description}
                   onChange={handleTweetChange}
                 />
               </div>

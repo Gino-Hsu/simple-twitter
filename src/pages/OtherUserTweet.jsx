@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 
+import userApi from '../API/userApi'
+
 import style from './OtherUserTweet.module.scss'
 
-import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
 export default function OtherUserTweet({
@@ -12,16 +14,31 @@ export default function OtherUserTweet({
   handleHideModel,
   replyModelIsShow,
 }) {
+  const [user, setUser] = useState('')
+  const param = useParams()
+
+  console.log(user)
+
+  useEffect(() => {
+    userApi.getOtherUser(param.user_id).then((res) => {
+      const { data } = res
+      if (res.status !== 200) {
+        throw new Error(data.message)
+      }
+      setUser(data)
+    })
+  }, [])
+
   return (
     <div className={style.userTweet__container}>
       <OtherUser
-        coverImg={cover}
-        name="Gino"
-        account="gino"
-        avatarImg={avatar}
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus rerum in quibusdam possimus atque velit, a adipisci perferendis, porro et enim ipsum dignissimos laboriosam veritatis quaerat tempore saepe doloribus laborum!"
-        followerCount="34"
-        followingCount="59"
+        coverImg={user.cover}
+        name={user.name}
+        account={user.account}
+        avatarImg={user.avatar}
+        introduction={user.introduction}
+        followerCount={user.followersCount}
+        followingCount={user.followingCount}
       >
         <TweetListItem
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."

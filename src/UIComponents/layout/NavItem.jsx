@@ -19,9 +19,7 @@ export default function NavItem({
         </div>
         <div className={style[textStyle]}>{title}</div>
       </div>
-      {tweetModelIsShow && (
-        <TweetModal onHideModel={handleHideTweetModel} />
-      )}
+      {tweetModelIsShow && <TweetModal onHideModel={handleHideTweetModel} />}
     </>
   )
 }

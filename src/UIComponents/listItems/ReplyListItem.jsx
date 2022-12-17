@@ -1,10 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import style from './ReplyListItem.module.scss'
 
 export default function ReplyListItem({
   avatarImg,
   name,
+  userId,
   account,
   time,
   forAccount,
@@ -12,9 +14,11 @@ export default function ReplyListItem({
 }) {
   return (
     <div className={style.listItem__container}>
-      <div className={style.avatar}>
-        <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
-      </div>
+      <Link to={`user/other/tweet/${userId}`}>
+        <div className={style.avatar}>
+          <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
+        </div>
+      </Link>
       <div className={style.listItem__body}>
         <div className={style.replyBy}>
           <div className={style.replyBy__name}>{name}</div>

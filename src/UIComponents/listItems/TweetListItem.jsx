@@ -8,6 +8,7 @@ export default function TweetListItem({
   userAvatar,
   account,
   userName,
+  userId,
   time,
   twitterReply,
   twitterLike,
@@ -19,11 +20,13 @@ export default function TweetListItem({
 }) {
   return (
     <div className={style.listItem__container}>
-      <div className={style.listItem__avatar}>
-        <div className={style.avatar__img}>
-          <img src={userAvatar} alt="user avatar" />
+      <Link to={`/alphitter/user/other/tweet/${userId}`}>
+        <div className={style.listItem__avatar}>
+          <div className={style.avatar__img}>
+            <img src={userAvatar} alt="user avatar" />
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={style.listItem__info}>
         <div className={style.info__account}>
           <p>{userName}</p>
