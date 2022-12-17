@@ -11,6 +11,7 @@ import style from './Home.module.scss'
 export default function Home({
   handleChangeTab,
   handleShowTweetModel,
+  handleHideTweetModel,
   handleHideModel,
   tweetModelIsShow,
   handleShowReplyModel,
@@ -67,6 +68,7 @@ export default function Home({
           currentUser={currentUser}
           handleChangeTab={handleChangeTab}
           handleShowTweetModel={handleShowTweetModel}
+          handleHideTweetModel={handleHideTweetModel}
           handleHideModel={handleHideModel}
           tweetModelIsShow={tweetModelIsShow}
           handleShowReplyModel={handleShowReplyModel}

@@ -10,6 +10,7 @@ export default function MainTweet({
   currentUser,
   handleChangeTab,
   handleShowTweetModel,
+  handleHideTweetModel,
   handleHideModel,
   tweetModelIsShow,
   handleShowReplyModel,
@@ -42,7 +43,7 @@ export default function MainTweet({
           ))}
         </div>
       </div>
-      {tweetModelIsShow && <TweetModal onHideTweetModel={handleHideModel} />}
+      {tweetModelIsShow && <TweetModal onHideTweetModel={handleHideTweetModel} />}
     </>
   )
 }
