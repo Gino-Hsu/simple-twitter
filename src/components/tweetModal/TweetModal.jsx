@@ -17,13 +17,13 @@ export default function TweetModal({ onHideTweetModel }) {
   const navigate = useNavigate()
 
   const handleTweetChange = (e) => {
-    setDescription(e.target.value)
+    setTweet(e.target.value)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     tweetApi
-      .postTweet(description)
+      .postTweet(tweet)
       .then((res) => {
         Toast.fire({
           icon: 'success',
@@ -75,12 +75,16 @@ export default function TweetModal({ onHideTweetModel }) {
           <Modal onHideModel={onHideTweetModel} buttonText="推文">
             <div className={style.modal__main}>
               <div className={style.avatar}>
-                <img className={style.avatar__img} src={currentUser.avatar} alt="Avatar" />
+                <img
+                  className={style.avatar__img}
+                  src={currentUser.avatar}
+                  alt="Avatar"
+                />
               </div>
               <div className={style.input__container}>
                 <Textarea
                   textareaPlaceHolder="有什麼新鮮事嗎？"
-                  textareaValue={description}
+                  textareaValue={tweet}
                   onChange={handleTweetChange}
                 />
               </div>
