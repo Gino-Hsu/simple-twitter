@@ -70,30 +70,30 @@ export default function TweetModal({ onHideModel }) {
     <>
       {ReactDOM.createPortal(
         <>
-        <form
-          className={style.view__container}
-          onSubmit={(e) => handleSubmit(e)}
-        >
-          <Modal onHideModel={onHideModel} buttonText="推文">
-            <div className={style.modal__main}>
-              <div className={style.avatar}>
-                <img
-                  className={style.avatar__img}
-                  src={currentUser.avatar}
-                  alt="Avatar"
-                />
+          <form
+            className={style.view__container}
+            onSubmit={(e) => handleSubmit(e)}
+          >
+            <Modal onHideModel={onHideModel} buttonText="推文">
+              <div className={style.modal__main}>
+                <div className={style.avatar}>
+                  <img
+                    className={style.avatar__img}
+                    src={currentUser.avatar}
+                    alt="Avatar"
+                  />
+                </div>
+                <div className={style.input__container}>
+                  <Textarea
+                    textareaPlaceHolder="有什麼新鮮事嗎？"
+                    textareaValue={tweet}
+                    onChange={handleTweetChange}
+                  />
+                </div>
               </div>
-              <div className={style.input__container}>
-                <Textarea
-                  textareaPlaceHolder="有什麼新鮮事嗎？"
-                  textareaValue={tweet}
-                  onChange={handleTweetChange}
-                />
-              </div>
-            </div>
-          </Modal>
-        </form>
-        <BackDrop onHideModel={onHideModel} />
+            </Modal>
+          </form>
+          <BackDrop onHideModel={onHideModel} />
         </>,
         portalElement
       )}

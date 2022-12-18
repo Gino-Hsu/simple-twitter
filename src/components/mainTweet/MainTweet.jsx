@@ -1,21 +1,21 @@
 import React, { useContext } from 'react'
 import TweetInput from './tweetInput/TweetInput'
 import TweetListItem from '../../UIComponents/listItems/TweetListItem'
-import TweetModal from '../tweetModal/TweetModal'
+import { ShowTweetModel } from '../../contexts/modalControlContext/ModalControlContext'
+import ReplyModal from '../replyModal/ReplyModal'
 import {
-  TweetModelIsShow,
-  ShowTweetModel,
-  HideTweetModel,
+  ReplyModelIsShow,
+  HideModel,
 } from '../../contexts/modalControlContext/ModalControlContext'
-
 import style from './MainTweet.module.scss'
 
 export default function MainTweet({ tweets, currentUser }) {
   const handleShowTweetModel = useContext(ShowTweetModel)
-  const handleHideTweetModel = useContext(HideTweetModel)
-  const tweetModelIsShow = useContext(TweetModelIsShow)
+  const handleHideModel = useContext(HideModel)
+  const replyModelIsShow = useContext(ReplyModelIsShow)
   return (
     <>
+      {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
       <div className={style.main__container}>
         <div onClick={handleShowTweetModel} className={style.position}>
           <div className={style.tweetInput}>
@@ -37,7 +37,6 @@ export default function MainTweet({ tweets, currentUser }) {
           ))}
         </div>
       </div>
-      {tweetModelIsShow && <TweetModal onHideModel={handleHideTweetModel} />}
     </>
   )
 }

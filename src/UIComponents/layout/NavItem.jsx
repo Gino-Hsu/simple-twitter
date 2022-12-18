@@ -1,5 +1,5 @@
 import React from 'react'
-import TweetModal from '../../components/tweetModal/TweetModal'
+// import TweetModal from '../../components/tweetModal/TweetModal'
 import style from './NavItem.module.scss'
 
 export default function NavItem({
@@ -8,8 +8,6 @@ export default function NavItem({
   altName,
   title,
   handleShowTweetModel,
-  handleHideTweetModel,
-  tweetModelIsShow,
 }) {
   return (
     <>
@@ -19,7 +17,6 @@ export default function NavItem({
         </div>
         <div className={style[textStyle]}>{title}</div>
       </div>
-      {tweetModelIsShow && <TweetModal onHideModel={handleHideTweetModel} />}
     </>
   )
 }

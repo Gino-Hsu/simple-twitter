@@ -1,12 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
-import ReplyModal from '../../components/replyModal/ReplyModal'
-import {
-  ReplyModelIsShow,
-  ShowReplyModel,
-  HideModel,
-} from '../../contexts/modalControlContext/ModalControlContext'
+import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 export default function TweetListItem({
@@ -20,8 +15,6 @@ export default function TweetListItem({
   tweetId,
 }) {
   const handleShowReplyModel = useContext(ShowReplyModel)
-  const handleHideModel = useContext(HideModel)
-  const replyModelIsShow = useContext(ReplyModelIsShow)
   const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.listItem__container}>
@@ -52,9 +45,6 @@ export default function TweetListItem({
             <div onClick={handleShowReplyModel} className={style.cursor}>
               <img className="" alt="reply button" />
             </div>
-            {replyModelIsShow && (
-              <ReplyModal handleHideModel={handleHideModel} />
-            )}
             <span>{twitterReply}</span>
           </div>
           <div className={style.icon__like}>

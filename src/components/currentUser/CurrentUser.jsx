@@ -29,6 +29,7 @@ export default function CurrentUser({
   const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.currentUser__container}>
+      {editModelIsShow && <EditModal handleHideModel={handleHideModel} />}
       <div className={style.header}>
         <UserHeader name="Gino" tweetCount="99" />
       </div>
@@ -60,7 +61,6 @@ export default function CurrentUser({
             />
           </div>
         </div>
-        {editModelIsShow && <EditModal handleHideModel={handleHideModel} />}
 
         <div className={style.description}>
           <div className={style.description__text}>{description}</div>
