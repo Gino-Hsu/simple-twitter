@@ -69,10 +69,7 @@ export default function TweetModal({ onHideModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideModel={onHideModel} />,
-        portalElement
-      )}
-      {ReactDOM.createPortal(
+        <>
         <form
           className={style.view__container}
           onSubmit={(e) => handleSubmit(e)}
@@ -95,7 +92,9 @@ export default function TweetModal({ onHideModel }) {
               </div>
             </div>
           </Modal>
-        </form>,
+        </form>
+        <BackDrop onHideModel={onHideModel} />
+        </>,
         portalElement
       )}
     </>

@@ -26,10 +26,7 @@ export default function ReplyModal({ handleHideModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideModel={handleHideModel} />,
-        portalElement
-      )}
-      {ReactDOM.createPortal(
+        <>
         <div className={style.view__container}>
           <Modal onHideModel={handleHideModel} buttonText="回覆" title="推文">
             <div className={style.flexbox}>
@@ -91,7 +88,9 @@ export default function ReplyModal({ handleHideModel }) {
               </div>
             </div>
           </Modal>
-        </div>,
+        </div>
+        <BackDrop onHideModel={handleHideModel} />
+        </>,
         portalElement
       )}
     </>

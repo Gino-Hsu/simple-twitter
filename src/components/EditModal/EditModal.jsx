@@ -26,10 +26,7 @@ export default function EditModal({ handleHideModel }) {
   return (
     <>
       {ReactDOM.createPortal(
-        <BackDrop onHideModel={handleHideModel} />,
-        portalElement
-      )}
-      {ReactDOM.createPortal(
+        <>
         <form className={style.view__container}>
           <EditModalUi
             onHideModel={handleHideModel}
@@ -114,7 +111,9 @@ export default function EditModal({ handleHideModel }) {
               className={style.avatar__input}
             />
           </EditModalUi>
-        </form>,
+        </form>
+        <BackDrop onHideModel={handleHideModel} />
+        </>,
         portalElement
       )}
     </>
