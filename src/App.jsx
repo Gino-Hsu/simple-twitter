@@ -56,15 +56,15 @@ function App() {
                   element={<Following />}
                 ></Route>
                 <Route
-                  path="user/other/tweet"
+                  path="user/other/tweet/:user_id"
                   element={<OtherUserTweet />}
                 ></Route>
                 <Route
-                  path="user/other/reply/"
+                  path="user/other/reply/:user_id"
                   element={<OtherUserReply />}
                 ></Route>
                 <Route
-                  path="user/other/like"
+                  path="user/other/like/:user_id"
                   element={<OtherUserLike />}
                 ></Route>
               </Route>

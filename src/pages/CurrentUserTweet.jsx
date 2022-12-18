@@ -1,12 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
-import ReplyModal from '../components/replyModal/ReplyModal'
-import {
-  ReplyModelIsShow,
-  HideModel,
-} from '../contexts/modalControlContext/ModalControlContext'
 import userApi from '../API/userApi'
 import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
@@ -17,8 +12,6 @@ export default function CurrentUserTweet() {
   const [currentUser, setCurrentUser] = useState([])
   const [tweets, setTweets] = useState([])
   const navigate = useNavigate()
-  const handleHideModel = useContext(HideModel)
-  const replyModelIsShow = useContext(ReplyModelIsShow)
   useEffect(() => {
     userApi
       .getCurrentUser()
@@ -62,7 +55,6 @@ export default function CurrentUserTweet() {
 
   return (
     <div className={style.userTweet__container}>
-      {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
       <CurrentUser
         coverImg={currentUser.cover}
         name={currentUser.name}
