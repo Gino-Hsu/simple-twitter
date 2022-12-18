@@ -1,5 +1,6 @@
 import './App.scss'
 import React from 'react'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
@@ -41,7 +42,6 @@ function App() {
                 ></Route>
                 <Route path="home" element={<Home />}></Route>
                 <Route path="reply/:tweet_id" element={<Reply />}></Route>
-
                 <Route
                   path="user/self/reply"
                   element={<CurrentUserReply />}
@@ -77,6 +77,3 @@ function App() {
 }
 
 export default App
-
-///<Route path="/彈跳視窗" element={<TweetModal />}></Route>
-///<Route path="/彈跳視窗" element={<ReplyModal />}></Route>

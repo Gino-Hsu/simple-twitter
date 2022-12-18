@@ -10,7 +10,7 @@ export default function OtherUser({
   name,
   account,
   avatarImg,
-  description,
+  introduction,
   followerCount,
   followingCount,
   children,
@@ -53,7 +53,7 @@ export default function OtherUser({
         </div>
 
         <div className={style.description}>
-          <div className={style.description__text}>{description}</div>
+          <div className={style.description__text}>{introduction}</div>
           <div className={style.follows}>
             <div className={style.follows__follower}>
               <p

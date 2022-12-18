@@ -7,11 +7,14 @@ import style from './ReplyList.module.scss'
 
 export default function ReplyList({
   userName,
+  userId,
   account,
   tweet,
   time,
   replyCount,
   likeCount,
+  replies,
+  avatar,
 }) {
   const handleShowReplyModel = useContext(ShowReplyModel)
   return (
@@ -30,7 +33,7 @@ export default function ReplyList({
         <div className={style.body}>
           <div className={style.user}>
             <div className={style.avatar}>
-              <img className={style.avatar__img} alt="avatar" />
+              <img src={avatar} className={style.avatar__img} alt="avatar" />
             </div>
             <div className={style.user__info}>
               <p className={style.user__info__name}>{userName}</p>
@@ -69,7 +72,7 @@ export default function ReplyList({
         <div className={style.replyAction__container}>
           <div className={style.currentUser}>
             <div className={style.currentUser__avatar}>
-              <img className={style.currentUser__avatar__img} />
+              <img src={avatar} className={style.currentUser__avatar__img} />
             </div>
             <p className={style.currentUser__text}>推你的回覆</p>
           </div>
@@ -79,88 +82,19 @@ export default function ReplyList({
           </div>
         </div>
       </div>
-
       <div className={style.replyLists}>
-        <ReplyListItem
-          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="小波"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="Cosine"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="小波"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="Cosine"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="小波"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="Cosine"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="小波"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="Cosine"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="小波"
-          reply="等等前端QQ"
-        />
-        <ReplyListItem
-          avatarImg="https://cdn01.pinkoi.com/product/UnJWMhvj/2/640x530.jpg"
-          name="Gino"
-          account="gino"
-          time="12 小時"
-          forAccount="Cosine"
-          reply="等等前端QQ"
-        />
+        {replies.map((reply) => (
+          <ReplyListItem
+            key={reply.id}
+            userId={userId}
+            avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
+            name="Gino"
+            account="gino"
+            time={reply.relativeTime}
+            forAccount="小波"
+            reply={reply.comment}
+          />
+        ))}
       </div>
     </div>
   )

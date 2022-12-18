@@ -1,20 +1,27 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+import { profileLink } from '../../utils/routeLink'
 
 import style from './ReplyListItem.module.scss'
 
 export default function ReplyListItem({
   avatarImg,
   name,
+  userId,
   account,
   time,
   forAccount,
+  forUserId,
   reply,
 }) {
   return (
     <div className={style.listItem__container}>
-      <div className={style.avatar}>
-        <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
-      </div>
+      <Link to={profileLink(userId, 'tweet')}>
+        <div className={style.avatar}>
+          <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
+        </div>
+      </Link>
       <div className={style.listItem__body}>
         <div className={style.replyBy}>
           <div className={style.replyBy__name}>{name}</div>
@@ -26,7 +33,9 @@ export default function ReplyListItem({
         </div>
         <div className={style.reply__for}>
           <p>回覆</p>
-          <p className={style.account}>{`@${forAccount}`}</p>
+          <Link to={profileLink(forUserId, 'tweet')}>
+            <p className={style.account}>{`@${forAccount}`}</p>
+          </Link>
         </div>
         <div className={style.reply__text}>{reply}</div>
       </div>

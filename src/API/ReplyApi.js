@@ -7,4 +7,9 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
+  getUserReliedTweets(userId) {
+    return apiHelper.get(`/users/${userId}/replied_tweets`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    })
+  },
 }

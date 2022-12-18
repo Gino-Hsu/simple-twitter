@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
+import { profileLink } from '../../utils/routeLink'
 import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
@@ -9,6 +10,7 @@ export default function TweetListItem({
   userAvatar,
   account,
   userName,
+  userId,
   time,
   twitterReply,
   twitterLike,
@@ -18,11 +20,13 @@ export default function TweetListItem({
   const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.listItem__container}>
-      <div className={style.listItem__avatar}>
-        <div className={style.avatar__img}>
-          <img src={userAvatar} alt="user avatar" />
+      <Link to={profileLink(userId, 'tweet')}>
+        <div className={style.listItem__avatar}>
+          <div className={style.avatar__img}>
+            <img src={userAvatar} alt="user avatar" />
+          </div>
         </div>
-      </div>
+      </Link>
       <div className={style.listItem__info}>
         <div className={style.info__account}>
           <p>{userName}</p>

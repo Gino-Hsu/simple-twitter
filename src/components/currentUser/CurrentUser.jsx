@@ -19,6 +19,7 @@ export default function CurrentUser({
   account,
   avatarImg,
   description,
+  tweetCount,
   followerCount,
   followingCount,
   children,
@@ -31,7 +32,7 @@ export default function CurrentUser({
     <div className={style.currentUser__container}>
       {editModelIsShow && <EditModal handleHideModel={handleHideModel} />}
       <div className={style.header}>
-        <UserHeader name="Gino" tweetCount="99" />
+        <UserHeader name={name} tweetCount={tweetCount} />
       </div>
 
       <div className={style.body}>
