@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
 import ReplyModal from '../replyModal/ReplyModal'
+import {
+  ShowReplyModel,
+  ReplyModelIsShow,
+  HideModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './ReplyList.module.scss'
 
@@ -12,10 +17,10 @@ export default function ReplyList({
   time,
   replyCount,
   likeCount,
-  handleShowReplyModel,
-  handleHideModel,
-  replyModelIsShow,
 }) {
+  const handleShowReplyModel = useContext(ShowReplyModel)
+  const handleHideModel = useContext(HideModel)
+  const replyModelIsShow = useContext(ReplyModelIsShow)
   return (
     <div className={style.viewport}>
       <div className={style.tweet__container}>

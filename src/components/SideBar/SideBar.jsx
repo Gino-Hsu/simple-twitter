@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
+import {
+  TweetModelIsShow,
+  ShowTweetModel,
+  HideTweetModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 
-export default function SideBar({
-  step,
-  handleChangeTab,
-  handleShowTweetModel,
-  handleHideTweetModel,
-  tweetModelIsShow,
-}) {
+export default function SideBar({ step, handleChangeTab }) {
+  const tweetModelIsShow = useContext(TweetModelIsShow)
+  const handleShowTweetModel = useContext(ShowTweetModel)
+  const handleHideTweetModel = useContext(HideTweetModel)
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')

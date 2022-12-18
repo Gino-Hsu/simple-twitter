@@ -2,32 +2,23 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import SideBar from '../../components/SideBar/SideBar'
 import PopularUser from '../../components/popularUser/PopularUser'
+import ModalControlContextProvider from '../../contexts/modalControlContext/ModalControlContext'
 import style from './Layout.module.scss'
 
-export default function Layout({
-  step,
-  handleChangeTab,
-  handleShowTweetModel,
-  handleHideTweetModel,
-  tweetModelIsShow,
-}) {
+export default function Layout({ step, handleChangeTab }) {
   return (
-    <div className={style.main__container}>
-      <div className={style.sideBar}>
-        <SideBar
-          step={step}
-          handleChangeTab={handleChangeTab}
-          handleShowTweetModel={handleShowTweetModel}
-          handleHideTweetModel={handleHideTweetModel}
-          tweetModelIsShow={tweetModelIsShow}
-        />
+    <ModalControlContextProvider>
+      <div className={style.main__container}>
+        <div className={style.sideBar}>
+          <SideBar step={step} handleChangeTab={handleChangeTab} />
+        </div>
+        <div className={style.main__screen}>
+          <Outlet />
+        </div>
+        <div className={style.popularUser}>
+          <PopularUser />
+        </div>
       </div>
-      <div className={style.main__screen}>
-        <Outlet />
-      </div>
-      <div className={style.popularUser}>
-        <PopularUser />
-      </div>
-    </div>
+    </ModalControlContextProvider>
   )
 }
