@@ -5,12 +5,12 @@ import ModalControlContextProvider from '../contexts/modalControlContext/ModalCo
 
 import style from './Setting.module.scss'
 
-export default function Setting({ step, handleChangeTab }) {
+export default function Setting() {
   return (
     <ModalControlContextProvider>
       <div className={style.setting}>
         <div className={style.setting__sideBar}>
-          <SideBar step={step} handleChangeTab={handleChangeTab} />
+          <SideBar />
         </div>
         <div className={style.setting__form}>
           <SettingForm />

@@ -10,7 +10,7 @@ import {
 
 import style from './MainTweet.module.scss'
 
-export default function MainTweet({ tweets, currentUser, handleChangeTab }) {
+export default function MainTweet({ tweets, currentUser }) {
   const handleShowTweetModel = useContext(ShowTweetModel)
   const handleHideTweetModel = useContext(HideTweetModel)
   const tweetModelIsShow = useContext(TweetModelIsShow)
@@ -33,7 +33,6 @@ export default function MainTweet({ tweets, currentUser, handleChangeTab }) {
               tweetId={tweet.id}
               twitterLike="23"
               twitterReply="39"
-              handleChangeTab={handleChangeTab}
             />
           ))}
         </div>

@@ -5,12 +5,12 @@ import PopularUser from '../../components/popularUser/PopularUser'
 import ModalControlContextProvider from '../../contexts/modalControlContext/ModalControlContext'
 import style from './Layout.module.scss'
 
-export default function Layout({ step, handleChangeTab }) {
+export default function Layout() {
   return (
     <ModalControlContextProvider>
       <div className={style.main__container}>
         <div className={style.sideBar}>
-          <SideBar step={step} handleChangeTab={handleChangeTab} />
+          <SideBar />
         </div>
         <div className={style.main__screen}>
           <Outlet />

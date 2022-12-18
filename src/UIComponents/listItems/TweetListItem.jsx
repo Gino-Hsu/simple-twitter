@@ -7,6 +7,7 @@ import {
   ShowReplyModel,
   HideModel,
 } from '../../contexts/modalControlContext/ModalControlContext'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 export default function TweetListItem({
   tweet,
@@ -17,11 +18,11 @@ export default function TweetListItem({
   twitterReply,
   twitterLike,
   tweetId,
-  handleChangeTab,
 }) {
   const handleShowReplyModel = useContext(ShowReplyModel)
   const handleHideModel = useContext(HideModel)
   const replyModelIsShow = useContext(ReplyModelIsShow)
+  const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.listItem__container}>
       <div className={style.listItem__avatar}>

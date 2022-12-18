@@ -8,7 +8,7 @@ import { Alert } from '../utils/helpers'
 
 import style from './CurrentUserTweet.scss'
 
-export default function CurrentUserTweet({ handleChangeTab }) {
+export default function CurrentUserTweet() {
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
 
@@ -42,10 +42,8 @@ export default function CurrentUserTweet({ handleChangeTab }) {
         description={currentUser.introduction}
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
-        handleChangeTab={handleChangeTab}
       >
         <TweetListItem
-          handleChangeTab={handleChangeTab}
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           userAvatar={'avatar'}
           account="gino"
