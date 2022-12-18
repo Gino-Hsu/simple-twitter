@@ -11,7 +11,7 @@ import { Toast, Alert } from '../../utils/helpers'
 
 import style from './TweetModal.module.scss'
 
-export default function TweetModal({ onHideTweetModel }) {
+export default function TweetModal({ onHideModel }) {
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
   const [description, setDescription] = useState('')
@@ -33,7 +33,7 @@ export default function TweetModal({ onHideTweetModel }) {
           icon: 'success',
           title: '推文成功!',
         })
-        setTweet('')
+        setDescription('')
       })
       .catch((error) => {
         Toast.fire({
