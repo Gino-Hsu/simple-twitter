@@ -7,11 +7,10 @@ import style from './CurrentUserLike.module.scss'
 import cover from '../public/default_background@2x.png'
 import avatar from '../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
 
-export default function CurrentUserLike({ handleChangeTab }) {
+export default function CurrentUserLike() {
   return (
     <div className={style.userLike__container}>
       <CurrentUser
-        handleChangeTab={handleChangeTab}
         coverImg={cover}
         name="Gino"
         account="gino"
@@ -21,7 +20,6 @@ export default function CurrentUserLike({ handleChangeTab }) {
         followingCount="59"
       >
         <TweetListItem
-          handleChangeTab={handleChangeTab}
           tweet="Lorem ipsum dolor sit amet consectetur adipisicing elit."
           userAvatar={avatar}
           account="gino"

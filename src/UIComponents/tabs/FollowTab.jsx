@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './FollowTab.module.scss'
 
-export default function FollowTab({ handleChangeTab }) {
+export default function FollowTab() {
+  const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.tab__container}>
       <NavLink

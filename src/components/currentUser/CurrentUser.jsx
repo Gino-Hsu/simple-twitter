@@ -9,6 +9,7 @@ import {
   ShowEditModel,
   HideModel,
 } from '../../contexts/modalControlContext/ModalControlContext'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './CurrentUser.module.scss'
 
@@ -21,11 +22,11 @@ export default function CurrentUser({
   followerCount,
   followingCount,
   children,
-  handleChangeTab,
 }) {
   const handleShowEditModel = useContext(ShowEditModel)
   const handleHideModel = useContext(HideModel)
   const editModelIsShow = useContext(EditModelIsShow)
+  const handleChangeTab = useContext(ChangeTabContext)
   return (
     <div className={style.currentUser__container}>
       <div className={style.header}>

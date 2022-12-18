@@ -8,11 +8,17 @@ import {
   ShowTweetModel,
   HideTweetModel,
 } from '../../contexts/modalControlContext/ModalControlContext'
+import {
+  StepContext,
+  ChangeTabContext,
+} from '../../contexts/sideBarControlContext/SideBarControlContext'
 
-export default function SideBar({ step, handleChangeTab }) {
+export default function SideBar() {
   const tweetModelIsShow = useContext(TweetModelIsShow)
   const handleShowTweetModel = useContext(ShowTweetModel)
   const handleHideTweetModel = useContext(HideTweetModel)
+  const step = useContext(StepContext)
+  const handleChangeTab = useContext(ChangeTabContext)
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
@@ -30,7 +36,6 @@ export default function SideBar({ step, handleChangeTab }) {
     localStorage.removeItem('token')
     navigate('/login')
   }
-
   return (
     <>
       <div className={style.mobile}>
