@@ -1,5 +1,5 @@
 import React from 'react'
-import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
+import OtherUserToggleMenu from '../../UIComponents/tabs/OtherUserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
 
@@ -72,7 +72,7 @@ export default function OtherUser({
       </div>
 
       <div className={style.lists__header}>
-        <UserToggleMenu />
+        <OtherUserToggleMenu />
       </div>
 
       <div className={style.listsContainer}>{children}</div>
