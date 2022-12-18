@@ -15,7 +15,7 @@ export default function EditModal({ handleHideModel }) {
   const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
   const [introduction, setIntroduction] = useState('')
-  const defaultCover = "https://i.imgur.com/dIsjVjn.jpeg"
+  const defaultCover = 'https://i.imgur.com/dIsjVjn.jpeg'
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -24,10 +24,10 @@ export default function EditModal({ handleHideModel }) {
   const handleIntroductionChange = (e) => {
     setIntroduction(e.target.value)
   }
-  
+
   const handleCoverOnPreview = (e) => {
     const { files } = e.target
-     if (files.length === 0) {
+    if (files.length === 0) {
       setAvatar(avatar)
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
@@ -37,7 +37,7 @@ export default function EditModal({ handleHideModel }) {
 
   const handleAvatarOnPreview = (e) => {
     const { files } = e.target
-     if (files.length === 0) {
+    if (files.length === 0) {
       setAvatar(avatar)
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
@@ -58,40 +58,38 @@ export default function EditModal({ handleHideModel }) {
     }
 
     userApi
-      .putUser(userId, formData)
-      .then(res => {
-        const {data} = res
+      .putUserEdit(userId, formData)
+      .then((res) => {
+        const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
         Toast.fire({
-          icon: "success",
-          title: "成功更新設定!"
+          icon: 'success',
+          title: '成功更新設定!',
         })
       })
-      .catch(error => {
+      .catch((error) => {
         Toast.fire({
-          icon: "error",
-          title: "更新設定失敗!"
+          icon: 'error',
+          title: '更新設定失敗!',
         })
         console.error(error)
       })
   }
 
   useEffect(() => {
-    userApi
-      .getCurrentUser()
-      .then(res => {
-        const {data} = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setUserId(data.id)
-        setCover(data.cover)
-        setAvatar(data.avatar)
-        setName(data.name)
-        setIntroduction(data.introduction)
-      })
+    userApi.getCurrentUser().then((res) => {
+      const { data } = res
+      if (res.status !== 200) {
+        throw new Error(data.message)
+      }
+      setUserId(data.id)
+      setCover(data.cover)
+      setAvatar(data.avatar)
+      setName(data.name)
+      setIntroduction(data.introduction)
+    })
   }, [])
 
   const portalElement = document.getElementById('modal-root')
@@ -99,7 +97,10 @@ export default function EditModal({ handleHideModel }) {
     <>
       {ReactDOM.createPortal(
         <>
-          <form className={style.view__container} onSubmit={(e)=>handleSubmit(e)}>
+          <form
+            className={style.view__container}
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <EditModalUi
               onHideModel={handleHideModel}
               title="編輯個人資料"
@@ -119,7 +120,10 @@ export default function EditModal({ handleHideModel }) {
                       alt="Cover Change"
                     />
                   </label>
-                  <div className={style.coverDelete} onClick={handleCancelChange}>
+                  <div
+                    className={style.coverDelete}
+                    onClick={handleCancelChange}
+                  >
                     <img
                       className={style.coverDelete__icon}
                       src=""

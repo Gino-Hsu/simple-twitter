@@ -17,11 +17,27 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
-  putUser(userId, formData) {
+  putUserEdit(userId, formData) {
     return apiHelper.put(
       `/api/users/${userId}`,
       {
         formData,
+      },
+      {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      }
+    )
+  },
+  putUserSetting(payload) {
+    const { userId, account, name, email, password, checkPassword } = payload
+    return apiHelper.put(
+      `/users/${userId}/setting`,
+      {
+        account,
+        name,
+        email,
+        password,
+        checkPassword,
       },
       {
         headers: { Authorization: `Bearer ${getToken()}` },
