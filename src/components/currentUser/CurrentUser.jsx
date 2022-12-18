@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
-import EditModal from '../EditModal/EditModal'
+import EditModal from '../editModal/EditModal'
 import {
   EditModelIsShow,
   ShowEditModel,
