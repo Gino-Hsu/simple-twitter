@@ -1,23 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import TweetInput from './tweetInput/TweetInput'
 import TweetListItem from '../../UIComponents/listItems/TweetListItem'
-import TweetModal from '../tweetModal/TweetModal'
-
+import { ShowTweetModel } from '../../contexts/modalControlContext/ModalControlContext'
+import ReplyModal from '../replyModal/ReplyModal'
+import {
+  ReplyModelIsShow,
+  HideModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 import style from './MainTweet.module.scss'
 
-export default function MainTweet({
-  tweets,
-  currentUser,
-  handleChangeTab,
-  handleShowTweetModel,
-  handleHideTweetModel,
-  handleHideModel,
-  tweetModelIsShow,
-  handleShowReplyModel,
-  replyModelIsShow,
-}) {
+export default function MainTweet({ tweets, currentUser }) {
+  const handleShowTweetModel = useContext(ShowTweetModel)
+  const handleHideModel = useContext(HideModel)
+  const replyModelIsShow = useContext(ReplyModelIsShow)
   return (
     <>
+      {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
       <div className={style.main__container}>
         <div onClick={handleShowTweetModel} className={style.position}>
           <div className={style.tweetInput}>
@@ -37,17 +35,10 @@ export default function MainTweet({
               tweetId={tweet.id}
               twitterLike="23"
               twitterReply="39"
-              handleChangeTab={handleChangeTab}
-              handleShowReplyModel={handleShowReplyModel}
-              handleHideModel={handleHideModel}
-              replyModelIsShow={replyModelIsShow}
             />
           ))}
         </div>
       </div>
-      {tweetModelIsShow && (
-        <TweetModal onHideTweetModel={handleHideTweetModel} />
-      )}
     </>
   )
 }

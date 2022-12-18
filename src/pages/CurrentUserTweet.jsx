@@ -1,26 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
-
+import ReplyModal from '../components/replyModal/ReplyModal'
+import {
+  ReplyModelIsShow,
+  HideModel,
+} from '../contexts/modalControlContext/ModalControlContext'
 import userApi from '../API/userApi'
 import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
 
 import style from './CurrentUserTweet.scss'
 
-export default function CurrentUserTweet({
-  handleChangeTab,
-  handleShowReplyModel,
-  replyModelIsShow,
-  handleShowEditModel,
-  handleHideModel,
-  editModelIsShow,
-}) {
+export default function CurrentUserTweet() {
   const [currentUser, setCurrentUser] = useState([])
   const [tweets, setTweets] = useState([])
   const navigate = useNavigate()
-
+  const handleHideModel = useContext(HideModel)
+  const replyModelIsShow = useContext(ReplyModelIsShow)
   useEffect(() => {
     userApi
       .getCurrentUser()
@@ -64,6 +62,7 @@ export default function CurrentUserTweet({
 
   return (
     <div className={style.userTweet__container}>
+      {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
       <CurrentUser
         coverImg={currentUser.cover}
         name={currentUser.name}
@@ -73,10 +72,6 @@ export default function CurrentUserTweet({
         tweetCount={currentUser.tweetCount}
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
-        handleChangeTab={handleChangeTab}
-        handleShowEditModel={handleShowEditModel}
-        handleHideModel={handleHideModel}
-        editModelIsShow={editModelIsShow}
       >
         {tweets.map((tweet) => (
           <TweetListItem

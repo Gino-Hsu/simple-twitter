@@ -6,7 +6,7 @@ import FollowListItem from '../../UIComponents/listItems/FollowListItem'
 import style from './Follower.module.scss'
 
 import avatar from '../../public/logo_gray@2x.png'
-export default function Follower({ handleChangeTab }) {
+export default function Follower() {
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>
@@ -22,7 +22,7 @@ export default function Follower({ handleChangeTab }) {
         />
       </div>
       <div className={style.tab}>
-        <FollowTab handleChangeTab={handleChangeTab} />
+        <FollowTab />
       </div>
       <div className={style.follower__list}>
         <FollowListItem

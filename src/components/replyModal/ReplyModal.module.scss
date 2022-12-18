@@ -3,9 +3,6 @@
 
 .view__container {
   position: absolute;
-  top: 140px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100vw;
   height: 100vh;
   background-color: color.$gray-1;
@@ -129,10 +126,13 @@
   display: none;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 800px) {
   .view__container {
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 3.5rem auto 0 auto;
-    width: 90vw;
+    width: 80vw;
     height: inherit;
     background-color: color.$gray-1;
     border-radius: 14px;
@@ -149,7 +149,7 @@
   }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1200px) {
   .view__container {
     width: 643px;
 

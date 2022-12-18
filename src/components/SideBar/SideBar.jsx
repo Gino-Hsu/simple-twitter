@@ -1,16 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
+import {
+  TweetModelIsShow,
+  ShowTweetModel,
+  HideTweetModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
+import {
+  StepContext,
+  ChangeTabContext,
+} from '../../contexts/sideBarControlContext/SideBarControlContext'
 
-export default function SideBar({
-  step,
-  handleChangeTab,
-  handleShowTweetModel,
-  handleHideTweetModel,
-  tweetModelIsShow,
-}) {
+export default function SideBar() {
+  const tweetModelIsShow = useContext(TweetModelIsShow)
+  const handleShowTweetModel = useContext(ShowTweetModel)
+  const handleHideTweetModel = useContext(HideTweetModel)
+  const step = useContext(StepContext)
+  const handleChangeTab = useContext(ChangeTabContext)
   const navigate = useNavigate()
   const handelClickHome = () => {
     handleChangeTab('home')
@@ -28,7 +36,6 @@ export default function SideBar({
     localStorage.removeItem('token')
     navigate('/login')
   }
-
   return (
     <>
       <div className={style.mobile}>
@@ -45,8 +52,6 @@ export default function SideBar({
         </NavLink>
         <NavItem
           handleShowTweetModel={handleShowTweetModel}
-          handleHideTweetModel={handleHideTweetModel}
-          tweetModelIsShow={tweetModelIsShow}
           iconStyle="icon__tweet"
           altName="tweet"
         />
@@ -127,15 +132,13 @@ export default function SideBar({
             <img alt="tweet" />
             <div className={style.tweet__btn}>推文</div>
           </div>
-          {tweetModelIsShow && (
-            <TweetModal onHideModel={handleHideTweetModel} />
-          )}
         </div>
         <div onClick={() => handelSignOut()} className={style.signOut}>
           <img alt="sign-out" />
           <div className={style.btn__name}>登出</div>
         </div>
       </div>
+      {tweetModelIsShow && <TweetModal onHideModel={handleHideTweetModel} />}
     </>
   )
 }

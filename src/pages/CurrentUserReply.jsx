@@ -9,12 +9,7 @@ import { Alert } from '../utils/helpers'
 
 import style from './CurrentUserReply.module.scss'
 
-export default function CurrentUserReply({
-  handleChangeTab,
-  handleShowEditModel,
-  handleHideModel,
-  editModelIsShow,
-}) {
+export default function CurrentUserReply() {
   const [currentUser, setCurrentUser] = useState([])
   const [repliedTweets, setRepliedTweets] = useState([])
   const navigate = useNavigate()
@@ -72,10 +67,6 @@ export default function CurrentUserReply({
         tweetCount={currentUser.tweetCount}
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
-        handleChangeTab={handleChangeTab}
-        handleShowEditModel={handleShowEditModel}
-        handleHideModel={handleHideModel}
-        editModelIsShow={editModelIsShow}
       >
         {repliedTweets.map((repliedTweet) => (
           <ReplyListItem

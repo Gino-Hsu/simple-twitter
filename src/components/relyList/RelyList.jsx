@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
-import ReplyModal from '../replyModal/ReplyModal'
+import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './ReplyList.module.scss'
 
@@ -15,10 +15,8 @@ export default function ReplyList({
   likeCount,
   replies,
   avatar,
-  handleShowReplyModel,
-  handleHideModel,
-  replyModelIsShow,
 }) {
+  const handleShowReplyModel = useContext(ShowReplyModel)
   return (
     <div className={style.viewport}>
       <div className={style.tweet__container}>
@@ -46,8 +44,8 @@ export default function ReplyList({
           <div className={style.tweet__text}>{tweet}</div>
           <div className={style.createAt}>
             <div className={style.createAt__time}>{time}</div>
-            {/* <div className={style.spot} />
-            <div className={style.createAt__data}>{data}</div> */}
+            {/* {/* <div className={style.spot} /> */}
+            {/* <div className={style.createAt__data}>{data}</div> */}
           </div>
           <div className={style.counts}>
             <div className={style.replyCount}>
@@ -64,7 +62,6 @@ export default function ReplyList({
           <div onClick={handleShowReplyModel} className={style.icon__reply}>
             <img className={style.icon__reply__img} />
           </div>
-          {replyModelIsShow && <ReplyModal handleHideModel={handleHideModel} />}
           <div className={style.icon__like}>
             <img className={style.icon__like__img} />
           </div>

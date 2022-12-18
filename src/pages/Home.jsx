@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MainTweet from '../components/mainTweet/MainTweet'
-
 import tweetApi from '../API/tweetApi'
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
 
 import style from './Home.module.scss'
 
-export default function Home({
-  handleChangeTab,
-  handleShowTweetModel,
-  handleHideTweetModel,
-  handleHideModel,
-  tweetModelIsShow,
-  handleShowReplyModel,
-  replyModelIsShow,
-}) {
+export default function Home() {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
@@ -63,17 +54,7 @@ export default function Home({
   return (
     <>
       <div className={style.main__screen}>
-        <MainTweet
-          tweets={tweets}
-          currentUser={currentUser}
-          handleChangeTab={handleChangeTab}
-          handleShowTweetModel={handleShowTweetModel}
-          handleHideTweetModel={handleHideTweetModel}
-          handleHideModel={handleHideModel}
-          tweetModelIsShow={tweetModelIsShow}
-          handleShowReplyModel={handleShowReplyModel}
-          replyModelIsShow={replyModelIsShow}
-        />
+        <MainTweet tweets={tweets} currentUser={currentUser} />
       </div>
     </>
   )
