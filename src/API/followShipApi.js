@@ -8,16 +8,19 @@ export default {
     })
   },
   postFollowerShips(id) {
-    return apiHelper.post('/followships', {
-      id,
-    },
-    {
-      headers: { Authorization: `Bearer ${getToken()}` },
-    })
+    return apiHelper.post(
+      '/followships',
+      {
+        id,
+      },
+      {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      }
+    )
   },
   deleteFollowerShips(id) {
     return apiHelper.delete(`/followships/${id}`, {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
-  }
+  },
 }

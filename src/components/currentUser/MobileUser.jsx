@@ -25,7 +25,11 @@ export default function CurrentUser({
 
         <div className={style.userInfo}>
           <div className={style.userInfo__avatar}>
-            <img src={avatar} className={style.userInfo__avatar__img} alt="Avatar" />
+            <img
+              src={avatar}
+              className={style.userInfo__avatar__img}
+              alt="Avatar"
+            />
           </div>
           <div className={style.info__container}>
             <div className={style.userInfo__name}>{name}</div>

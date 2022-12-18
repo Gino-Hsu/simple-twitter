@@ -59,7 +59,7 @@ export default function OtherUserTweet({
         console.log(error)
       })
   }, [])
-  
+
   return (
     <div className={style.userTweet__container}>
       <OtherUser

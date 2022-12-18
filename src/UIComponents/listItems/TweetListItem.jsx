@@ -27,11 +27,11 @@ export default function TweetListItem({
 
   const handleToggleLiked = (isLiked) => {
     const id = localStorage.getItem('userId')
-    if(Number(userId) === Number(id)) {
+    if (Number(userId) === Number(id)) {
       Toast.fire({
-            icon: 'error',
-            title: '不能按自己 Like 喔!',
-          })
+        icon: 'error',
+        title: '不能按自己 Like 喔!',
+      })
       return
     }
     if (isLiked === 0) {
