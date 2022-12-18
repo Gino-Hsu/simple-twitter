@@ -85,9 +85,6 @@ export default function CurrentUserTweet() {
             time={tweet.relativeTime}
             replyCount={tweet.replyCount}
             likeCount={tweet.likeCount}
-            handleShowReplyModel={handleShowReplyModel}
-            handleHideModel={handleHideModel}
-            replyModelIsShow={replyModelIsShow}
           />
         ))}
       </CurrentUser>
