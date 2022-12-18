@@ -23,8 +23,6 @@ export default function ReplyModal({ handleHideModel }) {
     setReply(e.target.value)
   }
 
-  console.log(reply)
-
   const handleReply = (e) => {
     e.preventDefault()
     const tweetId = Number(localStorage.getItem('tweetId'))
