@@ -1,33 +1,105 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
 import { EditModalUi } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 
-import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
-import cover from '../../public/default_background@2x.png'
+import userApi from '../../API/userApi'
+import { Toast } from '../../utils/helpers'
 
 import style from './EditModal.module.scss'
 
 export default function EditModal({ handleHideModel }) {
+  const [userId, setUserId] = useState('')
+  const [cover, setCover] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  // const [imageSrc, setImageSrc] = useState('')
+  const [introduction, setIntroduction] = useState('')
+  const defaultCover = "https://i.imgur.com/dIsjVjn.jpeg"
 
   const handleNameChange = (e) => {
     setName(e.target.value)
   }
 
-  const handleDescriptionChange = (e) => {
-    setDescription(e.target.value)
+  const handleIntroductionChange = (e) => {
+    setIntroduction(e.target.value)
   }
+  
+  const handleCoverOnPreview = (e) => {
+    const { files } = e.target
+     if (files.length === 0) {
+      setAvatar(avatar)
+    } else {
+      const imageURL = window.URL.createObjectURL(files[0])
+      setCover(imageURL)
+    }
+  }
+
+  const handleAvatarOnPreview = (e) => {
+    const { files } = e.target
+     if (files.length === 0) {
+      setAvatar(avatar)
+    } else {
+      const imageURL = window.URL.createObjectURL(files[0])
+      setAvatar(imageURL)
+    }
+  }
+
+  const handleCancelChange = () => {
+    setCover(defaultCover)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const formData = new FormData(form)
+    for (let [name, value] of formData.entries()) {
+      console.log(name + ': ' + value)
+    }
+
+    userApi
+      .putUser(userId, formData)
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        Toast.fire({
+          icon: "success",
+          title: "成功更新設定!"
+        })
+      })
+      .catch(error => {
+        Toast.fire({
+          icon: "error",
+          title: "更新設定失敗!"
+        })
+        console.error(error)
+      })
+  }
+
+  useEffect(() => {
+    userApi
+      .getCurrentUser()
+      .then(res => {
+        const {data} = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setUserId(data.id)
+        setCover(data.cover)
+        setAvatar(data.avatar)
+        setName(data.name)
+        setIntroduction(data.introduction)
+      })
+  }, [])
 
   const portalElement = document.getElementById('modal-root')
   return (
     <>
       {ReactDOM.createPortal(
         <>
-          <form className={style.view__container}>
+          <form className={style.view__container} onSubmit={(e)=>handleSubmit(e)}>
             <EditModalUi
               onHideModel={handleHideModel}
               title="編輯個人資料"
@@ -47,7 +119,7 @@ export default function EditModal({ handleHideModel }) {
                       alt="Cover Change"
                     />
                   </label>
-                  <div className={style.coverDelete}>
+                  <div className={style.coverDelete} onClick={handleCancelChange}>
                     <img
                       className={style.coverDelete__icon}
                       src=""
@@ -72,6 +144,7 @@ export default function EditModal({ handleHideModel }) {
                 <div className={style.inputs__name}>
                   <LoginAndRegistInput
                     inputId="name"
+                    name="name"
                     inputName="名稱"
                     inputPlaceHolder="請輸入使用者名稱"
                     inputType="text"
@@ -86,29 +159,34 @@ export default function EditModal({ handleHideModel }) {
                 <div className={style.input__descripition}>
                   <div className={style.inputs__descripition}>
                     <LoginAndRegistInput
-                      inputId="descripition"
+                      inputId="introduction"
+                      name="introduction"
                       inputName="自我介紹"
                       inputPlaceHolder="請輸入自我介紹"
                       inputType="text"
-                      inputValue={description}
-                      onChange={handleDescriptionChange}
+                      inputValue={introduction}
+                      onChange={handleIntroductionChange}
                     />
                   </div>
                   <p
                     className={style.inputs__description__count}
-                  >{`${description.length}/160`}</p>
+                  >{`${introduction.length}/160`}</p>
                 </div>
               </div>
 
               <input
                 id="cover__input"
+                name="cover"
                 type="file"
                 className={style.cover__input}
+                onChange={(e) => handleCoverOnPreview(e)}
               />
               <input
                 id="avatar__input"
+                name="avatar"
                 type="file"
                 className={style.avatar__input}
+                onChange={(e) => handleAvatarOnPreview(e)}
               />
             </EditModalUi>
           </form>

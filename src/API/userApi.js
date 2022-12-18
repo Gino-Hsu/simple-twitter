@@ -17,4 +17,15 @@ export default {
       headers: { Authorization: `Bearer ${getToken()}` },
     })
   },
+  putUser(userId, formData) {
+    return apiHelper.put(
+      `/api/users/${userId}`,
+      {
+        formData,
+      },
+      {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      }
+    )
+  },
 }

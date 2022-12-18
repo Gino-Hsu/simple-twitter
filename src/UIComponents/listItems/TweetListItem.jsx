@@ -28,8 +28,8 @@ export default function TweetListItem({
     if (isLiked === 0) {
       likeApi
         .postLike(tweetId)
-        .then(res => {
-          const {data} = res
+        .then((res) => {
+          const { data } = res
           if (res.status !== 200) {
             throw new Error(data.message)
           }
@@ -49,9 +49,9 @@ export default function TweetListItem({
     } else {
       likeApi
         .postUnlike(tweetId)
-        .then(res => {
-          const {data} = res
-          if(res.status !== 200) {
+        .then((res) => {
+          const { data } = res
+          if (res.status !== 200) {
             throw new Error(data.message)
           }
           Toast.fire({
