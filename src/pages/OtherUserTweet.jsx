@@ -59,7 +59,7 @@ export default function OtherUserTweet({
         console.log(error)
       })
   }, [])
-
+  
   return (
     <div className={style.userTweet__container}>
       <OtherUser
@@ -68,8 +68,9 @@ export default function OtherUserTweet({
         account={user.account}
         avatarImg={user.avatar}
         introduction={user.introduction}
-        followerCount={user.followersCount}
+        followerCount={user.followerCount}
         followingCount={user.followingCount}
+        tweetCount={user.tweetCount}
       >
         {tweets.map((tweet) => (
           <TweetListItem

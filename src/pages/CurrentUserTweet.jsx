@@ -70,7 +70,7 @@ export default function CurrentUserTweet() {
         avatarImg={currentUser.avatar}
         description={currentUser.introduction}
         tweetCount={currentUser.tweetCount}
-        followerCount={currentUser.followersCount}
+        followerCount={currentUser.followerCount}
         followingCount={currentUser.followingCount}
       >
         {tweets.map((tweet) => (
