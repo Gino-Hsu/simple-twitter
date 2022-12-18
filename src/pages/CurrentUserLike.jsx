@@ -64,18 +64,18 @@ export default function CurrentUserLike() {
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
       >
-        {likedTweets.map((likedTweet) => (
-         <TweetListItem
-            key={likedTweet.id}
-            tweet={likedTweet.description}
-            tweetId={likedTweet.id}
-            userId={likedTweet.User.id}
-            userAvatar={likedTweet.User.avatar}
-            account={likedTweet.User.account}
-            userName={likedTweet.User.name}
-            time={likedTweet.relativeTime}
-            replyCount={likedTweet.replyCount}
-            likeCount={likedTweet.likeCount}
+        {likedTweets.map((like) => (
+          <TweetListItem
+            key={like.id}
+            tweet={like.description}
+            tweetId={like.id}
+            userId={like.User.id}
+            userAvatar={like.User.avatar}
+            account={like.User.account}
+            userName={like.User.name}
+            time={like.relativeTime}
+            replyCount={like.replyCount}
+            likeCount={like.likeCount}
           />
         ))}
       </CurrentUser>
