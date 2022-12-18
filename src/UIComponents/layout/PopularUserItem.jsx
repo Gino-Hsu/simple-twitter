@@ -6,9 +6,12 @@ export default function PopularUserItem({
   btnStyle,
   text,
   container,
+  userId,
   name,
   account,
   avatar,
+  onClick,
+  isFollowing,
 }) {
   return (
     <div className={style.item}>
@@ -19,7 +22,7 @@ export default function PopularUserItem({
         <p className={style.user__info__name}>{name}</p>
         <p className={style.user__info__account}>{`@${account}`}</p>
       </div>
-      <div className={style.btn__follow}>
+      <div className={style.btn__follow} onClick={() => onClick(userId, isFollowing)}>
         <div className={style[container]}>
           <ButtonUI btnStyle={btnStyle} text={text} />
         </div>
