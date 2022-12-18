@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react'
 export const StepContext = createContext()
 export const ChangeTabContext = createContext()
 
-export default function SideBarControlContextProvider({ children }) {
+export function SideBarControlContextProvider({ children }) {
   const [step, setStep] = useState('home')
   const handleChangeTab = (tab) => {
     setStep(tab)

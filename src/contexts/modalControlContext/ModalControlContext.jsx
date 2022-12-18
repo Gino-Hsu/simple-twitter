@@ -11,7 +11,7 @@ export const ShowEditModel = createContext()
 export const HideTweetModel = createContext()
 export const HideModel = createContext()
 
-export default function ModalControlContextProvider({ children }) {
+export function ModalControlContextProvider({ children }) {
   const [tweetModelIsShow, setTweetModelIsShow] = useState(false)
   const [replyModelIsShow, setReplyModelIsShow] = useState(false)
   const [editModelIsShow, setEditModelIsShow] = useState(false)
