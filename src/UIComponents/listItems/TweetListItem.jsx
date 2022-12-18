@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import style from './TweetListItem.module.scss'
 import ReplyModal from '../../components/replyModal/ReplyModal'
+import {
+  ReplyModelIsShow,
+  ShowReplyModel,
+  HideModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 
 export default function TweetListItem({
   tweet,
@@ -13,10 +18,10 @@ export default function TweetListItem({
   twitterLike,
   tweetId,
   handleChangeTab,
-  handleShowReplyModel,
-  handleHideModel,
-  replyModelIsShow,
 }) {
+  const handleShowReplyModel = useContext(ShowReplyModel)
+  const handleHideModel = useContext(HideModel)
+  const replyModelIsShow = useContext(ReplyModelIsShow)
   return (
     <div className={style.listItem__container}>
       <div className={style.listItem__avatar}>

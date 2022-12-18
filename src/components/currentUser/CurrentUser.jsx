@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import UserToggleMenu from '../../UIComponents/tabs/UserToggleMenu'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import UserHeader from '../../UIComponents/headers/UserHeader'
 import EditModal from '../EditModal/EditModal'
+import {
+  EditModelIsShow,
+  ShowEditModel,
+  HideModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './CurrentUser.module.scss'
 
@@ -17,10 +22,10 @@ export default function CurrentUser({
   followingCount,
   children,
   handleChangeTab,
-  handleShowEditModel,
-  handleHideModel,
-  editModelIsShow,
 }) {
+  const handleShowEditModel = useContext(ShowEditModel)
+  const handleHideModel = useContext(HideModel)
+  const editModelIsShow = useContext(EditModelIsShow)
   return (
     <div className={style.currentUser__container}>
       <div className={style.header}>
