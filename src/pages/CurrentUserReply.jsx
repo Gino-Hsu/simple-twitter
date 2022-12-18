@@ -14,8 +14,6 @@ export default function CurrentUserReply() {
   const [repliedTweets, setRepliedTweets] = useState([])
   const navigate = useNavigate()
 
-  console.log(repliedTweets)
-
   useEffect(() => {
     userApi
       .getCurrentUser()

@@ -4,7 +4,8 @@ import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import userApi from '../API/userApi'
 //暫時先用其他API測試
-import likeApi from '../API/likeApi/'
+// import likeApi from '../API/likeApi'
+import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
 import style from './CurrentUserLike.module.scss'
 
@@ -34,8 +35,9 @@ export default function CurrentUserLike() {
 
   useEffect(() => {
     const currentUserId = localStorage.getItem('userId')
-    likeApi
-      .getUserLikedTweets(currentUserId)
+    tweetApi
+      // .getUserLikedTweets(currentUserId)
+      .getUserTweets(currentUserId)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {

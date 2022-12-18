@@ -59,6 +59,7 @@ export default function OtherUserTweet() {
   return (
     <div className={style.userTweet__container}>
       <OtherUser
+        userId={user.id}
         coverImg={user.cover}
         name={user.name}
         account={user.account}

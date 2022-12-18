@@ -6,6 +6,7 @@ import UserHeader from '../../UIComponents/headers/UserHeader'
 import style from './OtherUser.module.scss'
 
 export default function OtherUser({
+  userId,
   coverImg,
   name,
   account,
@@ -72,7 +73,7 @@ export default function OtherUser({
       </div>
 
       <div className={style.lists__header}>
-        <OtherUserToggleMenu />
+        <OtherUserToggleMenu userId={userId} />
       </div>
 
       <div className={style.listsContainer}>{children}</div>
