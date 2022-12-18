@@ -1,34 +1,94 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 
-import avatar from '../../public/seed/81803399afee0c76ba618049dfdf2441.jpg'
+import userApi from '../../API/userApi'
+import tweetApi from '../../API/tweetApi'
+import replyApi from '../../API/replyApi'
+import { Alert, Toast  } from '../../utils/helpers'
 
 import style from './ReplyModal.module.scss'
 
-const DUMMYDATA = {
-  name: 'Gino',
-  account: 'gino',
-  time: '3 小時',
-  tweet:
-    'Lorem ipsum dolor, sit amet consectetur adipisicing elit. In ex quisquam magnam accusantium eius culpa? Doloremque natus molestias reiciendis maxime voluptatibus cum deserunt necessitatibus, sequi deleniti expedita tenetur omnis. Nam.',
-}
-
 export default function ReplyModal({ handleHideModel }) {
   const [reply, setReply] = useState('')
+  const [tweet, setTweet] = useState({})
+  const [user, setUser] = useState({})
+  const [currentUser, setCurrentUser] = useState({})
+  const navigate = useNavigate()
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
   }
+
+  console.log(reply)
+
+  const handleReply = (e) => {
+    e.preventDefault()
+    const tweetId = Number(localStorage.getItem('tweetId'))
+    replyApi
+      .postReply(tweetId, reply)
+      .then(res => {
+        const {data} = res
+        if(res.status !== 200) {
+          throw new Error(data.message)
+        }
+        Toast.fire({
+          icon: 'success',
+          title: '成功回復!'
+        })
+      })
+      .catch(error => {
+         Toast.fire({
+          icon: 'error',
+          title: '回復失敗!'
+        })
+        console.error(error)
+      })
+  }
+
+  useEffect(() => {
+    const tweetId = localStorage.getItem('tweetId')
+    tweetApi
+      .getTweet(tweetId)
+      .then(res => {
+        const {data} = res
+        if (res.status !==200) {
+          throw new Error(data.message)
+        }
+        setTweet(data)
+        setUser(data.User)
+      })
+      .catch(error => {
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入!',
+        })
+        navigate('/login')
+        console.error(error)
+      })
+  }, [])
+
+  useEffect(() => {
+    userApi
+      .getCurrentUser()
+      .then(res => {
+        const {data} = res
+        if(res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setCurrentUser(data)
+      })
+  }, [])
 
   const portalElement = document.getElementById('modal-root')
   return (
     <>
       {ReactDOM.createPortal(
         <>
-          <div className={style.view__container}>
+          <form className={style.view__container} onSubmit={(e) => handleReply(e)}>
             <Modal onHideModel={handleHideModel} buttonText="回覆" title="推文">
               <div className={style.flexbox}>
                 <div className={style.other__user__container}>
@@ -36,7 +96,7 @@ export default function ReplyModal({ handleHideModel }) {
                     <div className={style.other__avatar}>
                       <img
                         className={style.other__avatar__img}
-                        src={avatar}
+                        src={user.avatar}
                         alt="Avatar"
                       />
                     </div>
@@ -46,15 +106,15 @@ export default function ReplyModal({ handleHideModel }) {
                   <div className={style.tweet__container}>
                     <div className={style.tweet__owner}>
                       <div className={style.other__user__name}>
-                        {DUMMYDATA.name}
+                        {user.name}
                       </div>
                       <div className={style.tweetby}>
                         <div className={style.other__user__account}>
-                          {`@${DUMMYDATA.account}`}
+                          {`@${user.account}`}
                         </div>
                         <div className={style.spot} />
                         <div className={style.tweet__time}>
-                          {DUMMYDATA.time}
+                          {tweet.relativeTime}
                         </div>
                       </div>
                     </div>
@@ -63,19 +123,19 @@ export default function ReplyModal({ handleHideModel }) {
                       <p>回覆</p>
                       <p className={style.account}>
                         {' '}
-                        {`@${DUMMYDATA.account}`}
+                        {`@${user.account}`}
                       </p>
                     </div>
 
                     <div className={style.reply__context}>
-                      {DUMMYDATA.tweet}
+                      {tweet.description}
                     </div>
 
                     <div className={style.reply__for}>
                       <p>回覆</p>
                       <p className={style.account}>
                         {' '}
-                        {`@${DUMMYDATA.account}`}
+                        {`@${user.account}`}
                       </p>
                     </div>
                   </div>
@@ -85,7 +145,7 @@ export default function ReplyModal({ handleHideModel }) {
                   <div className={style.avatar}>
                     <img
                       className={style.avatar__img}
-                      src={avatar}
+                      src={currentUser.avatar}
                       alt="Avatar"
                     />
                   </div>
@@ -99,7 +159,7 @@ export default function ReplyModal({ handleHideModel }) {
                 </div>
               </div>
             </Modal>
-          </div>
+          </form>
           <BackDrop onHideModel={handleHideModel} />
         </>,
         portalElement

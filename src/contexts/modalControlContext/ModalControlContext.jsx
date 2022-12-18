@@ -38,7 +38,8 @@ export default function ModalControlContextProvider({ children }) {
     })
   }
 
-  const handleShowReplyModel = () => {
+  const handleShowReplyModel = (tweetId) => {
+    localStorage.setItem('tweetId', tweetId)
     setReplyModelIsShow(true)
   }
 
