@@ -3,7 +3,6 @@
 
 .view__container {
   position: absolute;
-
   width: 100vw;
   height: 100vh;
   background-color: color.$gray-1;
@@ -129,9 +128,9 @@
 
 @media screen and (min-width: 800px) {
   .view__container {
-      top: 140px;
-        left: 50%;
-        transform: translateX(-50%);
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 3.5rem auto 0 auto;
     width: 80vw;
     height: inherit;

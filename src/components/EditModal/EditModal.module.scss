@@ -101,11 +101,11 @@
 
 @media screen and (min-width: 800px) {
   .view__container {
-      top: 140px;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 3.5rem auto 0 auto;
-          width: 80vw;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 3.5rem auto 0 auto;
+    width: 80vw;
     height: inherit;
     border-radius: 14px;
     background-color: color.$gray-1;
