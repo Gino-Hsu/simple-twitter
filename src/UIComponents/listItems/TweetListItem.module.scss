@@ -106,6 +106,10 @@
             content: url('../../public/tweet/tweet_like@2x.png');
             width: 100%;
             display: block;
+
+            &.action {
+              content: url('../../public/tweet/tweet_like_action@2x.png');
+            }
           }
         }
 

@@ -8,7 +8,7 @@ import { Textarea } from '../../UIComponents/inputs/Input'
 import userApi from '../../API/userApi'
 import tweetApi from '../../API/tweetApi'
 import replyApi from '../../API/replyApi'
-import { Alert, Toast  } from '../../utils/helpers'
+import { Alert, Toast } from '../../utils/helpers'
 
 import style from './ReplyModal.module.scss'
 
@@ -28,20 +28,20 @@ export default function ReplyModal({ handleHideModel }) {
     const tweetId = Number(localStorage.getItem('tweetId'))
     replyApi
       .postReply(tweetId, reply)
-      .then(res => {
-        const {data} = res
-        if(res.status !== 200) {
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
           throw new Error(data.message)
         }
         Toast.fire({
           icon: 'success',
-          title: '成功回復!'
+          title: '成功回復!',
         })
       })
-      .catch(error => {
-         Toast.fire({
+      .catch((error) => {
+        Toast.fire({
           icon: 'error',
-          title: '回復失敗!'
+          title: '回復失敗!',
         })
         console.error(error)
       })
@@ -51,15 +51,15 @@ export default function ReplyModal({ handleHideModel }) {
     const tweetId = localStorage.getItem('tweetId')
     tweetApi
       .getTweet(tweetId)
-      .then(res => {
-        const {data} = res
-        if (res.status !==200) {
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
           throw new Error(data.message)
         }
         setTweet(data)
         setUser(data.User)
       })
-      .catch(error => {
+      .catch((error) => {
         Alert.fire({
           icon: 'error',
           title: '請重新登入!',
@@ -70,15 +70,13 @@ export default function ReplyModal({ handleHideModel }) {
   }, [])
 
   useEffect(() => {
-    userApi
-      .getCurrentUser()
-      .then(res => {
-        const {data} = res
-        if(res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setCurrentUser(data)
-      })
+    userApi.getCurrentUser().then((res) => {
+      const { data } = res
+      if (res.status !== 200) {
+        throw new Error(data.message)
+      }
+      setCurrentUser(data)
+    })
   }, [])
 
   const portalElement = document.getElementById('modal-root')
@@ -86,7 +84,10 @@ export default function ReplyModal({ handleHideModel }) {
     <>
       {ReactDOM.createPortal(
         <>
-          <form className={style.view__container} onSubmit={(e) => handleReply(e)}>
+          <form
+            className={style.view__container}
+            onSubmit={(e) => handleReply(e)}
+          >
             <Modal onHideModel={handleHideModel} buttonText="回覆" title="推文">
               <div className={style.flexbox}>
                 <div className={style.other__user__container}>
@@ -103,9 +104,7 @@ export default function ReplyModal({ handleHideModel }) {
 
                   <div className={style.tweet__container}>
                     <div className={style.tweet__owner}>
-                      <div className={style.other__user__name}>
-                        {user.name}
-                      </div>
+                      <div className={style.other__user__name}>{user.name}</div>
                       <div className={style.tweetby}>
                         <div className={style.other__user__account}>
                           {`@${user.account}`}
@@ -119,10 +118,7 @@ export default function ReplyModal({ handleHideModel }) {
 
                     <div className={style.reply__for__mobile}>
                       <p>回覆</p>
-                      <p className={style.account}>
-                        {' '}
-                        {`@${user.account}`}
-                      </p>
+                      <p className={style.account}> {`@${user.account}`}</p>
                     </div>
 
                     <div className={style.reply__context}>
@@ -131,10 +127,7 @@ export default function ReplyModal({ handleHideModel }) {
 
                     <div className={style.reply__for}>
                       <p>回覆</p>
-                      <p className={style.account}>
-                        {' '}
-                        {`@${user.account}`}
-                      </p>
+                      <p className={style.account}> {`@${user.account}`}</p>
                     </div>
                   </div>
                 </div>
