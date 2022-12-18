@@ -10,11 +10,7 @@ import { Alert } from '../utils/helpers'
 
 import style from './OtherUserTweet.module.scss'
 
-export default function OtherUserTweet({
-  handleShowReplyModel,
-  handleHideModel,
-  replyModelIsShow,
-}) {
+export default function OtherUserTweet() {
   const [user, setUser] = useState('')
   const [tweets, setTweets] = useState([])
   const param = useParams()
@@ -82,9 +78,6 @@ export default function OtherUserTweet({
             time={tweet.relativeTime}
             replyCount={tweet.replyCount}
             likeCount={tweet.likeCount}
-            handleShowReplyModel={handleShowReplyModel}
-            handleHideModel={handleHideModel}
-            replyModelIsShow={replyModelIsShow}
           />
         ))}
       </OtherUser>

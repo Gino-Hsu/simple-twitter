@@ -18,7 +18,7 @@ export default function UserToggleMenu() {
           )
         }
       </NavLink>
-      <NavLink to='/alphitter/user/self/reply'>
+      <NavLink to="/alphitter/user/self/reply">
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
@@ -31,7 +31,7 @@ export default function UserToggleMenu() {
           )
         }
       </NavLink>
-      <NavLink to='/alphitter/user/self/like'>
+      <NavLink to="/alphitter/user/self/like">
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
