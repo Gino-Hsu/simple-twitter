@@ -11,6 +11,7 @@
   .avatar {
     width: 50px;
     height: 50px;
+    border-radius: 50%;
     overflow: hidden;
 
     &__img {
@@ -39,22 +40,10 @@
         &__name {
           @include mixin.font-setting(1rem, 700, color.$gray-10);
         }
-        &__account__time {
+        &__account {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
           @include mixin.font-setting(0.875rem, 400, color.$primary-color);
-
-          .spot {
-            display: none;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            background-color: color.$primary-color;
-          }
-          .tweetBy__time {
-            display: none;
-          }
         }
       }
 
@@ -70,18 +59,13 @@
   }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 800px) {
   .listItem__container {
     .listItem__body {
       &__header {
         .tweetBy {
-          &__account__time {
-            .spot {
-              display: block;
-            }
-            .tweetBy__time {
-              display: block;
-            }
+          &__account {
+            display: none;
           }
         }
       }

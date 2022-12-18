@@ -1,11 +1,11 @@
 import React from 'react'
-import UserHeader from '../../UIComponents/headers/UserHeader'
-import MobileUser from '../../components/currentUser/MobileUser'
-import FollowTab from '../../UIComponents/tabs/FollowTab'
-import FollowListItem from '../../UIComponents/listItems/FollowListItem'
+import UserHeader from '../UIComponents/headers/UserHeader'
+import MobileUser from '../components/currentUser/MobileUser'
+import FollowTab from '../UIComponents/tabs/FollowTab'
+import FollowListItem from '../UIComponents/listItems/FollowListItem'
 import style from './Follower.module.scss'
 
-import avatar from '../../public/logo_gray@2x.png'
+import avatar from '../public/logo_gray@2x.png'
 export default function Follower() {
   return (
     <div className={style.page__container}>

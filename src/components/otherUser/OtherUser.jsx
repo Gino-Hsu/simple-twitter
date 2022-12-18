@@ -18,7 +18,7 @@ export default function OtherUser({
   return (
     <div className={style.otherUser__container}>
       <div className={style.header}>
-        <UserHeader name="Gino" tweetCount="99" />
+        <UserHeader name={name} tweetCount="99" />
       </div>
 
       <div className={style.body}>
