@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
 // import UserHeader from '../../UIComponents/headers/UserHeader'
 // import FollowTab from '../../UIComponents/tabs/FollowTab'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
+import { ShowEditModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './MobileUser.module.scss'
 
@@ -12,6 +14,7 @@ export default function CurrentUser({
   followerCount,
   followingCount,
 }) {
+  const handleShowEditModel = useContext(ShowEditModel)
   return (
     <div className={style.currentUser__container}>
       <div className={style.header}></div>
@@ -31,7 +34,7 @@ export default function CurrentUser({
           </div>
         </div>
 
-        <div className={style.edit}>
+        <div onClick={handleShowEditModel} className={style.edit}>
           <div className={style.edit__container}>
             <ButtonUI
               btnStyle="btn__pill__small__default"
@@ -43,18 +46,22 @@ export default function CurrentUser({
         <div className={style.description}>
           <div className={style.description__text}>{description}</div>
           <div className={style.follows}>
-            <div className={style.follows__follower}>
-              <p
-                className={style.follows__follower__count}
-              >{`${followerCount} 個`}</p>
-              <p className={style.follows__follower__type}>跟隨中</p>
-            </div>
-            <div className={style.follows__following}>
-              <p
-                className={style.follows__following__count}
-              >{`${followingCount} 個`}</p>
-              <p className={style.follows__following__type}>跟隨者</p>
-            </div>
+            <Link to="/alphitter/user/self/follower">
+              <div className={style.follows__follower}>
+                <p
+                  className={style.follows__follower__count}
+                >{`${followerCount} 個`}</p>
+                <p className={style.follows__follower__type}>跟隨中</p>
+              </div>
+            </Link>
+            <Link to="/alphitter/user/self/following">
+              <div className={style.follows__following}>
+                <p
+                  className={style.follows__following__count}
+                >{`${followingCount} 個`}</p>
+                <p className={style.follows__following__type}>跟隨者</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
