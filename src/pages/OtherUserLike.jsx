@@ -55,6 +55,7 @@ export default function OtherUserLike() {
         console.log(error)
       })
   }, [])
+  console.log(likedTweets)
   return (
     <div className={style.userLike__container}>
       <OtherUser

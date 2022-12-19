@@ -51,6 +51,7 @@ export default function CurrentUserLike() {
         console.log(error)
       })
   }, [])
+  console.log(likedTweets)
   return (
     <div className={style.userLike__container}>
       <CurrentUser
