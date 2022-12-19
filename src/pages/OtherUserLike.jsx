@@ -55,7 +55,7 @@ export default function OtherUserLike() {
         console.log(error)
       })
   }, [])
-  console.log(likedTweets)
+
   return (
     <div className={style.userLike__container}>
       <OtherUser
@@ -74,14 +74,14 @@ export default function OtherUserLike() {
           <TweetListItem
             key={likedTweet.id}
             tweet={likedTweet.Tweet.description}
-            tweetId={likedTweet.tweetId}
-            userId={likedTweet.User.id}
+            tweetId={likedTweet.TweetId}
+            userId={likedTweet.Tweet.User.id}
             userAvatar={likedTweet.Tweet.User.avatar}
             account={likedTweet.Tweet.User.account}
             userName={likedTweet.Tweet.User.name}
             time={likedTweet.relativeTime}
             replyCount={likedTweet.Tweet.replyCount}
-            likeCount={likedTweet.likeCount}
+            likeCount={likedTweet.Tweet.likeCount}
           />
         ))}
       </OtherUser>
