@@ -87,11 +87,11 @@ export default function ReplyList({
           <ReplyListItem
             key={reply.id}
             userId={userId}
-            avatarImg="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/collage-1589368023.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*"
-            name="Gino"
-            account="gino"
+            avatarImg={reply.User.avatar}
+            name={reply.User.name}
+            account={reply.User.account}
             time={reply.relativeTime}
-            forAccount="小波"
+            forAccount={reply.Tweet.User.account}
             reply={reply.comment}
           />
         ))}
