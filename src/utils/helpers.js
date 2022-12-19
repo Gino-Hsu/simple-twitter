@@ -1,8 +1,8 @@
 import axios from 'axios'
 import Swal from 'sweetalert2'
 
-const baseURL = 'https://secure-peak-76328.herokuapp.com/api'
-// const baseURL = 'http://localhost:3000/api'
+// const baseURL = 'https://secure-peak-76328.herokuapp.com/api'
+const baseURL = 'http://localhost:3000/api'
 
 export const apiHelper = axios.create({
   baseURL,

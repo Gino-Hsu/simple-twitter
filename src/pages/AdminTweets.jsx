@@ -85,7 +85,7 @@ export default function AdminTweets() {
               name={tweet.User.name}
               account={tweet.User.account}
               description={tweet.description}
-              time="13 小時"
+              time={tweet.relativeTime}
               tweetId={tweet.id}
               onClick={handleDeleteItem}
             />

@@ -75,7 +75,7 @@ export default function CurrentUserReply() {
             account={repliedTweet.User.account}
             time={repliedTweet.relativeTime}
             forUserId={repliedTweet.Tweet.UserId}
-            forAccount={'少了'}
+            forAccount={repliedTweet.Tweet.User.account}
             reply={repliedTweet.comment}
           />
         ))}

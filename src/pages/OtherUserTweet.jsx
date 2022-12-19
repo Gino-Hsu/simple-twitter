@@ -79,6 +79,8 @@ export default function OtherUserTweet() {
             time={tweet.relativeTime}
             replyCount={tweet.replyCount}
             likeCount={tweet.likeCount}
+            isLiked={tweet.isLiked}
+            tweetId={tweet.id}
           />
         ))}
       </OtherUser>
