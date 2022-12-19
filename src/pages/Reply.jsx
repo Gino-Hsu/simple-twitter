@@ -55,8 +55,8 @@ export default function Reply() {
         account={user.account}
         tweet={tweet.description}
         time={tweet.exactTime}
-        replyCount="34"
-        likeCount="808"
+        replyCount={tweet.replyCount}
+        likeCount={tweet.likeCount}
         replies={replies}
       />
     </div>
