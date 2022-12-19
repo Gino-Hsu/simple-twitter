@@ -33,8 +33,9 @@ export default function MainTweet({ tweets, currentUser }) {
               userAvatar={tweet.User.avatar}
               time={tweet.relativeTime}
               tweetId={tweet.id}
-              twitterLike="23"
-              twitterReply="39"
+              likeCount={tweet.likeCount}
+              replyCount={tweet.replyCount}
+              isLiked={tweet.isLiked}
             />
           ))}
         </div>

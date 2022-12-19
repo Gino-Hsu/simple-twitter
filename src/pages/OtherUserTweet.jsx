@@ -85,6 +85,8 @@ export default function OtherUserTweet({
             handleShowReplyModel={handleShowReplyModel}
             handleHideModel={handleHideModel}
             replyModelIsShow={replyModelIsShow}
+            isLiked={tweet.isLiked}
+            tweetId={tweet.id}
           />
         ))}
       </OtherUser>

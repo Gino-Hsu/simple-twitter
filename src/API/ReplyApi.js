@@ -13,11 +13,14 @@ export default {
     })
   },
   postReply(tweetId, comment) {
-    return apiHelper.post(`/tweets/${tweetId}/replies`,{
-      comment,
-    },    
-    {
-      headers: { Authorization: `Bearer ${getToken()}` },
-    })
-  }
+    return apiHelper.post(
+      `/tweets/${tweetId}/replies`,
+      {
+        comment,
+      },
+      {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      }
+    )
+  },
 }

@@ -51,10 +51,10 @@ export default function AdminUsers() {
                 name={user.name}
                 avatar={user.avatar}
                 account={user.account}
-                tweetCount="1.5k"
-                likeCount="20k"
-                followingCount="34"
-                followerCount="59"
+                tweetCount={user.tweetCount}
+                likeCount={user.likeCount}
+                followingCount={user.followingCount}
+                followerCount={user.folloersCount}
               />
             ))}
           </div>

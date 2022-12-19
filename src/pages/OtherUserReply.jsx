@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import OtherUser from '../components/otherUser/OtherUser'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
@@ -17,7 +17,7 @@ export default function OtherUserReply() {
   const param = useParams()
 
   useEffect(() => {
-   userApi
+    userApi
       .getOtherUser(param.user_id)
       .then((res) => {
         const { data } = res
