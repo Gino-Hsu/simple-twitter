@@ -1,5 +1,11 @@
 import { apiHelper } from '../utils/helpers'
+import axios from 'axios'
 const getToken = () => localStorage.getItem('token')
+
+const headers = {
+  'Content-Type': 'multipart/form-data',
+  'Authorization': `Bearer ${getToken()}`
+}
 
 export default {
   getCurrentUser() {
@@ -18,14 +24,13 @@ export default {
     })
   },
   putUserEdit(userId, formData) {
-    return apiHelper.put(
-      `/api/users/${userId}`,
-      {
-        formData,
-      },
-      {
-        headers: { Authorization: `Bearer ${getToken()}` },
-      }
+    return axios({
+      method: 'put',
+      baseURL: 'http://localhost:3000/api',
+      url: `/users/${userId}`,
+      data: formData,
+      headers: headers
+    }
     )
   },
   putUserSetting(payload) {

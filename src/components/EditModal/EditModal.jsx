@@ -13,9 +13,14 @@ export default function EditModal({ handleHideModel }) {
   const [userId, setUserId] = useState('')
   const [cover, setCover] = useState('')
   const [avatar, setAvatar] = useState('')
+  const [coverFile, setCoverFile] = useState('')
+  const [avatarFile, setAvatarFile] = useState('')
   const [name, setName] = useState('')
   const [introduction, setIntroduction] = useState('')
   const defaultCover = 'https://i.imgur.com/dIsjVjn.jpeg'
+
+  console.log('coverFile', coverFile)
+  console.log(avatarFile)
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -32,16 +37,19 @@ export default function EditModal({ handleHideModel }) {
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
       setCover(imageURL)
+      setCoverFile(files)
     }
   }
 
   const handleAvatarOnPreview = (e) => {
     const { files } = e.target
+    console.log('files', files)
     if (files.length === 0) {
       setAvatar(avatar)
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
       setAvatar(imageURL)
+      setAvatarFile(files)
     }
   }
 
@@ -52,10 +60,16 @@ export default function EditModal({ handleHideModel }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
+
     const formData = new FormData(form)
-    for (let [name, value] of formData.entries()) {
+    for (let [name, value] of formData) {
       console.log(name + ': ' + value)
     }
+
+    formData.name = name
+    formData.introduction = introduction
+    formData.avatar = avatarFile
+    formData.cover = coverFile.File
 
     userApi
       .putUserEdit(userId, formData)
@@ -68,6 +82,7 @@ export default function EditModal({ handleHideModel }) {
           icon: 'success',
           title: '成功更新設定!',
         })
+        console.log('200here', data)
       })
       .catch((error) => {
         Toast.fire({
