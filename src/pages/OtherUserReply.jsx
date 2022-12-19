@@ -64,7 +64,7 @@ export default function OtherUserReply() {
         account={user.account}
         avatarImg={user.avatar}
         introduction={user.introduction}
-        followerCount={user.followersCount}
+        followerCount={user.followerCount}
         followingCount={user.followingCount}
       >
         {repliedTweets.map((repliedTweet) => (

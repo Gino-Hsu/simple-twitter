@@ -116,12 +116,12 @@ export default function Regist() {
         const errorMessage = error.response.data.message.slice(7)
         setPassword('')
         setCheckPassword('')
-        if (errorMessage === '帳號已重複註冊!') {
+        if (errorMessage === 'account 已重複註冊!') {
           Toast.fire({
             icon: 'warning',
             title: '帳號已重複註冊!',
           })
-        } else if (errorMessage === 'Email 已重複註冊!') {
+        } else if (errorMessage === 'email 已重複註冊!') {
           Toast.fire({
             icon: 'warning',
             title: 'Email 已重複註冊!',

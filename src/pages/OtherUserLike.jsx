@@ -66,7 +66,7 @@ export default function OtherUserLike() {
         avatarImg={user.avatar}
         introduction={user.introduction}
         tweetCount={user.tweetCount}
-        followerCount={user.followersCount}
+        followerCount={user.followerCount}
         followingCount={user.followingCount}
         isFollowing={user.isFollowing}
       >
@@ -82,6 +82,7 @@ export default function OtherUserLike() {
             time={likedTweet.relativeTime}
             replyCount={likedTweet.Tweet.replyCount}
             likeCount={likedTweet.Tweet.likeCount}
+            isLiked={likedTweet.Tweet.isLiked}
           />
         ))}
       </OtherUser>
