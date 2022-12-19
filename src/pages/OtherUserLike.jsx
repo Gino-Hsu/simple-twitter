@@ -5,8 +5,7 @@ import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 
 import userApi from '../API/userApi'
-// import likeApi from '../API/likeApi'
-import tweetApi from '../API/tweetApi'
+import likeApi from '../API/likeApi'
 import { Alert } from '../utils/helpers'
 
 import style from './OtherUserLike.module.scss'
@@ -38,9 +37,8 @@ export default function OtherUserLike() {
   }, [])
 
   useEffect(() => {
-    tweetApi
-      // .getUserLikedTweets(param.user_id)
-      .getUserTweets(param.user_id)
+    likeApi
+      .getUserLiked(param.user_id)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {
@@ -66,21 +64,23 @@ export default function OtherUserLike() {
         account={user.account}
         avatarImg={user.avatar}
         introduction={user.introduction}
+        tweetCount={user.tweetCount}
         followerCount={user.followersCount}
         followingCount={user.followingCount}
+        isFollowing={user.isFollowing}
       >
-        {likedTweets.map((like) => (
+        {likedTweets.map((likedTweet) => (
           <TweetListItem
-            key={like.id}
-            tweet={like.description}
-            tweetId={like.id}
-            userId={like.User.id}
-            userAvatar={like.User.avatar}
-            account={like.User.account}
-            userName={like.User.name}
-            time={like.relativeTime}
-            replyCount={like.replyCount}
-            likeCount={like.likeCount}
+            key={likedTweet.id}
+            tweet={likedTweet.Tweet.description}
+            tweetId={likedTweet.tweetId}
+            userId={likedTweet.User.id}
+            userAvatar={likedTweet.Tweet.User.avatar}
+            account={likedTweet.Tweet.User.account}
+            userName={likedTweet.Tweet.User.name}
+            time={likedTweet.relativeTime}
+            replyCount={likedTweet.Tweet.replyCount}
+            likeCount={likedTweet.likeCount}
           />
         ))}
       </OtherUser>

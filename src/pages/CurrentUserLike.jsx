@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import userApi from '../API/userApi'
-//暫時先用其他API測試
-// import likeApi from '../API/likeApi'
-import tweetApi from '../API/tweetApi'
+import likeApi from '../API/likeApi'
 import { Alert } from '../utils/helpers'
 import style from './CurrentUserLike.module.scss'
 
@@ -35,9 +33,8 @@ export default function CurrentUserLike() {
 
   useEffect(() => {
     const currentUserId = localStorage.getItem('userId')
-    tweetApi
-      // .getUserLikedTweets(currentUserId)
-      .getUserTweets(currentUserId)
+    likeApi
+      .getUserLiked(currentUserId)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {
@@ -66,18 +63,18 @@ export default function CurrentUserLike() {
         followerCount={currentUser.followersCount}
         followingCount={currentUser.followingCount}
       >
-        {likedTweets.map((like) => (
+        {likedTweets.map((likedTweet) => (
           <TweetListItem
-            key={like.id}
-            tweet={like.description}
-            tweetId={like.id}
-            userId={like.User.id}
-            userAvatar={like.User.avatar}
-            account={like.User.account}
-            userName={like.User.name}
-            time={like.relativeTime}
-            replyCount={like.replyCount}
-            likeCount={like.likeCount}
+            key={likedTweet.id}
+            tweet={likedTweet.Tweet.description}
+            tweetId={likedTweet.tweetId}
+            userId={likedTweet.User.id}
+            userAvatar={likedTweet.Tweet.User.avatar}
+            account={likedTweet.Tweet.User.account}
+            userName={likedTweet.Tweet.User.name}
+            time={likedTweet.relativeTime}
+            replyCount={likedTweet.Tweet.replyCount}
+            likeCount={likedTweet.likeCount}
           />
         ))}
       </CurrentUser>

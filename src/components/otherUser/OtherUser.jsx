@@ -12,14 +12,16 @@ export default function OtherUser({
   account,
   avatarImg,
   introduction,
+  tweetCount,
   followerCount,
   followingCount,
+  isFollowing,
   children,
 }) {
   return (
     <div className={style.otherUser__container}>
       <div className={style.header}>
-        <UserHeader name="Gino" tweetCount="99" />
+        <UserHeader name={name} tweetCount={tweetCount} />
       </div>
 
       <div className={style.body}>
@@ -49,7 +51,11 @@ export default function OtherUser({
             <img className={style.buttons__bellIcon__img} alt="" />
           </div>
           <div className={style.buttons__followBtn}>
-            <ButtonUI btnStyle="btn__pill__small" text="正在跟隨" />
+            {isFollowing === 1 ? (
+              <ButtonUI btnStyle="btn__pill__small" text="正在跟隨" />
+            ) : (
+              <ButtonUI btnStyle="btn__pill__small__default" text="跟隨" />
+            )}
           </div>
         </div>
 

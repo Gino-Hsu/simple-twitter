@@ -12,8 +12,8 @@ export default function TweetListItem({
   userName,
   userId,
   time,
-  twitterReply,
-  twitterLike,
+  replyCount,
+  likeCount,
   tweetId,
 }) {
   const handleShowReplyModel = useContext(ShowReplyModel)
@@ -31,7 +31,7 @@ export default function TweetListItem({
         <div className={style.info__account}>
           <p>{userName}</p>
           <div className={style.subtitle}>
-            <span>{account}</span>
+            <span>{`@${account}`}</span>
             <span className={style.spot}></span>
             <span>{time}</span>
           </div>
@@ -49,13 +49,13 @@ export default function TweetListItem({
             <div onClick={handleShowReplyModel} className={style.cursor}>
               <img className="" alt="reply button" />
             </div>
-            <span>{twitterReply}</span>
+            <span>{replyCount}</span>
           </div>
           <div className={style.icon__like}>
             <div className={style.cursor}>
               <img className="" alt="like button" />
             </div>
-            <span>{twitterLike}</span>
+            <span>{likeCount}</span>
           </div>
         </div>
       </div>
