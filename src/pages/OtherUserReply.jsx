@@ -58,6 +58,7 @@ export default function OtherUserReply() {
   return (
     <div className={style.userReply__container}>
       <OtherUser
+        userId={user.id}
         coverImg={user.cover}
         name={user.name}
         account={user.account}

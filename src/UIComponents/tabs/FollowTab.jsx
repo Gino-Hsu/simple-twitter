@@ -10,7 +10,7 @@ export default function FollowTab() {
     <div className={style.tab__container}>
       <NavLink
         onClick={() => handleChangeTab('')}
-        to="/alphitter/user/self/follower"
+        to="/alphitter/user/self/following"
       >
         {({ isActive }) =>
           isActive ? (
@@ -26,7 +26,7 @@ export default function FollowTab() {
       </NavLink>
       <NavLink
         onClick={() => handleChangeTab('')}
-        to="/alphitter/user/self/following"
+        to="/alphitter/user/self/follower"
       >
         {({ isActive }) =>
           isActive ? (

@@ -68,7 +68,7 @@ function App() {
                   element={<OtherUserLike />}
                 ></Route>
               </Route>
-              {/* <Route path="/*" element={<Login />}></Route> */}
+              <Route path="/*" element={<Login />}></Route>
             </Routes>
           </BrowserRouter>
         </div>
