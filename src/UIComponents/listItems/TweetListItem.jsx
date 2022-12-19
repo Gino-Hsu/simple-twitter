@@ -46,7 +46,7 @@ export default function TweetListItem({
         </Link>
         <div className={style.info__icons}>
           <div className={style.icon__reply}>
-            <div onClick={handleShowReplyModel} className={style.cursor}>
+            <div onClick={() => handleShowReplyModel(tweetId)} className={style.cursor}>
               <img className="" alt="reply button" />
             </div>
             <span>{twitterReply}</span>
