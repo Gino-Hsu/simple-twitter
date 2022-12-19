@@ -83,7 +83,7 @@ export default function TweetListItem({
         <div className={style.info__account}>
           <p>{userName}</p>
           <div className={style.subtitle}>
-            <span>{account}</span>
+            <span>{`@${account}`}</span>
             <span className={style.spot}></span>
             <span>{time}</span>
           </div>

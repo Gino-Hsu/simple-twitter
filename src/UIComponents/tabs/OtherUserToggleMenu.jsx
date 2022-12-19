@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import style from './UserToggleMenu.module.scss'
-export default function UserToggleMenu() {
+import style from './OtherUserToggleMenu.module.scss'
+export default function OtherUserToggleMenu({ userId }) {
   return (
     <div className={style.tab__container}>
-      <NavLink to="/alphitter/user/self/tweet">
+      <NavLink to={`/alphitter/user/other/tweet/${userId}`}>
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
@@ -18,7 +18,7 @@ export default function UserToggleMenu() {
           )
         }
       </NavLink>
-      <NavLink to="/alphitter/user/self/reply">
+      <NavLink to={`/alphitter/user/other/reply/${userId}`}>
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
@@ -31,7 +31,7 @@ export default function UserToggleMenu() {
           )
         }
       </NavLink>
-      <NavLink to="/alphitter/user/self/like">
+      <NavLink to={`/alphitter/user/other/like/${userId}`}>
         {({ isActive }) =>
           isActive ? (
             <div className={style.active}>
