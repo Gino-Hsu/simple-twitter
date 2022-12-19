@@ -8,6 +8,7 @@ export default function AdminSideBar() {
 
   const handelSignOut = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('userId')
     navigate('/admin')
   }
   return (
