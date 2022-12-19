@@ -4,6 +4,7 @@ import style from './Input.module.scss'
 
 export function LoginAndRegistInput({
   inputId,
+  name,
   inputName,
   inputPlaceHolder,
   inputType,
@@ -16,6 +17,7 @@ export function LoginAndRegistInput({
       <div className={style.input__label}>{inputName}</div>
       <input
         id={inputId}
+        name={name}
         className={style.input}
         placeholder={inputPlaceHolder}
         type={inputType}

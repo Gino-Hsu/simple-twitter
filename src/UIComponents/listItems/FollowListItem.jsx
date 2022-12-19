@@ -7,8 +7,7 @@ export default function FollowListItem({
   avatar,
   name,
   account,
-  time,
-  tweet,
+  introduction,
   btnStyle,
   btnText,
 }) {
@@ -23,8 +22,6 @@ export default function FollowListItem({
             <div className={style.tweetBy__name}>{name}</div>
             <div className={style.tweetBy__account__time}>
               <div className={style.tweetBy__account}>{`@${account}`}</div>
-              <div className={style.spot} />
-              <div className={style.tweetBy__time}>{time}</div>
             </div>
           </div>
           <div className={style.btn__container}>
@@ -32,7 +29,7 @@ export default function FollowListItem({
           </div>
         </div>
 
-        <div className={style.tweet__text}>{tweet}</div>
+        <div className={style.tweet__text}>{introduction}</div>
       </div>
     </div>
   )

@@ -10,6 +10,8 @@ import style from './MobileUser.module.scss'
 export default function CurrentUser({
   account,
   name,
+  cover,
+  avatar,
   description,
   followerCount,
   followingCount,
@@ -21,12 +23,16 @@ export default function CurrentUser({
 
       <div className={style.body}>
         <div className={style.cover}>
-          <img className={style.cover__img} alt="Cover" />
+          <img src={cover} className={style.cover__img} alt="Cover" />
         </div>
 
         <div className={style.userInfo}>
           <div className={style.userInfo__avatar}>
-            <img className={style.userInfo__avatar__img} alt="Avatar" />
+            <img
+              src={avatar}
+              className={style.userInfo__avatar__img}
+              alt="Avatar"
+            />
           </div>
           <div className={style.info__container}>
             <div className={style.userInfo__name}>{name}</div>

@@ -14,66 +14,72 @@ import Reply from './pages/Reply'
 import CurrentUserTweet from './pages/CurrentUserTweet'
 import CurrentUserReply from './pages/CurrentUserReply'
 import CurrentUserLike from './pages/CurrentUserLike'
-import Follower from './components/follow/Follower'
-import Following from './components/follow/Following'
+import Follower from './pages/Follower'
+import Following from './pages/Following'
 import OtherUserTweet from './pages/OtherUserTweet'
 import OtherUserReply from './pages/OtherUserReply'
 import OtherUserLike from './pages/OtherUserLike'
-import SideBarControlContextProvider from './contexts/sideBarControlContext/SideBarControlContext'
-import ModalControlContextProvider from './contexts/modalControlContext/ModalControlContext'
+import { SideBarControlContextProvider } from './contexts/sideBarControlContext/SideBarControlContext'
+import { ModalControlContextProvider } from './contexts/modalControlContext/ModalControlContext'
+import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
 
 function App() {
   return (
-    <SideBarControlContextProvider>
-      <ModalControlContextProvider>
-        <div className="App">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/regist" element={<Regist />}></Route>
-              <Route path="/setting" element={<Setting />}></Route>
-              <Route path="/admin" element={<AdminLogin />}></Route>
-              <Route path="/admin/tweets" element={<AdminTweets />}></Route>
-              <Route path="/admin/users" element={<AdminUsers />}></Route>
-              <Route path="/alphitter" element={<Layout />}>
-                <Route
-                  path="user/self/tweet"
-                  element={<CurrentUserTweet />}
-                ></Route>
-                <Route path="home" element={<Home />}></Route>
-                <Route path="reply/:tweet_id" element={<Reply />}></Route>
-                <Route
-                  path="user/self/reply"
-                  element={<CurrentUserReply />}
-                ></Route>
-                <Route
-                  path="user/self/like"
-                  element={<CurrentUserLike />}
-                ></Route>
-                <Route path="user/self/follower" element={<Follower />}></Route>
-                <Route
-                  path="user/self/following"
-                  element={<Following />}
-                ></Route>
-                <Route
-                  path="user/other/tweet/:user_id"
-                  element={<OtherUserTweet />}
-                ></Route>
-                <Route
-                  path="user/other/reply/:user_id"
-                  element={<OtherUserReply />}
-                ></Route>
-                <Route
-                  path="user/other/like/:user_id"
-                  element={<OtherUserLike />}
-                ></Route>
-              </Route>
-              <Route path="/*" element={<Login />}></Route>
-            </Routes>
-          </BrowserRouter>
-        </div>
-      </ModalControlContextProvider>
-    </SideBarControlContextProvider>
+    <FollowerControlProvider>
+      <SideBarControlContextProvider>
+        <ModalControlContextProvider>
+          <div className="App">
+            <BrowserRouter>
+              <Routes>
+                <Route path="/login" element={<Login />}></Route>
+                <Route path="/regist" element={<Regist />}></Route>
+                <Route path="/setting" element={<Setting />}></Route>
+                <Route path="/admin" element={<AdminLogin />}></Route>
+                <Route path="/admin/tweets" element={<AdminTweets />}></Route>
+                <Route path="/admin/users" element={<AdminUsers />}></Route>
+                <Route path="/alphitter" element={<Layout />}>
+                  <Route
+                    path="user/self/tweet"
+                    element={<CurrentUserTweet />}
+                  ></Route>
+                  <Route path="home" element={<Home />}></Route>
+                  <Route path="reply/:tweet_id" element={<Reply />}></Route>
+                  <Route
+                    path="user/self/reply"
+                    element={<CurrentUserReply />}
+                  ></Route>
+                  <Route
+                    path="user/self/like"
+                    element={<CurrentUserLike />}
+                  ></Route>
+                  <Route
+                    path="user/self/follower"
+                    element={<Follower />}
+                  ></Route>
+                  <Route
+                    path="user/self/following"
+                    element={<Following />}
+                  ></Route>
+                  <Route
+                    path="user/other/tweet/:user_id"
+                    element={<OtherUserTweet />}
+                  ></Route>
+                  <Route
+                    path="user/other/reply/:user_id"
+                    element={<OtherUserReply />}
+                  ></Route>
+                  <Route
+                    path="user/other/like/:user_id"
+                    element={<OtherUserLike />}
+                  ></Route>
+                </Route>
+                  <Route path="/*" element={<Login />}></Route>
+              </Routes>
+            </BrowserRouter>
+          </div>
+        </ModalControlContextProvider>
+      </SideBarControlContextProvider>
+    </FollowerControlProvider>
   )
 }
 

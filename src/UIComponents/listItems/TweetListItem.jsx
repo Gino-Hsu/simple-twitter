@@ -21,10 +21,19 @@ export default function TweetListItem({
   isLiked,
 }) {
   const [liked, setLiked] = useState(isLiked)
+  const [newLikeCount, setNewLikeCount] = useState(likeCount)
   const handleShowReplyModel = useContext(ShowReplyModel)
   const handleChangeTab = useContext(ChangeTabContext)
 
   const handleToggleLiked = (isLiked) => {
+    const id = localStorage.getItem('userId')
+    if (Number(userId) === Number(id)) {
+      Toast.fire({
+        icon: 'error',
+        title: '不能按自己 Like 喔!',
+      })
+      return
+    }
     if (isLiked === 0) {
       likeApi
         .postLike(tweetId)
@@ -38,6 +47,7 @@ export default function TweetListItem({
             title: '成功點擊 Like',
           })
           setLiked(1)
+          setNewLikeCount(newLikeCount + 1)
         })
         .catch((error) => {
           Toast.fire({
@@ -59,6 +69,7 @@ export default function TweetListItem({
             title: '成功取消 Like',
           })
           setLiked(0)
+          setNewLikeCount(newLikeCount - 1)
         })
         .catch((error) => {
           Toast.fire({
@@ -102,7 +113,7 @@ export default function TweetListItem({
               onClick={() => handleShowReplyModel(tweetId)}
               className={style.cursor}
             >
-              <img className="" alt="reply button" />
+              <img alt="reply button" />
             </div>
             <span>{replyCount}</span>
           </div>
@@ -111,9 +122,12 @@ export default function TweetListItem({
               className={style.cursor}
               onClick={() => handleToggleLiked(liked)}
             >
-              <img className={liked === 1 && style.action} alt="like button" />
+              <img
+                className={liked === 1 ? style.action : ''}
+                alt="like button"
+              />
             </div>
-            <span>{likeCount}</span>
+            <span>{newLikeCount}</span>
           </div>
         </div>
       </div>

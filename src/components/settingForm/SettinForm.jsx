@@ -3,6 +3,9 @@ import SettingHeader from '../../UIComponents/headers/SettingHeader'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
+import userApi from '../../API/userApi'
+import { Toast } from '../../utils/helpers'
+
 import style from './SettingForm.module.scss'
 
 export default function SettinForm() {
@@ -10,7 +13,7 @@ export default function SettinForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [checkPassword, setCheckPassword] = useState('')
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -25,7 +28,33 @@ export default function SettinForm() {
     setPassword(e.target.value)
   }
   const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value)
+    setCheckPassword(e.target.value)
+  }
+
+  const handleSettingSubmit = (e) => {
+    console.log('here')
+    e.preventDefault()
+    const userId = localStorage.getItem('userId')
+    userApi
+      .putUserSetting({ userId, account, name, email, password, checkPassword })
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        Toast.fire({
+          icon: 'success',
+          title: '成功更新設定!',
+        })
+        console.log(data)
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: 'error',
+          title: '更新設定失敗!',
+        })
+        console.error(error)
+      })
   }
 
   return (
@@ -33,7 +62,12 @@ export default function SettinForm() {
       <div className={style.setting__header}>
         <SettingHeader />
       </div>
-      <div className={style.setting__form}>
+      <form
+        className={style.setting__form}
+        onSubmit={(e) => {
+          handleSettingSubmit(e)
+        }}
+      >
         <div className={style.setting__form__inputs}>
           <LoginAndRegistInput
             inputId="account"
@@ -72,7 +106,7 @@ export default function SettinForm() {
             inputName="密碼確認"
             inputPlaceHolder="請再次輸入密碼"
             inputType="password"
-            inputValue={confirmPassword}
+            inputValue={checkPassword}
             onChange={handleConfirmPasswordChange}
           />
         </div>
@@ -84,7 +118,7 @@ export default function SettinForm() {
             <ButtonUI btnStyle="link" text="登出" />
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
