@@ -61,7 +61,7 @@ export default function CurrentUserLike() {
         avatarImg={currentUser.avatar}
         description={currentUser.introduction}
         tweetCount={currentUser.tweetCount}
-        followerCount={currentUser.followersCount}
+        followerCount={currentUser.followerCount}
         followingCount={currentUser.followingCount}
       >
         {likedTweets.map((likedTweet) => (
@@ -76,6 +76,7 @@ export default function CurrentUserLike() {
             time={likedTweet.relativeTime}
             replyCount={likedTweet.Tweet.replyCount}
             likeCount={likedTweet.Tweet.likeCount}
+            isLiked={likedTweet.Tweet.isLiked}
           />
         ))}
       </CurrentUser>

@@ -54,7 +54,7 @@ export default function AdminUsers() {
                 tweetCount={user.tweetCount}
                 likeCount={user.likeCount}
                 followingCount={user.followingCount}
-                followerCount={user.folloersCount}
+                followerCount={user.followerCount}
               />
             ))}
           </div>

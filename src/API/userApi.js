@@ -26,7 +26,7 @@ export default {
   putUserEdit(userId, formData) {
     return axios({
       method: 'put',
-      baseURL: 'http://localhost:3000/api',
+      baseURL: 'https://secure-peak-76328.herokuapp.com/api',
       url: `/users/${userId}`,
       data: formData,
       headers: headers
