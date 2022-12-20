@@ -69,25 +69,25 @@ export default function CurrentUser({
             <Link
               onClick={() => handleChangeTab('')}
               className={style.router__link}
-              to="/alphitter/user/self/follower"
-            >
-              <div className={style.follows__follower}>
-                <p
-                  className={style.follows__follower__count}
-                >{`${followerCount} 個`}</p>
-                <p className={style.follows__follower__type}>跟隨中</p>
-              </div>
-            </Link>
-            <Link
-              onClick={() => handleChangeTab('')}
-              className={style.router__link}
               to="/alphitter/user/self/following"
             >
               <div className={style.follows__following}>
                 <p
                   className={style.follows__following__count}
+                >{`${followerCount} 個`}</p>
+                <p className={style.follows__following__type}>跟隨中</p>
+              </div>
+            </Link>
+            <Link
+              onClick={() => handleChangeTab('')}
+              className={style.router__link}
+              to="/alphitter/user/self/follower"
+            >
+              <div className={style.follows__follower}>
+                <p
+                  className={style.follows__follower__count}
                 >{`${followingCount} 個`}</p>
-                <p className={style.follows__following__type}>跟隨者</p>
+                <p className={style.follows__follower__type}>跟隨者</p>
               </div>
             </Link>
           </div>

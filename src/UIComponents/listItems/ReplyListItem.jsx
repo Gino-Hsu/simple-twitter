@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import { profileLink } from '../../utils/routeLink'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './ReplyListItem.module.scss'
 
@@ -17,7 +17,7 @@ export default function ReplyListItem({
 }) {
   return (
     <div className={style.listItem__container}>
-      <Link to={profileLink(userId, 'tweet')}>
+      <Link onClick={ChangeTabContext} to={profileLink(userId, 'tweet')}>
         <div className={style.avatar}>
           <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
         </div>
@@ -33,7 +33,7 @@ export default function ReplyListItem({
         </div>
         <div className={style.reply__for}>
           <p>回覆</p>
-          <Link to={profileLink(forUserId, 'tweet')}>
+          <Link onClick={ChangeTabContext} to={profileLink(forUserId, 'tweet')}>
             <p className={style.account}>{`@${forAccount}`}</p>
           </Link>
         </div>

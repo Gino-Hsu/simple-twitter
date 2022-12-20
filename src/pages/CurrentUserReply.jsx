@@ -63,7 +63,7 @@ export default function CurrentUserReply() {
         avatarImg={currentUser.avatar}
         description={currentUser.introduction}
         tweetCount={currentUser.tweetCount}
-        followerCount={currentUser.followersCount}
+        followerCount={currentUser.followerCount}
         followingCount={currentUser.followingCount}
       >
         {repliedTweets.map((repliedTweet) => (
