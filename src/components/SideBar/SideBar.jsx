@@ -33,6 +33,7 @@ export default function SideBar() {
   }
 
   const handelSignOut = () => {
+    localStorage.removeItem('tweetId')
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
     navigate('/login')

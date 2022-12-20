@@ -3,6 +3,7 @@ import OtherUser from '../components/otherUser/OtherUser'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
+import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
 
 import userApi from '../API/userApi'
 import replyApi from '../API/replyApi'
@@ -15,6 +16,7 @@ export default function OtherUserReply() {
   const [repliedTweets, setRepliedTweets] = useState([])
   const navigate = useNavigate()
   const param = useParams()
+  const handleToggleFollow = useFollowControl()
 
   useEffect(() => {
     userApi
@@ -66,7 +68,8 @@ export default function OtherUserReply() {
         introduction={user.introduction}
         followerCount={user.followerCount}
         followingCount={user.followingCount}
-        isFollowing={user.isFollowing}
+        onClick={handleToggleFollow}
+        isFollowed={user.isFollowed}
       >
         {repliedTweets.map((repliedTweet) => (
           <ReplyListItem

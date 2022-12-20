@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
+import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
 
 import userApi from '../API/userApi'
 import likeApi from '../API/likeApi'
@@ -15,6 +16,7 @@ export default function OtherUserLike() {
   const [likedTweets, setLikedTweets] = useState([])
   const param = useParams()
   const navigate = useNavigate()
+    const handleToggleFollow = useFollowControl()
 
   useEffect(() => {
     userApi
@@ -68,7 +70,8 @@ export default function OtherUserLike() {
         tweetCount={user.tweetCount}
         followerCount={user.followerCount}
         followingCount={user.followingCount}
-        isFollowing={user.isFollowing}
+        onClick={handleToggleFollow}
+        isFollowed={user.isFollowed}
       >
         {likedTweets.map((likedTweet) => (
           <TweetListItem
