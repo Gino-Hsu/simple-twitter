@@ -24,7 +24,7 @@ export default function PopularUserItem({
       ? handleChangeTab('user')
       : handleChangeTab('home')
   }
-  console.log(userId)
+  
   return (
     <div className={style.item}>
       <Link onClick={() => handleChooseTab()} to={profileLink(userId, 'tweet')}>
