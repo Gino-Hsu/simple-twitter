@@ -110,10 +110,26 @@ export default function SettinForm() {
         console.log(data)
       })
       .catch((error) => {
-        Toast.fire({
-          icon: 'error',
-          title: '更新設定失敗!',
-        })
+        const errorMessage = error.response.data.message
+        console.log(errorMessage)
+        if (errorMessage === 'Error: account 已重複註冊!') {
+          Toast.fire({
+            icon: 'error',
+            title: '帳戶已重複註冊!',
+          })
+          return
+        } else if (errorMessage === 'Error: email 已重複註冊!') {
+          Toast.fire({
+            icon: 'error',
+            title: 'Email 已重複註冊!',
+          })
+          return
+        } else {
+          Toast.fire({
+            icon: 'error',
+            title: '更新設定失敗!',
+          })
+        }
         console.error(error)
       })
   }
@@ -133,8 +149,8 @@ export default function SettinForm() {
       .catch((error) => {
         navigate('/login')
         Alert.fire({
-          icon: "error",
-          title: "請重新登入!"
+          icon: 'error',
+          title: '請重新登入!',
         })
         console.error(error)
       })
