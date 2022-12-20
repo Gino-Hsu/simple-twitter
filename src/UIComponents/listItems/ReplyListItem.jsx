@@ -16,12 +16,15 @@ export default function ReplyListItem({
   reply,
 }) {
   const handleChangeTab = useContext(ChangeTabContext)
-  const homeTab = () => {
-    return userId !== forUserId ? handleChangeTab('home') : null
+  const handleChooseTab = () => {
+    const id = localStorage.getItem('userId')
+    Number(forUserId) === Number(id)
+      ? handleChangeTab('user')
+      : handleChangeTab('home')
   }
   return (
     <div className={style.listItem__container}>
-      <Link onClick={() => homeTab()} to={profileLink(userId, 'tweet')}>
+      <Link onClick={() => handleChooseTab()} to={profileLink(userId, 'tweet')}>
         <div className={style.avatar}>
           <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
         </div>
@@ -37,7 +40,10 @@ export default function ReplyListItem({
         </div>
         <div className={style.reply__for}>
           <p>回覆</p>
-          <Link onClick={() => homeTab()} to={profileLink(forUserId, 'tweet')}>
+          <Link
+            onClick={() => handleChooseTab()}
+            to={profileLink(forUserId, 'tweet')}
+          >
             <p className={style.account}>{`@${forAccount}`}</p>
           </Link>
         </div>

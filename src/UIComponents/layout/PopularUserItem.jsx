@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { profileLink } from '../../utils/routeLink'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 import ButtonUI from '../buttons/ButtonUI'
 import style from './PopularUserItem.module.scss'
 
@@ -13,11 +16,22 @@ export default function PopularUserItem({
   onClick,
   isFollowing,
 }) {
+  const handleChangeTab = useContext(ChangeTabContext)
+
+  const handleChooseTab = () => {
+    const id = localStorage.getItem('userId')
+    Number(userId) === Number(id)
+      ? handleChangeTab('user')
+      : handleChangeTab('home')
+  }
+  console.log(userId)
   return (
     <div className={style.item}>
-      <div className={style.user__avatar}>
-        <img src={avatar} alt="avatar" />
-      </div>
+      <Link onClick={() => handleChooseTab()} to={profileLink(userId, 'tweet')}>
+        <div className={style.user__avatar}>
+          <img src={avatar} alt="avatar" />
+        </div>
+      </Link>
       <div className={style.user__info}>
         <p className={style.user__info__name}>{name}</p>
         <p className={style.user__info__account}>{`@${account}`}</p>
