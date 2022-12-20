@@ -66,6 +66,7 @@ export default function OtherUserReply() {
         introduction={user.introduction}
         followerCount={user.followerCount}
         followingCount={user.followingCount}
+        isFollowing={user.isFollowing}
       >
         {repliedTweets.map((repliedTweet) => (
           <ReplyListItem

@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { profileLink } from '../../utils/routeLink'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './FollowListItem.module.scss'
 
 export default function FollowListItem({
+  userId,
   avatar,
   name,
   account,
@@ -11,11 +15,21 @@ export default function FollowListItem({
   btnStyle,
   btnText,
 }) {
+  const handleChangeTab = useContext(ChangeTabContext)
+
+  const handleChooseTab = () => {
+    const id = localStorage.getItem('userId')
+    Number(userId) === Number(id)
+      ? handleChangeTab('user')
+      : handleChangeTab('home')
+  }
   return (
     <div className={style.listItem__container}>
-      <div className={style.avatar}>
-        <img className={style.avatar__img} src={avatar} alt="Avatar" />
-      </div>
+      <Link onClick={() => handleChooseTab()} to={profileLink(userId, 'tweet')}>
+        <div className={style.avatar}>
+          <img className={style.avatar__img} src={avatar} alt="Avatar" />
+        </div>
+      </Link>
       <div className={style.listItem__body}>
         <div className={style.listItem__body__header}>
           <div className={style.tweetBy}>

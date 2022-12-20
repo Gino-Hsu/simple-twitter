@@ -82,6 +82,7 @@ export default function Follower() {
         {followerUsers.map((followerUser) => (
           <FollowListItem
             key={followerUser.Followers.id}
+            userId={followerUser.followerId}
             avatar={followerUser.Followers.avatar}
             name={followerUser.Followers.name}
             account={followerUser.Followers.account}

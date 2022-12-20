@@ -25,6 +25,13 @@ export default function TweetListItem({
   const handleShowReplyModel = useContext(ShowReplyModel)
   const handleChangeTab = useContext(ChangeTabContext)
 
+  const handleChooseTab = () => {
+    const id = localStorage.getItem('userId')
+    Number(userId) === Number(id)
+      ? handleChangeTab('user')
+      : handleChangeTab('home')
+  }
+
   const handleToggleLiked = (isLiked) => {
     const id = localStorage.getItem('userId')
     if (Number(userId) === Number(id)) {
@@ -83,7 +90,7 @@ export default function TweetListItem({
 
   return (
     <div className={style.listItem__container}>
-      <Link to={profileLink(userId, 'tweet')}>
+      <Link onClick={() => handleChooseTab()} to={profileLink(userId, 'tweet')}>
         <div className={style.listItem__avatar}>
           <div className={style.avatar__img}>
             <img src={userAvatar} alt="user avatar" />
