@@ -24,6 +24,22 @@ export default function TweetModal({ onHideModel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    if (description.trim().length === 0) {
+      Toast.fire({
+        icon: 'error',
+        title: '內容不可空白!',
+      })
+      return
+    }
+    if (description.trim().length > 140) {
+      Toast.fire({
+        icon: 'error',
+        title: '不可超過 140 字!',
+      })
+      return
+    }
+
     tweetApi
       .postTweet(description)
       .then((res) => {
@@ -40,18 +56,25 @@ export default function TweetModal({ onHideModel }) {
         setDescription('')
       })
       .catch((error) => {
-        const errorMessage = error.response.data.message.slice(7)
+        const errorMessage = error.response.data.message
 
-        if (errorMessage === '內容不可空白!') {
+        if (errorMessage === 'Error: 內容不可空白!') {
           Toast.fire({
             icon: 'error',
             title: '內容不可空白!',
           })
+          return
         }
-        if (errorMessage === '推文字數限制在 140 以內!') {
+        if (errorMessage === 'Error: 推文字數限制在 140 以內!') {
           Toast.fire({
             icon: 'error',
             title: '推文字數限制在 140 以內!',
+          })
+          return
+        } else {
+          Toast.fire({
+            icon: 'error',
+            title: '推文失敗',
           })
         }
 

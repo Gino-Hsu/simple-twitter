@@ -5,7 +5,7 @@ import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import userApi from '../../API/userApi'
-import { Toast } from '../../utils/helpers'
+import { Toast, Alert } from '../../utils/helpers'
 
 import style from './SettingForm.module.scss'
 
@@ -132,6 +132,10 @@ export default function SettinForm() {
       })
       .catch((error) => {
         navigate('/login')
+        Alert.fire({
+          icon: "error",
+          title: "請重新登入!"
+        })
         console.error(error)
       })
   }, [])

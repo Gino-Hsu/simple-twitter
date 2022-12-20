@@ -5,13 +5,22 @@ import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import userApi from '../API/userApi'
 import likeApi from '../API/likeApi'
 import { Alert } from '../utils/helpers'
+import {
+  Rerender,
+  HandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
+
 import style from './CurrentUserLike.module.scss'
 
 export default function CurrentUserLike() {
   const [currentUser, setCurrentUser] = useState([])
   const [likedTweets, setLikedTweets] = useState([])
   const navigate = useNavigate()
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
+
   useEffect(() => {
+    handleRerender('')
     userApi
       .getCurrentUser()
       .then((res) => {
@@ -29,7 +38,7 @@ export default function CurrentUserLike() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [rerender])
 
   useEffect(() => {
     const currentUserId = localStorage.getItem('userId')

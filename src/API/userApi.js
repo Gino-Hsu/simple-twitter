@@ -33,9 +33,13 @@ export default {
     })
   },
   patchUserCover(userId) {
-    return apiHelper.patch(`/users/${userId}/cover`, {
-      headers: { Authorization: `Bearer ${getToken()}` },
-    })
+    return apiHelper.patch(
+      `/users/${userId}/cover`,
+      {},
+      {
+        headers: { Authorization: `Bearer ${getToken()}` },
+      }
+    )
   },
   putUserSetting(payload) {
     const { userId, account, name, email, password, checkPassword } = payload

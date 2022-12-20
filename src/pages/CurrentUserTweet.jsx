@@ -5,6 +5,10 @@ import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import userApi from '../API/userApi'
 import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
+import {
+  Rerender,
+  HandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
 
 import style from './CurrentUserTweet.scss'
 
@@ -12,7 +16,11 @@ export default function CurrentUserTweet() {
   const [currentUser, setCurrentUser] = useState([])
   const [tweets, setTweets] = useState([])
   const navigate = useNavigate()
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
+
   useEffect(() => {
+    handleRerender('')
     userApi
       .getCurrentUser()
       .then((res) => {
@@ -30,9 +38,10 @@ export default function CurrentUserTweet() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [rerender])
 
   useEffect(() => {
+    handleRerender('')
     const currentUserId = localStorage.getItem('userId')
     tweetApi
       .getUserTweets(currentUserId)
@@ -51,7 +60,7 @@ export default function CurrentUserTweet() {
         navigate('/login')
         console.log(error)
       })
-  }, [])
+  }, [rerender])
 
   return (
     <div className={style.userTweet__container}>
