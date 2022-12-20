@@ -34,7 +34,7 @@ export default function OtherUserTweet() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [param.user_id])
 
   useEffect(() => {
     tweetApi
@@ -54,7 +54,7 @@ export default function OtherUserTweet() {
         navigate('/login')
         console.log(error)
       })
-  }, [])
+  }, [param.user_id])
 
   return (
     <div className={style.userTweet__container}>
