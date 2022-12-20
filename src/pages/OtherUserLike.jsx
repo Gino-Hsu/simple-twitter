@@ -34,7 +34,7 @@ export default function OtherUserLike() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [param.user_id])
 
   useEffect(() => {
     likeApi
@@ -54,7 +54,7 @@ export default function OtherUserLike() {
         navigate('/login')
         console.log(error)
       })
-  }, [])
+  }, [param.user_id])
 
   return (
     <div className={style.userLike__container}>

@@ -34,7 +34,7 @@ export default function OtherUserReply() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [param.user_id])
 
   useEffect(() => {
     replyApi
@@ -53,7 +53,7 @@ export default function OtherUserReply() {
         })
         console.error(error)
       })
-  }, [])
+  }, [param.user_id])
 
   return (
     <div className={style.userReply__container}>
