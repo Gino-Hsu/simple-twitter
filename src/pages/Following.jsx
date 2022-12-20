@@ -15,7 +15,7 @@ export default function Follower() {
   const [currentUser, setCurrentUser] = useState([])
   const [followingUsers, setFollowingUsers] = useState([])
   const navigate = useNavigate()
-    const handleToggleFollow = useFollowControl()
+  const handleToggleFollow = useFollowControl()
 
   useEffect(() => {
     userApi

@@ -16,7 +16,7 @@ export default function OtherUserLike() {
   const [likedTweets, setLikedTweets] = useState([])
   const param = useParams()
   const navigate = useNavigate()
-    const handleToggleFollow = useFollowControl()
+  const handleToggleFollow = useFollowControl()
 
   useEffect(() => {
     userApi
