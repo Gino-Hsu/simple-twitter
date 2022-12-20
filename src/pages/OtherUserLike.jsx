@@ -68,7 +68,7 @@ export default function OtherUserLike() {
         tweetCount={user.tweetCount}
         followerCount={user.followerCount}
         followingCount={user.followingCount}
-        isFollowing={user.isFollowing}
+        isFollowed={user.isFollowed}
       >
         {likedTweets.map((likedTweet) => (
           <TweetListItem

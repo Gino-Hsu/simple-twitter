@@ -5,7 +5,10 @@ import MainTweet from '../components/mainTweet/MainTweet'
 import tweetApi from '../API/tweetApi'
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
-import { Rerender, HandleRerender } from '../contexts/rerenderContext/RenderContext'
+import {
+  Rerender,
+  HandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
 
 import style from './Home.module.scss'
 

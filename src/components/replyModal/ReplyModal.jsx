@@ -35,13 +35,13 @@ export default function ReplyModal({ handleHideModel }) {
         }
         Toast.fire({
           icon: 'success',
-          title: '成功回復!',
+          title: '成功回覆!',
         })
       })
       .catch((error) => {
         Toast.fire({
           icon: 'error',
-          title: '回復失敗!',
+          title: '回覆失敗!',
         })
         console.error(error)
       })

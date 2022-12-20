@@ -215,7 +215,9 @@ export default function SettinForm() {
               error={errorMessage.checkPassword}
             />
             {errorMessage && (
-              <p className={style.account__error}>{errorMessage.checkPassword}</p>
+              <p className={style.account__error}>
+                {errorMessage.checkPassword}
+              </p>
             )}
           </div>
         </div>

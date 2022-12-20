@@ -40,15 +40,15 @@ export default function TweetModal({ onHideModel }) {
         setDescription('')
       })
       .catch((error) => {
-         const errorMessage = error.response.data.message.slice(7)
+        const errorMessage = error.response.data.message.slice(7)
 
-        if (errorMessage === "內容不可空白!") {
+        if (errorMessage === '內容不可空白!') {
           Toast.fire({
             icon: 'error',
             title: '內容不可空白!',
           })
         }
-        if (errorMessage === "推文字數限制在 140 以內!") {
+        if (errorMessage === '推文字數限制在 140 以內!') {
           Toast.fire({
             icon: 'error',
             title: '推文字數限制在 140 以內!',
