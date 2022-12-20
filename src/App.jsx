@@ -22,9 +22,11 @@ import OtherUserLike from './pages/OtherUserLike'
 import { SideBarControlContextProvider } from './contexts/sideBarControlContext/SideBarControlContext'
 import { ModalControlContextProvider } from './contexts/modalControlContext/ModalControlContext'
 import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
+import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
 
 function App() {
   return (
+    <RenderContextProvider>
     <FollowerControlProvider>
       <SideBarControlContextProvider>
         <ModalControlContextProvider>
@@ -80,6 +82,7 @@ function App() {
         </ModalControlContextProvider>
       </SideBarControlContextProvider>
     </FollowerControlProvider>
+    </RenderContextProvider>
   )
 }
 

@@ -5,6 +5,7 @@ import MainTweet from '../components/mainTweet/MainTweet'
 import tweetApi from '../API/tweetApi'
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
+import { Rerender, HandleRerender } from '../contexts/rerenderContext/RenderContext'
 
 import style from './Home.module.scss'
 
@@ -12,8 +13,11 @@ export default function Home() {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
 
   useEffect(() => {
+    handleRerender('')
     tweetApi
       .getTweets()
       .then((res) => {
@@ -32,7 +36,7 @@ export default function Home() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [rerender])
 
   useEffect(() => {
     userApi

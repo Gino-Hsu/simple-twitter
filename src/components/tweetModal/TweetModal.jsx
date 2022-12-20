@@ -8,6 +8,7 @@ import { Textarea } from '../../UIComponents/inputs/Input'
 import tweetApi from '../../API/tweetApi'
 import userApi from '../../API/userApi'
 import { Toast, Alert } from '../../utils/helpers'
+import { HandleRerender } from '../../contexts/rerenderContext/RenderContext'
 
 import style from './TweetModal.module.scss'
 
@@ -15,6 +16,7 @@ export default function TweetModal({ onHideModel }) {
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
   const [description, setDescription] = useState('')
+  const handleRerender = HandleRerender()
 
   const handleTweetChange = (e) => {
     setDescription(e.target.value)
@@ -29,17 +31,30 @@ export default function TweetModal({ onHideModel }) {
         if (res.status !== 200) {
           throw new Error(data.message)
         }
+        console.log(data.message)
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
         })
+        handleRerender('true')
         setDescription('')
       })
       .catch((error) => {
-        Toast.fire({
-          icon: 'error',
-          title: '推文失敗!',
-        })
+         const errorMessage = error.response.data.message.slice(7)
+
+        if (errorMessage === "內容不可空白!") {
+          Toast.fire({
+            icon: 'error',
+            title: '內容不可空白!',
+          })
+        }
+        if (errorMessage === "推文字數限制在 140 以內!") {
+          Toast.fire({
+            icon: 'error',
+            title: '推文字數限制在 140 以內!',
+          })
+        }
+
         console.error(error)
       })
   }

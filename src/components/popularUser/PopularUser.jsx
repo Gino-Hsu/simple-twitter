@@ -24,15 +24,15 @@ export default function PopularUser() {
               account={followShip.account}
               avatar={followShip.avatar}
               onClick={handleToggleFollow}
-              isFollowing={followShip.isFollowing}
+              isFollowed={followShip.isFollowed}
               btnStyle={
-                followShip.isFollowing === 1
+                followShip.isFollowed === 1
                   ? 'btn__pill__middle'
                   : 'btn__pill__middle__default'
               }
-              text={followShip.isFollowing === 1 ? '正在跟隨' : '跟隨'}
+              text={followShip.isFollowed === 1 ? '正在跟隨' : '跟隨'}
               container={
-                followShip.isFollowing === 1
+                followShip.isFollowed === 1
                   ? 'btn__follow__container__action'
                   : 'btn__follow__container'
               }

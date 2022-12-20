@@ -15,7 +15,7 @@ export default function OtherUser({
   tweetCount,
   followerCount,
   followingCount,
-  isFollowing,
+  isFollowed,
   children,
 }) {
   return (
@@ -51,7 +51,7 @@ export default function OtherUser({
             <img className={style.buttons__bellIcon__img} alt="" />
           </div>
           <div className={style.buttons__followBtn}>
-            {isFollowing === 1 ? (
+            {isFollowed === 1 ? (
               <ButtonUI btnStyle="btn__pill__small" text="正在跟隨" />
             ) : (
               <ButtonUI btnStyle="btn__pill__small__default" text="跟隨" />

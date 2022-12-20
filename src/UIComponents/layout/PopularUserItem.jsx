@@ -14,7 +14,7 @@ export default function PopularUserItem({
   account,
   avatar,
   onClick,
-  isFollowing,
+  isFollowed,
 }) {
   const handleChangeTab = useContext(ChangeTabContext)
 
@@ -38,7 +38,7 @@ export default function PopularUserItem({
       </div>
       <div
         className={style.btn__follow}
-        onClick={() => onClick(userId, isFollowing)}
+        onClick={() => onClick(userId, isFollowed)}
       >
         <div className={style[container]}>
           <ButtonUI btnStyle={btnStyle} text={text} />
