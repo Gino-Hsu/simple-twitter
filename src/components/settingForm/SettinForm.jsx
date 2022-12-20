@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import SettingHeader from '../../UIComponents/headers/SettingHeader'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
+import { useNavigate } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import userApi from '../../API/userApi'
@@ -14,6 +15,7 @@ export default function SettinForm() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -55,6 +57,13 @@ export default function SettinForm() {
         })
         console.error(error)
       })
+  }
+
+  const handelSignOut = () => {
+    localStorage.removeItem('tweetId')
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    navigate('/login')
   }
 
   return (
@@ -114,7 +123,10 @@ export default function SettinForm() {
           <div className={style.setting__form__buttons__save}>
             <ButtonUI btnStyle="btn__pill__large" text="儲存" />
           </div>
-          <div className={style.setting__form__buttons__logout}>
+          <div
+            onClick={handelSignOut}
+            className={style.setting__form__buttons__logout}
+          >
             <ButtonUI btnStyle="link" text="登出" />
           </div>
         </div>
