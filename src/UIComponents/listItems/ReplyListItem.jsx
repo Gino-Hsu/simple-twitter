@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { profileLink } from '../../utils/routeLink'
 import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
@@ -15,9 +15,13 @@ export default function ReplyListItem({
   forUserId,
   reply,
 }) {
+  const handleChangeTab = useContext(ChangeTabContext)
+  const homeTab = () => {
+    return userId !== forUserId ? handleChangeTab('home') : null
+  }
   return (
     <div className={style.listItem__container}>
-      <Link onClick={ChangeTabContext} to={profileLink(userId, 'tweet')}>
+      <Link onClick={() => homeTab()} to={profileLink(userId, 'tweet')}>
         <div className={style.avatar}>
           <img className={style.avatar__img} src={avatarImg} alt="Avatar" />
         </div>
@@ -33,7 +37,7 @@ export default function ReplyListItem({
         </div>
         <div className={style.reply__for}>
           <p>回覆</p>
-          <Link onClick={ChangeTabContext} to={profileLink(forUserId, 'tweet')}>
+          <Link onClick={() => homeTab()} to={profileLink(forUserId, 'tweet')}>
             <p className={style.account}>{`@${forAccount}`}</p>
           </Link>
         </div>

@@ -4,7 +4,7 @@ const getToken = () => localStorage.getItem('token')
 
 const headers = {
   'Content-Type': 'multipart/form-data',
-  'Authorization': `Bearer ${getToken()}`
+  Authorization: `Bearer ${getToken()}`,
 }
 
 export default {
@@ -29,9 +29,8 @@ export default {
       baseURL: 'http://localhost:3000/api',
       url: `/users/${userId}`,
       data: formData,
-      headers: headers
-    }
-    )
+      headers: headers,
+    })
   },
   putUserSetting(payload) {
     const { userId, account, name, email, password, checkPassword } = payload
