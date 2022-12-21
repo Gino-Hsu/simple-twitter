@@ -25,6 +25,15 @@ export default function ReplyModal({ handleHideModel }) {
 
   const handleReply = (e) => {
     e.preventDefault()
+
+    if (reply.trim().length === 0) {
+      Toast.fire({
+        icon: 'error',
+        title: '內容不可空白!',
+      })
+      return
+    }
+
     const tweetId = Number(localStorage.getItem('tweetId'))
     replyApi
       .postReply(tweetId, reply)
@@ -35,13 +44,21 @@ export default function ReplyModal({ handleHideModel }) {
         }
         Toast.fire({
           icon: 'success',
-          title: '成功回復!',
+          title: '成功回覆!',
         })
       })
       .catch((error) => {
+        const errorMessage = error.response.data.message
+        console.log(errorMessage)
+        if (errorMessage === 'Error: Comment欄位必填') {
+          Toast.fire({
+            icon: 'error',
+            title: '內容不可空白!',
+          })
+        }
         Toast.fire({
           icon: 'error',
-          title: '回復失敗!',
+          title: '回覆失敗!',
         })
         console.error(error)
       })

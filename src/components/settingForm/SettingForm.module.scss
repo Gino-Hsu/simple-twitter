@@ -1,3 +1,6 @@
+@use '../../styles/var' as color;
+@use '../../styles/mixin';
+
 .setting {
   display: flex;
   flex-direction: column;
@@ -28,6 +31,20 @@
       }
     }
   }
+}
+
+.input__container__err {
+  position: relative;
+}
+
+.account__error,
+.name__error,
+.email__error,
+.password__error,
+.checkPassword__error {
+  @include mixin.font-setting(0.75rem, 500, color.$error-color);
+  position: absolute;
+  top: calc(100% + 4px);
 }
 
 @media screen and (min-width: 800px) {
