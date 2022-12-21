@@ -8,8 +8,8 @@ import { HideModel } from '../../contexts/modalControlContext/ModalControlContex
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
 import {
-  Rerender,
-  HandleRerender,
+  useRerender,
+  useHandleRerender,
 } from '../../contexts/rerenderContext/RenderContext'
 
 import style from './EditModal.module.scss'
@@ -22,8 +22,8 @@ export default function EditModal({ handleHideModel }) {
   const [introduction, setIntroduction] = useState('')
   const [errorMessage, setErrormessage] = useState({})
   const [initCover, setInitCover] = useState(false)
-  const rerender = Rerender()
-  const handleRerender = HandleRerender()
+  const rerender = useRerender()
+  const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
 
   const handleNameChange = (e) => {

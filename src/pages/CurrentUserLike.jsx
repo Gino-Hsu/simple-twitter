@@ -6,8 +6,8 @@ import userApi from '../API/userApi'
 import likeApi from '../API/likeApi'
 import { Alert } from '../utils/helpers'
 import {
-  Rerender,
-  HandleRerender,
+  useRerender,
+  useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
 
 import style from './CurrentUserLike.module.scss'
@@ -16,8 +16,8 @@ export default function CurrentUserLike() {
   const [currentUser, setCurrentUser] = useState([])
   const [likedTweets, setLikedTweets] = useState([])
   const navigate = useNavigate()
-  const rerender = Rerender()
-  const handleRerender = HandleRerender()
+  const rerender = useRerender()
+  const handleRerender = useHandleRerender()
 
   useEffect(() => {
     handleRerender('')
@@ -64,6 +64,7 @@ export default function CurrentUserLike() {
   return (
     <div className={style.userLike__container}>
       <CurrentUser
+        userId={currentUser.id}
         coverImg={currentUser.cover}
         name={currentUser.name}
         account={currentUser.account}

@@ -55,11 +55,11 @@ function App() {
                       element={<CurrentUserLike />}
                     ></Route>
                     <Route
-                      path="user/self/follower"
+                      path="user/follower/:user_id"
                       element={<Follower />}
                     ></Route>
                     <Route
-                      path="user/self/following"
+                      path="user/following/:user_id"
                       element={<Following />}
                     ></Route>
                     <Route

@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PopularUserItem from '../../UIComponents/layout/PopularUserItem'
 import {
   useFollowControl,
   useGetFollowerShips,
+  useFollowerShips,
 } from '../../contexts/followedControlContext/FollowedControlContext'
+import { useRerender } from '../../contexts/rerenderContext/RenderContext'
+
 import style from './PopularUser.module.scss'
 
 export default function PopularUser() {
   const handleToggleFollow = useFollowControl()
-  const followShips = useGetFollowerShips()
+  const followShips = useFollowerShips()
+  const getFollowerShips = useGetFollowerShips()
+  const rerender = useRerender()
+
+  useEffect(() => {
+    getFollowerShips()
+  }, [rerender])
 
   return (
     <div className={style.popularUser__container}>

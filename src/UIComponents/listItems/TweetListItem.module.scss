@@ -28,20 +28,31 @@
     flex-direction: column;
     align-content: flex-start;
     gap: 0.5rem;
-    width: 100%;
+    width: 85%;
     height: 100%;
     .info__account {
+      width: 100%;
       display: flex;
       gap: 0.5rem;
       p {
+        overflow: hidden;
+        text-overflow: ellipsis;
         @include mixin.font-setting(1rem, 700, color.$gray-10);
       }
       .subtitle {
+        width: 60%;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        span {
+        &__account,
+        &__time {
+          text-overflow: ellipsis;
           @include mixin.font-setting(0.875rem, 400, color.$primary-color);
+        }
+        &__account {
+          max-width: 35%;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .spot {
           width: 4px;

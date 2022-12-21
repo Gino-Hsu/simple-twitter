@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { Toast } from '../../utils/helpers'
+import { useHandleRerender } from '../rerenderContext/RenderContext'
 import followShipApi from '../../API/followShipApi'
 
 const FollowControlContext = createContext()
 const GetFollowerShipsContext = createContext()
+const FollowShipsContext = createContext()
 
 export function FollowerControlProvider({ children }) {
-  const [clickFollow, setClickFollow] = useState('')
   const [followShips, setFollowShip] = useState([])
+  const handleRerender = useHandleRerender()
 
   const handleToggleFollow = (id, isFollowed) => {
     const currentUserId = localStorage.getItem('userId')
@@ -30,14 +32,13 @@ export function FollowerControlProvider({ children }) {
             icon: 'success',
             title: '成功追隨!',
           })
-          setClickFollow(1)
+          handleRerender('true')
         })
         .catch((error) => {
           Toast.fire({
             icon: 'error',
             title: '追隨失敗!',
           })
-          setClickFollow('')
           console.error(error)
         })
     } else {
@@ -52,7 +53,7 @@ export function FollowerControlProvider({ children }) {
             icon: 'success',
             title: '退追隨了!',
           })
-          setClickFollow(0)
+          handleRerender('true')
         })
         .catch((error) => {
           Toast.fire({
@@ -64,7 +65,8 @@ export function FollowerControlProvider({ children }) {
     }
   }
 
-  useEffect(() => {
+  const getFollowShips = () => {
+    handleRerender('')
     followShipApi
       .getFollowerShips()
       .then((res) => {
@@ -73,17 +75,18 @@ export function FollowerControlProvider({ children }) {
           throw new Error(data.message)
         }
         setFollowShip(data)
-        setClickFollow('')
       })
       .catch((error) => {
         console.error(error)
       })
-  }, [clickFollow])
+  }
 
   return (
-    <GetFollowerShipsContext.Provider value={followShips}>
+    <GetFollowerShipsContext.Provider value={getFollowShips}>
       <FollowControlContext.Provider value={handleToggleFollow}>
-        {children}
+        <FollowShipsContext.Provider value={followShips}>
+          {children}
+        </FollowShipsContext.Provider>
       </FollowControlContext.Provider>
     </GetFollowerShipsContext.Provider>
   )
@@ -95,4 +98,8 @@ export function useFollowControl() {
 
 export function useGetFollowerShips() {
   return useContext(GetFollowerShipsContext)
+}
+
+export function useFollowerShips() {
+  return useContext(FollowShipsContext)
 }

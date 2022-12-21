@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import NavItem from '../../UIComponents/layout/NavItem'
 import TweetModal from '../tweetModal/TweetModal'
 import style from './SideBar.module.scss'
@@ -83,9 +83,11 @@ export default function SideBar() {
       </div>
       <div className={style.nav__container}>
         <div className={style.main}>
-          <div className={style.logo}>
-            <img alt="logo" />
-          </div>
+          <Link to="/alphitter/home">
+            <div className={style.logo}>
+              <img alt="logo" />
+            </div>
+          </Link>
           <div className={style.menu}>
             <NavLink
               onClick={handelClickHome}

@@ -39,7 +39,7 @@ export default function ReplyListItem({
           </div>
         </div>
         <div className={style.reply__for}>
-          <p>回覆</p>
+          <p className={style.reply__for__text}>回覆</p>
           <Link
             onClick={() => handleChooseTab()}
             to={profileLink(forUserId, 'tweet')}

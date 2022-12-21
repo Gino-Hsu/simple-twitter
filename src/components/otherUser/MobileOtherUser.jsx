@@ -1,41 +1,35 @@
 import React from 'react'
-import OtherUserToggleMenu from '../../UIComponents/tabs/OtherUserToggleMenu'
-import ButtonUI from '../../UIComponents/buttons/ButtonUI'
-import UserHeader from '../../UIComponents/headers/UserHeader'
 import { Link } from 'react-router-dom'
+import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
-import style from './OtherUser.module.scss'
+import style from './MobileOtherUser.module.scss'
 
-export default function OtherUser({
+export default function MobileOtherUser({
   userId,
-  coverImg,
-  name,
   account,
-  avatarImg,
-  introduction,
-  tweetCount,
+  name,
+  cover,
+  avatar,
+  description,
   followerCount,
   followingCount,
   onClick,
   isFollowed,
-  children,
 }) {
   return (
-    <div className={style.otherUser__container}>
-      <div className={style.header}>
-        <UserHeader name={name} tweetCount={tweetCount} />
-      </div>
+    <div className={style.currentUser__container}>
+      <div className={style.header}></div>
 
       <div className={style.body}>
         <div className={style.cover}>
-          <img className={style.cover__img} src={coverImg} alt="Cover" />
+          <img src={cover} className={style.cover__img} alt="Cover" />
         </div>
 
         <div className={style.userInfo}>
           <div className={style.userInfo__avatar}>
             <img
+              src={avatar}
               className={style.userInfo__avatar__img}
-              src={avatarImg}
               alt="Avatar"
             />
           </div>
@@ -65,33 +59,27 @@ export default function OtherUser({
         </div>
 
         <div className={style.description}>
-          <div className={style.description__text}>{introduction}</div>
+          <div className={style.description__text}>{description}</div>
           <div className={style.follows}>
-            <Link to={`/alphitter/user/following/${userId}`}>
+            <Link to="/alphitter/user/self/follower">
+              <div className={style.follows__follower}>
+                <p
+                  className={style.follows__follower__count}
+                >{`${followerCount} 個`}</p>
+                <p className={style.follows__follower__type}>跟隨中</p>
+              </div>
+            </Link>
+            <Link to="/alphitter/user/self/following">
               <div className={style.follows__following}>
                 <p
                   className={style.follows__following__count}
                 >{`${followingCount} 個`}</p>
-                <p className={style.follows__follower__type}>跟隨中</p>
-              </div>
-            </Link>
-            <Link to={`/alphitter/user/follower/${userId}`}>
-              <div className={style.follows__follower}>
-                <p
-                  className={style.follows__following__count}
-                >{`${followerCount} 個`}</p>
-                <p className={style.follows__follower__type}>跟隨者</p>
+                <p className={style.follows__following__type}>跟隨者</p>
               </div>
             </Link>
           </div>
         </div>
       </div>
-
-      <div className={style.lists__header}>
-        <OtherUserToggleMenu userId={userId} />
-      </div>
-
-      <div className={style.listsContainer}>{children}</div>
     </div>
   )
 }

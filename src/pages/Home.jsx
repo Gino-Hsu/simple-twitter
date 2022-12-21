@@ -6,8 +6,8 @@ import tweetApi from '../API/tweetApi'
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
 import {
-  Rerender,
-  HandleRerender,
+  useRerender,
+  useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
 
 import style from './Home.module.scss'
@@ -16,8 +16,8 @@ export default function Home() {
   const [tweets, setTweets] = useState([])
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
-  const rerender = Rerender()
-  const handleRerender = HandleRerender()
+  const rerender = useRerender()
+  const handleRerender = useHandleRerender()
 
   useEffect(() => {
     handleRerender('')

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import UserHeader from '../UIComponents/headers/UserHeader'
 import MobileUser from '../components/currentUser/MobileUser'
+import MobileOtherUser from '../components/otherUser/MobileOtherUser'
 import FollowTab from '../UIComponents/tabs/FollowTab'
 import FollowListItem from '../UIComponents/listItems/FollowListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
@@ -12,20 +13,22 @@ import { Alert } from '../utils/helpers'
 import style from './Follower.module.scss'
 
 export default function Follower() {
-  const [currentUser, setCurrentUser] = useState([])
+  const [user, setUser] = useState([])
   const [followingUsers, setFollowingUsers] = useState([])
-  const navigate = useNavigate()
   const handleToggleFollow = useFollowControl()
+  const navigate = useNavigate()
+  const param = useParams()
+  const currentUserId = localStorage.getItem('userId')
 
   useEffect(() => {
     userApi
-      .getCurrentUser()
+      .getOtherUser(param.user_id)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {
           throw new Error(data.message)
         }
-        setCurrentUser(data)
+        setUser(data)
       })
       .catch((error) => {
         navigate('/login')
@@ -38,9 +41,8 @@ export default function Follower() {
   }, [])
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId')
     userApi
-      .getUserFollowing(userId)
+      .getUserFollowing(param.user_id)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {
@@ -61,21 +63,33 @@ export default function Follower() {
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>
-        <UserHeader
-          name={currentUser.name}
-          tweetCount={currentUser.tweetCount}
-        />
+        <UserHeader name={user.name} tweetCount={user.tweetCount} />
       </div>
       <div className={style.mobileUser}>
-        <MobileUser
-          name={currentUser.name}
-          account={currentUser.account}
-          cover={currentUser.cover}
-          avatar={currentUser.avatar}
-          description={currentUser.introduction}
-          followerCount={currentUser.followerCount}
-          followingCount={currentUser.followingCount}
-        />
+        {Number(user.id) === Number(currentUserId) ? (
+          <MobileUser
+            name={user.name}
+            account={user.account}
+            cover={user.cover}
+            avatar={user.avatar}
+            description={user.introduction}
+            followerCount={user.followerCount}
+            followingCount={user.followingCount}
+          />
+        ) : (
+          <MobileOtherUser
+            userId={user.id}
+            name={user.name}
+            account={user.account}
+            cover={user.cover}
+            avatar={user.avatar}
+            description={user.introduction}
+            followerCount={user.followerCount}
+            followingCount={user.followingCount}
+            onClick={handleToggleFollow}
+            isFollowed={user.isFollowed}
+          />
+        )}
       </div>
       <div className={style.tab}>
         <FollowTab />
