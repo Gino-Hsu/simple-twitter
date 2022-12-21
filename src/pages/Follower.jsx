@@ -5,6 +5,7 @@ import MobileUser from '../components/currentUser/MobileUser'
 import FollowTab from '../UIComponents/tabs/FollowTab'
 import FollowListItem from '../UIComponents/listItems/FollowListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
+import { HandleRerender } from '../contexts/rerenderContext/RenderContext'
 
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
@@ -16,8 +17,10 @@ export default function Follower() {
   const [followerUsers, setFollowerUsers] = useState([])
   const navigate = useNavigate()
   const handleToggleFollow = useFollowControl()
+  const handleRerender = HandleRerender()
 
   useEffect(() => {
+    handleRerender('')
     userApi
       .getCurrentUser()
       .then((res) => {
@@ -35,9 +38,10 @@ export default function Follower() {
         })
         console.error(error)
       })
-  }, [])
+  }, [handleToggleFollow])
 
   useEffect(() => {
+    handleRerender('')
     const userId = localStorage.getItem('userId')
     userApi
       .getUserFollower(userId)
@@ -56,8 +60,7 @@ export default function Follower() {
         })
         console.error(error)
       })
-  }, [])
-
+  }, [handleToggleFollow])
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>

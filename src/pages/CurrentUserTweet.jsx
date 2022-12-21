@@ -61,7 +61,6 @@ export default function CurrentUserTweet() {
         console.log(error)
       })
   }, [rerender])
-
   return (
     <div className={style.userTweet__container}>
       <CurrentUser

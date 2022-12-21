@@ -58,7 +58,6 @@ export default function Home() {
         console.error(error)
       })
   }, [])
-
   return (
     <>
       <div className={style.main__screen}>
