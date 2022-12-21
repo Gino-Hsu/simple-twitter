@@ -18,7 +18,7 @@ export default function TweetModal({ onHideModel }) {
   const navigate = useNavigate()
   const [description, setDescription] = useState('')
   const handleRerender = HandleRerender()
-    const handelHideModel = useContext(HideModel)
+  const handelHideModel = useContext(HideModel)
 
   const handleTweetChange = (e) => {
     setDescription(e.target.value)

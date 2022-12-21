@@ -5,7 +5,10 @@ import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
-import { Rerender, HandleRerender } from '../../contexts/rerenderContext/RenderContext'
+import {
+  Rerender,
+  HandleRerender,
+} from '../../contexts/rerenderContext/RenderContext'
 
 import userApi from '../../API/userApi'
 import tweetApi from '../../API/tweetApi'
