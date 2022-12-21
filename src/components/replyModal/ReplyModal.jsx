@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
+import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import userApi from '../../API/userApi'
 import tweetApi from '../../API/tweetApi'
@@ -18,6 +19,7 @@ export default function ReplyModal({ handleHideModel }) {
   const [user, setUser] = useState({})
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
+  const handelHideModel = useContext(HideModel)
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
@@ -46,6 +48,7 @@ export default function ReplyModal({ handleHideModel }) {
           icon: 'success',
           title: '成功回覆!',
         })
+        handelHideModel()
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
