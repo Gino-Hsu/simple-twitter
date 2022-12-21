@@ -15,6 +15,7 @@ export default function OtherUser({
   tweetCount,
   followerCount,
   followingCount,
+  onClick,
   isFollowed,
   children,
 }) {
@@ -50,7 +51,10 @@ export default function OtherUser({
           <div className={style.buttons__bellIcon}>
             <img className={style.buttons__bellIcon__img} alt="" />
           </div>
-          <div className={style.buttons__followBtn}>
+          <div
+            onClick={() => onClick(userId, isFollowed)}
+            className={style.buttons__followBtn}
+          >
             {isFollowed === 1 ? (
               <ButtonUI btnStyle="btn__pill__small" text="正在跟隨" />
             ) : (
@@ -62,17 +66,17 @@ export default function OtherUser({
         <div className={style.description}>
           <div className={style.description__text}>{introduction}</div>
           <div className={style.follows}>
-            <div className={style.follows__follower}>
-              <p
-                className={style.follows__follower__count}
-              >{`${followerCount} 個`}</p>
-              <p className={style.follows__follower__type}>跟隨中</p>
-            </div>
             <div className={style.follows__following}>
               <p
                 className={style.follows__following__count}
               >{`${followingCount} 個`}</p>
-              <p className={style.follows__following__type}>跟隨者</p>
+              <p className={style.follows__follower__type}>跟隨中</p>
+            </div>
+            <div className={style.follows__follower}>
+              <p
+                className={style.follows__following__count}
+              >{`${followerCount} 個`}</p>
+              <p className={style.follows__follower__type}>跟隨者</p>
             </div>
           </div>
         </div>

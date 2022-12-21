@@ -12,6 +12,8 @@ export default function FollowListItem({
   name,
   account,
   introduction,
+  onClick,
+  isFollowed,
   btnStyle,
   btnText,
 }) {
@@ -38,7 +40,10 @@ export default function FollowListItem({
               <div className={style.tweetBy__account}>{`@${account}`}</div>
             </div>
           </div>
-          <div className={style.btn__container}>
+          <div
+            onClick={() => onClick(userId, isFollowed)}
+            className={style.btn__container}
+          >
             <ButtonUI btnStyle={btnStyle} text={btnText} />
           </div>
         </div>

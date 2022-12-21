@@ -74,7 +74,7 @@ export default function CurrentUser({
               <div className={style.follows__following}>
                 <p
                   className={style.follows__following__count}
-                >{`${followerCount} 個`}</p>
+                >{`${followingCount} 個`}</p>
                 <p className={style.follows__following__type}>跟隨中</p>
               </div>
             </Link>
@@ -86,7 +86,7 @@ export default function CurrentUser({
               <div className={style.follows__follower}>
                 <p
                   className={style.follows__follower__count}
-                >{`${followingCount} 個`}</p>
+                >{`${followerCount} 個`}</p>
                 <p className={style.follows__follower__type}>跟隨者</p>
               </div>
             </Link>

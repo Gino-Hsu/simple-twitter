@@ -4,6 +4,7 @@ import UserHeader from '../UIComponents/headers/UserHeader'
 import MobileUser from '../components/currentUser/MobileUser'
 import FollowTab from '../UIComponents/tabs/FollowTab'
 import FollowListItem from '../UIComponents/listItems/FollowListItem'
+import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
 
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
@@ -14,6 +15,7 @@ export default function Follower() {
   const [currentUser, setCurrentUser] = useState([])
   const [followingUsers, setFollowingUsers] = useState([])
   const navigate = useNavigate()
+  const handleToggleFollow = useFollowControl()
 
   useEffect(() => {
     userApi
@@ -87,6 +89,8 @@ export default function Follower() {
             name={followingUser.Followings.name}
             account={followingUser.Followings.account}
             introduction={followingUser.Followings.introduction}
+            onClick={handleToggleFollow}
+            isFollowed={followingUser.Followings.isFollowed}
             btnStyle={
               followingUser.Followings.isFollowed === 1
                 ? 'btn__pill__small'
