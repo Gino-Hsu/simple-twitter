@@ -165,7 +165,7 @@ export default function ReplyList({
         {replies.map((reply) => (
           <ReplyListItem
             key={reply.id}
-            userId={userId}
+            userId={reply.User.id}
             avatarImg={reply.User.avatar}
             name={reply.User.name}
             account={reply.User.account}

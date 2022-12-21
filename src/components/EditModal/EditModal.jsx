@@ -78,6 +78,10 @@ export default function EditModal({ handleHideModel }) {
     e.preventDefault()
     setInitCover(false)
 
+    if (name.trim().length === 0) {
+      setErrormessage({ ...errorMessage, name: '名稱不可空白!' })
+      return
+    }
     if (name.trim().length > 50) {
       setErrormessage({ ...errorMessage, name: '名稱不可超過 50 字!' })
       return
