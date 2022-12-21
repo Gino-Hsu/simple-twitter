@@ -50,6 +50,7 @@ export function ModalControlContextProvider({ children }) {
   const handleHideModel = () => {
     setReplyModelIsShow(false)
     setEditModelIsShow(false)
+    setTweetModelIsShow(false)
   }
   return (
     <TweetModelIsShow.Provider value={tweetModelIsShow}>

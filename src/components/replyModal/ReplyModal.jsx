@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
+import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
+import {
+  Rerender,
+  HandleRerender,
+} from '../../contexts/rerenderContext/RenderContext'
 
 import userApi from '../../API/userApi'
 import tweetApi from '../../API/tweetApi'
@@ -18,6 +23,9 @@ export default function ReplyModal({ handleHideModel }) {
   const [user, setUser] = useState({})
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
+  const handelHideModel = useContext(HideModel)
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
@@ -46,6 +54,8 @@ export default function ReplyModal({ handleHideModel }) {
           icon: 'success',
           title: '成功回覆!',
         })
+        handleRerender('true')
+        handelHideModel()
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
@@ -87,6 +97,7 @@ export default function ReplyModal({ handleHideModel }) {
   }, [])
 
   useEffect(() => {
+    handleRerender('')
     userApi.getCurrentUser().then((res) => {
       const { data } = res
       if (res.status !== 200) {
@@ -94,7 +105,7 @@ export default function ReplyModal({ handleHideModel }) {
       }
       setCurrentUser(data)
     })
-  }, [])
+  }, [rerender])
 
   const portalElement = document.getElementById('modal-root')
   return (

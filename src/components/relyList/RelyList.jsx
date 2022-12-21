@@ -1,11 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
-import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
+// import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './ReplyList.module.scss'
 
+import likeApi from '../../API/likeApi'
+import { Toast } from '../../utils/helpers'
 export default function ReplyList({
+  tweetId,
   userName,
   userId,
   account,
@@ -15,8 +18,68 @@ export default function ReplyList({
   likeCount,
   replies,
   avatar,
+  isLiked,
+  handleShowReplyModel,
 }) {
-  const handleShowReplyModel = useContext(ShowReplyModel)
+  const [liked, setLiked] = useState(isLiked)
+  const [newLikeCount, setNewLikeCount] = useState(likeCount)
+  // const handleShowReplyModel = useContext(ShowReplyModel)
+
+  const handleToggleLiked = (isLiked) => {
+    const id = localStorage.getItem('userId')
+    if (Number(userId) === Number(id)) {
+      Toast.fire({
+        icon: 'error',
+        title: '不能按自己 Like 喔!',
+      })
+      return
+    }
+    if (isLiked === 0) {
+      likeApi
+        .postLike(tweetId)
+        .then((res) => {
+          const { data } = res
+          if (res.status !== 200) {
+            throw new Error(data.message)
+          }
+          Toast.fire({
+            icon: 'success',
+            title: '成功點擊 Like',
+          })
+          setLiked(1)
+          setNewLikeCount(newLikeCount + 1)
+        })
+        .catch((error) => {
+          Toast.fire({
+            icon: 'error',
+            title: '點擊 Like 失敗 :(',
+          })
+          console.error(error)
+        })
+    } else {
+      likeApi
+        .postUnlike(tweetId)
+        .then((res) => {
+          const { data } = res
+          if (res.status !== 200) {
+            throw new Error(data.message)
+          }
+          Toast.fire({
+            icon: 'success',
+            title: '成功取消 Like',
+          })
+          setLiked(0)
+          setNewLikeCount(newLikeCount - 1)
+        })
+        .catch((error) => {
+          Toast.fire({
+            icon: 'error',
+            title: '取消 Like 失敗 :(',
+          })
+          console.error(error)
+        })
+    }
+  }
   return (
     <div className={style.viewport}>
       <div className={style.tweet__container}>
@@ -59,11 +122,24 @@ export default function ReplyList({
           </div>
         </div>
         <div className={style.icons}>
-          <div onClick={handleShowReplyModel} className={style.icon__reply}>
+          <div
+            onClick={() => handleShowReplyModel(tweetId)}
+            className={style.icon__reply}
+          >
             <img className={style.icon__reply__img} />
           </div>
-          <div className={style.icon__like}>
-            <img className={style.icon__like__img} />
+          <div
+            onClick={() => handleToggleLiked(liked)}
+            className={style.icon__like}
+          >
+            <img
+              className={
+                liked === 1
+                  ? style.icon__like__img__action
+                  : style.icon__like__img
+              }
+              alt="like button"
+            />
           </div>
         </div>
       </div>
@@ -77,7 +153,10 @@ export default function ReplyList({
             <p className={style.currentUser__text}>推你的回覆</p>
           </div>
 
-          <div className={style.btn__reply}>
+          <div
+            onClick={() => handleShowReplyModel(tweetId)}
+            className={style.btn__reply}
+          >
             <ButtonUI btnStyle="btn__pill__middle" text="回覆" />
           </div>
         </div>
@@ -93,6 +172,7 @@ export default function ReplyList({
             time={reply.relativeTime}
             forAccount={reply.Tweet.User.account}
             reply={reply.comment}
+            forUserId={userId}
           />
         ))}
       </div>

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { EditModalUi } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
+import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
@@ -23,6 +24,7 @@ export default function EditModal({ handleHideModel }) {
   const [initCover, setInitCover] = useState(false)
   const rerender = Rerender()
   const handleRerender = HandleRerender()
+  const handelHideModel = useContext(HideModel)
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -104,6 +106,7 @@ export default function EditModal({ handleHideModel }) {
           title: '成功更新設定!',
         })
         handleRerender('true')
+        handelHideModel()
       })
       .catch((error) => {
         Toast.fire({
