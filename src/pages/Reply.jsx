@@ -30,7 +30,7 @@ export default function Reply() {
         console.error(error)
         navigate('/login')
       })
-  }, [handleShowReplyModel])
+  }, [])
 
   useEffect(() => {
     replyApi

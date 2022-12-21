@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
 import { Modal } from '../../UIComponents/modals/Modal'
@@ -9,6 +9,7 @@ import tweetApi from '../../API/tweetApi'
 import userApi from '../../API/userApi'
 import { Toast, Alert } from '../../utils/helpers'
 import { HandleRerender } from '../../contexts/rerenderContext/RenderContext'
+import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './TweetModal.module.scss'
 
@@ -17,6 +18,7 @@ export default function TweetModal({ onHideModel }) {
   const navigate = useNavigate()
   const [description, setDescription] = useState('')
   const handleRerender = HandleRerender()
+    const handelHideModel = useContext(HideModel)
 
   const handleTweetChange = (e) => {
     setDescription(e.target.value)
@@ -47,12 +49,12 @@ export default function TweetModal({ onHideModel }) {
         if (res.status !== 200) {
           throw new Error(data.message)
         }
-        console.log(data.message)
         Toast.fire({
           icon: 'success',
           title: '推文成功!',
         })
         handleRerender('true')
+        handelHideModel()
         setDescription('')
       })
       .catch((error) => {
