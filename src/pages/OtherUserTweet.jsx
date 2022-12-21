@@ -67,7 +67,7 @@ export default function OtherUserTweet() {
         introduction={user.introduction}
         followerCount={user.followerCount}
         followingCount={user.followingCount}
-        isFollowing={user.isFollowing}
+        isFollowed={user.isFollowed}
         tweetCount={user.tweetCount}
       >
         {tweets.map((tweet) => (

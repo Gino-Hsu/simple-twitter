@@ -6,6 +6,10 @@ import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
 import userApi from '../API/userApi'
 import replyApi from '../API/replyApi'
 import { Alert } from '../utils/helpers'
+import {
+  Rerender,
+  HandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
 
 import style from './CurrentUserReply.module.scss'
 
@@ -13,8 +17,11 @@ export default function CurrentUserReply() {
   const [currentUser, setCurrentUser] = useState([])
   const [repliedTweets, setRepliedTweets] = useState([])
   const navigate = useNavigate()
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
 
   useEffect(() => {
+    handleRerender('')
     userApi
       .getCurrentUser()
       .then((res) => {
@@ -32,9 +39,10 @@ export default function CurrentUserReply() {
         navigate('/login')
         console.error(error)
       })
-  }, [])
+  }, [rerender])
 
   useEffect(() => {
+    handleRerender('')
     const currentUserId = localStorage.getItem('userId')
     replyApi
       .getUserReliedTweets(currentUserId)
@@ -52,7 +60,7 @@ export default function CurrentUserReply() {
         })
         console.error(error)
       })
-  }, [])
+  }, [rerender])
 
   return (
     <div className={style.userReply__container}>

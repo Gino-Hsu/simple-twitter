@@ -99,6 +99,17 @@
   display: none;
 }
 
+.input__container__err {
+  position: relative;
+}
+
+.name__error,
+.introduction__error {
+  @include mixin.font-setting(0.75rem, 500, color.$error-color);
+  position: absolute;
+  top: calc(100% + 4px);
+}
+
 @media screen and (min-width: 800px) {
   .view__container {
     left: 50%;

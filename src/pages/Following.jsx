@@ -88,12 +88,12 @@ export default function Follower() {
             account={followingUser.Followings.account}
             introduction={followingUser.Followings.introduction}
             btnStyle={
-              followingUser.Followings.isFollowing === 1
+              followingUser.Followings.isFollowed === 1
                 ? 'btn__pill__small'
                 : 'btn__pill__small__default'
             }
             btnText={
-              followingUser.Followings.isFollowing === 1 ? '正在跟隨' : '跟隨'
+              followingUser.Followings.isFollowed === 1 ? '正在跟隨' : '跟隨'
             }
           />
         ))}

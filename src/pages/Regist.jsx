@@ -113,26 +113,31 @@ export default function Regist() {
         navigate('/login')
       })
       .catch((error) => {
-        const errorMessage = error.response.data.message.slice(7)
+        const errorMessage = error.response.data.message
         setPassword('')
         setCheckPassword('')
-        if (errorMessage === 'account 已重複註冊!') {
+        if (errorMessage === 'Error: account 已重複註冊!') {
           Toast.fire({
             icon: 'warning',
             title: '帳號已重複註冊!',
           })
-        } else if (errorMessage === 'email 已重複註冊!') {
+        } else if (errorMessage === 'Error: email 已重複註冊!') {
           Toast.fire({
             icon: 'warning',
             title: 'Email 已重複註冊!',
           })
-        } else if (errorMessage === '密碼與確認密碼不相符!') {
+        } else if (errorMessage === 'Error: 密碼與確認密碼不相符!') {
           Toast.fire({
             icon: 'warning',
             title: '密碼與確認密碼不相符!',
           })
+        } else {
+          Toast.fire({
+            icon: 'warning',
+            title: '註冊失敗!',
+          })
         }
-        console.log('error', error)
+        console.error('error', error)
       })
   }
 

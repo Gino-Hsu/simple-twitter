@@ -6,6 +6,10 @@ import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
+import {
+  Rerender,
+  HandleRerender,
+} from '../../contexts/rerenderContext/RenderContext'
 
 import style from './EditModal.module.scss'
 
@@ -13,14 +17,12 @@ export default function EditModal({ handleHideModel }) {
   const [userId, setUserId] = useState('')
   const [cover, setCover] = useState('')
   const [avatar, setAvatar] = useState('')
-  const [coverFile, setCoverFile] = useState('')
-  const [avatarFile, setAvatarFile] = useState('')
   const [name, setName] = useState('')
   const [introduction, setIntroduction] = useState('')
-  const defaultCover = 'https://i.imgur.com/dIsjVjn.jpeg'
-
-  console.log('coverFile', coverFile)
-  console.log(avatarFile)
+  const [errorMessage, setErrormessage] = useState({})
+  const [initCover, setInitCover] = useState(false)
+  const rerender = Rerender()
+  const handleRerender = HandleRerender()
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -30,6 +32,26 @@ export default function EditModal({ handleHideModel }) {
     setIntroduction(e.target.value)
   }
 
+  const handleCancelChange = (id) => {
+    userApi
+      .patchUserCover(id)
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setCover(data.cover)
+        setInitCover(true)
+      })
+      .catch((error) => {
+        Toast.fire({
+          icon: 'error',
+          title: '背景圖片初始失敗!',
+        })
+        console.error(error)
+      })
+  }
+
   const handleCoverOnPreview = (e) => {
     const { files } = e.target
     if (files.length === 0) {
@@ -37,40 +59,39 @@ export default function EditModal({ handleHideModel }) {
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
       setCover(imageURL)
-      setCoverFile(files)
     }
   }
 
   const handleAvatarOnPreview = (e) => {
     const { files } = e.target
-    console.log('files', files)
     if (files.length === 0) {
       setAvatar(avatar)
     } else {
       const imageURL = window.URL.createObjectURL(files[0])
       setAvatar(imageURL)
-      setAvatarFile(files)
     }
-  }
-
-  const handleCancelChange = () => {
-    setCover(defaultCover)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const form = e.target
+    setInitCover(false)
 
-    const formData = new FormData(form)
-    for (let [name, value] of formData) {
-      console.log(name + ': ' + value)
+    if (name.trim().length > 50) {
+      setErrormessage({ ...errorMessage, name: '名稱不可超過 50 字!' })
+      return
     }
-
-    formData.name = name
-    formData.introduction = introduction
-    formData.avatar = avatarFile
-    formData.cover = coverFile.File
-
+    if (introduction.trim().length > 160) {
+      setErrormessage({
+        ...errorMessage,
+        introduction: '自我介紹不可超過 160 字!',
+      })
+      return
+    }
+    const form = e.target
+    const formData = new FormData(form)
+    if (initCover) {
+      formData.delete('cover')
+    }
     userApi
       .putUserEdit(userId, formData)
       .then((res) => {
@@ -82,7 +103,7 @@ export default function EditModal({ handleHideModel }) {
           icon: 'success',
           title: '成功更新設定!',
         })
-        console.log('200here', data)
+        handleRerender('true')
       })
       .catch((error) => {
         Toast.fire({
@@ -94,6 +115,7 @@ export default function EditModal({ handleHideModel }) {
   }
 
   useEffect(() => {
+    handleRerender('')
     userApi.getCurrentUser().then((res) => {
       const { data } = res
       if (res.status !== 200) {
@@ -105,7 +127,7 @@ export default function EditModal({ handleHideModel }) {
       setName(data.name)
       setIntroduction(data.introduction)
     })
-  }, [])
+  }, [rerender])
 
   const portalElement = document.getElementById('modal-root')
   return (
@@ -131,17 +153,15 @@ export default function EditModal({ handleHideModel }) {
                   <label htmlFor="cover__input" className={style.coverChange}>
                     <img
                       className={style.coverChange__icon}
-                      src=""
                       alt="Cover Change"
                     />
                   </label>
                   <div
                     className={style.coverDelete}
-                    onClick={handleCancelChange}
+                    onClick={() => handleCancelChange(userId)}
                   >
                     <img
                       className={style.coverDelete__icon}
-                      src=""
                       alt="Cover Delete"
                     />
                   </div>
@@ -161,22 +181,28 @@ export default function EditModal({ handleHideModel }) {
 
               <div className={style.inputs}>
                 <div className={style.inputs__name}>
-                  <LoginAndRegistInput
-                    inputId="name"
-                    name="name"
-                    inputName="名稱"
-                    inputPlaceHolder="請輸入使用者名稱"
-                    inputType="text"
-                    inputValue={name}
-                    onChange={handleNameChange}
-                  />
+                  <div className={style.input__container__err}>
+                    <LoginAndRegistInput
+                      inputId="name"
+                      name="name"
+                      inputName="名稱"
+                      inputPlaceHolder="請輸入使用者名稱"
+                      inputType="text"
+                      inputValue={name}
+                      onChange={handleNameChange}
+                      error={errorMessage.name}
+                    />
+                    {errorMessage.name && (
+                      <p className={style.name__error}>{errorMessage.name}</p>
+                    )}
+                  </div>
                   <p
                     className={style.inputs__name__count}
                   >{`${name.length}/50`}</p>
                 </div>
 
-                <div className={style.input__descripition}>
-                  <div className={style.inputs__descripition}>
+                <div className={style.inputs__descripition}>
+                  <div className={style.input__container__err}>
                     <LoginAndRegistInput
                       inputId="introduction"
                       name="introduction"
@@ -185,7 +211,13 @@ export default function EditModal({ handleHideModel }) {
                       inputType="text"
                       inputValue={introduction}
                       onChange={handleIntroductionChange}
+                      error={errorMessage.introduction}
                     />
+                    {errorMessage.introduction && (
+                      <p className={style.introduction__error}>
+                        {errorMessage.name}
+                      </p>
+                    )}
                   </div>
                   <p
                     className={style.inputs__description__count}
