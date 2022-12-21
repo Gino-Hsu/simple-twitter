@@ -1,7 +1,7 @@
 import './App.scss'
 import React from 'react'
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
 import Regist from './pages/Regist'
@@ -31,7 +31,7 @@ function App() {
         <SideBarControlContextProvider>
           <ModalControlContextProvider>
             <div className="App">
-              <BrowserRouter>
+              <HashRouter>
                 <Routes>
                   <Route path="/login" element={<Login />}></Route>
                   <Route path="/regist" element={<Regist />}></Route>
@@ -77,7 +77,7 @@ function App() {
                   </Route>
                   <Route path="/*" element={<Login />}></Route>
                 </Routes>
-              </BrowserRouter>
+              </HashRouter>
             </div>
           </ModalControlContextProvider>
         </SideBarControlContextProvider>
