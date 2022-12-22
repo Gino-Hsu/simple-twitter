@@ -3,16 +3,27 @@
 ---
 ## 專案畫面：
 ### 手機版：
+
 ![image](./public/%E6%89%8B%E6%A9%9F%E9%A6%96%E9%A0%81.png)
+
 ![image](./public/%E6%89%8B%E6%A9%9F%E8%A8%AD%E5%AE%9A.png)
+
 ### 平板版：
+
 ![image](./public/%E5%B9%B3%E6%9D%BF%E9%A6%96%E9%A0%81.png)
+
 ### 電腦版：
+
 ![image](./public/%E7%99%BB%E5%85%A5.png)
+
 ![image](./public/%E8%A8%BB%E5%86%8A.png)
+
 ![image](./public/%E9%A6%96%E9%A0%81.png)
+
 ![image](./public/%E6%8E%A8%E6%96%87.png)
+
 ![image](./public/%E8%A8%AD%E5%AE%9A.png)
+
 ---
 ## 產品功能：
 ### 使用者：
@@ -47,18 +58,16 @@
   * 在使用者列表瀏覽所有註冊帳號的使用者，依照推文數量排序
   * 在側邊攔登出，回到登入頁面
 
----
 ## 環境建置：
-   "axios": "^0.27.2"
-   "gh-pages": "^4.0.0"
-   "react": "^18.2.0",
-   "react-dom": "^18.2.0",
-   "react-router-dom": "^6.4.1"
-   "react-scripts": "5.0.1",
-   "sass": "^1.56.1",
-   "sweetalert2": "^11.6.4",
-   "web-vitals": "^2.1.4"
----
+   * Axios: 0.27.2
+   * gh-pages: 4.0.0
+   * React: 18.2.0
+   * React-dom: 18.2.0
+   * React-router-dom: 6.4.1
+   * React-scripts: 5.0.1
+   * Sass: 1.56.1
+   * Sweetalert2: 11.6.4
+   * Web-vitals: 2.1.4
 ## 專案安裝流程：
 ### 開啟終端機(Terminal)並到存放專案本機位置並執行:
 git clone https://github.com/Gino-Hsu/simple-twitter.git
