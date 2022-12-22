@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Simple Twitter
+這是一個社交媒體網站，其主要目的是讓您分享自己的心情或想法，並且可以與其他使用者互動認識。
+---
+## 專案畫面：
+### 手機版：
+![image](./public/%E6%89%8B%E6%A9%9F%E9%A6%96%E9%A0%81.png)
+![image](./public/%E6%89%8B%E6%A9%9F%E8%A8%AD%E5%AE%9A.png)
+### 平板版：
+![image](./public/%E5%B9%B3%E6%9D%BF%E9%A6%96%E9%A0%81.png)
+### 電腦版：
+![image](./public/%E7%99%BB%E5%85%A5.png)
+![image](./public/%E8%A8%BB%E5%86%8A.png)
+![image](./public/%E9%A6%96%E9%A0%81.png)
+![image](./public/%E6%8E%A8%E6%96%87.png)
+![image](./public/%E8%A8%AD%E5%AE%9A.png)
+---
+## 產品功能：
+### 使用者：
+註冊一個帳號帳號來使用這個網站，帳號與Email皆不可與其他使用者重複
+使用使用者身份登入帳號，如果帳號密碼有誤或是漏填，均可得到清楚的提示
+登入後可以在側邊攔切換頁籤（以下內容為電腦版頁面）：
+  * (1)首頁
+    * 在首頁可以點擊輸入框發送推文
+    * 查看網站所有的推文，排列順序由新到舊
+    * 查看某特定一篇的推文，其回覆排列順序由新到舊
+  * (2)使用者頁面
+    * 可以看自己目前的帳號資訊、封面照片、個人照片、追蹤人數以及被追蹤人數
+    * 可查看自己發過的推文、回覆的推文以及喜歡的推文，排列順序都是由新到舊
+    * 點擊編輯個人資料，可以更改自己的名稱、自我介紹、封面照片、個人照片
+  * (3)設定頁面
+    * 可以修改自己的帳號、名稱、信箱、密碼
+	* (4)推文
+    * 點擊後可以發布推文
+	* (5)登出
+    * 點擊登出按鈕會回到登入頁面
+		
+  * 在各頁面還可以：
+    * 點擊愛心圖案，喜歡其他使用者的貼文（亦可取消）
+    * 點擊跟隨按鈕可以追蹤其他使用者使用者（亦可取消）
+    * 最右邊可以查看目前網站中追蹤數排名前十名的使用者
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 管理者：
+  * 使用管理員身分登入帳號，如果帳號密碼有誤或是漏填，均可得到清楚的提示
+  * 登入後可以在側邊攔切換頁籤
+  * 在推文清單頁面瀏覽所有推文
+  * 在推文清單頁面刪除任一筆推文，並會跳出確認視窗
+  * 在使用者列表瀏覽所有註冊帳號的使用者，依照推文數量排序
+  * 在側邊攔登出，回到登入頁面
 
-## Available Scripts
+---
+## 環境建置：
+   "axios": "^0.27.2"
+   "gh-pages": "^4.0.0"
+   "react": "^18.2.0",
+   "react-dom": "^18.2.0",
+   "react-router-dom": "^6.4.1"
+   "react-scripts": "5.0.1",
+   "sass": "^1.56.1",
+   "sweetalert2": "^11.6.4",
+   "web-vitals": "^2.1.4"
+---
+## 專案安裝流程：
+### 開啟終端機(Terminal)並到存放專案本機位置並執行:
+git clone https://github.com/Gino-Hsu/simple-twitter.git
+### 切至專案資料夾，安裝套件：
+npm install
+### 啟動專案
+npm start
+### 退出專案
+control + C
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+## 專案開發人員
+### 前端：Gino ＆ Jeff
+### 後端：Sean小波 ＆ Cosine

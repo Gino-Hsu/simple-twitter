@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
-// import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './ReplyList.module.scss'
 
@@ -23,7 +22,6 @@ export default function ReplyList({
 }) {
   const [liked, setLiked] = useState(isLiked)
   const [newLikeCount, setNewLikeCount] = useState(likeCount)
-  // const handleShowReplyModel = useContext(ShowReplyModel)
 
   const handleToggleLiked = (isLiked) => {
     const id = localStorage.getItem('userId')
@@ -107,8 +105,6 @@ export default function ReplyList({
           <div className={style.tweet__text}>{tweet}</div>
           <div className={style.createAt}>
             <div className={style.createAt__time}>{time}</div>
-            {/* {/* <div className={style.spot} /> */}
-            {/* <div className={style.createAt__data}>{data}</div> */}
           </div>
           <div className={style.counts}>
             <div className={style.replyCount}>
@@ -165,7 +161,7 @@ export default function ReplyList({
         {replies.map((reply) => (
           <ReplyListItem
             key={reply.id}
-            userId={userId}
+            userId={reply.User.id}
             avatarImg={reply.User.avatar}
             name={reply.User.name}
             account={reply.User.account}

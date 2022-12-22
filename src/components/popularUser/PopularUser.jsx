@@ -9,7 +9,6 @@ import style from './PopularUser.module.scss'
 export default function PopularUser() {
   const handleToggleFollow = useFollowControl()
   const followShips = useGetFollowerShips()
-
   return (
     <div className={style.popularUser__container}>
       <div className={style.popularUser__title}>推薦跟隨</div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SettingHeader from '../../UIComponents/headers/SettingHeader'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
-import { useNavigate } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 
 import userApi from '../../API/userApi'
