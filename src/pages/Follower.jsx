@@ -6,7 +6,10 @@ import MobileOtherUser from '../components/otherUser/MobileOtherUser'
 import FollowTab from '../UIComponents/tabs/FollowTab'
 import FollowListItem from '../UIComponents/listItems/FollowListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
-import { useRerender, useHandleRerender } from '../contexts/rerenderContext/RenderContext'
+import {
+  useRerender,
+  useHandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
 
 import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'

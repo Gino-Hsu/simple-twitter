@@ -1,61 +1,40 @@
-import React, { useState, useEffect } from 'react'
-import OtherUser from '../components/otherUser/OtherUser'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
+import OtherUser from '../components/otherUser/OtherUser'
 import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
-
-import userApi from '../API/userApi'
-import replyApi from '../API/replyApi'
-import { Alert } from '../utils/helpers'
+import {
+  useRerender,
+  useHandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
+import {
+  useOtherUserContext,
+  useGetOtherUserContext,
+  useOtherUserReplyContext,
+  useGetOtherUserReplyContext,
+} from '../contexts/usersContext/OtherUserContext'
 
 import style from './OtherUserReply.module.scss'
 
 export default function OtherUserReply() {
-  const [user, setUser] = useState('')
-  const [repliedTweets, setRepliedTweets] = useState([])
-  const navigate = useNavigate()
   const param = useParams()
+  const rerender = useRerender()
+  const user = useOtherUserContext()
+  const handleRerender = useHandleRerender()
   const handleToggleFollow = useFollowControl()
+  const repliedTweets = useOtherUserReplyContext()
+  const getOtherUserContext = useGetOtherUserContext()
+  const getOtherUserReplyContext = useGetOtherUserReplyContext()
 
   useEffect(() => {
-    userApi
-      .getOtherUser(param.user_id)
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setUser(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        navigate('/login')
-        console.error(error)
-      })
-  }, [param.user_id, handleToggleFollow])
+    handleRerender('')
+    getOtherUserContext(param.user_id)
+  }, [param.user_id, rerender])
 
   useEffect(() => {
-    replyApi
-      .getUserReliedTweets(param.user_id)
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setRepliedTweets(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        console.error(error)
-      })
-  }, [param.user_id, handleToggleFollow])
+    handleRerender('')
+    getOtherUserReplyContext(param.user_id)
+  }, [param.user_id, rerender])
 
   return (
     <div className={style.userReply__container}>

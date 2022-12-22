@@ -1,61 +1,39 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
-
-import userApi from '../API/userApi'
-import likeApi from '../API/likeApi'
-import { Alert } from '../utils/helpers'
+import {
+  useRerender,
+  useHandleRerender,
+} from '../contexts/rerenderContext/RenderContext'
+import {
+  useOtherUserContext,
+  useGetOtherUserContext,
+  useOtherUserLikeContext,
+  useGetOtherUserLikeContext,
+} from '../contexts/usersContext/OtherUserContext'
 
 import style from './OtherUserLike.module.scss'
 
 export default function OtherUserLike() {
-  const [user, setUser] = useState([])
-  const [likedTweets, setLikedTweets] = useState([])
   const param = useParams()
-  const navigate = useNavigate()
+  const rerender = useRerender()
+  const user = useOtherUserContext()
+  const handleRerender = useHandleRerender()
+  const likedTweets = useOtherUserLikeContext()
   const handleToggleFollow = useFollowControl()
+  const getOtherUserContext = useGetOtherUserContext()
+  const getOtherUserLikeContext = useGetOtherUserLikeContext()
 
   useEffect(() => {
-    userApi
-      .getOtherUser(param.user_id)
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setUser(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請輸入登入',
-        })
-        navigate('/login')
-        console.error(error)
-      })
-  }, [param.user_id, handleToggleFollow])
+    handleRerender('')
+    getOtherUserContext(param.user_id)
+  }, [param.user_id, rerender])
 
   useEffect(() => {
-    likeApi
-      .getUserLiked(param.user_id)
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setLikedTweets(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入',
-        })
-        navigate('/login')
-        console.log(error)
-      })
+    handleRerender('')
+    getOtherUserLikeContext(param.user_id)
   }, [param.user_id, handleToggleFollow])
 
   return (
