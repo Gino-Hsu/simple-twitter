@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
-// import { ShowReplyModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './ReplyList.module.scss'
 
@@ -23,7 +22,6 @@ export default function ReplyList({
 }) {
   const [liked, setLiked] = useState(isLiked)
   const [newLikeCount, setNewLikeCount] = useState(likeCount)
-  // const handleShowReplyModel = useContext(ShowReplyModel)
 
   const handleToggleLiked = (isLiked) => {
     const id = localStorage.getItem('userId')

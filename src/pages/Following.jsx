@@ -38,7 +38,7 @@ export default function Follower() {
         })
         console.error(error)
       })
-  }, [])
+  }, [handleToggleFollow])
 
   useEffect(() => {
     userApi
@@ -58,8 +58,7 @@ export default function Follower() {
         })
         console.error(error)
       })
-  }, [])
-
+  }, [handleToggleFollow])
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>
