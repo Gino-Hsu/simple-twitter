@@ -62,12 +62,37 @@
     }
   }
 
-  .edit {
+  .buttons {
     display: flex;
     justify-content: flex-end;
     margin: 16px 24px 64px 24px;
+    gap: 8px;
 
-    &__container {
+    &__emailIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_msg@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__bellIcon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      &__img {
+        content: url('../../public/user/user_notfi@2x.png');
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__followBtn {
       width: inherit;
     }
   }

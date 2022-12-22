@@ -6,8 +6,8 @@ import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 import {
-  Rerender,
-  HandleRerender,
+  useRerender,
+  useHandleRerender,
 } from '../../contexts/rerenderContext/RenderContext'
 
 import userApi from '../../API/userApi'
@@ -23,8 +23,8 @@ export default function ReplyModal({ handleHideModel }) {
   const [user, setUser] = useState({})
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
-  const rerender = Rerender()
-  const handleRerender = HandleRerender()
+  const rerender = useRerender()
+  const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
 
   const handleReplyChange = (e) => {

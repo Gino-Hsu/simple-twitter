@@ -1,13 +1,16 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import UserHeader from '../../UIComponents/headers/UserHeader'
-// import FollowTab from '../../UIComponents/tabs/FollowTab'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
-import { ShowEditModel } from '../../contexts/modalControlContext/ModalControlContext'
+import EditModal from '../editModal/EditModal'
+import {
+  EditModelIsShow,
+  ShowEditModel,
+  HideModel,
+} from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './MobileUser.module.scss'
 
-export default function CurrentUser({
+export default function MobileCurrentUser({
   account,
   name,
   cover,
@@ -17,6 +20,8 @@ export default function CurrentUser({
   followingCount,
 }) {
   const handleShowEditModel = useContext(ShowEditModel)
+  const handleHideModel = useContext(HideModel)
+  const editModelIsShow = useContext(EditModelIsShow)
   return (
     <div className={style.currentUser__container}>
       <div className={style.header}></div>
@@ -72,13 +77,7 @@ export default function CurrentUser({
         </div>
       </div>
 
-      {/* <div className={style.lists__header}>
-        <FollowTab />
-      </div> */}
-
-      {/* <div className={style.listsContainer}>
-        <div className={style.listsContainer__listItems}>{children}</div>
-      </div> */}
+      {editModelIsShow && <EditModal handleHideModel={handleHideModel} />}
     </div>
   )
 }

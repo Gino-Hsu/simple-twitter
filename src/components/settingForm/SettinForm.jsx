@@ -124,6 +124,12 @@ export default function SettinForm() {
             title: 'Email 已重複註冊!',
           })
           return
+        } else if (errorMessage === 'Error: 密碼與確認密碼不相符!') {
+          Toast.fire({
+            icon: 'error',
+            title: '密碼與確認密碼不相符!',
+          })
+          return
         } else {
           Toast.fire({
             icon: 'error',

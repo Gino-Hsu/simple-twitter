@@ -14,6 +14,7 @@ import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarCo
 import style from './CurrentUser.module.scss'
 
 export default function CurrentUser({
+  userId,
   coverImg,
   name,
   account,
@@ -69,7 +70,7 @@ export default function CurrentUser({
             <Link
               onClick={() => handleChangeTab('')}
               className={style.router__link}
-              to="/alphitter/user/self/following"
+              to={`/alphitter/user/following/${userId}`}
             >
               <div className={style.follows__following}>
                 <p
@@ -81,7 +82,7 @@ export default function CurrentUser({
             <Link
               onClick={() => handleChangeTab('')}
               className={style.router__link}
-              to="/alphitter/user/self/follower"
+              to={`/alphitter/user/follower/${userId}`}
             >
               <div className={style.follows__follower}>
                 <p

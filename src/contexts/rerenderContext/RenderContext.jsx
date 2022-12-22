@@ -19,10 +19,10 @@ export function RenderContextProvider({ children }) {
   )
 }
 
-export function Rerender() {
+export function useRerender() {
   return useContext(RerenderContext)
 }
 
-export function HandleRerender() {
+export function useHandleRerender() {
   return useContext(HandleRerenderContext)
 }

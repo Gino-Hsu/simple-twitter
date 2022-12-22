@@ -8,7 +8,7 @@ import { Textarea } from '../../UIComponents/inputs/Input'
 import tweetApi from '../../API/tweetApi'
 import userApi from '../../API/userApi'
 import { Toast, Alert } from '../../utils/helpers'
-import { HandleRerender } from '../../contexts/rerenderContext/RenderContext'
+import { useHandleRerender } from '../../contexts/rerenderContext/RenderContext'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 
 import style from './TweetModal.module.scss'
@@ -17,7 +17,7 @@ export default function TweetModal({ onHideModel }) {
   const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
   const [description, setDescription] = useState('')
-  const handleRerender = HandleRerender()
+  const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
 
   const handleTweetChange = (e) => {

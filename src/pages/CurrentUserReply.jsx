@@ -7,8 +7,8 @@ import userApi from '../API/userApi'
 import replyApi from '../API/replyApi'
 import { Alert } from '../utils/helpers'
 import {
-  Rerender,
-  HandleRerender,
+  useRerender,
+  useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
 
 import style from './CurrentUserReply.module.scss'
@@ -17,8 +17,8 @@ export default function CurrentUserReply() {
   const [currentUser, setCurrentUser] = useState([])
   const [repliedTweets, setRepliedTweets] = useState([])
   const navigate = useNavigate()
-  const rerender = Rerender()
-  const handleRerender = HandleRerender()
+  const rerender = useRerender()
+  const handleRerender = useHandleRerender()
 
   useEffect(() => {
     handleRerender('')
@@ -65,6 +65,7 @@ export default function CurrentUserReply() {
   return (
     <div className={style.userReply__container}>
       <CurrentUser
+        userId={currentUser.id}
         coverImg={currentUser.cover}
         name={currentUser.name}
         account={currentUser.account}
