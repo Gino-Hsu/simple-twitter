@@ -3,21 +3,23 @@ import { useNavigate } from 'react-router-dom'
 import MainTweet from '../components/mainTweet/MainTweet'
 
 import tweetApi from '../API/tweetApi'
-import userApi from '../API/userApi'
 import { Alert } from '../utils/helpers'
 import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
+import {
+  useGetCurrentUser
+} from '../contexts/usersContext/CurrentUserContext'
 
 import style from './Home.module.scss'
 
 export default function Home() {
   const [tweets, setTweets] = useState([])
-  const [currentUser, setCurrentUser] = useState([])
   const navigate = useNavigate()
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
+  const getCurrentUser = useGetCurrentUser()
 
   useEffect(() => {
     handleRerender('')
@@ -42,26 +44,13 @@ export default function Home() {
   }, [rerender])
 
   useEffect(() => {
-    userApi
-      .getCurrentUser()
-      .then((res) => {
-        const { data } = res
-        setCurrentUser(data)
-      })
-      .catch((error) => {
-        setCurrentUser([])
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        navigate('/login')
-        console.error(error)
-      })
+    getCurrentUser(navigate)
   }, [])
+
   return (
     <>
       <div className={style.main__screen}>
-        <MainTweet tweets={tweets} currentUser={currentUser} />
+        <MainTweet tweets={tweets} />
       </div>
     </>
   )

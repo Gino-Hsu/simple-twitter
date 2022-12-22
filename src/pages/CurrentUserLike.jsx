@@ -2,48 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
-import userApi from '../API/userApi'
 import likeApi from '../API/likeApi'
 import { Alert } from '../utils/helpers'
 import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
+import { useGetCurrentUser, useCurrentUser } from '../contexts/usersContext/CurrentUserContext'
 
 import style from './CurrentUserLike.module.scss'
 
 export default function CurrentUserLike() {
-  const [currentUser, setCurrentUser] = useState([])
   const [likedTweets, setLikedTweets] = useState([])
   const navigate = useNavigate()
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
+  const getCurrentUser = useGetCurrentUser()
+  const currentUser = useCurrentUser()
 
   useEffect(() => {
     handleRerender('')
-    userApi
-      .getCurrentUser()
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setCurrentUser(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        navigate('/login')
-        console.error(error)
-      })
+    getCurrentUser(navigate)
   }, [rerender])
 
   useEffect(() => {
-    const currentUserId = localStorage.getItem('userId')
     likeApi
-      .getUserLiked(currentUserId)
+      .getUserLiked(currentUser.id)
       .then((res) => {
         const { data } = res
         if (res.status !== 200) {

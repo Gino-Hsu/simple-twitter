@@ -2,42 +2,27 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
-import userApi from '../API/userApi'
 import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
 import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
+import { useGetCurrentUser, useCurrentUser } from '../contexts/usersContext/CurrentUserContext'
 
 import style from './CurrentUserTweet.scss'
 
 export default function CurrentUserTweet() {
-  const [currentUser, setCurrentUser] = useState([])
   const [tweets, setTweets] = useState([])
   const navigate = useNavigate()
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
+  const getCurrentUser = useGetCurrentUser()
+  const currentUser = useCurrentUser()
 
   useEffect(() => {
     handleRerender('')
-    userApi
-      .getCurrentUser()
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setCurrentUser(data)
-      })
-      .catch((error) => {
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        navigate('/login')
-        console.error(error)
-      })
+    getCurrentUser(navigate)
   }, [rerender])
 
   useEffect(() => {

@@ -20,8 +20,8 @@ export default {
   },
   putUserEdit(userId, formData) {
     const headers = {
-       Authorization: `Bearer ${getToken()}`,
-      'Content-Type': 'multipart/form-data'
+      Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'multipart/form-data',
     }
     return axios({
       method: 'put',

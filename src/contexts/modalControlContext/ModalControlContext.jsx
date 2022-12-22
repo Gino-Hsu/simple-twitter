@@ -44,7 +44,6 @@ export function ModalControlContextProvider({ children }) {
   }
 
   const handleShowEditModel = () => {
-    console.log('成功點擊??')
     setEditModelIsShow(true)
   }
 

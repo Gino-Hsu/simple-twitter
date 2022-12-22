@@ -6,11 +6,10 @@ import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 import {
-  useRerender,
   useHandleRerender,
 } from '../../contexts/rerenderContext/RenderContext'
+import { useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
 
-import userApi from '../../API/userApi'
 import tweetApi from '../../API/tweetApi'
 import replyApi from '../../API/replyApi'
 import { Alert, Toast } from '../../utils/helpers'
@@ -21,11 +20,11 @@ export default function ReplyModal({ handleHideModel }) {
   const [reply, setReply] = useState('')
   const [tweet, setTweet] = useState({})
   const [user, setUser] = useState({})
-  const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
-  const rerender = useRerender()
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
+  const currentUser = useCurrentUser()
+  
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
@@ -95,17 +94,6 @@ export default function ReplyModal({ handleHideModel }) {
         console.error(error)
       })
   }, [])
-
-  useEffect(() => {
-    handleRerender('')
-    userApi.getCurrentUser().then((res) => {
-      const { data } = res
-      if (res.status !== 200) {
-        throw new Error(data.message)
-      }
-      setCurrentUser(data)
-    })
-  }, [rerender])
 
   const portalElement = document.getElementById('modal-root')
   return (
