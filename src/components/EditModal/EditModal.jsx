@@ -132,7 +132,7 @@ export default function EditModal({ handleHideModel }) {
       setCover(data.cover)
       setAvatar(data.avatar)
       setName(data.name)
-      setIntroduction(data.introduction)
+      setIntroduction(data.introductio || "")
     })
   }, [rerender])
 
