@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
@@ -11,12 +11,13 @@ import {
   useOtherUserContext,
   useGetOtherUserContext,
   useOtherUserLikeContext,
-  useGetOtherUserLikeContext,
+  useGetConfirmPageContext,
 } from '../contexts/usersContext/OtherUserContext'
 
 import style from './OtherUserLike.module.scss'
 
 export default function OtherUserLike() {
+  const page = 'like'
   const param = useParams()
   const rerender = useRerender()
   const user = useOtherUserContext()
@@ -24,7 +25,9 @@ export default function OtherUserLike() {
   const likedTweets = useOtherUserLikeContext()
   const handleToggleFollow = useFollowControl()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserLikeContext = useGetOtherUserLikeContext()
+  const getOtherUserLikeContext = useGetConfirmPageContext()
+  const navigate = useNavigate()
+  const id = localStorage.getItem('userId')
 
   useEffect(() => {
     handleRerender('')
@@ -33,8 +36,12 @@ export default function OtherUserLike() {
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserLikeContext(param.user_id)
+    getOtherUserLikeContext(page, param.user_id)
   }, [param.user_id, handleToggleFollow])
+
+  useEffect(() => {
+    !id && navigate('/login')
+  }, [])
 
   return (
     <div className={style.userLike__container}>

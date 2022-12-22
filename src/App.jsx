@@ -1,6 +1,5 @@
 import './App.scss'
 import React from 'react'
-
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'

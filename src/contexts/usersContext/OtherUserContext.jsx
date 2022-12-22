@@ -8,11 +8,9 @@ import { Alert } from '../../utils/helpers'
 const OtherUserContext = createContext()
 const GetOtherUserContext = createContext()
 const OtherUserTweetsContext = createContext()
-const GetOtherUserTweetsContext = createContext()
 const OtherUserReplyContext = createContext()
-const GetOtherUserReplyContext = createContext()
 const OtherUserLikeContext = createContext()
-const GetOtherUserLikeContext = createContext()
+const GetConfirmPageContext = createContext()
 
 export function OtherUserProvider({ children }) {
   const [otherUser, setOtherUser] = useState('')
@@ -37,6 +35,16 @@ export function OtherUserProvider({ children }) {
         })
         console.error(error)
       })
+  }
+
+  const handleConfirmPage = (page, user_id) => {
+    if (page === 'tweet') {
+      handleConfirmTweet(user_id)
+    } else if (page === 'reply') {
+      handleConfirmReply(user_id)
+    } else if (page === 'like') {
+      handleConfirmLike(user_id)
+    }
   }
 
   const handleConfirmTweet = (user_id) => {
@@ -75,7 +83,7 @@ export function OtherUserProvider({ children }) {
         })
         console.error(error)
       })
-    }
+  }
 
   const handleConfirmLike = (user_id) => {
     likeApi
@@ -101,13 +109,9 @@ export function OtherUserProvider({ children }) {
         <OtherUserReplyContext.Provider value={repliedTweets}>
           <OtherUserLikeContext.Provider value={likedTweets}>
             <GetOtherUserContext.Provider value={handleConfirmUser}>
-              <GetOtherUserTweetsContext.Provider value={handleConfirmTweet}>
-                <GetOtherUserReplyContext.Provider value={handleConfirmReply}>
-                  <GetOtherUserLikeContext.Provider value={handleConfirmLike}>
-                    {children}
-                  </GetOtherUserLikeContext.Provider>
-                </GetOtherUserReplyContext.Provider>
-              </GetOtherUserTweetsContext.Provider>
+              <GetConfirmPageContext.Provider value={handleConfirmPage}>
+                  {children}
+              </GetConfirmPageContext.Provider>
             </GetOtherUserContext.Provider>
           </OtherUserLikeContext.Provider>
         </OtherUserReplyContext.Provider>
@@ -128,22 +132,14 @@ export function useOtherUserTweetsContext() {
   return useContext(OtherUserTweetsContext)
 }
 
-export function useGetOtherUserTweetsContext() {
-  return useContext(GetOtherUserTweetsContext)
-}
-
 export function useOtherUserReplyContext() {
   return useContext(OtherUserReplyContext)
-}
-
-export function useGetOtherUserReplyContext() {
-  return useContext(GetOtherUserReplyContext)
 }
 
 export function useOtherUserLikeContext() {
   return useContext(OtherUserLikeContext)
 }
 
-export function useGetOtherUserLikeContext() {
-  return useContext(GetOtherUserLikeContext)
+export function useGetConfirmPageContext() {
+  return useContext(GetConfirmPageContext)
 }

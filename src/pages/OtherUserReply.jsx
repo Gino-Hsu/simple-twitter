@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
 import { useFollowControl } from '../contexts/followedControlContext/FollowedControlContext'
@@ -11,12 +11,13 @@ import {
   useOtherUserContext,
   useGetOtherUserContext,
   useOtherUserReplyContext,
-  useGetOtherUserReplyContext,
+  useGetConfirmPageContext,
 } from '../contexts/usersContext/OtherUserContext'
 
 import style from './OtherUserReply.module.scss'
 
 export default function OtherUserReply() {
+  const page = 'reply'
   const param = useParams()
   const rerender = useRerender()
   const user = useOtherUserContext()
@@ -24,7 +25,9 @@ export default function OtherUserReply() {
   const handleToggleFollow = useFollowControl()
   const repliedTweets = useOtherUserReplyContext()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserReplyContext = useGetOtherUserReplyContext()
+  const getOtherUserReplyContext = useGetConfirmPageContext()
+  const navigate = useNavigate()
+  const id = localStorage.getItem('userId')
 
   useEffect(() => {
     handleRerender('')
@@ -33,8 +36,12 @@ export default function OtherUserReply() {
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserReplyContext(param.user_id)
+    getOtherUserReplyContext(page, param.user_id)
   }, [param.user_id, rerender])
+
+  useEffect(() => {
+    !id && navigate('/login')
+  }, [])
 
   return (
     <div className={style.userReply__container}>

@@ -10,13 +10,14 @@ import {
 import {
   useOtherUserContext,
   useGetOtherUserContext,
-  useGetOtherUserTweetsContext,
+  useGetConfirmPageContext,
   useOtherUserTweetsContext,
 } from '../contexts/usersContext/OtherUserContext'
 
 import style from './OtherUserTweet.module.scss'
 
 export default function OtherUserTweet() {
+  const page = 'tweet'
   const param = useParams()
   const navigate = useNavigate()
   const rerender = useRerender()
@@ -25,7 +26,8 @@ export default function OtherUserTweet() {
   const handleRerender = useHandleRerender()
   const handleToggleFollow = useFollowControl()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserTweetsContext = useGetOtherUserTweetsContext()
+  const getOtherUserTweetsContext = useGetConfirmPageContext()
+  const id = localStorage.getItem('userId')
 
   useEffect(() => {
     handleRerender('')
@@ -34,11 +36,12 @@ export default function OtherUserTweet() {
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserTweetsContext(param.user_id)
-    if (tweets === null) {
-      navigate('/login')
-    }
+    getOtherUserTweetsContext(page, param.user_id)
   }, [param.user_id, rerender])
+
+  useEffect(() => {
+    !id && navigate('/login')
+  }, [])
   return (
     <div className={style.userTweet__container}>
       <OtherUser
