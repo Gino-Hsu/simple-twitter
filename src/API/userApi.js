@@ -2,11 +2,6 @@ import { apiHelper } from '../utils/helpers'
 import axios from 'axios'
 const getToken = () => localStorage.getItem('token')
 
-const headers = {
-  'Content-Type': 'multipart/form-data',
-  Authorization: `Bearer ${getToken()}`,
-}
-
 export default {
   getCurrentUser() {
     return apiHelper.get('/current_user', {
@@ -24,6 +19,10 @@ export default {
     })
   },
   putUserEdit(userId, formData) {
+    const headers = {
+       Authorization: `Bearer ${getToken()}`,
+      'Content-Type': 'multipart/form-data'
+    }
     return axios({
       method: 'put',
       baseURL: 'https://secure-peak-76328.herokuapp.com/api',
