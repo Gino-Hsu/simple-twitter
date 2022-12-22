@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import MainTweet from '../components/mainTweet/MainTweet'
+import { ChangeTabContext } from '../contexts/sideBarControlContext/SideBarControlContext'
 
 import tweetApi from '../API/tweetApi'
 import { Alert } from '../utils/helpers'
@@ -20,9 +21,11 @@ export default function Home() {
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
   const getCurrentUser = useGetCurrentUser()
+  const handleChangeTabContext = useContext(ChangeTabContext)
 
   useEffect(() => {
     handleRerender('')
+    handleChangeTabContext('home')
     tweetApi
       .getTweets()
       .then((res) => {

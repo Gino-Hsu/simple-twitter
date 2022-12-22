@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import SettingHeader from '../../UIComponents/headers/SettingHeader'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
+import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
+
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
 import { useGetCurrentUser, useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
@@ -20,6 +22,7 @@ export default function SettinForm() {
   const getCurrentUser = useGetCurrentUser()
   const currentUser = useCurrentUser()
   const navigate = useNavigate()
+  const handleChangeTabContext = useContext(ChangeTabContext)
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -143,6 +146,7 @@ export default function SettinForm() {
   }
 
   useEffect(() => {
+    handleChangeTabContext('setting')
     getCurrentUser(navigate)
     setAccount(currentUser.account)
     setName(currentUser.name)

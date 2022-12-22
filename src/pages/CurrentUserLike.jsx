@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
@@ -9,6 +9,7 @@ import {
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
 import { useGetCurrentUser, useCurrentUser } from '../contexts/usersContext/CurrentUserContext'
+import { ChangeTabContext } from '../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './CurrentUserLike.module.scss'
 
@@ -19,9 +20,11 @@ export default function CurrentUserLike() {
   const handleRerender = useHandleRerender()
   const getCurrentUser = useGetCurrentUser()
   const currentUser = useCurrentUser()
+  const handleChangeTabContext = useContext(ChangeTabContext)
 
   useEffect(() => {
     handleRerender('')
+    handleChangeTabContext('user')
     getCurrentUser(navigate)
   }, [rerender])
 
