@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CurrentUser from '../components/currentUser/CurrentUser'
 import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
+import { ChangeTabContext } from '../contexts/sideBarControlContext/SideBarControlContext'
 
 import userApi from '../API/userApi'
 import replyApi from '../API/replyApi'
@@ -19,9 +20,11 @@ export default function CurrentUserReply() {
   const navigate = useNavigate()
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
+  const handleChangeTabContext = useContext(ChangeTabContext)
 
   useEffect(() => {
     handleRerender('')
+    handleChangeTabContext('user')
     userApi
       .getCurrentUser()
       .then((res) => {
