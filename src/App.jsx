@@ -23,9 +23,11 @@ import { ModalControlContextProvider } from './contexts/modalControlContext/Moda
 import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
 import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
 import { OtherUserProvider } from './contexts/usersContext/OtherUserContext'
+import { CurrentUserContextProvider } from './contexts/usersContext/CurrentUserContext'
 
 function App() {
   return (
+    <CurrentUserContextProvider>
     <OtherUserProvider>
       <RenderContextProvider>
         <FollowerControlProvider>
@@ -88,6 +90,7 @@ function App() {
         </FollowerControlProvider>
       </RenderContextProvider>
     </OtherUserProvider>
+    </CurrentUserContextProvider>
   )
 }
 
