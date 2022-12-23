@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Swal from 'sweetalert2'
 import { useNavigate } from 'react-router-dom'
-import AdminSideBar from '../components/SideBar/AdminSideBar'
+import AdminSideBar from '../components/sideBar/AdminSideBar'
 import AdminListItem from '../UIComponents/admin/AdminListItem'
 import { Toast } from '../utils/helpers'
 
