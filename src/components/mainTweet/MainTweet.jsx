@@ -9,7 +9,7 @@ import {
 } from '../../contexts/modalControlContext/ModalControlContext'
 import style from './MainTweet.module.scss'
 
-export default function MainTweet({ tweets, currentUser }) {
+export default function MainTweet({ tweets }) {
   const handleShowTweetModel = useContext(ShowTweetModel)
   const handleHideModel = useContext(HideModel)
   const replyModelIsShow = useContext(ReplyModelIsShow)
@@ -19,7 +19,7 @@ export default function MainTweet({ tweets, currentUser }) {
       <div className={style.main__container}>
         <div onClick={handleShowTweetModel} className={style.position}>
           <div className={style.tweetInput}>
-            <TweetInput currentUser={currentUser} />
+            <TweetInput />
           </div>
         </div>
         <div className={style.tweetListItem}>

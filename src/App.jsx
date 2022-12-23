@@ -23,66 +23,72 @@ import { SideBarControlContextProvider } from './contexts/sideBarControlContext/
 import { ModalControlContextProvider } from './contexts/modalControlContext/ModalControlContext'
 import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
 import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
+import { CurrentUserContextProvider } from './contexts/usersContext/CurrentUserContext'
 
 function App() {
   return (
-    <RenderContextProvider>
-      <FollowerControlProvider>
-        <SideBarControlContextProvider>
-          <ModalControlContextProvider>
-            <div className="App">
-              <HashRouter>
-                <Routes>
-                  <Route path="/login" element={<Login />}></Route>
-                  <Route path="/regist" element={<Regist />}></Route>
-                  <Route path="/setting" element={<Setting />}></Route>
-                  <Route path="/admin" element={<AdminLogin />}></Route>
-                  <Route path="/admin/tweets" element={<AdminTweets />}></Route>
-                  <Route path="/admin/users" element={<AdminUsers />}></Route>
-                  <Route path="/alphitter" element={<Layout />}>
+    <CurrentUserContextProvider>
+      <RenderContextProvider>
+        <FollowerControlProvider>
+          <SideBarControlContextProvider>
+            <ModalControlContextProvider>
+              <div className="App">
+                <HashRouter>
+                  <Routes>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/regist" element={<Regist />}></Route>
+                    <Route path="/setting" element={<Setting />}></Route>
+                    <Route path="/admin" element={<AdminLogin />}></Route>
                     <Route
-                      path="user/self/tweet"
-                      element={<CurrentUserTweet />}
+                      path="/admin/tweets"
+                      element={<AdminTweets />}
                     ></Route>
-                    <Route path="home" element={<Home />}></Route>
-                    <Route path="reply/:tweet_id" element={<Reply />}></Route>
-                    <Route
-                      path="user/self/reply"
-                      element={<CurrentUserReply />}
-                    ></Route>
-                    <Route
-                      path="user/self/like"
-                      element={<CurrentUserLike />}
-                    ></Route>
-                    <Route
-                      path="user/follower/:user_id"
-                      element={<Follower />}
-                    ></Route>
-                    <Route
-                      path="user/following/:user_id"
-                      element={<Following />}
-                    ></Route>
-                    <Route
-                      path="user/other/tweet/:user_id"
-                      element={<OtherUserTweet />}
-                    ></Route>
-                    <Route
-                      path="user/other/reply/:user_id"
-                      element={<OtherUserReply />}
-                    ></Route>
-                    <Route
-                      path="user/other/like/:user_id"
-                      element={<OtherUserLike />}
-                    ></Route>
-                  </Route>
-                  <Route path="/*" element={<Login />}></Route>
-                </Routes>
-              </HashRouter>
-            </div>
-          </ModalControlContextProvider>
-        </SideBarControlContextProvider>
-      </FollowerControlProvider>
-    </RenderContextProvider>
+                    <Route path="/admin/users" element={<AdminUsers />}></Route>
+                    <Route path="/alphitter" element={<Layout />}>
+                      <Route
+                        path="user/self/tweet"
+                        element={<CurrentUserTweet />}
+                      ></Route>
+                      <Route path="home" element={<Home />}></Route>
+                      <Route path="reply/:tweet_id" element={<Reply />}></Route>
+                      <Route
+                        path="user/self/reply"
+                        element={<CurrentUserReply />}
+                      ></Route>
+                      <Route
+                        path="user/self/like"
+                        element={<CurrentUserLike />}
+                      ></Route>
+                      <Route
+                        path="user/follower/:user_id"
+                        element={<Follower />}
+                      ></Route>
+                      <Route
+                        path="user/following/:user_id"
+                        element={<Following />}
+                      ></Route>
+                      <Route
+                        path="user/other/tweet/:user_id"
+                        element={<OtherUserTweet />}
+                      ></Route>
+                      <Route
+                        path="user/other/reply/:user_id"
+                        element={<OtherUserReply />}
+                      ></Route>
+                      <Route
+                        path="user/other/like/:user_id"
+                        element={<OtherUserLike />}
+                      ></Route>
+                    </Route>
+                    <Route path="/*" element={<Login />}></Route>
+                  </Routes>
+                </HashRouter>
+              </div>
+            </ModalControlContextProvider>
+          </SideBarControlContextProvider>
+        </FollowerControlProvider>
+      </RenderContextProvider>
+    </CurrentUserContextProvider>
   )
 }
 
