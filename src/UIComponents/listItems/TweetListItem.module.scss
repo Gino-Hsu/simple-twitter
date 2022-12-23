@@ -35,7 +35,6 @@
       display: flex;
       gap: 0.5rem;
       p {
-        overflow: hidden;
         text-overflow: ellipsis;
         @include mixin.font-setting(1rem, 700, color.$gray-10);
       }
@@ -51,7 +50,6 @@
         }
         &__account {
           max-width: 35%;
-          overflow: hidden;
           text-overflow: ellipsis;
         }
         .spot {

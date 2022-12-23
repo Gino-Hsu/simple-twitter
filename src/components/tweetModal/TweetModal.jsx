@@ -129,6 +129,7 @@ export default function TweetModal({ onHideModel }) {
                     onChange={handleTweetChange}
                   />
                 </div>
+                <p className={style.input__container__count}>{`${description.length} / 140`}</p>
               </div>
             </Modal>
           </form>

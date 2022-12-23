@@ -48,12 +48,14 @@
 
       .userInfo__name {
         width: 200px;
+        overflow-x: hidden;
         text-overflow: ellipsis;
         @include mixin.font-setting(1.125rem, 700, color.$gray-10);
       }
 
       .userInfo__account {
         width: 200px;
+        overflow-x: hidden;
         text-overflow: ellipsis;
         @include mixin.font-setting(0.875rem, 400, color.$primary-color);
       }
