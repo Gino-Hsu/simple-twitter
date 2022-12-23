@@ -48,6 +48,7 @@ export default function Follower() {
   }, [rerender])
 
   useEffect(() => {
+    handleRerender('')
     userApi
       .getUserFollowing(param.user_id)
       .then((res) => {
@@ -65,7 +66,7 @@ export default function Follower() {
         })
         console.error(error)
       })
-  }, [handleToggleFollow])
+  }, [rerender])
   return (
     <div className={style.page__container}>
       <div className={style.userHeader}>

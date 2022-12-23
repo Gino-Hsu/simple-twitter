@@ -1,6 +1,5 @@
 import './App.scss'
 import React from 'react'
-
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Layout from './pages/layout/Layout'
 import Login from './pages/Login'
@@ -23,11 +22,13 @@ import { SideBarControlContextProvider } from './contexts/sideBarControlContext/
 import { ModalControlContextProvider } from './contexts/modalControlContext/ModalControlContext'
 import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
 import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
+import { OtherUserProvider } from './contexts/usersContext/OtherUserContext'
 import { CurrentUserContextProvider } from './contexts/usersContext/CurrentUserContext'
 
 function App() {
   return (
     <CurrentUserContextProvider>
+    <OtherUserProvider>
       <RenderContextProvider>
         <FollowerControlProvider>
           <SideBarControlContextProvider>
@@ -88,6 +89,7 @@ function App() {
           </SideBarControlContextProvider>
         </FollowerControlProvider>
       </RenderContextProvider>
+    </OtherUserProvider>
     </CurrentUserContextProvider>
   )
 }
