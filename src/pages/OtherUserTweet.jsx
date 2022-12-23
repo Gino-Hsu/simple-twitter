@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
@@ -10,38 +10,48 @@ import {
 import {
   useOtherUserContext,
   useGetOtherUserContext,
-  useGetConfirmPageContext,
-  useOtherUserTweetsContext,
 } from '../contexts/usersContext/OtherUserContext'
+import tweetApi from '../API/tweetApi'
+import { Alert } from '../utils/helpers'
 
 import style from './OtherUserTweet.module.scss'
 
 export default function OtherUserTweet() {
-  const page = 'tweet'
   const param = useParams()
   const navigate = useNavigate()
   const rerender = useRerender()
   const user = useOtherUserContext()
-  const tweets = useOtherUserTweetsContext()
   const handleRerender = useHandleRerender()
   const handleToggleFollow = useFollowControl()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserTweetsContext = useGetConfirmPageContext()
-  const id = localStorage.getItem('userId')
+  const [tweets, setTweets] = useState([])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserContext(param.user_id)
+    getOtherUserContext(param.user_id, navigate)
   }, [param.user_id, rerender])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserTweetsContext(page, param.user_id)
+    tweetApi
+      .getUserTweets(param.user_id)
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setTweets(data)
+      })
+      .catch((error) => {
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入!',
+        })
+        console.log(error)
+        navigate('/login')
+      })
   }, [param.user_id, rerender])
 
-  useEffect(() => {
-    !id && navigate('/login')
-  }, [])
   return (
     <div className={style.userTweet__container}>
       <OtherUser

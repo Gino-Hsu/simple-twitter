@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import TweetListItem from '../UIComponents/listItems/TweetListItem'
@@ -10,38 +10,47 @@ import {
 import {
   useOtherUserContext,
   useGetOtherUserContext,
-  useOtherUserLikeContext,
-  useGetConfirmPageContext,
 } from '../contexts/usersContext/OtherUserContext'
+import likeApi from '../API/likeApi'
+import { Alert } from '../utils/helpers'
 
 import style from './OtherUserLike.module.scss'
 
 export default function OtherUserLike() {
-  const page = 'like'
   const param = useParams()
   const rerender = useRerender()
   const user = useOtherUserContext()
   const handleRerender = useHandleRerender()
-  const likedTweets = useOtherUserLikeContext()
   const handleToggleFollow = useFollowControl()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserLikeContext = useGetConfirmPageContext()
   const navigate = useNavigate()
-  const id = localStorage.getItem('userId')
+  const [likedTweets, setLikedTweets] = useState([])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserContext(param.user_id)
+    getOtherUserContext(param.user_id, navigate)
   }, [param.user_id, rerender])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserLikeContext(page, param.user_id)
-  }, [param.user_id, handleToggleFollow])
-
-  useEffect(() => {
-    !id && navigate('/login')
-  }, [])
+    likeApi
+      .getUserLiked(param.user_id)
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setLikedTweets(data)
+      })
+      .catch((error) => {
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入',
+        })
+        console.log(error)
+        navigate('/login')
+      })
+  }, [param.user_id, rerender])
 
   return (
     <div className={style.userLike__container}>

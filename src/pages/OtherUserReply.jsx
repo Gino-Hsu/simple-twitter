@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import OtherUser from '../components/otherUser/OtherUser'
 import ReplyListItem from '../UIComponents/listItems/ReplyListItem'
@@ -10,38 +10,46 @@ import {
 import {
   useOtherUserContext,
   useGetOtherUserContext,
-  useOtherUserReplyContext,
-  useGetConfirmPageContext,
 } from '../contexts/usersContext/OtherUserContext'
+import replyApi from '../API/replyApi'
+import { Alert } from '../utils/helpers'
 
 import style from './OtherUserReply.module.scss'
 
 export default function OtherUserReply() {
-  const page = 'reply'
   const param = useParams()
   const rerender = useRerender()
   const user = useOtherUserContext()
   const handleRerender = useHandleRerender()
   const handleToggleFollow = useFollowControl()
-  const repliedTweets = useOtherUserReplyContext()
   const getOtherUserContext = useGetOtherUserContext()
-  const getOtherUserReplyContext = useGetConfirmPageContext()
   const navigate = useNavigate()
-  const id = localStorage.getItem('userId')
+  const [repliedTweets, setRepliedTweets] = useState([])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserContext(param.user_id)
+    getOtherUserContext(param.user_id, navigate)
   }, [param.user_id, rerender])
 
   useEffect(() => {
     handleRerender('')
-    getOtherUserReplyContext(page, param.user_id)
+    replyApi
+      .getUserReliedTweets(param.user_id)
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
+        }
+        setRepliedTweets(data)
+      })
+      .catch((error) => {
+        Alert.fire({
+          icon: 'error',
+          title: '請重新登入!',
+        })
+        console.error(error)
+      })
   }, [param.user_id, rerender])
-
-  useEffect(() => {
-    !id && navigate('/login')
-  }, [])
 
   return (
     <div className={style.userReply__container}>

@@ -18,7 +18,7 @@ export function OtherUserProvider({ children }) {
   const [repliedTweets, setRepliedTweets] = useState([])
   const [likedTweets, setLikedTweets] = useState([])
 
-  const handleConfirmUser = (user_id) => {
+  const handleConfirmUser = (user_id, navigate) => {
     userApi
       .getOtherUser(user_id)
       .then((res) => {
@@ -34,16 +34,17 @@ export function OtherUserProvider({ children }) {
           title: '請重新登入!',
         })
         console.error(error)
+        navigate('/login')
       })
   }
 
-  const handleConfirmPage = (page, user_id) => {
+  const handleConfirmPage = (page, user_id, navigate) => {
     if (page === 'tweet') {
-      handleConfirmTweet(user_id)
+      handleConfirmTweet(user_id, navigate)
     } else if (page === 'reply') {
-      handleConfirmReply(user_id)
+      handleConfirmReply(user_id, navigate)
     } else if (page === 'like') {
-      handleConfirmLike(user_id)
+      handleConfirmLike(user_id, navigate)
     }
   }
 
@@ -110,7 +111,7 @@ export function OtherUserProvider({ children }) {
           <OtherUserLikeContext.Provider value={likedTweets}>
             <GetOtherUserContext.Provider value={handleConfirmUser}>
               <GetConfirmPageContext.Provider value={handleConfirmPage}>
-                  {children}
+                {children}
               </GetConfirmPageContext.Provider>
             </GetOtherUserContext.Provider>
           </OtherUserLikeContext.Provider>
