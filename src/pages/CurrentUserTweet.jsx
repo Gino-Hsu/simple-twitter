@@ -9,7 +9,10 @@ import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
-import { useGetCurrentUser, useCurrentUser } from '../contexts/usersContext/CurrentUserContext'
+import {
+  useGetCurrentUser,
+  useCurrentUser,
+} from '../contexts/usersContext/CurrentUserContext'
 
 import style from './CurrentUserTweet.scss'
 

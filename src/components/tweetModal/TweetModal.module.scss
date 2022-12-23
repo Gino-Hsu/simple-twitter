@@ -35,15 +35,50 @@
       &__count {
         position: absolute;
         top: 90%;
-        @include mixin.font-setting(0.75rem, 500, color.$gray-8)
+        @include mixin.font-setting(0.75rem, 500, color.$gray-8);
       }
     }
   }
 }
 
+// .emojiOpenCheck {
+//   display: none;
+// }
+.emojiOpen__mobile {
+  margin-left: 94%;
+  cursor: pointer;
+}
+.emojiPicker {
+  position: absolute;
+  width: 95vw;
+  height: 0px;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+
+}
+
+.emojiPicker__show {
+  position: absolute;
+  width: 95vw;
+  height: 300px;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+
+.emoji {
+  width: 100%;
+  height: 100%;
+}
+
+.emojiOpen {
+  display: none;
+}
+
 @media screen and (min-width: 800px) {
   .view__container {
-    top: 140px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     margin: 3.5rem auto 0 auto;
@@ -52,6 +87,26 @@
     background-color: color.$gray-1;
     border-radius: 14px;
   }
+
+  .emojiOpen__mobile {
+    display: none;
+  }
+  .emojiOpen {
+    position: absolute;
+    top: 80%;
+    right: 40px;
+    cursor: pointer;
+    display: block;
+  }
+
+.emojiPicker__show {
+    position: absolute;
+    width: 80vw;
+    height: 300px;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 }
 
 @media screen and (min-width: 1200px) {
@@ -64,4 +119,21 @@
       }
     }
   }
+
+ .emojiOpen {
+    position: absolute;
+    top: 71%;
+    right: 100px;
+    cursor: pointer;
+    display: block;
+  }
+
+  .emojiPicker__show {
+    position: absolute;
+    width: 643px;
+    height: 300px;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
 }

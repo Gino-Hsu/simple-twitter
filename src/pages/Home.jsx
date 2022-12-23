@@ -9,9 +9,7 @@ import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
-import {
-  useGetCurrentUser
-} from '../contexts/usersContext/CurrentUserContext'
+import { useGetCurrentUser } from '../contexts/usersContext/CurrentUserContext'
 
 import style from './Home.module.scss'
 

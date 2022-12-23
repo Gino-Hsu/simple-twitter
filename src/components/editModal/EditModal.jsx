@@ -97,7 +97,7 @@ export default function EditModal({ handleHideModel }) {
     if (formIsValid.current === 'false') {
       formIsValid.current = 'true'
       return
-    } 
+    }
 
     const form = e.target
     const formData = new FormData(form)

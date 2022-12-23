@@ -3,6 +3,7 @@
 
 body,
 button,
+textarea,
 input::placeholder {
   font-family: 'Noto Sans TC', 'Noto Sans', sans-serif;
 }
@@ -26,4 +27,12 @@ input::placeholder {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ff6600;
+}
+
+.EmojiPickerReact .epr-preview {
+  display: none !important;
+}
+
+.EmojiPickerReact li.epr-emoji-category > .epr-emoji-category-label {
+  display: none !important;
 }

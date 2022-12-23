@@ -5,9 +5,7 @@ import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
-import {
-  useHandleRerender,
-} from '../../contexts/rerenderContext/RenderContext'
+import { useHandleRerender } from '../../contexts/rerenderContext/RenderContext'
 import { useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
 
 import tweetApi from '../../API/tweetApi'
@@ -24,7 +22,6 @@ export default function ReplyModal({ handleHideModel }) {
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
   const currentUser = useCurrentUser()
-  
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
