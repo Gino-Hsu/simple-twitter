@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
-import SideBar from '../../components/SideBar/SideBar'
+import SideBar from '../../components/sideBar/SideBar'
 import PopularUser from '../../components/popularUser/PopularUser'
 import ReplyModal from '../../components/replyModal/ReplyModal'
 import {

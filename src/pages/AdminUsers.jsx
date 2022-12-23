@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import AdminSideBar from '../components/SideBar/AdminSideBar'
+import AdminSideBar from '../components/sideBar/AdminSideBar'
 import AdminUserCard from '../UIComponents/admin/AdminUserCard'
 
 import userApi from '../API/userApi'

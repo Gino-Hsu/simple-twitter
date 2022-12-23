@@ -1,5 +1,5 @@
 import React from 'react'
-import SideBar from '../components/SideBar/SideBar'
+import SideBar from '../components/sideBar/SideBar'
 import SettingForm from '../components/settingForm/SettinForm'
 import { ModalControlContextProvider } from '../contexts/modalControlContext/ModalControlContext'
 
