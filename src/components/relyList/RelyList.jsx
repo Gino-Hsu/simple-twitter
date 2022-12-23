@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import ReplyListItem from '../../UIComponents/listItems/ReplyListItem'
 
@@ -22,6 +23,7 @@ export default function ReplyList({
 }) {
   const [liked, setLiked] = useState(isLiked)
   const [newLikeCount, setNewLikeCount] = useState(likeCount)
+  const navigate = useNavigate()
 
   const handleToggleLiked = (isLiked) => {
     const id = localStorage.getItem('userId')
@@ -83,7 +85,7 @@ export default function ReplyList({
       <div className={style.tweet__container}>
         <div className={style.border__bottom}>
           <div className={style.header}>
-            <div className={style.arrow}>
+            <div onClick={() => navigate(-1)} className={style.arrow}>
               <img className={style.arrow__img} alt="arrow" />
             </div>
             <div className={style.title}>
