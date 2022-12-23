@@ -1,9 +1,12 @@
 import React from 'react'
 
-import style from './TweetInput.module.scss'
 import ButtonUI from '../../../UIComponents/buttons/ButtonUI'
+import { useCurrentUser } from '../../../contexts/usersContext/CurrentUserContext'
 
-export default function TweetInput({ currentUser }) {
+import style from './TweetInput.module.scss'
+
+export default function TweetInput() {
+  const currentUser = useCurrentUser()
   return (
     <div className={style.tweetInput__container}>
       <div className={style.mobile__avatar}>

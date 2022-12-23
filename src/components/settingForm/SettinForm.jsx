@@ -6,7 +6,8 @@ import ButtonUI from '../../UIComponents/buttons/ButtonUI'
 import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarControlContext'
 
 import userApi from '../../API/userApi'
-import { Toast, Alert } from '../../utils/helpers'
+import { Toast } from '../../utils/helpers'
+import { useGetCurrentUser, useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
 
 import style from './SettingForm.module.scss'
 
@@ -18,6 +19,8 @@ export default function SettinForm() {
   const [checkPassword, setCheckPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState({})
   const formIsValid = useRef('true')
+  const getCurrentUser = useGetCurrentUser()
+  const currentUser = useCurrentUser()
   const navigate = useNavigate()
   const handleChangeTabContext = useContext(ChangeTabContext)
 
@@ -144,25 +147,10 @@ export default function SettinForm() {
 
   useEffect(() => {
     handleChangeTabContext('setting')
-    userApi
-      .getCurrentUser()
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setAccount(data.account)
-        setName(data.name)
-        setEmail(data.email)
-      })
-      .catch((error) => {
-        navigate('/login')
-        Alert.fire({
-          icon: 'error',
-          title: '請重新登入!',
-        })
-        console.error(error)
-      })
+    getCurrentUser(navigate)
+    setAccount(currentUser.account)
+    setName(currentUser.name)
+    setEmail(currentUser.email)
   }, [])
 
   const handelSignOut = () => {

@@ -22,11 +22,13 @@ import { SideBarControlContextProvider } from './contexts/sideBarControlContext/
 import { ModalControlContextProvider } from './contexts/modalControlContext/ModalControlContext'
 import { FollowerControlProvider } from './contexts/followedControlContext/FollowedControlContext'
 import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
+import { CurrentUserContextProvider } from './contexts/usersContext/CurrentUserContext'
 import { OtherUserProvider } from './contexts/usersContext/OtherUserContext'
 
 function App() {
   return (
-    <OtherUserProvider>
+    <CurrentUserContextProvider>
+      <OtherUserProvider>
       <RenderContextProvider>
         <FollowerControlProvider>
           <SideBarControlContextProvider>
@@ -88,6 +90,7 @@ function App() {
         </FollowerControlProvider>
       </RenderContextProvider>
     </OtherUserProvider>
+    </CurrentUserContextProvider>
   )
 }
 
