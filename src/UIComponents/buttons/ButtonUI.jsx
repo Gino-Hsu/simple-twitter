@@ -5,7 +5,6 @@ import style from './ButtonUI.module.scss'
 
 export default function ButtonUI({ btnStyle, text, onClick }) {
   const buttonIsDisable = useButtonIsDisable()
-  console.log(buttonIsDisable)
   return (
     <>
       <button className={style[btnStyle]} onClick={onClick} disabled={buttonIsDisable} >
