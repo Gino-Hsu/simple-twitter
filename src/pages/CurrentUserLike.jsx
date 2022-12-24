@@ -8,7 +8,10 @@ import {
   useRerender,
   useHandleRerender,
 } from '../contexts/rerenderContext/RenderContext'
-import { useGetCurrentUser, useCurrentUser } from '../contexts/usersContext/CurrentUserContext'
+import {
+  useGetCurrentUser,
+  useCurrentUser,
+} from '../contexts/usersContext/CurrentUserContext'
 import { ChangeTabContext } from '../contexts/sideBarControlContext/SideBarControlContext'
 
 import style from './CurrentUserLike.module.scss'

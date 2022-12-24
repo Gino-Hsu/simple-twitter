@@ -7,7 +7,10 @@ import { ChangeTabContext } from '../../contexts/sideBarControlContext/SideBarCo
 
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
-import { useGetCurrentUser, useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
+import {
+  useGetCurrentUser,
+  useCurrentUser,
+} from '../../contexts/usersContext/CurrentUserContext'
 
 import style from './SettingForm.module.scss'
 

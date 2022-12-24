@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import ReactDOM from 'react-dom'
 import { EditModalUi } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
@@ -25,6 +25,7 @@ export default function EditModal({ handleHideModel }) {
   const rerender = useRerender()
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
+  const formIsValid = useRef('true')
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -80,21 +81,29 @@ export default function EditModal({ handleHideModel }) {
 
     if (name.trim().length === 0) {
       setErrormessage({ ...errorMessage, name: '名稱不可空白!' })
-      return
+      formIsValid.current = 'false'
     }
     if (name.trim().length > 50) {
       setErrormessage({ ...errorMessage, name: '名稱不可超過 50 字!' })
-      return
+      formIsValid.current = 'false'
     }
     if (introduction.trim().length > 160) {
       setErrormessage({
         ...errorMessage,
         introduction: '自我介紹不可超過 160 字!',
       })
+      formIsValid.current = 'false'
+    }
+    if (formIsValid.current === 'false') {
+      formIsValid.current = 'true'
       return
     }
+
     const form = e.target
     const formData = new FormData(form)
+
+    console.log(formData.cover)
+
     if (initCover) {
       formData.delete('cover')
     }
@@ -222,7 +231,7 @@ export default function EditModal({ handleHideModel }) {
                     />
                     {errorMessage.introduction && (
                       <p className={style.introduction__error}>
-                        {errorMessage.name}
+                        {errorMessage.introduction}
                       </p>
                     )}
                   </div>

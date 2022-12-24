@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { useNavigate } from 'react-router-dom'
+import EmojiPicker, { Emoji } from 'emoji-picker-react'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
@@ -15,12 +16,28 @@ import style from './TweetModal.module.scss'
 
 export default function TweetModal({ onHideModel }) {
   const [currentUser, setCurrentUser] = useState([])
-  const navigate = useNavigate()
   const [description, setDescription] = useState('')
+  const [showEmoji, setShowEmoji] = useState(false)
+  const navigate = useNavigate()
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
 
+  const handleEmojiClick = (emojiObject) => {
+    let des = description
+    des += emojiObject.emoji
+    setDescription(des)
+  }
+
+  const handleToggleEmoji = () => {
+    if (showEmoji === false) {
+      setShowEmoji(true)
+    } else {
+      setShowEmoji(false)
+    }
+  }
+
   const handleTweetChange = (e) => {
+    setShowEmoji(false)
     setDescription(e.target.value)
   }
 
@@ -127,7 +144,38 @@ export default function TweetModal({ onHideModel }) {
                     textareaPlaceHolder="有什麼新鮮事嗎？"
                     textareaValue={description}
                     onChange={handleTweetChange}
+                    onEmojiClick={handleEmojiClick}
                   />
+                </div>
+                <p
+                  className={style.input__container__count}
+                >{`${description.length} / 140`}</p>
+                <label htmlFor="toggleEmoji" className={style.emojiOpen} onClick={handleToggleEmoji}>
+                  <Emoji unified="1f423" size="30" />
+                </label>
+                <div className={showEmoji ? style.emojiPicker__show : style.emojiPicker}>
+                  {/* <input
+                    id="toggleEmoji"
+                    type="checkbox"
+                    className={style.emojiOpenCheck}
+                    checked={showEmoji ? true : false}
+                  /> */}
+                  <label
+                    htmlFor="toggleEmoji"
+                    className={style.emojiOpen__mobile}
+                    onClick={handleToggleEmoji}
+                  >
+                    <Emoji unified="1f423" size="30" />
+                  </label>
+                  <div className={style.emoji}>
+                    {showEmoji && (
+                      <EmojiPicker
+                        onEmojiClick={handleEmojiClick}
+                        height="100%"
+                        width="100%"
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
             </Modal>
