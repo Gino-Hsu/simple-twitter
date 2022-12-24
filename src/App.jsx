@@ -24,9 +24,11 @@ import { FollowerControlProvider } from './contexts/followedControlContext/Follo
 import { RenderContextProvider } from './contexts/rerenderContext/RenderContext'
 import { OtherUserProvider } from './contexts/usersContext/OtherUserContext'
 import { CurrentUserContextProvider } from './contexts/usersContext/CurrentUserContext'
+import { ButtonControlProvider } from './contexts/buttonControlContext/ButtonControlContext'
 
 function App() {
   return (
+    <ButtonControlProvider>
     <CurrentUserContextProvider>
       <OtherUserProvider>
         <RenderContextProvider>
@@ -97,6 +99,7 @@ function App() {
         </RenderContextProvider>
       </OtherUserProvider>
     </CurrentUserContextProvider>
+    </ButtonControlProvider>
   )
 }
 
