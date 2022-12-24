@@ -7,6 +7,7 @@ import { Textarea } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
 import { useHandleRerender } from '../../contexts/rerenderContext/RenderContext'
 import { useCurrentUser } from '../../contexts/usersContext/CurrentUserContext'
+import { useButtonControl } from '../../contexts/buttonControlContext/ButtonControlContext'
 
 import tweetApi from '../../API/tweetApi'
 import replyApi from '../../API/replyApi'
@@ -22,6 +23,7 @@ export default function ReplyModal({ handleHideModel }) {
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
   const currentUser = useCurrentUser()
+  const buttonControl = useButtonControl()
 
   const handleReplyChange = (e) => {
     setReply(e.target.value)
@@ -29,6 +31,7 @@ export default function ReplyModal({ handleHideModel }) {
 
   const handleReply = (e) => {
     e.preventDefault()
+    buttonControl(true)
 
     if (reply.trim().length === 0) {
       Toast.fire({
@@ -52,6 +55,7 @@ export default function ReplyModal({ handleHideModel }) {
         })
         handleRerender('true')
         handelHideModel()
+        buttonControl(false)
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
@@ -66,6 +70,7 @@ export default function ReplyModal({ handleHideModel }) {
           icon: 'error',
           title: '回覆失敗!',
         })
+        buttonControl(false)
         console.error(error)
       })
   }

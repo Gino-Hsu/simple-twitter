@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import RegistForm from '../components/registForm/RegistForm'
-
+import { useButtonControl } from '../contexts/buttonControlContext/ButtonControlContext'
 import authorizationAPI from '../API/authorization'
 import { Toast } from '../utils/helpers'
 
@@ -16,6 +16,7 @@ export default function Regist() {
   const [errorMessage, setErrorMessage] = useState({})
   const formIsValid = useRef('true')
   const navigate = useNavigate()
+  const buttonControl = useButtonControl()
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -88,7 +89,7 @@ export default function Regist() {
 
   const handleRegist = async (e) => {
     e.preventDefault()
-    // 前端驗證
+    buttonControl(true)
     isValid()
 
     if (formIsValid.current !== 'true') return
@@ -111,6 +112,7 @@ export default function Regist() {
           title: '成功註冊!',
         })
         navigate('/login')
+        buttonControl(false)
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
@@ -138,6 +140,7 @@ export default function Regist() {
           })
         }
         console.error('error', error)
+        buttonControl(false)
       })
   }
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoginForm from '../components/loginForm/LoginForm'
-
 import authorizationAPI from '../API/authorization'
 import { Toast } from '../utils/helpers'
+import { useButtonControl } from '../contexts/buttonControlContext/ButtonControlContext'
 
 import style from './RegistAndLogin.module.scss'
 
@@ -15,6 +15,7 @@ export default function Login() {
     password: '',
   })
   const navigate = useNavigate()
+  const buttonControl = useButtonControl()
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -25,6 +26,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault()
+    buttonControl(true)
 
     if (account.trim().length === 0 && password.trim().length === 0) {
       setErrorMessage({ account: '帳號不能空白', password: '密碼不能空白' })
@@ -55,6 +57,7 @@ export default function Login() {
           icon: 'success',
           title: '成功登入!',
         })
+        buttonControl(false)
         navigate('/alphitter/home')
       })
       .catch((error) => {
@@ -63,6 +66,7 @@ export default function Login() {
           icon: 'warning',
           title: '帳號密碼錯誤!',
         })
+        buttonControl(false)
         console.log('error', error)
       })
   }

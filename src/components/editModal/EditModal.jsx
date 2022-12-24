@@ -4,13 +4,13 @@ import { EditModalUi } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { LoginAndRegistInput } from '../../UIComponents/inputs/Input'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
-
 import userApi from '../../API/userApi'
 import { Toast } from '../../utils/helpers'
 import {
   useRerender,
   useHandleRerender,
 } from '../../contexts/rerenderContext/RenderContext'
+import { useButtonControl } from '../../contexts/buttonControlContext/ButtonControlContext'
 
 import style from './EditModal.module.scss'
 
@@ -26,6 +26,7 @@ export default function EditModal({ handleHideModel }) {
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
   const formIsValid = useRef('true')
+  const buttonControl = useButtonControl()
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -107,6 +108,8 @@ export default function EditModal({ handleHideModel }) {
     if (initCover) {
       formData.delete('cover')
     }
+
+    buttonControl(true)
     userApi
       .putUserEdit(userId, formData)
       .then((res) => {
@@ -120,6 +123,7 @@ export default function EditModal({ handleHideModel }) {
         })
         handleRerender('true')
         handelHideModel()
+        buttonControl(false)
       })
       .catch((error) => {
         Toast.fire({
@@ -127,6 +131,7 @@ export default function EditModal({ handleHideModel }) {
           title: '更新設定失敗!',
         })
         console.error(error)
+        buttonControl(false)
       })
   }
 

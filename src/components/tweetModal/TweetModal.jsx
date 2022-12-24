@@ -5,12 +5,12 @@ import EmojiPicker, { Emoji } from 'emoji-picker-react'
 import { Modal } from '../../UIComponents/modals/Modal'
 import BackDrop from '../../UIComponents/modals/BackDrop'
 import { Textarea } from '../../UIComponents/inputs/Input'
-
 import tweetApi from '../../API/tweetApi'
 import userApi from '../../API/userApi'
 import { Toast, Alert } from '../../utils/helpers'
 import { useHandleRerender } from '../../contexts/rerenderContext/RenderContext'
 import { HideModel } from '../../contexts/modalControlContext/ModalControlContext'
+import { useButtonControl } from '../../contexts/buttonControlContext/ButtonControlContext'
 
 import style from './TweetModal.module.scss'
 
@@ -21,6 +21,7 @@ export default function TweetModal({ onHideModel }) {
   const navigate = useNavigate()
   const handleRerender = useHandleRerender()
   const handelHideModel = useContext(HideModel)
+  const buttonControl = useButtonControl()
 
   const handleEmojiClick = (emojiObject) => {
     let des = description
@@ -43,7 +44,7 @@ export default function TweetModal({ onHideModel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    
     if (description.trim().length === 0) {
       Toast.fire({
         icon: 'error',
@@ -58,7 +59,8 @@ export default function TweetModal({ onHideModel }) {
       })
       return
     }
-
+    
+    buttonControl(true)
     tweetApi
       .postTweet(description)
       .then((res) => {
@@ -73,6 +75,7 @@ export default function TweetModal({ onHideModel }) {
         handleRerender('true')
         handelHideModel()
         setDescription('')
+        buttonControl(false)
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
@@ -96,7 +99,7 @@ export default function TweetModal({ onHideModel }) {
             title: '推文失敗',
           })
         }
-
+        buttonControl(false)
         console.error(error)
       })
   }
