@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AdminLoginForm from '../components/adminLoginForm/AdminLoginForm'
-
+import { useButtonControl } from '../contexts/buttonControlContext/ButtonControlContext'
 import authorizationAPI from '../API/authorization'
 import { Toast } from '../utils/helpers'
 
@@ -15,6 +15,7 @@ export default function AdminLogin() {
     password: '',
   })
   const navigate = useNavigate()
+  const buttonControl = useButtonControl()
 
   const handleAccountChange = (e) => {
     setAccount(e.target.value)
@@ -40,6 +41,7 @@ export default function AdminLogin() {
       setErrorMessage({ account: '', password: '' })
     }
 
+    buttonControl(true)
     authorizationAPI
       .adminLogin({
         account,
@@ -55,6 +57,7 @@ export default function AdminLogin() {
           icon: 'success',
           title: '成功登入!',
         })
+        buttonControl(false)
         navigate('/admin/tweets')
       })
       .catch((error) => {
@@ -63,6 +66,7 @@ export default function AdminLogin() {
           icon: 'warning',
           title: '帳號密碼錯誤!',
         })
+        buttonControl(false)
         console.error('error', error)
       })
   }
