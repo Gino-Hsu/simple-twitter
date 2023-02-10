@@ -115,11 +115,9 @@ export default function SettinForm() {
           icon: 'success',
           title: '成功更新設定!',
         })
-        console.log(data)
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
-        console.log(errorMessage)
         if (errorMessage === 'Error: account 已重複註冊!') {
           Toast.fire({
             icon: 'error',

@@ -41,13 +41,12 @@ export default function CurrentUserLike() {
         }
         setLikedTweets(data)
       })
-      .catch((error) => {
+      .catch(() => {
         Alert.fire({
           icon: 'error',
           title: '請重新登入!',
         })
         navigate('/login')
-        console.log(error)
       })
   }, [])
 

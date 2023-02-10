@@ -60,14 +60,13 @@ export default function Login() {
         buttonControl(false)
         navigate('/alphitter/home')
       })
-      .catch((error) => {
+      .catch(() => {
         setPassword('')
         Toast.fire({
           icon: 'warning',
           title: '帳號密碼錯誤!',
         })
         buttonControl(false)
-        console.log('error', error)
       })
   }
 

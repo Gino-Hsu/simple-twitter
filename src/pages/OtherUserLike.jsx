@@ -42,12 +42,11 @@ export default function OtherUserLike() {
         }
         setLikedTweets(data)
       })
-      .catch((error) => {
+      .catch(() => {
         Alert.fire({
           icon: 'error',
           title: '請重新登入',
         })
-        console.log(error)
         navigate('/login')
       })
   }, [param.user_id, rerender])

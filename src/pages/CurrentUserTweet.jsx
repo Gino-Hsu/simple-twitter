@@ -43,13 +43,12 @@ export default function CurrentUserTweet() {
         }
         setTweets(data)
       })
-      .catch((error) => {
+      .catch(() => {
         Alert.fire({
           icon: 'error',
           title: '請重新登入!',
         })
         navigate('/login')
-        console.log(error)
       })
   }, [rerender])
   return (

@@ -103,8 +103,6 @@ export default function EditModal({ handleHideModel }) {
     const form = e.target
     const formData = new FormData(form)
 
-    console.log(formData.cover)
-
     if (initCover) {
       formData.delete('cover')
     }

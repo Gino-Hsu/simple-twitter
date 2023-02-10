@@ -59,7 +59,6 @@ export default function ReplyModal({ handleHideModel }) {
       })
       .catch((error) => {
         const errorMessage = error.response.data.message
-        console.log(errorMessage)
         if (errorMessage === 'Error: Comment欄位必填') {
           Toast.fire({
             icon: 'error',
