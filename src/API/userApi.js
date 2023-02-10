@@ -25,7 +25,7 @@ export default {
     }
     return axios({
       method: 'put',
-      baseURL: 'https://secure-peak-76328.herokuapp.com/api',
+      baseURL: 'https://xeeue7w4j5.execute-api.ap-northeast-1.amazonaws.com/api',
       url: `/users/${userId}`,
       data: formData,
       headers: headers,
